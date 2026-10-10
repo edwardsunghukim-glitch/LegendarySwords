@@ -5,6 +5,7 @@ import io.github.legendaryswords.combat.CinematicDirector;
 import io.github.legendaryswords.combat.CombatService;
 import io.github.legendaryswords.combat.VisualEffects;
 import io.github.legendaryswords.integration.AnimationBridge;
+import io.github.legendaryswords.integration.MovementAnimationController;
 import io.github.legendaryswords.mechanics.CooldownBook;
 import io.github.legendaryswords.sword.SwordCatalog;
 import java.util.Objects;
@@ -23,6 +24,7 @@ public final class LegendarySwordsPlugin extends JavaPlugin {
     private CombatService combat;
     private CinematicDirector cinematics;
     private AnimationBridge animations;
+    private MovementAnimationController movement;
     private AbilityController abilities;
     private ResourcePackManager packs;
 
@@ -36,6 +38,7 @@ public final class LegendarySwordsPlugin extends JavaPlugin {
         combat = new CombatService(settings, swords, states);
         cinematics = new CinematicDirector(this, settings, states, effects);
         animations = AnimationBridge.create(this);
+        movement = new MovementAnimationController(this, animations, swords);
         createAbilityController();
         packs = new ResourcePackManager(this);
         packs.initialize();
@@ -53,9 +56,10 @@ public final class LegendarySwordsPlugin extends JavaPlugin {
         abilities = new AbilityController(this, settings, states, cooldowns, combat, effects, cinematics, animations);
     }
     public void reloadSettings() {
-        cinematics.close(); abilities.close(); animations.close();
+        cinematics.close(); abilities.close(); movement.close(); animations.close();
         reloadConfig();
         animations = AnimationBridge.create(this);
+        movement = new MovementAnimationController(this, animations, swords);
         createAbilityController();
         packs.reload();
     }
@@ -80,6 +84,7 @@ public final class LegendarySwordsPlugin extends JavaPlugin {
     @Override public void onDisable() {
         if (cinematics != null) cinematics.close();
         if (abilities != null) abilities.close();
+        if (movement != null) movement.close();
         if (animations != null) animations.close();
         if (states != null) states.close();
     }

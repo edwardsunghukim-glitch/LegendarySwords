@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.legendaryswords</groupId>
   <artifactId>LegendarySwords</artifactId>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
   <name>LegendarySwords</name>
   <description>Custom swords, cinematic ultimates, and BetterModel animations for Paper 1.21.11.</description>
   <properties>
@@ -16,9 +16,9 @@
   </repositories>
   <dependencies>
     <dependency><groupId>io.papermc.paper</groupId><artifactId>paper-api</artifactId><version>1.21.11-R0.1-SNAPSHOT</version><scope>provided</scope></dependency>
-    <dependency><groupId>io.github.toxicity188</groupId><artifactId>bettermodel</artifactId><version>1.15.2</version><scope>provided</scope></dependency>
+    <dependency><groupId>io.github.toxicity188</groupId><artifactId>bettermodel-bukkit-api</artifactId><version>3.1.0</version><scope>provided</scope></dependency>
     <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><version>5.11.4</version><scope>test</scope></dependency>
-    <dependency><groupId>org.mockito</groupId><artifactId>mockito-core</artifactId><version>5.15.2</version><scope>test</scope></dependency>
+    <dependency><groupId>org.mockito</groupId><artifactId>mockito-core</artifactId><version>5.20.0</version><scope>test</scope></dependency>
   </dependencies>
   <build>
     <resources>

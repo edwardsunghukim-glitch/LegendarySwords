@@ -8,9 +8,14 @@ import org.bukkit.Color;
 import org.bukkit.Material;
 
 public enum SwordType {
-    MASTER_SWORD("master_sword", "Master Sword", "Skyward Slash", "Sacred Storm", Material.DIAMOND_SWORD, NamedTextColor.AQUA, Color.fromRGB(90, 220, 255)),
-    FLAMEBLADE("flameblade", "Flameblade", "Flame Arc", "Inferno Awakening", Material.NETHERITE_SWORD, NamedTextColor.GOLD, Color.fromRGB(255, 120, 30)),
-    FIERCE_DEITY_SWORD("fierce_deity_sword", "Fierce Deity Sword", "Crescent Moon", "Lunar Judgment", Material.NETHERITE_SWORD, NamedTextColor.LIGHT_PURPLE, Color.fromRGB(160, 120, 255));
+    MASTER_SWORD("master_sword", "Master Sword", "Skyward Laser", "Triforce Judgment", Material.DIAMOND_SWORD, NamedTextColor.AQUA, Color.fromRGB(90, 220, 255)),
+    FLAMEBLADE("flameblade", "Flameblade", "Ring of Fire", "Inferno Vortex", Material.NETHERITE_SWORD, NamedTextColor.GOLD, Color.fromRGB(255, 120, 30)),
+    FIERCE_DEITY_SWORD("fierce_deity_sword", "Fierce Deity Sword", "Lunar Crescent", "Falling Moon", Material.NETHERITE_SWORD, NamedTextColor.LIGHT_PURPLE, Color.fromRGB(160, 120, 255)),
+    FROSTBLADE("frostblade", "Frostblade", "Ice Fang", "Frozen Sanctuary", Material.DIAMOND_SWORD, NamedTextColor.BLUE, Color.fromRGB(125, 215, 255)),
+    THUNDERBLADE("thunderblade", "Thunderblade", "Chain Lightning", "Thunderstorm", Material.DIAMOND_SWORD, NamedTextColor.YELLOW, Color.fromRGB(255, 235, 70)),
+    ROYAL_CLAYMORE("royal_claymore", "Royal Claymore", "Royal Faultline", "King's Verdict", Material.NETHERITE_SWORD, NamedTextColor.GOLD, Color.fromRGB(255, 205, 95)),
+    EIGHTFOLD_BLADE("eightfold_blade", "Eightfold Blade", "Gale Step", "Eightfold Tempest", Material.IRON_SWORD, NamedTextColor.GREEN, Color.fromRGB(115, 255, 185)),
+    BIGGORON_SWORD("biggoron_sword", "Biggoron Sword", "Goron Spin", "Mountain Breaker", Material.NETHERITE_SWORD, NamedTextColor.RED, Color.fromRGB(255, 135, 90));
 
     private final String id, title, ability, ultimate;
     private final Material material;
@@ -27,6 +32,18 @@ public enum SwordType {
     public Material material() { return material; }
     public NamedTextColor textColor() { return textColor; }
     public Color particleColor() { return particleColor; }
+    public String identity() {
+        return switch (this) {
+            case MASTER_SWORD -> "A sacred blade that channels piercing light.";
+            case FLAMEBLADE -> "Molten runes kindle a living ring of flame.";
+            case FIERCE_DEITY_SWORD -> "A helix of moonlight calls down the heavens.";
+            case FROSTBLADE -> "Crystalline fangs awaken the sleeping winter.";
+            case THUNDERBLADE -> "A gilded conductor holds a gathering storm.";
+            case ROYAL_CLAYMORE -> "A king's heavy blade rends the earth.";
+            case EIGHTFOLD_BLADE -> "A swift curved edge moves with the wind.";
+            case BIGGORON_SWORD -> "A mountain-forged blade strikes with a giant's force.";
+        };
+    }
     public static Optional<SwordType> parse(String value) {
         if (value == null) return Optional.empty();
         String normalized = value.toLowerCase(Locale.ROOT).replace('-', '_').replace(' ', '_');

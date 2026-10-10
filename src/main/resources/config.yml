@@ -8,9 +8,9 @@ charge:
   per-melee-hit: 10
   melee-kill-bonus: 20
 cinematics:
+  # A short in-place sword ritual. Players keep their position and game mode.
   enabled: true
-  duration-ticks: 36
-  camera-radius: 4.0
+  duration-ticks: 32
 resource-pack:
   # Host the exported resource-pack.zip at a direct HTTPS download URL.
   # An empty URL leaves automatic pack delivery off. Players can also install it locally.
@@ -25,21 +25,56 @@ swords:
   master_sword:
     attack-damage: 9.0
     attack-speed: 1.6
-    ability-damage: 8.0
+    ability-damage: 9.0
     ability-cooldown-seconds: 7.0
-    ultimate-damage: 6.0
+    ultimate-damage: 9.0
     ultimate-cooldown-seconds: 75.0
   flameblade:
     attack-damage: 10.0
-    attack-speed: 1.2
-    ability-damage: 7.0
+    attack-speed: 1.3
+    ability-damage: 8.0
     ability-cooldown-seconds: 9.0
-    ultimate-damage: 5.0
+    ultimate-damage: 6.0
     ultimate-cooldown-seconds: 90.0
   fierce_deity_sword:
-    attack-damage: 11.0
-    attack-speed: 1.2
-    ability-damage: 9.0
+    attack-damage: 12.0
+    attack-speed: 1.15
+    ability-damage: 10.0
     ability-cooldown-seconds: 8.0
-    ultimate-damage: 7.0
+    ultimate-damage: 10.0
     ultimate-cooldown-seconds: 90.0
+  frostblade:
+    attack-damage: 8.0
+    attack-speed: 1.5
+    ability-damage: 8.0
+    ability-cooldown-seconds: 8.0
+    ultimate-damage: 5.0
+    ultimate-cooldown-seconds: 80.0
+  thunderblade:
+    attack-damage: 8.0
+    attack-speed: 1.8
+    ability-damage: 8.0
+    ability-cooldown-seconds: 9.0
+    ultimate-damage: 8.0
+    ultimate-cooldown-seconds: 85.0
+  royal_claymore:
+    attack-damage: 12.0
+    attack-speed: 0.95
+    ability-damage: 12.0
+    ability-cooldown-seconds: 10.0
+    ultimate-damage: 14.0
+    ultimate-cooldown-seconds: 95.0
+  eightfold_blade:
+    attack-damage: 7.0
+    attack-speed: 2.3
+    ability-damage: 7.0
+    ability-cooldown-seconds: 6.0
+    ultimate-damage: 6.0
+    ultimate-cooldown-seconds: 70.0
+  biggoron_sword:
+    attack-damage: 15.0
+    attack-speed: 0.7
+    ability-damage: 14.0
+    ability-cooldown-seconds: 12.0
+    ultimate-damage: 16.0
+    ultimate-cooldown-seconds: 100.0

@@ -19,7 +19,8 @@ import zlib
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PACK = ROOT / "resource-pack"
-ITEMS = ("master_sword", "flameblade", "fierce_deity_sword")
+ITEMS = ("master_sword", "flameblade", "fierce_deity_sword", "frostblade",
+         "thunderblade", "royal_claymore", "eightfold_blade", "biggoron_sword")
 RESOURCE_ID = re.compile(r"^[a-z0-9_.-]+:[a-z0-9/._-]+$")
 
 
@@ -114,6 +115,7 @@ def vector(value, label, bounds=None):
 def validate_model(pack, path):
     model = load_json(path)
     require(isinstance(model.get("elements"), list) and model["elements"], "Missing geometry: " + str(path))
+    require(len(model["elements"]) <= 80, "Model exceeds the 80-cube budget: " + str(path))
     textures = model.get("textures", {})
     require(isinstance(textures, dict) and textures, "Missing textures: " + str(path))
     for key, name in textures.items():
@@ -141,6 +143,9 @@ def validate_model(pack, path):
         for component in ("rotation", "translation", "scale"):
             if component in display:
                 vector(display[component], str(path) + " " + component)
+    require(set(model.get("display", {})) >= {"firstperson_righthand", "firstperson_lefthand",
+            "thirdperson_righthand", "thirdperson_lefthand", "gui", "ground", "fixed"},
+            "Model is missing a held or inventory transform: " + str(path))
 
 
 def validate(pack):

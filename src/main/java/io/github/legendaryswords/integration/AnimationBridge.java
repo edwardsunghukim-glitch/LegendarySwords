@@ -17,8 +17,11 @@ public interface AnimationBridge extends AutoCloseable {
             // Keep all engine types in a separate class, loaded only after checking the optional plugin.
             return new BetterModelAnimationBridge(plugin);
         } catch (LinkageError | RuntimeException error) {
-            String reason = "BetterModel API unavailable; install the compatible BetterModel 1.15.2 release";
-            plugin.getLogger().warning(reason + " (" + error.getClass().getSimpleName() + ")");
+            var engine = plugin.getServer().getPluginManager().getPlugin("BetterModel");
+            String version = engine == null ? "unknown" : engine.getPluginMeta().getVersion();
+            String reason = "BetterModel " + version + " API unavailable: " + error.getClass().getSimpleName()
+                    + ": " + error.getMessage() + "; integration is built for BetterModel 3.1";
+            plugin.getLogger().log(java.util.logging.Level.WARNING, reason, error);
             return new UnavailableAnimationBridge(reason);
         }
     }
@@ -28,6 +31,16 @@ public interface AnimationBridge extends AutoCloseable {
     void playAbility(Player player, String swordId);
 
     void playUltimate(Player player, String swordId);
+
+    /** A held-sword body tracker is retained across movement and actions, then restored on release. */
+    default void tickMovement(Player player, String swordId, Locomotion movement) { }
+
+    default void stopMovement(Player player) { }
+
+    default void playPose(Player player, String swordId) { }
+
+    enum Locomotion { IDLE, WALK, RUN }
+
 
     /** Renders an animated hero at the cast origin; false lets the caller use its fallback scene. */
     default boolean playCinematic(Player player, String swordId, Location origin) {

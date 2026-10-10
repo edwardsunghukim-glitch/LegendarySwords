@@ -9,7 +9,7 @@ import tempfile
 import unittest
 import zipfile
 
-from build_resource_pack import DEFAULT_PACK, PackValidationError, build, validate
+from build_resource_pack import DEFAULT_PACK, ITEMS, PackValidationError, build, read_png, validate
 
 
 class ResourcePackTests(unittest.TestCase):
@@ -23,7 +23,31 @@ class ResourcePackTests(unittest.TestCase):
         self.temp.cleanup()
 
     def test_all_swords_validate(self):
-        self.assertEqual(validate(self.pack)["items"], 3)
+        self.assertEqual(validate(self.pack)["items"], len(ITEMS))
+
+    def test_swords_have_distinct_geometry_and_high_resolution_energy(self):
+        signatures = set()
+        for name in ITEMS:
+            model = json.loads((self.pack / "assets/legendaryswords/models/item" / (name + ".json")).read_text())
+            self.assertLessEqual(len(model["elements"]), 80)
+            self.assertGreater(len(model["elements"]), 35)
+            # Distinct silhouettes must remain more than differently colored copies.
+            signature = [(element["from"], element["to"], element.get("rotation"))
+                         for element in model["elements"]]
+            signatures.add(json.dumps(signature, sort_keys=True))
+            texture = self.pack / "assets/legendaryswords/textures/item" / (name + ".png")
+            self.assertEqual(read_png(texture), (128, 512))
+            self.assertTrue(texture.with_suffix(".png.mcmeta").is_file())
+            self.assertTrue(texture.with_name(name + "_e.png").is_file())
+        self.assertEqual(len(signatures), len(ITEMS))
+
+    def test_unbounded_model_geometry_is_rejected(self):
+        path = self.pack / "assets/legendaryswords/models/item/master_sword.json"
+        data = json.loads(path.read_text())
+        data["elements"] = data["elements"] * 2
+        path.write_text(json.dumps(data))
+        with self.assertRaisesRegex(PackValidationError, "80-cube budget"):
+            validate(self.pack)
 
     def test_missing_texture_is_rejected(self):
         (self.pack / "assets/legendaryswords/textures/item/master_sword.png").unlink()
@@ -78,7 +102,8 @@ class ResourcePackTests(unittest.TestCase):
         with zipfile.ZipFile(first) as archive:
             self.assertIn("pack.mcmeta", archive.namelist())
             self.assertNotIn("README.md", archive.namelist())
-            self.assertIn("assets/legendaryswords/items/fierce_deity_sword.json", archive.namelist())
+            for name in ITEMS:
+                self.assertIn("assets/legendaryswords/items/" + name + ".json", archive.namelist())
             self.assertIsNone(archive.testzip())
 
 

@@ -96,4 +96,19 @@ class CooldownBookTest {
         assertThrows(IllegalArgumentException.class,
                 () -> book.tryUse(BOB, "beam", Duration.ofNanos(-1)));
     }
+
+    @Test
+    void adminResetClearsOnlyTheChosenPlayersCooldowns() {
+        AtomicLong clock = new AtomicLong();
+        CooldownBook book = new CooldownBook(clock::get);
+        book.tryUse(ALICE, "master_sword:ultimate", Duration.ofSeconds(75));
+        book.tryUse(ALICE, "pose", Duration.ofSeconds(2));
+        book.tryUse(BOB, "master_sword:ultimate", Duration.ofSeconds(75));
+
+        book.clear(ALICE);
+
+        assertEquals(0, book.remainingMillis(ALICE, "master_sword:ultimate"));
+        assertEquals(0, book.remainingMillis(ALICE, "pose"));
+        assertEquals(75_000, book.remainingMillis(BOB, "master_sword:ultimate"));
+    }
 }

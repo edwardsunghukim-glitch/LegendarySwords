@@ -11,11 +11,52 @@ from pathlib import Path
 import struct
 import zlib
 
-from generate_resource_pack_assets import png
+from generate_resource_pack_assets import NAMES, PALETTES, png
 
 ROOT = Path(__file__).resolve().parents[1]
 PACK = ROOT / "resource-pack"
-WIDTH, HEIGHT = 1024, 512
+WIDTH, HEIGHT = 1440, 1180
+
+# A tiny authoring-preview font keeps this script dependency-free. These labels
+# are part of the preview only and are never included in the Minecraft pack.
+FONT = dict(zip("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-.", (
+    "01110/10001/10001/11111/10001/10001/10001", "11110/10001/10001/11110/10001/10001/11110",
+    "01111/10000/10000/10000/10000/10000/01111", "11110/10001/10001/10001/10001/10001/11110",
+    "11111/10000/10000/11110/10000/10000/11111", "11111/10000/10000/11110/10000/10000/10000",
+    "01111/10000/10000/10111/10001/10001/01111", "10001/10001/10001/11111/10001/10001/10001",
+    "11111/00100/00100/00100/00100/00100/11111", "00111/00010/00010/00010/00010/10010/01100",
+    "10001/10010/10100/11000/10100/10010/10001", "10000/10000/10000/10000/10000/10000/11111",
+    "10001/11011/10101/10101/10001/10001/10001", "10001/11001/10101/10011/10001/10001/10001",
+    "01110/10001/10001/10001/10001/10001/01110", "11110/10001/10001/11110/10000/10000/10000",
+    "01110/10001/10001/10001/10101/10010/01101", "11110/10001/10001/11110/10100/10010/10001",
+    "01111/10000/10000/01110/00001/00001/11110", "11111/00100/00100/00100/00100/00100/00100",
+    "10001/10001/10001/10001/10001/10001/01110", "10001/10001/10001/10001/10001/01010/00100",
+    "10001/10001/10001/10101/10101/11011/10001", "10001/10001/01010/00100/01010/10001/10001",
+    "10001/10001/01010/00100/00100/00100/00100", "11111/00001/00010/00100/01000/10000/11111",
+    "01110/10001/10011/10101/11001/10001/01110", "00100/01100/00100/00100/00100/00100/01110",
+    "01110/10001/00001/00010/00100/01000/11111", "11110/00001/00001/01110/00001/00001/11110",
+    "00010/00110/01010/10010/11111/00010/00010", "11111/10000/10000/11110/00001/00001/11110",
+    "01110/10000/10000/11110/10001/10001/01110", "11111/00001/00010/00100/01000/01000/01000",
+    "01110/10001/10001/01110/10001/10001/01110", "01110/10001/10001/01111/00001/00001/01110",
+    "00000/00000/00000/11111/00000/00000/00000", "00000/00000/00000/00000/00000/00100/00100")))
+
+
+def label(pixels, message, center_x, y, size=3, color=(214, 224, 243)):
+    left = round(center_x - (len(message) * 6 - 1) * size / 2)
+    for position, character in enumerate(message.upper()):
+        glyph = FONT.get(character)
+        if not glyph:
+            continue
+        for gy, row in enumerate(glyph.split("/")):
+            for gx, value in enumerate(row):
+                if value != "1":
+                    continue
+                for dy in range(size):
+                    for dx in range(size):
+                        x, py = left + (position * 6 + gx) * size + dx, y + gy * size + dy
+                        if 0 <= x < WIDTH and 0 <= py < HEIGHT:
+                            index = (py * WIDTH + x) * 4
+                            pixels[index:index + 3] = bytes(color)
 
 
 def read_atlas(path):
@@ -50,7 +91,7 @@ def rotate(point, axis, angle):
 def project(point, center):
     centered = (point[0] - 8, point[1] - 12.2, point[2] - 8)
     oriented = rotate(rotate(rotate(centered, "y", -23), "x", -7), "z", -14)
-    return center + oriented[0] * 12, 252 - oriented[1] * 12, oriented[2]
+    return center[0] + oriented[0] * 11, center[1] - oriented[1] * 11, oriented[2]
 
 
 def render():
@@ -58,13 +99,18 @@ def render():
     for y in range(HEIGHT):
         for x in range(WIDTH):
             shade = int(12 + 9 * (1 - y / HEIGHT))
+            if 125 <= y <= 590 or 660 <= y <= 1130:
+                column = x // 360
+                if 18 <= x - column * 360 <= 342:
+                    shade += 4
             pixels.extend((shade, shade + 1, shade + 10, 255))
     depths = [float("inf")] * (WIDTH * HEIGHT)
     # (Vertex indices, diffuse shade), indexed in a common cube vertex order.
     faces = {"north": ((0, 1, 2, 3), 1.0), "south": ((5, 4, 7, 6), 0.79),
              "west": ((4, 0, 3, 7), 0.73), "east": ((1, 5, 6, 2), 0.86),
              "up": ((3, 2, 6, 7), 1.05), "down": ((4, 5, 1, 0), 0.63)}
-    for center, name in zip((171, 512, 853), ("master_sword", "flameblade", "fierce_deity_sword")):
+    for position, name in enumerate(NAMES):
+        center = (180 + 360 * (position % 4), 350 + 535 * (position // 4))
         base = PACK / "assets/legendaryswords"
         model = json.loads((base / "models/item" / (name + ".json")).read_text())
         texture_size, texture = read_atlas(base / "textures/item" / (name + ".png"))
@@ -116,6 +162,19 @@ def render():
                             for channel in range(3):
                                 pixels[index * 4 + channel] = max(0, min(255, int(color[channel] * shade)))
                             depths[index] = z
+        title = name.replace("_", " ").upper()
+        label_y = 548 + 535 * (position // 4)
+        label(pixels, title, center[0], label_y, size=2)
+        color = PALETTES[name][2]
+        for y in range(label_y - 15, label_y - 12):
+            for x in range(center[0] - 56, center[0] + 56):
+                index = (y * WIDTH + x) * 4
+                pixels[index:index + 3] = bytes(color)
+    label(pixels, "LEGENDARY SWORDS", WIDTH // 2, 32, size=5, color=(233, 239, 255))
+    label(pixels, "EIGHT ORIGINAL MODELS - 128PX TEXTURES - ANIMATED ENERGY", WIDTH // 2, 90,
+          size=2, color=(142, 159, 190))
+    label(pixels, "SOURCE ART PREVIEW - SIMPLE LIGHTING - NO SHADER BLOOM", WIDTH // 2, 1150,
+          size=2, color=(116, 130, 156))
     output = PACK / "preview.png"
     png(output, WIDTH, HEIGHT, pixels)
     print(output)

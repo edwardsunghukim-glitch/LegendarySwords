@@ -1,30 +1,33 @@
-LegendarySwords animation assets
+LegendarySwords 0.2 animation assets
 
-The three players/*.bbmodel files are generic Blockbench 5 models containing
-original sword-specific swing, ability, and ultimate keyframes. Their player
-limb geometry/skin UV template comes from BetterModel 1.15.2's steve.bbmodel:
+Eight players/*.bbmodel files contain original sword-specific idle, walk, run,
+pose, swing, ability, and ultimate animation keyframes. Their player limb/skin UV
+template comes from BetterModel 1.15.2's steve.bbmodel:
 https://github.com/toxicity188/BetterModel/blob/1.15.2/core/src/main/resources/steve.bbmodel
 The template is covered by the included LICENSE-BetterModel.txt.
 
-The models/*_slash.bbmodel files contain original luminous crescent geometry,
-embedded textures, and animation keyframes. No external model download is needed.
+Eight models/*_slash.bbmodel files provide original luminous attack models.
+No external model download is needed. Filenames use the legendaryswords_ prefix.
 
-When BetterModel is present, LegendarySwords copies files into the engine's
-players/ and models/ folders only when their destination is absent. Existing
-models are preserved, including any changes made by a server owner in Blockbench.
-Names are prefixed with legendaryswords_ to avoid replacing other plugin assets.
+LegendarySwords installs missing files and upgrades known original old models
+with a backup. Files edited by a server owner are preserved and reported.
+For manual installation, upload players files to plugins/BetterModel/players
+and models files to plugins/BetterModel/models. Back up edited models first.
 
-Supported engine API: io.github.toxicity188:bettermodel:1.15.2 (provided).
+Engine integration uses BetterModel's 3.1 API (provided). The server's reported
+3.1-SNAPSHOT-526 build still needs a real-server/client animation check.
+BetterModel 3.1 requires Java 25 on the server; compiling this project's API
+dependency requires a Java 25 or newer JDK.
 Enable module.player-animation and module.model in BetterModel/config.yml.
-The normal startup import creates the pack; /bm reload regenerates it after
-editing a model. The engine's default generated file is plugins/BetterModel/build.zip.
-Merge that pack with the LegendarySwords sword pack before distributing it.
+Run /bm reload after installing models. The default generated pack is
+plugins/BetterModel/build.zip. Download that NEW pack and merge it with the
+0.2.0 LegendarySwords item pack. Old v0.1 combined packs are outdated.
 
-Body animations are visible in third person and to other players. Cinematic
-heroes are detached skin models anchored at the cast location. A server plugin
-and an ordinary resource pack cannot replace vanilla first-person arm animation.
-Energy displays use maximum display brightness; they do not emit world lighting.
+Body animations are third person and visible to other players. Idle, walk, and
+run follow the currently equipped sword. /ls pose plays that sword's pose.
+An ordinary resource pack does not replace vanilla first-person arm animation.
+Displays use maximum brightness without emitting light into nearby blocks.
 
-Player body, cinematic hero, and slash trackers are closed when playback ends.
-A watchdog also bounds their lifetimes. Quit, death, world change, and plugin
-shutdown close only the trackers created by this integration.
+Switching away, quitting, dying, changing world, and plugin shutdown clean up
+the animation trackers created by this integration. Abilities/ultimates do not
+depend on the cosmetic display succeeding and do not teleport the player.

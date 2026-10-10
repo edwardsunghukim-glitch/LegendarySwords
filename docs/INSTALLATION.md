@@ -1,92 +1,102 @@
-# Install LegendarySwords
+# Install or update LegendarySwords
 
-Use the compiled JAR and resource pack from the release download. You do not need Maven on your computer just to install them on Minehut. Keep a backup of your server before installing new plugins.
+Use the compiled JAR and ZIPs from the **0.2.0** release. You do not need Maven on your computer just to install them on Minehut.
 
-## On Minehut
+## Upload the plugin on Minehut
 
 1. Stop your server in the Minehut dashboard.
-2. Open the server's file manager and open `plugins`.
-3. Upload `LegendarySwords-0.1.0.jar` there. The JAR belongs directly inside `plugins`, not inside a second `LegendarySwords` folder.
-4. Start the server. The plugin generates its own `plugins/LegendarySwords/config.yml`.
-5. Check the startup console for a successful enable message. If it says the plugin cannot load, check that the server is Paper 1.21.11 and is using Java 21.
-6. Join as an operator and run `/ls status`, then `/ls give all`.
+2. Open **File Manager → plugins**. If `LegendarySwords-0.1.0.jar` is present, remove that old JAR. Keep the `LegendarySwords` configuration folder.
+3. Upload **`LegendarySwords-0.2.0.jar`** directly inside `plugins`. Do not put it inside the configuration folder, and keep only one LegendarySwords JAR.
+4. Start the server. Check the console for a successful enable message. Use **Paper 1.21.11 and Java 25 with BetterModel 3.1**. Core combat without BetterModel can use Java 21. These are server requirements; uploading the compiled plugin does not require Java on your computer.
+5. Join as an operator and run `/ls status`, then `/ls give all`. Newly given swords include the updated item attributes and models.
 
-If BetterModel is already installed, keep it installed and follow [the animation guide](BETTERMODEL.md) to add the supplied assets. BetterModel needs its own generated resource pack for its models. Test both plugins after a full server restart.
+An existing configuration can keep your prior custom damage and cooldown values. New swords use their defaults when settings are missing. Compare with the new release's `src/main/resources/config.yml` if you want to reset to the supplied values.
 
-## Install the resource pack
+## Install the new sword pack
 
-For a quick personal test:
+For a personal test:
 
-1. Open Minecraft **Options → Resource Packs → Open Pack Folder**.
-2. Copy `LegendarySwords-resource-pack.zip` into that folder.
-3. Return to Minecraft, enable the pack, and press **Done**.
+1. In Minecraft, open **Options → Resource Packs → Open Pack Folder**.
+2. Copy the new **`LegendarySwords-resource-pack.zip`** into that folder. **Keep it zipped.**
+3. Return to Minecraft, disable the older LegendarySwords pack, enable the new one, and click **Done**.
+
+This gives all eight swords their item models. To see BetterModel body animations and slash effects, also use its **newly generated** pack, or combine both into one ZIP using [the animation guide](BETTERMODEL.md).
+
+**Do not reuse the combined pack from version 0.1.0.** Installing a new plugin JAR cannot update a resource pack already stored on your computer or hosted at an old URL. Update the model files, regenerate BetterModel's pack, and merge again.
 
 For everyone joining the server:
 
-1. Upload `LegendarySwords-resource-pack.zip` to a host that serves the ZIP directly over HTTPS. A public GitHub release asset is one option.
-2. Copy its direct download URL. A link to a GitHub page, your computer's file path, or `localhost` will not work for other players.
-3. Compute the ZIP's SHA-1 hash. The build also provides a hash file alongside the ZIP when available. In Windows PowerShell:
+1. Host the final ZIP at a public URL that directly returns the file over HTTPS.
+2. Use that URL in Minehut's server resource-pack setting, or configure LegendarySwords' `resource-pack.url`.
+3. Set the SHA-1 of that **exact final ZIP**. A merged pack needs the merged pack's hash, not the standalone sword pack's hash.
+4. Save the settings, restart the server, join, and accept the pack prompt.
 
-   ```powershell
-   (Get-FileHash .\LegendarySwords-resource-pack.zip -Algorithm SHA1).Hash.ToLower()
-   ```
+The merge script writes a `.sha1` file alongside its ZIP. In Windows PowerShell you can also calculate it:
 
-4. Edit `plugins/LegendarySwords/config.yml`, set `resource-pack.url` to your direct URL and `resource-pack.sha1` to the hash, or use Minehut's server resource pack settings. Save the configuration and restart the server. For example:
+```powershell
+(Get-FileHash .\LegendarySwords-combined-resource-pack.zip -Algorithm SHA1).Hash.ToLower()
+```
 
-   ```yaml
-   resource-pack:
-     url: 'https://your-host.example/LegendarySwords-resource-pack.zip'
-     sha1: 'paste_the_40_character_sha1_here'
-     required: false
-     send-on-join: true
-     join-delay-ticks: 60
-   ```
+If using LegendarySwords' configuration:
 
-   Replace the example URL and hash with your real values. A blank URL disables the plugin's automatic pack download. If you use a merged BetterModel pack, its URL and SHA-1 must describe that final merged ZIP.
-5. Join, accept the pack prompt, and check all three swords. When using the plugin's pack configuration, `/ls pack` requests it again.
+```yaml
+resource-pack:
+  url: 'https://your-host.example/LegendarySwords-combined-resource-pack.zip'
+  sha1: 'paste_the_40_character_sha1_here'
+  required: false
+  send-on-join: true
+  join-delay-ticks: 60
+```
 
-When you replace the ZIP, update both the URL if it changed and the SHA-1. A stale hash can make Minecraft reject the pack. Read [the resource pack guide](../resource-pack/README.md) when combining the swords with BetterModel's generated pack.
+Replace the example URL and hash. A blank URL disables this plugin's automatic pack delivery. If Minehut already sends the combined pack, keep this URL blank to avoid duplicate offers. BetterModel should also use the same combined pack or have its separate pack offer disabled; the setting names depend on its installed version.
 
-## Useful configuration
+## Try every sword
 
-The plugin creates `plugins/LegendarySwords/config.yml` on its first start. Use `/ls reload` after editing it, except when adding or changing BetterModel source models, which need BetterModel to regenerate its pack.
+Run these in Minecraft as an operator:
 
-After changing a sword's base `attack-damage` or `attack-speed`, give fresh swords with `/ls give` to update their item attributes. Ability damage and cooldown changes take effect from configuration without replacing items.
+```text
+/ls give all
+/ls status
+/ls charge 100
+```
+
+Hold a sword and **right-click** for its ability. **Sneak + right-click** casts its ultimate. Before trying another ultimate, use `/ls charge 100`; if you want to repeat one immediately while testing, also use `/ls resetcooldowns`.
+
+Use **F5** to see yourself in third person. Walk, sprint, and run `/ls pose` while holding each sword. Other players can see the third-person animations too. These do not replace your vanilla first-person arm swing.
+
+If `/ls status` reports missing animations, confirm BetterModel's version, its enabled modules, the sixteen model files, and that your client accepted the new generated pack. See [BetterModel troubleshooting](BETTERMODEL.md#check-missing-animations).
+
+## Configuration
+
+The plugin creates `plugins/LegendarySwords/config.yml`. Use `/ls reload` after editing it. Model edits additionally require `/bm reload` and a regenerated, redistributed resource pack.
 
 - `pvp-enabled: false` prevents abilities from damaging players by default.
-- `cinematics.enabled: false` disables all ultimate cameras server-wide. `/ls cinematics` is each player's own preference while cameras are enabled.
-- `glow-particles: true` enables the particles around held custom swords.
-- `charge.per-melee-hit` and `charge.melee-kill-bonus` control charge gains.
-- Each entry under `swords` contains damage, attack speed, ability cooldown, and ultimate cooldown settings. Damage uses health points: **2 points = 1 heart**.
+- `cinematics.enabled: false` disables the cosmetic ultimate presentation. `/ls cinematics` is the individual player preference. Damage casts do not wait for that presentation.
+- `glow-particles: true` enables particles around held swords.
+- `charge.per-melee-hit` and `charge.melee-kill-bonus` set charge gains.
+- Each entry under `swords` sets damage, attack speed, and cooldowns. Damage uses health points: **2 points = 1 heart**.
 
-Always test damage and protection behavior in a test world before enabling PvP for players.
+Changing base attack damage or speed requires newly given items. Ability and ultimate settings are read from configuration. Check [server behavior and protections](TESTING.md) on a test world before public play.
 
 ## Put the source in your GitHub repository
 
-Your cloned `LegendarySwords` folder already contains a hidden `.git` folder. Leave `.git` in place; it connects the folder to your GitHub repository.
+Your cloned `LegendarySwords` folder contains a hidden `.git` folder. Leave it in place; it connects the folder to your GitHub repository.
 
-1. Download the project's **source ZIP**, then right-click it in Windows and select **Extract All**.
-2. Open the extracted folder that contains `pom.xml`, `README.md`, `src`, and `resource-pack`.
-3. Open GitHub Desktop, select **LegendarySwords**, and click **Show in Explorer**.
-4. Copy the contents from step 2 into the folder opened in step 3. Copy the contents, rather than placing the whole extracted project as an extra nested folder. The existing repository should now contain `pom.xml` directly beside `.git`.
-5. Return to GitHub Desktop. The source files should appear under **Changes**.
-6. Enter `Add LegendarySwords plugin` in **Summary**, click **Commit to main**, then **Push origin** or **Publish branch**.
+1. Extract **`LegendarySwords-source.zip`** on your computer.
+2. Open the extracted folder containing `pom.xml`, `README.md`, `src`, and `resource-pack`.
+3. In GitHub Desktop, select **LegendarySwords → Show in Explorer**.
+4. Copy the **contents** from step 2 into the repository folder. `pom.xml` should sit directly beside `.git`.
+5. In GitHub Desktop, enter a summary, **Commit to main**, and **Push origin**.
 
-Do not commit the compiled JAR, the downloaded release ZIP, `target`, server worlds, or passwords. The source ZIP includes a `.gitignore` for generated build files.
+Do not add server worlds, passwords, or the generated `target` folder. The source ZIP includes `.gitignore`.
 
 ## Build changes locally
 
-Building the source requires a Java 21 **JDK**, rather than only a Java runtime, and Maven 3.9 or newer. After installing both, check them in a new terminal:
-
-```sh
-java -version
-mvn -version
-```
-
-Both must use Java 21. In GitHub Desktop, select **Repository → Open in Terminal**, then run:
+Install a Java **25 or newer JDK** and Maven 3.9 or newer. Verify `java -version` and `mvn -version` both use the newer JDK, open a terminal in the project folder, and run:
 
 ```sh
 mvn --batch-mode verify
+python3 scripts/create_release.py
 ```
 
-Upload the resulting `target/LegendarySwords-0.1.0.jar` to the server and restart it. When you change pack assets, also upload the rebuilt `target/LegendarySwords-resource-pack.zip` and update its SHA-1.
+Upload the resulting JAR to the server after removing the old JAR, then restart. Pack or BetterModel model changes also require updated client packs and the correct final ZIP hash.

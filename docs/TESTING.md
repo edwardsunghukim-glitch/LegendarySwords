@@ -1,59 +1,71 @@
-# Validation before using the plugin publicly
+# Validate on a real server before public play
 
-The Maven build tests pure charge and cooldown rules, sword command IDs, beam/cone collision geometry, and combat and camera lifecycle behavior using mocked Bukkit objects. Combat tests check cancelled damage and ignition, adjusted burn duration, knockback, charge recursion, owned pet protection, PvP settings, friendly fire, and melee kill attribution. Camera tests check ordinary cleanup, death, world changes, external mode changes and teleports, exception cleanup, and saved spectator-state recovery. Those checks do not start a Minecraft server or render an actual camera. Complete the checks below on a separate Paper 1.21.11 test server with a real 1.21.11 client before installing on your public server.
+Automated Java tests exercise mechanics, protection/event handling, and animation/effect lifecycle with mocked Bukkit objects. Resource-pack checks validate file structure and references. They do not start Paper or render a Minecraft client. Run the following checks on **Paper 1.21.11, Java 25 with BetterModel 3.1, and a real 1.21.11 client**. Core combat without BetterModel can also be checked on Java 21. Record the server and plugin versions and the final pack SHA-1 with the results.
 
-## Startup and assets
+## Upgrade and assets
 
-- Start Paper using Java 21. Check that LegendarySwords enables without exceptions and `/ls status` reports its configuration.
-- Test with BetterModel installed and with it absent. Core swords and abilities should work in both cases; animation status should explain when BetterModel is unavailable.
-- Install the generated pack and accept it. Use `/ls give all`; verify that all three swords have the intended distinct models, correct first-person and third-person placement, and animated textures where supplied.
-- Test pack decline and download failure. The server should remain playable. Ordinary item appearances are expected without the pack.
-- With BetterModel installed, install its animation assets and generated pack. Have a second player watch each ability and ultimate to verify the third-person animations.
-- Test the plugin pack alongside BetterModel's pack. Check that both model sets remain visible after requesting `/ls pack` and after reconnecting.
+- Stop the server and replace the old JAR with `LegendarySwords-0.2.0.jar`. Confirm only one LegendarySwords JAR exists.
+- Preserve an old configuration and check that the original swords retain intended values and the five new swords receive distinct defaults. Also test a fresh configuration.
+- Test with BetterModel installed and absent. Combat and particle/display effects should work either way; `/ls status` should explain unavailable animation support.
+- Confirm all eight item models load with the new sword pack. Check first-person, third-person, inventory, dropped-item, and item-frame positions, textures, and animation.
+- Test an upgrade from the six original 0.1 model files. Known originals should be backed up and updated; deliberately edited files should be preserved and reported.
+- Run `/bm reload`. Confirm all sixteen model imports succeed, regenerate `build.zip`, and merge with the new sword pack. Reconnect with the final pack accepted.
+- Test pack decline/download failure. Gameplay should continue; ordinary item appearances are expected without the pack.
 
-## Abilities and charge
+## Eight distinct attacks
 
-- As an operator, run `/ls give all` and `/ls charge 100`. Repeat from the console using an online player's name. Invalid sword IDs, offline players, and invalid charge values should produce a useful message.
-- As a non-operator, verify admin commands are denied. Verify abilities work with `legendaryswords.use`, then deny that permission and check that abilities are blocked.
-- Right-click each sword. Confirm its expected effect and that rapid repeated clicks cannot bypass the cooldown. Test a different sword and a different player to confirm cooldowns are independent.
-- Earn charge through normal melee: successful sword hits add 10 and melee kills add a bonus 20, with a maximum of 100. Check hits cancelled by a protection plugin do not award charge.
-- At 99 charge, sneak and right-click. It should leave charge unchanged and reject the ultimate. At 100, it should start once and consume the meter once.
-- After the optional camera, verify four ultimate damage waves occur 22 ticks apart, with radii of 2, 4, 6, and 8 blocks. The camera should show the awakening sword display and, when BetterModel assets are available, the animated hero at the original casting position.
-- Verify ability-generated damage does not recursively grant normal melee charge or create unlimited effects.
-- Disconnect and reconnect during a cooldown. The reconnect must not make that ability immediately reusable.
-- Check beams and cone attacks beside walls, beyond their documented range, and just outside their area. Ensure effects do not damage entities behind walls or outside the intended area.
+Use `/ls give all`, `/ls charge 100`, and `/ls resetcooldowns` as an operator. Try every sword against separate groups of mobs in an open test area.
 
-## Multiplayer and protections
+| Sword | Ability to inspect | Ultimate to inspect |
+| --- | --- | --- |
+| Master Sword | Sustained luminous laser | Sacred beam attack |
+| Flameblade | Clearly visible ring of fire | Expanding fire columns/vortex |
+| Fierce Deity Sword | Traveling lunar crescent | Falling lunar meteors |
+| Frostblade | Rising ice-spike line | Swirling blizzard |
+| Thunderblade | Chained lightning segments | Overhead storm strikes |
+| Royal Claymore | Ground fissure | Large blade slam |
+| Eightfold Blade | Traveling wind ribbons | Multiple angled cuts |
+| Biggoron Sword | Large spinning blade | Radial earth eruption |
 
-- Leave PvP disabled and verify abilities do not hurt another player. Use two players and check direct, area, and ultimate effects.
-- On a separate test world, enable PvP and verify that protected regions, invulnerable players, and cancelled damage events remain respected.
-- Test a region or protection that allows damage but cancels entity ignition. Flameblade damage can land there, but it must not ignite the target. If a plugin changes the ignition duration, the accepted duration should apply without shortening a longer existing burn.
-- Confirm passive animals, pets, allies, and armor stands behave as intended for your server. Adjust permissions and configuration before public play.
-- Watch server performance while several players use particles and ultimates simultaneously. Keep cooldowns and effect sizes appropriate for your player count.
+- Verify the effects are visible from first person, F5, and another player's view. Test different particle settings and daylight/night. Confirm displays disappear when each effect expires.
+- Ensure repeated clicks obey cooldowns, switching swords cannot bypass their own cooldowns, and another player has independent cooldowns.
+- Check walls and solid blocks stop directed attacks as intended. A target outside range or behind an obstructing wall must not take unintended hits.
+- Verify effects do not permanently change terrain or leave fire blocks behind.
+- Watch server performance while several players use sustained effects together.
 
-## Cinematic camera recovery
+## Charge, ultimate reliability, and commands
 
-Use two players: one activates the ultimate, and the other watches. On normal completion, confirm the camera restores the activating player's location, game mode, flight state, and ordinary control after its short animation. Confirm the temporary camera, sword display, and BetterModel hero disappear. Cleanup must still remove those temporary entities if another restoration step fails.
+- Normal successful melee grants 10 charge; a melee kill adds 20, with a 100 maximum. Cancelled hits and ability damage must not generate charge.
+- At 99 charge, sneak + right-click rejects the ultimate without spending charge. At 100, it activates once, spends charge once, and starts its cooldown.
+- Test ultimates with cosmetic cinematics enabled and disabled. Effects/damage must start independently of the presentation; the player must not teleport or change game mode.
+- Walk and turn during the in-place presentation. Confirm ordinary control remains and the effect's targets/anchor behave as intended.
+- Disconnect/reconnect during a cooldown and confirm it remains active. `/ls resetcooldowns` should explicitly clear it for testing.
+- Test `/ls give`, `/ls charge`, and `/ls resetcooldowns` from the console with a named player. Invalid IDs, invalid charge values, and offline players should get useful messages.
+- Non-operators must be denied admin commands. Denying `legendaryswords.use` should block abilities and poses.
 
-Repeat recovery checks with each of these interruptions:
+## Animation and cleanup
 
-- `/ls cinematics` is disabled before activation.
-- The player disconnects during the camera sequence, then reconnects.
-- The player changes worlds or another plugin teleports them. Keep that legitimate destination; ending the cinematic must not teleport them back to the old casting position.
-- Another plugin changes the player's game mode during the cinematic. Keep that legitimate new mode and location; remove the cinematic entities without reinstating an old mode.
-- The player dies during the cinematic. Remove temporary entities without teleporting the dead player or changing their respawn destination.
-- The plugin is disabled or the server stops during the sequence, then the server starts again.
-- The player starts in survival, creative, or spectator mode.
-- A second ultimate activation is attempted before the first sequence has finished.
+Use two players: one holds a sword, and one watches. Test every sword in F5 and from the observer's view.
 
-Verify a player cannot escape a blocked region, bypass a protection rule, become permanently invulnerable, or keep spectator/flight privileges after the cinematic. If any recovery check fails, leave cinematic cameras disabled until it is resolved.
+- Standing, walking, and sprinting should select distinct `idle`, `walk`, and `run` clips belonging to that sword. Confirm the player model follows the player rather than remaining at an old location.
+- Run `/ls pose`, then swing, cast an ability, and use an ultimate. One-shot clips should play and return to movement rather than being immediately overwritten.
+- Switch to another sword, empty hand, and ordinary tools. The previous sword's body animation must clear without affecting other plugins' models.
+- Test walking backwards, strafing, sneaking, jumping, swimming, mounting, and different skins. Check the body orientation and held sword attachment.
+- Run `/bm reload` while a sword is held. Confirm animation support recovers after the reload.
+- Repeat interruption checks during movement, one-shot animation, ability, and ultimate: disconnect, die, change world, external teleport, plugin disable, server restart. Temporary displays and this plugin's trackers must clean up; legitimate game mode, teleport destination, and respawn location must remain.
+- Test a protection plugin cancelling a cosmetic entity spawn. Combat should still cast; failed presentation must not leave the player frozen, moved, or in another mode.
 
-## Configuration and deployment
+The vanilla first-person arm animation is expected to remain standard. Emissive texture overlays and dynamic world lighting depend on supported clients; assess those separately from ordinary particles and display effects.
 
-- Edit generated configuration and run `/ls reload`. Confirm new cooldown, damage, PvP, and pack settings take effect.
-- After changing base attack damage or attack speed, give a fresh sword and compare it with an old one. Item attributes are set when the sword is created.
-- Try malformed values on the test server and inspect logs and `/ls status` for clear validation behavior.
-- Replace the resource ZIP and update its SHA-1. Reconnect with a clean client cache and verify that the new pack is accepted.
-- Perform one final full restart. Join as a normal player, receive a sword from an operator, and use every ability and ultimate with the deployed plugins and pack.
+## Multiplayer, protection, and configuration
 
-Record the server build, BetterModel version, pack SHA-1, and results. Only claim runtime validation after these checks have actually been performed.
+- With PvP disabled, verify direct, chained, and area attacks do not damage players.
+- In a separate PvP test world, verify world PvP settings, friendly fire, spectator/creative exclusions, protected regions, invulnerability, and cancelled damage events remain respected.
+- Confirm owner pets and armor stands are excluded as intended. Decide how passive animals and other protected entities should be treated for your server.
+- Let damage through while cancelling entity ignition. Flame attacks must respect the cancelled combustion event. Modified burn duration should be honored without shortening an existing longer burn.
+- Verify cancelled damage does not apply associated knockback/fire or create recursive melee charge.
+- Edit damage/cooldown/PvP settings and run `/ls reload`. Give fresh swords after changing base attack attributes.
+- Replace the hosted final ZIP and update its SHA-1. Reconnect with a clean client cache and verify the updated pack is accepted.
+- Finish with a full restart and a non-operator player receiving all eight swords from an operator and trying every ability, ultimate, and pose.
+
+Report any failed step with the exact sword ID, `/ls status` output, server console exception if present, BetterModel version, and a short recording. Claim runtime validation only after it was actually performed.

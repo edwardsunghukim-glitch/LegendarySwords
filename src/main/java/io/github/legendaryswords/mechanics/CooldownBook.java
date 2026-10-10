@@ -40,4 +40,8 @@ public final class CooldownBook {
         long now = clock.getAsLong();
         expirations.entrySet().removeIf(entry -> entry.getValue() - now <= 0);
     }
+
+    public void clear(UUID player) {
+        expirations.keySet().removeIf(key -> key.player().equals(player));
+    }
 }

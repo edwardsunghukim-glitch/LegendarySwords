@@ -29,10 +29,11 @@ public final class SwordCatalog {
         ItemMeta meta = item.getItemMeta();
         meta.displayName(Component.text(sword.title(), sword.textColor()).decoration(TextDecoration.ITALIC, false));
         meta.lore(List.of(
-                Component.text("A legendary blade awakens.", NamedTextColor.GRAY).decoration(TextDecoration.ITALIC, false),
+                Component.text(sword.identity(), NamedTextColor.GRAY).decoration(TextDecoration.ITALIC, false),
                 Component.text("Right click: " + sword.ability(), sword.textColor()).decoration(TextDecoration.ITALIC, false),
                 Component.text("Sneak + right click: " + sword.ultimate(), NamedTextColor.GOLD).decoration(TextDecoration.ITALIC, false),
-                Component.text("Land melee hits to charge your ultimate.", NamedTextColor.DARK_GRAY).decoration(TextDecoration.ITALIC, false)));
+                Component.text("Land melee hits to charge your ultimate.", NamedTextColor.DARK_GRAY).decoration(TextDecoration.ITALIC, false),
+                Component.text("/ls pose: show this blade's stance.", NamedTextColor.DARK_GRAY).decoration(TextDecoration.ITALIC, false)));
         meta.getPersistentDataContainer().set(swordKey, PersistentDataType.STRING, sword.id());
         meta.setItemModel(new NamespacedKey("legendaryswords", sword.id()));
         meta.setEnchantmentGlintOverride(true);

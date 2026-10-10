@@ -1,6 +1,7 @@
 package io.github.legendaryswords;
 
 import io.github.legendaryswords.sword.SwordType;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -24,8 +25,8 @@ public final class SwordCommand implements CommandExecutor, TabCompleter {
     }
     @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0 || args[0].equalsIgnoreCase("help")) {
-            say(sender, "/ls list | /ls cinematics | /ls pack | /ls status");
-            if (sender.hasPermission("legendaryswords.admin")) say(sender, "/ls give [player] <sword|all> | /ls charge [player] <0-100> | /ls reload");
+            say(sender, "/ls list | /ls pose | /ls cinematics | /ls pack | /ls status");
+            if (sender.hasPermission("legendaryswords.admin")) say(sender, "/ls give [player] <sword|all> | /ls charge [player] <0-100> | /ls resetcooldowns [player] | /ls reload");
             return true;
         }
         switch (args[0].toLowerCase(Locale.ROOT)) {
@@ -59,11 +60,28 @@ public final class SwordCommand implements CommandExecutor, TabCompleter {
                     say(sender, target.getName() + " now has " + value + "/100 ultimate charge.");
                 } catch (NumberFormatException error) { say(sender, "Charge must be a whole number from 0 to 100."); }
             }
+            case "pose" -> {
+                if (!(sender instanceof Player player)) { say(sender, "Use /ls pose in-game while holding a legendary sword."); return true; }
+                if (!player.hasPermission("legendaryswords.use")) { say(sender, "You need legendaryswords.use to pose."); return true; }
+                var held = plugin.swords().identify(player.getInventory().getItemInMainHand());
+                if (held.isEmpty()) { say(sender, "Hold a legendary sword, then use /ls pose."); return true; }
+                if (!plugin.cooldowns().tryUse(player.getUniqueId(), "pose", Duration.ofSeconds(2))) return true;
+                plugin.animations().playPose(player, held.get().id());
+                say(sender, held.get().title() + " stance — view it in third person with F5.");
+            }
+            case "resetcooldowns" -> {
+                if (!admin(sender)) return true;
+                if (args.length > 2) { say(sender, "Usage: /ls resetcooldowns [player]"); return true; }
+                Player target = args.length == 1 ? (sender instanceof Player player ? player : null) : Bukkit.getPlayerExact(args[1]);
+                if (target == null) { say(sender, "Choose an online player."); return true; }
+                plugin.cooldowns().clear(target.getUniqueId());
+                say(sender, "Cleared " + target.getName() + "'s sword cooldowns.");
+            }
             case "cinematics" -> {
                 if (sender instanceof Player player) {
                     if (plugin.cinematics().active(player)) plugin.cinematics().cancel(player);
-                    say(sender, "Ultimate cameras " + (plugin.states().toggleCinematics(player.getUniqueId()) ? "enabled" : "disabled") + " for you.");
-                } else say(sender, "Players can toggle their own cameras with /ls cinematics.");
+                    say(sender, "Ultimate presentation " + (plugin.states().toggleCinematics(player.getUniqueId()) ? "enabled" : "disabled") + " for you.");
+                } else say(sender, "Players can toggle their own ultimate presentation with /ls cinematics.");
             }
             case "pack" -> {
                 if (sender instanceof Player player) plugin.packs().send(player);
@@ -74,10 +92,10 @@ public final class SwordCommand implements CommandExecutor, TabCompleter {
                 }
             }
             case "status" -> {
-                say(sender, "LegendarySwords " + plugin.getPluginMeta().getVersion() + " | Paper 1.21.11 / Java 21");
+                say(sender, "LegendarySwords " + plugin.getPluginMeta().getVersion() + " | Paper 1.21.11 / Java " + Runtime.version().feature());
                 say(sender, plugin.animations().status());
                 say(sender, "Automatic sword pack delivery: " + (plugin.packs().configured() ? "configured" : "off (install locally or set a URL)"));
-                say(sender, "PvP: " + plugin.settings().pvpEnabled() + "; cameras: " + plugin.settings().cinematicsEnabled());
+                say(sender, "Swords: " + SwordType.values().length + "; PvP: " + plugin.settings().pvpEnabled() + "; in-place presentation: " + plugin.settings().cinematicsEnabled());
             }
             case "reload" -> {
                 if (!admin(sender)) return true;
@@ -91,8 +109,8 @@ public final class SwordCommand implements CommandExecutor, TabCompleter {
     @Override public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         List<String> candidates = new ArrayList<>();
         if (args.length == 1) {
-            candidates.addAll(List.of("help", "list", "cinematics", "pack", "status"));
-            if (sender.hasPermission("legendaryswords.admin")) candidates.addAll(List.of("give", "charge", "reload"));
+            candidates.addAll(List.of("help", "list", "pose", "cinematics", "pack", "status"));
+            if (sender.hasPermission("legendaryswords.admin")) candidates.addAll(List.of("give", "charge", "resetcooldowns", "reload"));
         } else if (sender.hasPermission("legendaryswords.admin")) {
             if (args[0].equalsIgnoreCase("give") && (args.length == 2 || args.length == 3)) {
                 candidates.add("all"); Arrays.stream(SwordType.values()).forEach(sword -> candidates.add(sword.id()));
@@ -100,6 +118,8 @@ public final class SwordCommand implements CommandExecutor, TabCompleter {
             } else if (args[0].equalsIgnoreCase("charge") && (args.length == 2 || args.length == 3)) {
                 candidates.addAll(List.of("0", "50", "100"));
                 if (args.length == 2) Bukkit.getOnlinePlayers().forEach(player -> candidates.add(player.getName()));
+            } else if (args[0].equalsIgnoreCase("resetcooldowns") && args.length == 2) {
+                Bukkit.getOnlinePlayers().forEach(player -> candidates.add(player.getName()));
             }
         }
         String prefix = args.length == 0 ? "" : args[args.length - 1].toLowerCase(Locale.ROOT);

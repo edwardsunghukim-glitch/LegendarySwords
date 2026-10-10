@@ -1,31 +1,21 @@
-# LegendarySwords 0.1.0 download
+# LegendarySwords 0.2.0 downloads
 
-[Download the complete ZIP](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-download.zip)
+- [Updated plugin JAR](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-0.2.0.jar)
+- [All-in-one download](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-download.zip)
+- [Eight-sword resource pack](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-resource-pack.zip)
+- [Sixteen BetterModel model files](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-BetterModel-models.zip)
+- [Source code ZIP](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-source.zip)
 
-The ZIP contains the Paper 1.21.11 plugin, its resource pack, source code, and installation instructions. Extract it on your computer and follow INSTALL-FIRST.txt.
+Stop the server, replace the old LegendarySwords plugin JAR with version 0.2.0, and restart. Keep your config and player data. BetterModel integration targets the 3.1 API; BetterModel 3.1 requires Java 25 on the server. The core plugin can run on Java 21 without BetterModel. Building source requires JDK 25+.
 
-Validation: 30 Java tests and 8 resource-pack checks passed. Live Minecraft server/client testing remains.
+This version has eight distinct swords, sustained lasers and fire rings, ice/lightning/earth/wind/lunar effects, in-place ultimate presentation, and sword-specific idle, walk, run, pose, swing, ability, and ultimate clips. The plugin upgrades only known original model files and backs them up; edited server models are preserved.
 
-SHA-256: `5ff60f9141ee6fc73acb541b10e517c9c4bd7bdf6e09aee6de11c664a3e4e323`
+Run `/ls status` to check the animation integration. Test with `/ls give all`, `/ls charge 100`, `/ls resetcooldowns`, and `/ls pose`. Right click uses an ability; sneak + right click uses an ultimate. Use F5 for third-person body animations. Vanilla first-person arm swings remain standard.
 
-## Combined sword and BetterModel resource pack
+After installation, run `/bm reload` and download the NEW `plugins/BetterModel/build.zip`. Merge that regenerated pack with the eight-sword resource pack for one server pack. Use `scripts/merge_resource_packs.py` in the source ZIP, or send the freshly generated ZIP in the chat. The earlier `LegendarySwords-combined-resource-pack.zip` is an **outdated v0.1 snapshot** and does not include the new server model mappings. Installing the item pack alone does not supply BetterModel's generated animation assets.
 
-[Download one combined resource pack](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-combined-resource-pack.zip)
+Validation: 55 Java tests, 10 sword-pack checks, and 5 BetterModel asset checks passed. The integration compiles against the real BetterModel 3.1 API. Actual installed-snapshot behavior, client rendering, and multiplayer protections require the live-server checks in docs/TESTING.md.
 
-This Minecraft Java 1.21.11 pack merges the supplied BetterModel server pack with all three sword models and textures. It preserves all 6,085 BetterModel asset files. Keep the ZIP compressed, copy it into Minecraft's Resource Packs folder, and enable it in place of the two individual packs.
+Standalone eight-sword resource-pack SHA-1: `28ddba9fa143f9e313b339a9b936e5518f6525aa`
 
-For a server accepting one resource-pack URL, use the combined download URL above and its SHA-1 below. Configure the active server pack offer to use this combined file. If the server offers an old standalone pack, update that offer too. BetterModel's generated model assets and this combined ZIP must stay in sync: regenerate and merge again after changing models or animations. `/ls status` reports whether the plugin loaded its animation integration.
-
-SHA-1: `f820ff8990a7df10534e72e489836c2a8c76fe57`
-
-SHA-256: `e3ed142750429542a9b1a11f3b8cf3e80bb79403333f52cbc1f8aec474a2d2f0`
-
-Validation: both input ZIPs and the combined ZIP passed CRC checks; all JSON/metadata files parsed; all copied assets were verified byte-for-byte; all three custom sword item definitions resolve to their models. Live Minecraft rendering and server animation playback remain to be checked.
-
-## BetterModel source models for manual installation
-
-[Download the six BetterModel models](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-BetterModel-models.zip)
-
-LegendarySwords normally installs these files automatically when it starts with a compatible enabled BetterModel. For manual installation, extract the ZIP and upload the three `.bbmodel` files in `players/` to `plugins/BetterModel/players/`, and the three in `models/` to `plugins/BetterModel/models/`. Keep filenames unchanged and preserve existing edited copies. The player-template license and detailed `INSTALL-MODELS.txt` instructions are included.
-
-Restart/reload BetterModel and check `/ls status`. If adding these models regenerates `build.zip`, merge that new ZIP with the sword pack again so client assets match the server. The previously published combined pack is a snapshot of the earlier uploaded BetterModel build.
+All-in-one bundle SHA-256: `f57901bbafc99d862e4f98c45e0d875e2c675bf49023c8811d1150b98f0ab15d`

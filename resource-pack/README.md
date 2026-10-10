@@ -1,12 +1,20 @@
 # LegendarySwords resource pack
 
-This pack adds original voxel artwork for three Zelda sword names. The geometry,
+This pack adds original voxel artwork for eight Zelda sword names. The geometry,
 pixel textures and icon were drawn for this project, rather than extracted from
 Nintendo games. Models include a purple winged hilt and cyan inlay for the Master
 Sword, animated molten cracks for the Flameblade, and an open double-helix blade
 with animated lunar energy for the Fierce Deity Sword. Raised sacred crests,
 filigree, grip wraps, jeweled pommels, rivets and carved blade channels add real
 geometry rather than relying only on flat textures.
+
+The new Frostblade has an asymmetric jagged crystalline edge, and the
+Thunderblade has open conductor rails with a forked electric tip. The Royal
+Claymore uses a broad silver blade, crimson enamel and golden laurel engraving.
+The Eightfold Blade is a slim curved katana with a sculpted octagonal guard and
+diamond-wrapped lacquered grip. The Biggoron Sword has a massive rounded blade,
+amber stone setting and raised mountain runes. These are different silhouettes
+and fittings, rather than copies of the same sword with different colors.
 
 The target is **Minecraft Java 1.21.11**, resource pack format **75.0**. The pack
 uses modern item definitions, not overrides of every vanilla diamond sword.
@@ -16,11 +24,19 @@ uses modern item definitions, not overrides of every vanilla diamond sword.
 | `legendaryswords:master_sword` | `assets/legendaryswords/items/master_sword.json` | `models/item/master_sword.json` |
 | `legendaryswords:flameblade` | `assets/legendaryswords/items/flameblade.json` | `models/item/flameblade.json` |
 | `legendaryswords:fierce_deity_sword` | `assets/legendaryswords/items/fierce_deity_sword.json` | `models/item/fierce_deity_sword.json` |
+| `legendaryswords:frostblade` | `assets/legendaryswords/items/frostblade.json` | `models/item/frostblade.json` |
+| `legendaryswords:thunderblade` | `assets/legendaryswords/items/thunderblade.json` | `models/item/thunderblade.json` |
+| `legendaryswords:royal_claymore` | `assets/legendaryswords/items/royal_claymore.json` | `models/item/royal_claymore.json` |
+| `legendaryswords:eightfold_blade` | `assets/legendaryswords/items/eightfold_blade.json` | `models/item/eightfold_blade.json` |
+| `legendaryswords:biggoron_sword` | `assets/legendaryswords/items/biggoron_sword.json` | `models/item/biggoron_sword.json` |
 
 The plugin sets `ItemMeta.setItemModel` to these keys. Texture animation metadata
-defines four 64×64 frames for the Flameblade and Fierce Deity Sword. The Master
-Sword uses a static 64×64 atlas. All models have custom held, inventory, dropped
-item and item-frame transforms.
+defines four **128×128 frames for every sword**. Only the energy, runes and gems
+animate; ordinary metal and grip materials remain still. Molten cracks,
+traveling ice facets, electric zigzags and lunar waves each use a different
+pattern and pace. All eight models have custom held, inventory, dropped-item
+and item-frame transforms; the two greatswords use smaller inventory scales.
+Models contain 47–58 cubes each, below the enforced 80-cube budget.
 
 ## Build and check
 
@@ -34,7 +50,7 @@ python3 scripts/test_resource_pack.py
 python3 scripts/build_resource_pack.py
 ```
 
-The builder checks modern item definitions, geometry, resource references, PNG
+The builder checks modern item definitions, bounded geometry, held transforms, resource references, PNG
 checksums and animation frames. It creates:
 
 - `target/LegendarySwords-resource-pack.zip`
@@ -48,7 +64,7 @@ same bytes and SHA-1 when built with the Python builder.
 To edit the art, change the static JSON/PNG files with Blockbench or another
 resource pack editor. Alternatively, change the authoring code and explicitly
 run `python3 scripts/generate_resource_pack_assets.py`. That command regenerates
-and overwrites the three original sword models, textures and the pack icon;
+and overwrites the eight original sword models, textures and the pack icon;
 normal builds never run it.
 
 ![Actual original voxel item models](preview.png)

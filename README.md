@@ -1,80 +1,81 @@
 # LegendarySwords
 
-A first playable Paper 1.21.11 plugin with the Master Sword, Flameblade, and Fierce Deity Sword: custom item models, animated textures, abilities, charged ultimates, particles, sounds, and short optional cinematic cameras. BetterModel adds third-person character animations when its bundled animation assets are installed.
+Paper **1.21.11** plugin with eight detailed Zelda sword designs, visible abilities, charged ultimates, and sword-specific BetterModel animations. **BetterModel 3.1 requires Java 25**; core combat without BetterModel can run on Java 21. Version **0.2.0** adds distinct laser, fire, lunar, ice, lightning, ground, wind, and heavy-blade effects. Ultimates start independently of the cosmetic presentation, which stays at the casting position without moving the player or changing game mode.
 
-The artwork and animations are original fan-made assets inspired by the named Zelda swords. This is an initial implementation to try and tune on a test server.
+The artwork and animation keyframes are original fan-made assets inspired by the named swords. Server compilation and automated checks do not verify how Minecraft renders them; complete the [real-server checklist](docs/TESTING.md).
 
 ![Preview rendered from the supplied sword geometry](resource-pack/preview.png)
 
-## Install and try it
+## Install or update
 
-You can install the compiled release without installing Java or Maven on your own computer. Your server needs Paper **1.21.11** and **Java 21**. BetterModel is optional; the swords and abilities work without it.
+1. Stop the server, remove the old LegendarySwords JAR from `plugins`, and upload **`LegendarySwords-0.2.0.jar`**. Keep only one version of the plugin.
+2. Start the server. Install the **new** `LegendarySwords-resource-pack.zip` for the eight sword item models.
+3. If using BetterModel, let the plugin install/update its bundled models, run `/bm reload`, and download the newly generated `plugins/BetterModel/build.zip`.
+4. Combine that fresh BetterModel pack with the new sword pack if your server accepts one resource-pack URL. **An older combined pack does not contain the new models.** See [the BetterModel guide](docs/BETTERMODEL.md).
+5. Join as an operator and run `/ls status`, `/ls give all`, and `/ls charge 100`.
 
-1. Put `LegendarySwords-0.1.0.jar` in your server's `plugins` folder and restart the server.
-2. Install `LegendarySwords-resource-pack.zip` as a server resource pack, or add it to your Minecraft client's Resource Packs screen for an initial test.
-3. Join as an operator and run `/ls give all`.
-4. Hold a sword. **Right-click** uses its ability; **sneak + right-click** uses its ultimate when charge reaches 100.
-5. Run `/ls charge 100` to test an ultimate without fighting mobs first.
+You do not need Java or Maven installed on your computer to upload the compiled plugin. The server needs **Java 25 when using BetterModel 3.1**. BetterModel is optional for combat and particle/display effects; its generated pack is required for body animations and slash models. The integration uses **BetterModel 3.1's API**. The installed `3.1-SNAPSHOT-526` build needs a real-server animation check; compilation cannot prove snapshot runtime behavior.
 
-Normal sword hits earn **10 charge**, and melee kills add **20** more. Charge caps at 100. The action bar shows charge and ability cooldown. `/ls cinematics` toggles your cinematic camera.
+**Right-click** uses an ability. **Sneak + right-click** uses the ultimate at 100 charge. Successful normal melee hits earn **10 charge**, and melee kills add **20** more. Ability damage does not generate charge. Use `/ls pose` while holding a sword to play its pose. In third person, idle, walking, and sprinting select the equipped sword's own animation.
 
-| Sword | Right-click ability | Charged ultimate | Default cooldowns |
+| Sword ID | Right-click ability | Charged ultimate | Default cooldowns |
 | --- | --- | --- | --- |
-| Master Sword | Skyward Slash: a blue beam reaching 14 blocks | Sacred Storm: sacred rings, light pillars, and regeneration | 7 seconds / 75 seconds |
-| Flameblade | Flame Arc: a burning cone reaching 6 blocks | Inferno Awakening: expanding waves of fire | 9 seconds / 90 seconds |
-| Fierce Deity Sword | Crescent Moon: a slowing crescent reaching 7 blocks | Lunar Judgment: slowing lunar waves | 8 seconds / 90 seconds |
+| `master_sword` | Skyward Laser: sustained luminous beam | Triforce Judgment: sacred beam attack | 7 s / 75 s |
+| `flameblade` | Ring of Fire: visible ring of flames | Inferno Vortex: expanding fire columns | 9 s / 90 s |
+| `fierce_deity_sword` | Lunar Crescent: traveling crescent | Falling Moon: lunar meteors | 8 s / 90 s |
+| `frostblade` | Ice Fang: rising ice spikes | Frozen Sanctuary: swirling blizzard | 8 s / 80 s |
+| `thunderblade` | Chain Lightning: connected lightning strikes | Thunderstorm: overhead storm strikes | 9 s / 85 s |
+| `royal_claymore` | Royal Faultline: ground fissure | King's Verdict: giant blade slam | 10 s / 95 s |
+| `eightfold_blade` | Gale Step: traveling wind ribbons | Eightfold Tempest: angled wind cuts | 6 s / 70 s |
+| `biggoron_sword` | Goron Spin: oversized spinning blade | Mountain Breaker: radial earth eruption | 12 s / 100 s |
 
-Ultimates create four themed damage waves, 22 ticks apart, with radii of 2, 4, 6, and 8 blocks. An optional camera lasting about 1.8 seconds shows an awakening sword; with BetterModel it also shows an animated hero at the casting position. The waves start when that camera finishes. Damage, cooldowns, camera settings, and charge gains are configurable.
+Cooldowns, damage, charge, PvP, and presentation settings are configurable. Particles and temporary display models provide visible attacks even when BetterModel is absent. These effects do not permanently alter terrain. Player ability damage is disabled by default; test your protection plugins before enabling PvP.
 
-See [installation steps for Minehut and Windows](docs/INSTALLATION.md), [BetterModel setup](docs/BETTERMODEL.md), and the [server testing checklist](docs/TESTING.md). The [resource pack guide](resource-pack/README.md) covers pack merging and visual limitations.
+See [Minehut and Windows installation](docs/INSTALLATION.md), [BetterModel setup and pack merging](docs/BETTERMODEL.md), and [the testing checklist](docs/TESTING.md).
 
 ## Commands
 
-`/legendaryswords` and `/ls` are equivalent. Give and charge commands can target yourself when used in-game, or name an online player. Use the full form from the console.
+`/legendaryswords`, `/ls`, and `/swords` refer to the same command. Give, charge, and cooldown reset commands can target yourself in-game or name an online player; use a named player from the console.
 
 | Command | Purpose |
 | --- | --- |
-| `/ls give [player] <sword\|all>` | Give one sword or all three |
+| `/ls give [player] <sword\|all>` | Give one sword or all eight |
 | `/ls list` | List sword IDs, abilities, and ultimates |
 | `/ls charge [player] <0-100>` | Set ultimate charge for testing |
-| `/ls cinematics` | Toggle your cinematic camera |
+| `/ls resetcooldowns [player]` | Clear that player's cooldowns for testing |
+| `/ls pose` | Play the equipped sword's pose |
+| `/ls cinematics` | Toggle the in-place ultimate presentation |
 | `/ls pack` | Request the configured resource pack |
 | `/ls status` | Show plugin, pack, and animation status |
 | `/ls reload` | Reload plugin configuration |
 
-Sword IDs are `master_sword`, `flameblade`, and `fierce_deity_sword`.
-
-`legendaryswords.admin` controls administrative commands and defaults to operators. `legendaryswords.use` permits sword abilities and defaults to everyone. Player versus player ability damage is disabled by default. Test interactions with your server's protection plugins before enabling PvP.
+`legendaryswords.admin` controls give, charge, reset, and reload commands and defaults to operators. `legendaryswords.use` permits sword abilities and poses and defaults to everyone. The pose has a short two-second cooldown.
 
 ## Build from source
 
-Install a **Java 21 JDK** and **Maven 3.9+**, then open a terminal in the folder containing `pom.xml`:
+Install a **Java 25+ JDK** and **Maven 3.9+**, then open a terminal in the folder containing `pom.xml`. The BetterModel API dependency requires the newer JDK even though core plugin classes target Java 21:
 
 ```sh
 mvn --batch-mode verify
 ```
 
-The build runs unit tests and creates:
-
-- `target/LegendarySwords-0.1.0.jar`
-- `target/LegendarySwords-resource-pack.zip`
-
-Optionally, use Python 3's standard library to create a source ZIP and a download bundle containing the JAR, pack, hash, source, and installation notes:
+This runs Java unit tests and creates `target/LegendarySwords-0.2.0.jar` and `target/LegendarySwords-resource-pack.zip`. Python 3's standard library can validate the pack and create the source, model, and complete download ZIPs:
 
 ```sh
+python3 scripts/build_resource_pack.py --validate-only
+python3 scripts/test_resource_pack.py
+python3 scripts/test_bettermodel_assets.py
 python3 scripts/create_release.py
 ```
 
-This produces `target/LegendarySwords-source.zip` and `target/LegendarySwords-download.zip`.
+The complete bundle contains the JAR, sword pack and hash, source ZIP, separate sixteen-model BetterModel ZIP, and beginner installation notes. It does not contain a freshly generated BetterModel `build.zip`: BetterModel must generate that on the server after the updated models are installed.
 
-Build outputs in `target/` are ignored by Git. To publish changes, commit the source files using GitHub Desktop and press **Push origin**. [The installation guide](docs/INSTALLATION.md#put-the-source-in-your-github-repository) explains how to extract a source ZIP into an empty cloned repository.
+Build outputs in `target/` are ignored by Git. [The installation guide](docs/INSTALLATION.md#put-the-source-in-your-github-repository) explains extracting the source into an existing GitHub Desktop repository.
 
-## What the visuals can do
+## Visual limits and validation
 
-The resource pack supplies custom sword geometry and textures. Enchantment glint, particles, and animated textures give a glowing appearance. Actual light cast into the world or shader-style emissive textures requires compatible client support.
+The sword pack provides custom geometry, animated energy textures, glint, and optional emissive overlays. Shader bloom and light illuminating nearby blocks depend on compatible client support. Temporary attack displays use full brightness but do not emit world lighting.
 
-BetterModel animations are visible as third-person player limb movement. A normal resource pack cannot replace the vanilla first-person arm swing with an arbitrary animation. The plugin provides an optional short third-person camera for ultimates; it does not require a client mod for the core abilities.
+BetterModel replaces the rendered third-person body with an animated player model while a sword is held. It provides distinct idle, walk, run, pose, swing, ability, and ultimate clips for each sword. **The vanilla first-person arm swing is unchanged.** Use F5 or another player's view to inspect body animations.
 
-BetterModel integration targets **1.15.2**. To see its animated bodies and slash models, distribute BetterModel's generated pack together with the sword pack; [follow the integration guide](docs/BETTERMODEL.md).
-
-Automated tests check charge, cooldowns, sword IDs, hit geometry, mocked combat event handling, and mocked cinematic cleanup and saved-state recovery. Loading the plugin, client asset acceptance, animations, camera presentation, and multiplayer protection behavior still require the [manual checks](docs/TESTING.md) on a real Paper server.
+Automated tests cover mechanics and mocked lifecycle/protection behavior; pack checks verify file structure, references, textures, and animation data. Real client presentation, installed BetterModel compatibility, and multiplayer behavior remain manual server checks.

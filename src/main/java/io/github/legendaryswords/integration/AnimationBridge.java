@@ -39,6 +39,15 @@ public interface AnimationBridge extends AutoCloseable {
 
     default void playPose(Player player, String swordId) { }
 
+    /** Ends only the caster's temporary body animation, keeping attack effects alive. */
+    default void stopCastAnimation(Player player) { }
+
+    /** Holds the ultimate's final pose until its scene explicitly releases it. */
+    default void holdCastAnimation(Player player) { }
+
+    /** Minimum wind-up duration so the ultimate animation can finish before impact. */
+    default int ultimateSceneTicks(String swordId) { return 64; }
+
     enum Locomotion { IDLE, WALK, RUN }
 
 

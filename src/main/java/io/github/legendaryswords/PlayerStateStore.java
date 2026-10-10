@@ -28,6 +28,7 @@ public final class PlayerStateStore implements AutoCloseable {
     }
     public ChargeMeter charge(UUID player) { return state(player).charge; }
     public boolean cinematics(UUID player) { return state(player).cinematics; }
+    public void setCinematics(UUID player, boolean enabled) { state(player).cinematics = enabled; }
     public boolean toggleCinematics(UUID player) { State state = state(player); return state.cinematics = !state.cinematics; }
     public void unload(UUID player) {
         State state = loaded.remove(player);

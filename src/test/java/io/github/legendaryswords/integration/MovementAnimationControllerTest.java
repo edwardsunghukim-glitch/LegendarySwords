@@ -24,6 +24,19 @@ import org.bukkit.scheduler.BukkitTask;
 import org.junit.jupiter.api.Test;
 
 class MovementAnimationControllerTest {
+    @Test void castOnlyMonitoringDoesNotCancelAnActiveCastWhenThePlayerFliesOrSprints() {
+        Fixture f = new Fixture();
+        f.config.set("bettermodel.abilities-only", true);
+        when(f.player.isFlying()).thenReturn(true);
+        when(f.player.isSprinting()).thenReturn(true);
+        f.tick.get().run();
+        verify(f.bridge).tickMovement(f.player, "master_sword", IDLE);
+        verify(f.bridge, never()).stopMovement(any());
+        when(f.swords.identify(any())).thenReturn(Optional.empty());
+        f.tick.get().run();
+        verify(f.bridge).stopMovement(f.player);
+        f.controller.close();
+    }
     @Test void walkRunAndStillnessHysteresisUseActualHorizontalMovement() {
         assertEquals(WALK, MovementAnimationController.select(.10, false, 0, IDLE));
         assertEquals(RUN, MovementAnimationController.select(.10, true, 0, WALK));
@@ -59,6 +72,7 @@ class MovementAnimationControllerTest {
 
     private static final class Fixture {
         final AnimationBridge bridge = mock(AnimationBridge.class);
+        final org.bukkit.configuration.file.YamlConfiguration config = new org.bukkit.configuration.file.YamlConfiguration();
         final SwordCatalog swords = mock(SwordCatalog.class);
         final Player player = mock(Player.class);
         final World world = mock(World.class);
@@ -68,6 +82,8 @@ class MovementAnimationControllerTest {
         final MovementAnimationController controller;
         Fixture() {
             JavaPlugin plugin = mock(JavaPlugin.class);
+            config.set("bettermodel.abilities-only", false);
+            when(plugin.getConfig()).thenReturn(config);
             Server server = mock(Server.class);
             BukkitScheduler scheduler = mock(BukkitScheduler.class);
             when(plugin.getServer()).thenReturn(server);

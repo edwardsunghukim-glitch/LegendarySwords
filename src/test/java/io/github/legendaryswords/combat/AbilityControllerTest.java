@@ -93,6 +93,7 @@ class AbilityControllerTest {
         when(states.charge(ownerId)).thenReturn(charge);
         when(settings.stats(any(SwordType.class))).thenReturn(new PluginSettings.SwordStats(10, 1.6, 8, 5, 6, 90));
         when(cinematics.canRun(player)).thenReturn(true);
+        when(cinematics.durationTicks(any(SwordType.class))).thenReturn(64);
         when(target.getUniqueId()).thenReturn(UUID.fromString("00000000-0000-0000-0000-000000000004"));
         when(target.getLocation()).thenAnswer(invocation -> new Location(world, 12, 70, 20));
         when(target.getWorld()).thenReturn(world);
@@ -118,6 +119,15 @@ class AbilityControllerTest {
             scheduled.add(frame);
             BukkitTask task = mock(BukkitTask.class);
             when(task.getTaskId()).thenReturn(id);
+            return task;
+        });
+        when(scheduler.runTaskLater(eq(plugin), any(Runnable.class), anyLong())).thenAnswer(invocation -> {
+            int id = scheduled.size() + 1;
+            Scheduled frame = new Scheduled(id, invocation.getArgument(1), invocation.getArgument(2), 0);
+            scheduled.add(frame);
+            BukkitTask task = mock(BukkitTask.class);
+            when(task.getTaskId()).thenReturn(id);
+            doAnswer(call -> { frame.cancelled = true; return null; }).when(task).cancel();
             return task;
         });
         doAnswer(invocation -> {
@@ -147,6 +157,44 @@ class AbilityControllerTest {
         verify(combat, atLeastOnce()).damage(eq(player), eq(target), anyDouble(), any(Vector.class), anyInt());
         verify(player, never()).setGameMode(any(GameMode.class));
         verify(player, never()).teleport(any(Location.class));
+    }
+
+    @Test void ultimateWaitsForTheSceneThenReleasesExactlyOnceEvenIfCompletionRepeats() {
+        java.util.concurrent.atomic.AtomicReference<Runnable> completion = new java.util.concurrent.atomic.AtomicReference<>();
+        doAnswer(call -> { completion.set(call.getArgument(2)); return null; })
+                .when(cinematics).start(eq(player), eq(SwordType.FLAMEBLADE), any(Runnable.class));
+        controller.activate(player, SwordType.FLAMEBLADE, true);
+        advanceTicks(40);
+        verifyNoInteractions(combat);
+        assertEquals(0, charge.value());
+        int beforeRelease = scheduled.size();
+        completion.get().run();
+        int afterRelease = scheduled.size();
+        assertTrue(afterRelease > beforeRelease);
+        completion.get().run();
+        assertEquals(afterRelease, scheduled.size());
+        advanceTicks(120);
+        assertEquals(afterRelease, scheduled.size(), "The cancelled fallback cannot launch another ultimate");
+        verify(combat, atLeastOnce()).damage(eq(player), eq(target), anyDouble(), any(Vector.class), anyInt());
+    }
+
+    @Test void cancelledOrClosedWindupsCannotDealDamageWhenLateSceneCallbacksArrive() {
+        java.util.concurrent.atomic.AtomicReference<Runnable> completion = new java.util.concurrent.atomic.AtomicReference<>();
+        doAnswer(call -> { completion.set(call.getArgument(2)); return null; })
+                .when(cinematics).start(eq(player), eq(SwordType.FLAMEBLADE), any(Runnable.class));
+        controller.activate(player, SwordType.FLAMEBLADE, true);
+        controller.cancel(player);
+        completion.get().run();
+        advanceTicks(120);
+        verifyNoInteractions(combat);
+
+        charge.set(100);
+        cooldowns.clear(player.getUniqueId());
+        controller.activate(player, SwordType.FLAMEBLADE, true);
+        controller.close();
+        completion.get().run();
+        advanceTicks(120);
+        verifyNoInteractions(combat);
     }
 
     @Test
@@ -213,7 +261,8 @@ class AbilityControllerTest {
             for (Scheduled frame : List.copyOf(scheduled)) {
                 if (!frame.cancelled && frame.nextTick <= tick) {
                     frame.runnable.run();
-                    frame.nextTick += frame.period;
+                    if (frame.period == 0) frame.cancelled = true;
+                    else frame.nextTick += frame.period;
                 }
             }
         }

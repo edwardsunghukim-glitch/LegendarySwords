@@ -7,6 +7,8 @@ import io.github.legendaryswords.sword.SwordType;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 import net.kyori.adventure.text.Component;
@@ -36,6 +38,7 @@ public final class CinematicDirector implements AutoCloseable {
         ItemDisplay blade;
         BukkitTask task;
         boolean finished;
+        final List<Player> viewers = new ArrayList<>();
 
         Session(Player player, Runnable completed) {
             this.player = player;
@@ -61,6 +64,10 @@ public final class CinematicDirector implements AutoCloseable {
 
     public boolean active(Player player) { return sessions.containsKey(player.getUniqueId()); }
 
+    public int durationTicks(SwordType sword) {
+        return Math.clamp(Math.max(settings.cinematicTicks(), plugin.animations().ultimateSceneTicks(sword.id())), 12, 160);
+    }
+
     public boolean canRun(Player player) {
         return settings.cinematicsEnabled() && states.cinematics(player.getUniqueId())
                 && player.isOnline() && !player.isDead() && player.getGameMode() != GameMode.SPECTATOR
@@ -76,8 +83,14 @@ public final class CinematicDirector implements AutoCloseable {
         Session session = new Session(player, completed);
         sessions.put(player.getUniqueId(), session);
         try {
+            int duration = durationTicks(sword);
+            plugin.animations().holdCastAnimation(player);
             session.origin = player.getLocation().clone();
-            Location focus = session.origin.clone().add(0, 1.65, 0);
+            // Spawning at the caster's eye puts the blade inside the first-person camera.
+            // Present it ahead of the caster, keeping the real player and movement untouched.
+            Location facing = session.origin.clone();
+            facing.setPitch(0);
+            Location focus = session.origin.clone().add(facing.getDirection().multiply(2.5)).add(0, 1.35, 0);
             session.blade = focus.getWorld().spawn(focus, ItemDisplay.class, blade -> {
                 // Retain the entity even if another initializer operation fails.
                 session.blade = blade;
@@ -92,11 +105,18 @@ public final class CinematicDirector implements AutoCloseable {
                 blade.setPersistent(false);
                 blade.setGravity(false);
                 blade.setInterpolationDuration((int) FRAME_TICKS);
+                blade.setTransformation(new Transformation(new Vector3f(), new Quaternionf(),
+                        new Vector3f(0.05f), new Quaternionf()));
             });
-            player.showTitle(Title.title(Component.text(sword.ultimate(), sword.textColor()),
+            session.viewers.add(player);
+            for (Player viewer : session.origin.getWorld().getPlayers()) {
+                if (viewer != player && viewer.canSee(player)
+                        && viewer.getLocation().distanceSquared(session.origin) <= 40 * 40) session.viewers.add(viewer);
+            }
+            Title introduction = Title.title(Component.text(sword.ultimate(), sword.textColor()),
                     Component.text("The blade awakens", NamedTextColor.WHITE),
-                    Title.Times.times(Duration.ofMillis(150), Duration.ofMillis(settings.cinematicTicks() * 50L), Duration.ofMillis(250))));
-            int duration = settings.cinematicTicks();
+                    Title.Times.times(Duration.ofMillis(150), Duration.ofMillis(duration * 50L), Duration.ofMillis(250)));
+            session.viewers.forEach(viewer -> viewer.showTitle(introduction));
             session.task = new BukkitRunnable() {
                 int tick;
 
@@ -115,10 +135,33 @@ public final class CinematicDirector implements AutoCloseable {
                         }
                         double progress = (double) tick / duration;
                         float lift = (float) Math.sin(progress * Math.PI) * 0.65f;
+                        float reveal = (float) Math.min(1, progress / 0.35);
+                        reveal = reveal * reveal * (3 - 2 * reveal);
+                        float scale = 0.05f + 1.35f * reveal;
+                        Vector3f translation = new Vector3f(0, lift, 0);
+                        Quaternionf rotation = new Quaternionf().rotationY((float) (progress * Math.PI * 2));
+                        switch (sword) {
+                            case FLAMEBLADE -> rotation.rotationY((float) (progress * Math.PI * 6));
+                            case FIERCE_DEITY_SWORD -> {
+                                translation.x = (float) Math.sin(progress * Math.PI * 2) * 0.6f;
+                                rotation.rotateZ((float) Math.sin(progress * Math.PI) * 0.8f);
+                            }
+                            case FROSTBLADE -> rotation.rotationY((float) (progress * Math.PI));
+                            case THUNDERBLADE -> {
+                                translation.x = (float) Math.sin(progress * Math.PI * 10) * 0.2f;
+                                rotation.rotateZ((float) Math.sin(progress * Math.PI * 10) * 0.2f);
+                            }
+                            case ROYAL_CLAYMORE -> { translation.y = lift * 2; scale *= 1.3f; }
+                            case EIGHTFOLD_BLADE -> {
+                                translation.z = (float) Math.sin(progress * Math.PI * 2) * 0.6f;
+                                rotation.rotationY((float) (progress * Math.PI * 6));
+                            }
+                            case BIGGORON_SWORD -> { translation.y = lift * 2.5f; scale *= 1.5f; rotation.rotateZ((float) (progress * Math.PI * 2)); }
+                            default -> { }
+                        }
                         session.blade.setInterpolationDelay(0);
-                        session.blade.setTransformation(new Transformation(new Vector3f(0, lift, 0),
-                                new Quaternionf().rotationY((float) (progress * Math.PI * 2)),
-                                new Vector3f(1.4f + (float) Math.sin(progress * Math.PI) * 0.35f), new Quaternionf()));
+                        session.blade.setTransformation(new Transformation(translation, rotation,
+                                new Vector3f(scale), new Quaternionf()));
                         effects.ring(session.origin.clone().add(0, 0.15, 0), 1.1 + progress * 1.5, sword);
                         effects.pulse(focus.clone().add(0, lift, 0), sword);
                         tick += FRAME_TICKS;
@@ -141,6 +184,7 @@ public final class CinematicDirector implements AutoCloseable {
         if (session.task != null) cleanup(session.task::cancel);
         if (session.blade != null) cleanup(session.blade::remove);
         cleanup(() -> plugin.animations().cancelCinematic(session.player));
+        cleanup(() -> plugin.animations().stopCastAnimation(session.player));
         // Combat must never depend on a successful visual scene or on spectator restoration.
         complete(session.completed);
     }

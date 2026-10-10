@@ -40,7 +40,8 @@ public final class SwordListener implements Listener {
     }
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onSwing(PlayerAnimationEvent event) {
-        if (event.getAnimationType() != PlayerAnimationType.ARM_SWING || plugin.cinematics().active(event.getPlayer())
+        if (plugin.getConfig().getBoolean("bettermodel.abilities-only", true)
+                || event.getAnimationType() != PlayerAnimationType.ARM_SWING || plugin.cinematics().active(event.getPlayer())
                 || !event.getPlayer().hasPermission("legendaryswords.use")) return;
         plugin.swords().identify(event.getPlayer().getInventory().getItemInMainHand()).ifPresent(sword -> {
             if (!plugin.cooldowns().tryUse(event.getPlayer().getUniqueId(), "swing", Duration.ofMillis(300))) return;
@@ -57,24 +58,24 @@ public final class SwordListener implements Listener {
     public void onKill(EntityDeathEvent event) { plugin.combat().observeKill(event); }
     @EventHandler(priority = EventPriority.MONITOR)
     public void onDeath(PlayerDeathEvent event) {
-        plugin.cinematics().cancel(event.getEntity());
         plugin.abilities().cancel(event.getEntity());
+        plugin.cinematics().cancel(event.getEntity());
     }
     @EventHandler(priority = EventPriority.MONITOR)
     public void onQuit(PlayerQuitEvent event) {
-        plugin.cinematics().cancel(event.getPlayer());
         plugin.abilities().cancel(event.getPlayer());
+        plugin.cinematics().cancel(event.getPlayer());
         plugin.states().unload(event.getPlayer().getUniqueId());
     }
     @EventHandler(priority = EventPriority.MONITOR)
     public void onWorldChange(PlayerChangedWorldEvent event) {
-        plugin.cinematics().cancel(event.getPlayer());
         plugin.abilities().cancel(event.getPlayer());
+        plugin.cinematics().cancel(event.getPlayer());
     }
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onTeleport(PlayerTeleportEvent event) {
-        plugin.cinematics().cancelForTeleport(event.getPlayer());
         plugin.abilities().cancel(event.getPlayer());
+        plugin.cinematics().cancelForTeleport(event.getPlayer());
     }
     @EventHandler(priority = EventPriority.MONITOR)
     public void onJoin(PlayerJoinEvent event) {

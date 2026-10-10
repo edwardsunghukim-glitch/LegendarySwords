@@ -88,83 +88,60 @@ def main():
         combined_note = "The matching combined pack is included in this bundle."
     instructions = f"""LegendarySwords {version} — Paper 1.21.11
 
-BetterModel 3.1 requires Java 25 on the SERVER. Core combat without BetterModel
-can run on Java 21. Uploading this compiled release needs no JDK on your computer.
-Building source yourself requires a Java 25+ JDK and Maven 3.9+.
+Stop the server, remove the previous LegendarySwords JAR from plugins, upload
+{jar.name} directly into plugins and restart. Keep only one plugin JAR.
+Keep your existing configuration and player data. BetterModel 3.1 requires Java
+25 on the server; uploading this compiled JAR needs no JDK on your computer.
 
-Install the new JAR. Keep LegendarySwords-combined-resource-pack-0.2.2.zip if you
-already use it; 0.2.3 changes no resource-pack assets, model geometry or textures.
-For first installation or an upgrade from 0.2.0/0.2.1, download the 0.2.2 pack:
-https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-combined-resource-pack-0.2.2.zip
+Character animations play ONLY during abilities and ultimates. Standing,
+walking, running, ordinary swings and manual poses use normal player movement.
+bettermodel.abilities-only and bettermodel.cast-body-animations default to true,
+including old configs. The old player-body-animations false does not disable
+new temporary casts. Cast bodies restore after their clip/scene ends.
+
+Ultimates use a shared charge/reveal scene, then release the attack and damage
+once. The sword appears ahead of the caster; nearby visible players within
+40 blocks receive the same title and see world effects. The final caster pose
+holds until scene completion. There are no forced cameras, teleports or changes
+to game mode. Use F5 to inspect body animations; first-person arms stay vanilla.
+A timed fallback releases a stalled visual scene once. Death, teleport, world
+change or shutdown disarms pending attacks.
+
+Run /ls cinematics on and /ls cinematics status. Server cinematics.enabled must
+be true. Use /ls give all, /ls charge 100 and /ls resetcooldowns to test.
+Right-click = ability. Sneak + right-click = charged ultimate.
+Player-target damage still needs pvp-enabled true and protection permission.
+
+Temporary cast bodies still use BetterModel's equipment path. The item-copy and
+server-thread snapshot fixes remain, but the prior disconnect has not been
+validated on a live client. If it recurs, set bettermodel.cast-body-animations
+false and restart; shared scenes and attack effects remain without disguises.
+
+Reuse LegendarySwords-combined-resource-pack-0.2.2.zip if already installed.
+No model/texture/clip/client asset changes are included in {version}.
 {combined_note}
-If the bundle contains a combined pack named 0.2.3, it is a byte-identical alias
-of the 0.2.2 combined ZIP. There is no need to replace an installed 0.2.2 pack.
+A combined ZIP named {version} in this bundle is byte-identical to the 0.2.2 ZIP.
+For first installation or an older pack, download the combined pack from:
+https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-combined-resource-pack-0.2.2.zip
+Keep it zipped in Minecraft Options > Resource Packs > Open Pack Folder.
+The standalone sword pack does not contain BetterModel's generated rig/shaders.
 
-0.2.3 responds to a reported Minecraft 1.21.11 equipment-packet decoder disconnect
-with 557 unread bytes on Paper 1.21.11 and BetterModel 3.1-SNAPSHOT-526. It copies
-item metadata before replacing inventory items and supplies BetterModel cached
-item snapshots captured on the server thread. The exact packet cause has not
-been proven, and no live-client test has been performed.
+The JAR installs {len(expected_models)} BetterModel models automatically, updating known
+originals with backups and preserving edited files. For manual installation,
+extract LegendarySwords-BetterModel-models.zip; copy players files into
+plugins/BetterModel/players and models files into plugins/BetterModel/models.
+Back up edits first, then /bm reload. Generate a new BetterModel build.zip and
+merge it only if other server models/generated pack settings changed.
 
-Player body animations are TEMPORARILY PAUSED by default. In
-plugins/LegendarySwords/config.yml, keep bettermodel.enabled: true and
-bettermodel.player-body-animations: false. Old configs without the new key use
-false; change an explicit true to false before restarting. Standing, walking,
-running, pose and player action body clips are disabled to avoid player-attached
-BetterModel trackers and their equipment/disguise path. Sword textures, combat
-effects, abilities, slash models and ultimate presentation remain available.
-/ls status reports the pause. Only re-enable true for a controlled test after
-collecting equipment-packet evidence; restart and follow docs/TESTING.md.
+To put the project into your GitHub repository, extract LegendarySwords-source.zip
+and copy its CONTENTS into GitHub Desktop's Show in Explorer folder. Keep .git.
+Commit and push. Building source requires JDK 25+ and Maven 3.9+; run mvn verify.
+See README.md and docs/TESTING.md for the complete server checklist.
 
-The 0.2.2 carry/pose/action clips remain bundled unchanged. Unedited older
-bundled player files update automatically when the new JAR starts.
-If edited files are preserved, back them up before manually replacing them with
-files from LegendarySwords-BetterModel-models.zip.
-Existing build (12).zip BetterModel assets remain compatible. Only packs from
-before 0.2.2 need replacement for its item selectors.
-
-1. Stop the server. Remove the old LegendarySwords JAR from plugins, then upload
-   {jar.name} directly into plugins. Leave player-body-animations false, then
-   start the server. Keep only one plugin version.
-2. Keep the 0.2.2 combined pack in Minecraft's Resource Packs menu for BetterModel,
-   or use {pack.name} for sword items alone. For first setup or an older pack,
-   install the linked 0.2.2 combined pack. Keep packs zipped.
-3. BetterModel integration uses the 3.1 API. The plugin installs {len(expected_models)} models,
-   upgrades its known original assets, and preserves files you edited in Blockbench.
-   For manual installation, extract LegendarySwords-BetterModel-models.zip and
-   upload its players files to plugins/BetterModel/players and models files to
-   plugins/BetterModel/models. Back up your own edits before replacing any file.
-4. Run /bm reload after model installation. If other BetterModel models/configuration
-   changed, download the NEW plugins/BetterModel/build.zip and merge it with the
-   sword pack. Otherwise the published 0.2.2 combined pack already contains
-   compatible build (12).zip BetterModel assets and sword selectors. Full instructions
-   and scripts/merge_resource_packs.py are in LegendarySwords-source.zip.
-   The sword pack alone does not contain BetterModel's generated player/shader assets.
-5. Join as an operator. Run /ls give all and /ls status; confirm body animations
-   are paused. Use /ls charge 100 to try an ultimate.
-   /ls resetcooldowns clears your cooldowns when repeating an attack for testing.
-6. Right click = ability. Sneak + right click = ultimate. Custom player poses,
-   movement and action body animations remain paused with the default mitigation.
-   Check sword visibility, effects, abilities and ultimate presentation in F5.
-   /ls cinematics toggles the in-place ultimate display; it does not teleport you.
-
-To put this project in your GitHub repository:
-Extract LegendarySwords-source.zip and copy its CONTENTS into the LegendarySwords
-folder opened by GitHub Desktop's Show in Explorer. Keep your existing .git folder.
-Then enter a summary, Commit to main, and Push origin (or Publish branch).
-The source ZIP contains README.md and docs/ with full setup instructions.
-
-Detailed models, animated energy textures, glint and particles work on a vanilla
-client. Emissive overlays require supported client shaders/mods. BetterModel's
-player body clips are paused by default. The vanilla first-person arm swing
-remains standard.
-
-Compilation and automated checks were run. No live-client test was run.
-The reported equipment-packet disconnect, installed-snapshot behavior, client
-presentation and multiplayer behavior still need testing on your actual server.
-
+Compilation and automated checks were run. No live-client test was performed.
 Resource-pack SHA-1: {sha1}
 """
+
     bundle = TARGET / "LegendarySwords-download.zip"
     write_zip(bundle, [(jar.name, jar.read_bytes()), (pack.name, pack.read_bytes()),
                        (digest.name, digest.read_bytes()), (source.name, source.read_bytes()),

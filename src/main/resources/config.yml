@@ -4,17 +4,23 @@ glow-particles: true
 bettermodel:
   enabled: true
   install-bundled-models: true
-  # Temporary 0.2.3 mitigation for a reported 1.21.11 equipment-packet disconnect.
-  # Keep false until player body animations pass a controlled real-server test.
-  # Slash models and ultimate presentation remain enabled with this false.
+  # Animate casts only; keep normal player movement, ordinary swings and idle poses.
+  # Missing keys in existing configurations also default to true.
+  abilities-only: true
+  # Temporary character animation during abilities/ultimates; restored at cast/scene end.
+  # Set false to use only attack effects if an equipment disconnect recurs.
+  cast-body-animations: true
+  # Legacy full-body locomotion mode only (used when abilities-only is false).
+  # Keep false for normal walking/running and poses outside casts.
   player-body-animations: false
 charge:
   per-melee-hit: 10
   melee-kill-bonus: 20
 cinematics:
-  # A short in-place sword ritual. Players keep their position and game mode.
+  # Shared charge/reveal scene, then ultimate impact. Players keep position/game mode.
   enabled: true
-  duration-ticks: 32
+  # Scene is at least as long as the sword's ultimate clip.
+  duration-ticks: 64
 resource-pack:
   # Host the exported resource-pack.zip at a direct HTTPS download URL.
   # An empty URL leaves automatic pack delivery off. Players can also install it locally.

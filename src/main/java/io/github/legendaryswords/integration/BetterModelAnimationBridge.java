@@ -50,6 +50,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Supplier;
+import java.util.function.LongSupplier;
 import java.util.logging.Level;
 
 /** Direct integration with official BetterModel 3.1; engine classes stay out of the fallback. */
@@ -68,9 +69,12 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
             .type(AnimationIterator.Type.LOOP).build();
     private static final AnimationModifier ACTION = AnimationModifier.builder().start(2).end(3).priority(30)
             .type(AnimationIterator.Type.PLAY_ONCE).override(true).build();
+    private static final AnimationModifier ULTIMATE_CAST = AnimationModifier.builder().start(2).end(3).priority(30)
+            .type(AnimationIterator.Type.HOLD_ON_LAST).override(true).build();
     private final JavaPlugin plugin;
     private final Plugin engine;
     private final AnimatedSwordItems swordItems;
+    private final LongSupplier clock;
     private final Map<UUID, BodySession> bodies = new ConcurrentHashMap<>();
     private final Map<Tracker, Playback> effects = new ConcurrentHashMap<>();
     private final Map<UUID, DummyTracker> cinematicBodies = new ConcurrentHashMap<>();
@@ -88,8 +92,13 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     }
 
     BetterModelAnimationBridge(JavaPlugin plugin, AnimatedSwordItems swordItems) {
+        this(plugin, swordItems, System::nanoTime);
+    }
+
+    BetterModelAnimationBridge(JavaPlugin plugin, AnimatedSwordItems swordItems, LongSupplier clock) {
         this.plugin = plugin;
         this.swordItems = java.util.Objects.requireNonNull(swordItems);
+        this.clock = java.util.Objects.requireNonNull(clock);
         this.engine = java.util.Objects.requireNonNull(plugin.getServer().getPluginManager().getPlugin("BetterModel"));
         if (plugin.getConfig().getBoolean("bettermodel.install-bundled-models", true)) installModels();
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
@@ -124,7 +133,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     private void checkModels() {
         if (closed || failed || !engine.isEnabled() || reloading.get()) return;
         try {
-            if (!BetterModel.config().module().playerAnimation()) {
+            if ((!abilitiesOnly() || playerBodyAnimationsEnabled()) && !BetterModel.config().module().playerAnimation()) {
                 diagnostic = "Enable module.player-animation in BetterModel/config.yml, then restart";
                 return;
             }
@@ -175,14 +184,17 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     private List<String> missingModels() {
         List<String> missing = new ArrayList<>();
         for (String sword : SWORDS) {
-            ModelRenderer body = BetterModel.limbOrNull(PREFIX + sword);
-            if (body == null) missing.add(sword + ":player");
-            else for (String clip : List.of("idle", "walk", "run", "pose", "swing", "ability", "ultimate")) {
-                if (body.animation(clip).isEmpty()) missing.add(sword + ":" + clip);
+            if (!abilitiesOnly() || playerBodyAnimationsEnabled()) {
+                ModelRenderer body = BetterModel.limbOrNull(PREFIX + sword);
+                if (body == null) missing.add(sword + ":player");
+                else for (String clip : abilitiesOnly() ? List.of("ability", "ultimate")
+                        : List.of("idle", "walk", "run", "pose", "swing", "ability", "ultimate")) {
+                    if (body.animation(clip).isEmpty()) missing.add(sword + ":" + clip);
+                }
             }
             ModelRenderer effect = BetterModel.modelOrNull(PREFIX + sword + "_slash");
             if (effect == null) missing.add(sword + ":slash");
-            else for (String clip : List.of("swing", "ability", "ultimate")) {
+            else for (String clip : abilitiesOnly() ? List.of("ability", "ultimate") : List.of("swing", "ability", "ultimate")) {
                 if (effect.animation(clip).isEmpty()) missing.add(sword + ":slash:" + clip);
             }
         }
@@ -191,7 +203,11 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
 
     private String readyStatus() {
         return "BetterModel " + engine.getPluginMeta().getVersion()
-                + (playerBodyAnimationsEnabled()
+                + (abilitiesOnly()
+                ? ": abilities/ultimates only; " + (playerBodyAnimationsEnabled()
+                        ? "temporary cast body animations" : "attack effects only")
+                        + "; normal movement and swings; existing 0.2.2 combined pack works"
+                : playerBodyAnimationsEnabled()
                 ? ": 8 motion sets loaded (idle/walk/run/pose/swing/ability/ultimate); install regenerated client pack"
                 : ": player body animations paused (bettermodel.player-body-animations=false); slash effects available; existing 0.2.2 combined pack works")
                 + (preservedModels.isEmpty() ? "" : "; " + preservedModels.size() + " edited files preserved");
@@ -200,6 +216,15 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     @Override public void tickMovement(Player player, String swordId, Locomotion movement) {
         if (!usable(player, swordId)) return;
         try {
+            if (abilitiesOnly()) {
+                BodySession cast = bodies.get(player.getUniqueId());
+                if (cast != null) {
+                    if (!playerBodyAnimationsEnabled() || clock.getAsLong() - cast.actionDeadline >= 0L)
+                        closeBody(player.getUniqueId());
+                    else prime(cast);
+                }
+                return;
+            }
             if (!playerBodyAnimationsEnabled()) {
                 closeBody(player.getUniqueId());
                 return;
@@ -209,14 +234,8 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
             body.desiredLoop = movement.name().toLowerCase(Locale.ROOT);
             // In 3.1, built-in clips are installed when the first viewer spawns, after create().
             // Reclaim their names once that scheduler starts, rather than resetting every tick.
-            if (!body.tracker.isScheduled()) body.primed = false;
-            else if (!body.primed) {
-                for (String clip : List.of("idle", "walk", "idle_fly", "walk_fly", "spawn"))
-                    body.tracker.stopAnimation(clip);
-                body.primed = true;
-                body.runningLoop = null;
-            }
-            if (body.action != null && System.nanoTime() - body.actionDeadline >= 0L) finishAction(body);
+            prime(body);
+            if (body.action != null && clock.getAsLong() - body.actionDeadline >= 0L) finishAction(body);
             if (body.action == null) setLoop(body);
         } catch (LinkageError | RuntimeException error) {
             disableAnimation(error);
@@ -224,6 +243,19 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     }
 
     @Override public void stopMovement(Player player) { closePlayer(player.getUniqueId()); }
+    @Override public void stopCastAnimation(Player player) { closeBody(player.getUniqueId()); }
+    @Override public void holdCastAnimation(Player player) {
+        BodySession body = bodies.get(player.getUniqueId());
+        if (body != null && abilitiesOnly() && "ultimate".equals(body.action))
+            body.actionDeadline = clock.getAsLong() + TimeUnit.SECONDS.toNanos(12);
+    }
+    @Override public int ultimateSceneTicks(String swordId) {
+        try {
+            ModelRenderer renderer = BetterModel.limbOrNull(PREFIX + swordId);
+            return renderer == null ? 64 : renderer.animation("ultimate")
+                    .map(clip -> (int) Math.ceil(Math.min(8D, clip.length()) * 20D)).orElse(64);
+        } catch (LinkageError | RuntimeException error) { return 64; }
+    }
     @Override public void playSwing(Player player, String swordId) { play(player, swordId, "swing", 2); }
     @Override public void playAbility(Player player, String swordId) { play(player, swordId, "ability", 3); }
     @Override public void playUltimate(Player player, String swordId) { play(player, swordId, "ultimate", 4); }
@@ -235,7 +267,12 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     }
 
     private boolean playerBodyAnimationsEnabled() {
-        return plugin.getConfig().getBoolean("bettermodel.player-body-animations", false);
+        return abilitiesOnly() ? plugin.getConfig().getBoolean("bettermodel.cast-body-animations", true)
+                : plugin.getConfig().getBoolean("bettermodel.player-body-animations", false);
+    }
+
+    private boolean abilitiesOnly() {
+        return plugin.getConfig().getBoolean("bettermodel.abilities-only", true);
     }
 
     private BodySession body(Player player, String swordId) {
@@ -254,12 +291,12 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
         }
         if (previous != null) closePlayer(id);
         ModelRenderer renderer = BetterModel.limbOrNull(PREFIX + swordId);
-        if (renderer == null || LOOPS.stream().anyMatch(clip -> renderer.animation(clip).isEmpty())) return null;
+        if (renderer == null || !abilitiesOnly() && LOOPS.stream().anyMatch(clip -> renderer.animation(clip).isEmpty())) return null;
         if (!swordItems.begin(player, swordId)) return null;
         EntityTracker tracker;
         BodySession body;
         try {
-            body = new BodySession(swordId, renderer, swordItems.displayItem(player, swordId).clone());
+            body = new BodySession(id, swordId, renderer, swordItems.displayItem(player, swordId).clone());
             tracker = renderer.create(BukkitAdapter.adapt(player), BODY_MODIFIER, created -> {
                 created.hideOption(INVENTORY_SAFE_HIDE);
                 configureSwordDisplay(created, body::displayItem);
@@ -275,8 +312,18 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
         tracker.handleCloseEvent((closedTracker, reason) -> {
             if (bodies.remove(id, body)) swordItems.restorePlayerSoon(id);
         });
-        setLoop(body);
+        if (!abilitiesOnly()) setLoop(body);
         return body;
+    }
+
+    private void prime(BodySession body) {
+        if (!body.tracker.isScheduled()) body.primed = false;
+        else if (!body.primed) {
+            for (String clip : List.of("idle", "walk", "idle_fly", "walk_fly", "spawn"))
+                body.tracker.stopAnimation(clip);
+            body.primed = true;
+            body.runningLoop = null;
+        }
     }
 
     private static void configureSwordDisplay(Tracker tracker, Supplier<ItemStack> sword) {
@@ -300,13 +347,14 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     }
 
     private void play(Player player, String swordId, String animation, int priority) {
+        if (abilitiesOnly() && !animation.equals("ability") && !animation.equals("ultimate")) return;
         if (!usable(player, swordId)) return;
         try {
             if (!playerBodyAnimationsEnabled()) {
                 UUID owner = player.getUniqueId();
                 closeBody(owner);
                 if (animation.equals("swing")) {
-                    long now = System.nanoTime();
+                    long now = clock.getAsLong();
                     Long previous = lastSlashSwings.get(owner);
                     if (previous != null && now - previous < SWING_THROTTLE_NANOS) return;
                     lastSlashSwings.put(owner, now);
@@ -316,8 +364,14 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
             }
             BodySession body = body(player, swordId);
             if (body == null || body.renderer.animation(animation).isEmpty()) return;
-            long now = System.nanoTime();
-            if (body.action != null && now - body.actionDeadline >= 0L) finishAction(body);
+            long now = clock.getAsLong();
+            if (body.action != null && now - body.actionDeadline >= 0L) {
+                if (abilitiesOnly()) {
+                    closeBody(player.getUniqueId());
+                    body = body(player, swordId);
+                    if (body == null) return;
+                } else finishAction(body);
+            }
             if (body.action != null && (priority < body.actionPriority
                     || animation.equals("swing") && now - body.lastActionStart < SWING_THROTTLE_NANOS)) return;
             for (String clip : ACTIONS) body.tracker.stopAnimation(clip);
@@ -326,7 +380,8 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
             body.lastActionStart = now;
             double length = body.renderer.animation(animation).orElseThrow().length();
             body.actionDeadline = now + (long) ((Math.min(8D, length) + 0.3D) * TimeUnit.SECONDS.toNanos(1L));
-            if (!body.tracker.animate(animation, ACTION)) { finishAction(body); return; }
+            AnimationModifier modifier = abilitiesOnly() && animation.equals("ultimate") ? ULTIMATE_CAST : ACTION;
+            if (!body.tracker.animate(animation, modifier)) { finishAction(body); return; }
             if (!animation.equals("pose")) playSlashAt(player, swordId, animation, player.getLocation());
         } catch (LinkageError | RuntimeException error) {
             disableAnimation(error);
@@ -334,6 +389,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     }
 
     private void finishAction(BodySession body) {
+        if (abilitiesOnly()) { closeBody(body.owner); return; }
         for (String clip : ACTIONS) body.tracker.stopAnimation(clip);
         body.action = null;
         body.actionPriority = 0;
@@ -342,7 +398,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     }
 
     @Override public boolean playCinematic(Player player, String swordId, Location origin) {
-        if (!plugin.getServer().isPrimaryThread() || !usable(player, swordId)) return false;
+        if (abilitiesOnly() || !plugin.getServer().isPrimaryThread() || !usable(player, swordId)) return false;
         try {
             ModelRenderer renderer = BetterModel.limbOrNull(PREFIX + swordId);
             if (renderer == null || renderer.animation("ultimate").isEmpty()) return false;
@@ -389,7 +445,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     }
 
     private void trackEffect(UUID owner, Tracker tracker, double maxSeconds) {
-        effects.put(tracker, new Playback(owner, System.nanoTime()
+        effects.put(tracker, new Playback(owner, clock.getAsLong()
                 + (long) (maxSeconds * TimeUnit.SECONDS.toNanos(1L))));
         tracker.handleCloseEvent((closedTracker, reason) -> {
             effects.remove(closedTracker);
@@ -399,7 +455,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
 
     private void expire() {
         if (closed || failed) return;
-        long now = System.nanoTime();
+        long now = clock.getAsLong();
         effects.forEach((tracker, playback) -> {
             if (tracker.isClosed() || now - playback.deadline() >= 0L) {
                 effects.remove(tracker);
@@ -409,6 +465,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
         bodies.forEach((id, body) -> {
             Player player = plugin.getServer().getPlayer(id);
             if (body.tracker.isClosed() || player == null || !player.isOnline()) closePlayer(id);
+            else if (abilitiesOnly() && now - body.actionDeadline >= 0L) closeBody(id);
         });
         if (!reloading.get()) checkModels();
     }
@@ -448,7 +505,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     @Override public String status() {
         if (!closed && !failed && engine.isEnabled() && !reloading.get() && !needsImport) {
             try {
-                if (!BetterModel.config().module().playerAnimation())
+                if ((!abilitiesOnly() || playerBodyAnimationsEnabled()) && !BetterModel.config().module().playerAnimation())
                     return "Enable module.player-animation in BetterModel/config.yml, then restart";
                 if (!BetterModel.config().module().model())
                     return "Enable module.model in BetterModel/config.yml for animated slash models";
@@ -497,6 +554,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
 
     private record Playback(UUID owner, long deadline) { }
     private static final class BodySession {
+        final UUID owner;
         final String swordId;
         final ModelRenderer renderer;
         // Initialized before the session is published to bodies.
@@ -507,8 +565,8 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
         int actionPriority;
         boolean primed;
         long actionDeadline, lastActionStart;
-        BodySession(String swordId, ModelRenderer renderer, ItemStack cachedItem) {
-            this.swordId = swordId; this.renderer = renderer; this.cachedItem = cachedItem;
+        BodySession(UUID owner, String swordId, ModelRenderer renderer, ItemStack cachedItem) {
+            this.owner = owner; this.swordId = swordId; this.renderer = renderer; this.cachedItem = cachedItem;
         }
         ItemStack displayItem() { return cachedItem.clone(); }
     }

@@ -58,6 +58,114 @@ import org.mockito.ArgumentCaptor;
 
 /** Covers the engine's first-viewer startup and persistent locomotion contract. */
 class BetterModelAnimationBridgeTest {
+    @Test void abilitiesOnlyDefaultsSuppressBodiesOrdinarySwingsAndPosesButKeepAttacks() {
+        try (Fixture f = new Fixture()) {
+            f.config.set("bettermodel.abilities-only", null); // Existing config, even with body=true.
+            f.config.set("bettermodel.cast-body-animations", false);
+            for (var movement : List.of(IDLE, WALK, RUN))
+                f.bridge.tickMovement(f.player, "master_sword", movement);
+            f.bridge.playSwing(f.player, "master_sword");
+            f.bridge.playPose(f.player, "master_sword");
+            assertFalse(f.bridge.playCinematic(f.player, "master_sword", f.player.getLocation()));
+            verifyNoInteractions(f.swordItems, f.tracker, f.slash);
+            verify(f.renderer, never()).create(any(PlatformEntity.class), any(TrackerModifier.class), any());
+            verify(f.renderer, never()).create(any(PlatformLocation.class), any(ModelProfile.class), any(TrackerModifier.class), any());
+
+            f.bridge.playAbility(f.player, "master_sword");
+            f.bridge.playUltimate(f.player, "master_sword");
+            verify(f.slashRenderer, times(2)).create(any(PlatformLocation.class), any(TrackerModifier.class), any());
+            verify(f.slash).animate(eq("ability"), any(AnimationModifier.class), any(Runnable.class));
+            verify(f.slash).animate(eq("ultimate"), any(AnimationModifier.class), any(Runnable.class));
+            verify(f.slash, never()).animate(eq("swing"), any(AnimationModifier.class), any(Runnable.class));
+            verifyNoInteractions(f.swordItems, f.tracker);
+            assertTrue(f.bridge.status().contains("attack effects only"));
+        }
+    }
+
+    @Test void abilitiesOnlyDoesNotRequirePlayerModelsOrPlayerAnimationModule() {
+        try (Fixture f = new Fixture()) {
+            f.config.set("bettermodel.abilities-only", true);
+            f.config.set("bettermodel.cast-body-animations", false);
+            BetterModelConfig engineConfig = mock(BetterModelConfig.class);
+            ModuleConfig modules = mock(ModuleConfig.class);
+            when(engineConfig.module()).thenReturn(modules);
+            when(modules.model()).thenReturn(true);
+            f.engineApi.when(BetterModel::config).thenReturn(engineConfig);
+            f.engineApi.when(() -> BetterModel.limbOrNull(anyString())).thenReturn(null);
+            when(f.slashRenderer.animation("swing")).thenReturn(Optional.empty());
+
+            assertTrue(f.bridge.status().contains("attack effects only"));
+            f.bridge.playAbility(f.player, "master_sword");
+            f.bridge.playUltimate(f.player, "master_sword");
+            verify(f.slashRenderer, times(2)).create(any(PlatformLocation.class), any(TrackerModifier.class), any());
+            verifyNoInteractions(f.swordItems, f.tracker);
+        }
+    }
+
+    @Test void switchingToAbilitiesOnlyRestoresThePlayerWithoutCancellingAttackEffects() {
+        try (Fixture f = new Fixture()) {
+            f.bridge.tickMovement(f.player, "master_sword", WALK);
+            f.bridge.playAbility(f.player, "master_sword");
+            f.config.set("bettermodel.abilities-only", true);
+            f.config.set("bettermodel.cast-body-animations", false);
+            f.bridge.tickMovement(f.player, "master_sword", RUN);
+            verify(f.tracker).close();
+            verify(f.swordItems).restorePlayerSoon(f.player.getUniqueId());
+            verify(f.slash, never()).close();
+            clearInvocations(f.renderer, f.swordItems);
+            f.bridge.playSwing(f.player, "master_sword");
+            f.bridge.playPose(f.player, "master_sword");
+            f.bridge.playUltimate(f.player, "master_sword");
+            verifyNoInteractions(f.swordItems, f.renderer);
+            verify(f.slashRenderer, times(2)).create(any(PlatformLocation.class), any(TrackerModifier.class), any());
+        }
+    }
+
+    @Test void characterAnimationsExistOnlyDuringCastsAndRestoreWithoutStartingIdleOrWalkLoops() {
+        try (Fixture f = new Fixture()) {
+            f.config.set("bettermodel.abilities-only", null);
+            for (var movement : List.of(IDLE, WALK, RUN)) f.bridge.tickMovement(f.player, "master_sword", movement);
+            f.bridge.playSwing(f.player, "master_sword");
+            f.bridge.playPose(f.player, "master_sword");
+            verifyNoInteractions(f.swordItems, f.tracker);
+
+            f.bridge.playAbility(f.player, "master_sword");
+            f.bridge.tickMovement(f.player, "master_sword", RUN);
+            verify(f.tracker).animate(eq("ability"), any(AnimationModifier.class));
+            for (String clip : List.of("idle", "walk", "run", "pose", "swing"))
+                verify(f.tracker, never()).animate(eq(clip), any(AnimationModifier.class));
+            verify(f.tracker, never()).close();
+            f.nanos.addAndGet(TimeUnit.SECONDS.toNanos(4));
+            f.bridge.tickMovement(f.player, "master_sword", WALK);
+            verify(f.tracker).close();
+            verify(f.swordItems).restorePlayerSoon(f.player.getUniqueId());
+            verify(f.slash, never()).close();
+            clearInvocations(f.swordItems, f.renderer);
+            f.bridge.tickMovement(f.player, "master_sword", IDLE);
+            verifyNoInteractions(f.swordItems, f.renderer);
+            assertTrue(f.bridge.status().contains("temporary cast body animations"));
+        }
+    }
+
+    @Test void ultimateHoldsItsLastPoseUntilSceneEndWithoutLeavingMovementAnimationsBehind() {
+        try (Fixture f = new Fixture()) {
+            f.config.set("bettermodel.abilities-only", true);
+            f.bridge.playUltimate(f.player, "master_sword");
+            verify(f.tracker).animate(eq("ultimate"), argThat(modifier -> modifier.type() == AnimationIterator.Type.HOLD_ON_LAST));
+            f.bridge.holdCastAnimation(f.player);
+            f.nanos.addAndGet(TimeUnit.SECONDS.toNanos(6));
+            f.bridge.tickMovement(f.player, "master_sword", WALK);
+            verify(f.tracker, never()).close();
+            f.bridge.stopCastAnimation(f.player);
+            f.bridge.stopCastAnimation(f.player);
+            verify(f.tracker).close();
+            verify(f.swordItems).restorePlayerSoon(f.player.getUniqueId());
+            verify(f.slash, never()).close();
+            for (String clip : List.of("idle", "walk", "run"))
+                verify(f.tracker, never()).animate(eq(clip), any(AnimationModifier.class));
+        }
+    }
+
     @Test void firstViewerReclaimsEngineLoopsOnceAndWalkingDoesNotRestartEveryTick() {
         try (Fixture f = new Fixture()) {
             f.bridge.tickMovement(f.player, "master_sword", WALK);
@@ -321,6 +429,7 @@ class BetterModelAnimationBridgeTest {
         final AnimatedSwordItems swordItems = mock(AnimatedSwordItems.class);
         final Server server = mock(Server.class);
         final FileConfiguration config = new YamlConfiguration();
+        final java.util.concurrent.atomic.AtomicLong nanos = new java.util.concurrent.atomic.AtomicLong(1);
         final BetterModelAnimationBridge bridge;
 
         Fixture() {
@@ -356,6 +465,7 @@ class BetterModelAnimationBridgeTest {
             when(plugin.getServer()).thenReturn(server);
             when(plugin.getConfig()).thenReturn(config);
             config.set("bettermodel.install-bundled-models", false);
+            config.set("bettermodel.abilities-only", false); // Explicit legacy-mode coverage.
             if (playerBodyAnimations) config.set("bettermodel.player-body-animations", true);
             when(plugin.getLogger()).thenReturn(Logger.getLogger("LegendarySwords-animation-tests"));
             when(server.getPluginManager()).thenReturn(pluginManager);
@@ -401,7 +511,7 @@ class BetterModelAnimationBridgeTest {
                 engineApi.when(() -> BetterModel.modelOrNull("legendaryswords_" + sword + "_slash"))
                         .thenReturn(slashRenderer);
             }
-            bridge = new BetterModelAnimationBridge(plugin, swordItems);
+            bridge = new BetterModelAnimationBridge(plugin, swordItems, nanos::get);
         }
 
         @Override public void close() {

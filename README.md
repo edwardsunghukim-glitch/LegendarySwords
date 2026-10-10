@@ -1,28 +1,28 @@
 # LegendarySwords
 
-Paper **1.21.11** plugin with eight detailed Zelda sword designs, visible abilities, charged ultimates, and bundled sword-specific BetterModel animations. **BetterModel 3.1 requires Java 25**; core combat without BetterModel can run on Java 21. Includes distinct laser, fire, lunar, ice, lightning, ground, wind, and heavy-blade effects. Ultimates start independently of the cosmetic presentation, which stays at the casting position without moving the player or changing game mode.
+Paper **1.21.11** plugin with eight detailed Zelda sword designs, visible abilities, charged ultimates, and bundled sword-specific BetterModel animations. **BetterModel 3.1 requires Java 25**; core combat without BetterModel can run on Java 21. Includes distinct laser, fire, lunar, ice, lightning, ground, wind, and heavy-blade effects. Ultimates release their attack after a shared scene, with a guarded fallback if presentation fails.
 
 The artwork and animation keyframes are original fan-made assets inspired by the named swords. Server compilation and automated checks do not verify how Minecraft renders them; complete the [real-server checklist](docs/TESTING.md).
 
-Version **0.2.3** is a hotfix for a reported Minecraft 1.21.11 disconnect while using swords: `clientbound/minecraft:set_equipment` had 557 unread bytes. It copies item metadata before updating inventory items and gives BetterModel cached item snapshots captured on the server thread. The exact packet cause has not been proven, and no live-client test has been performed.
+Version **0.2.4** plays character animations **only during abilities and ultimates**. Holding a sword, walking, running, ordinary swings and `/ls pose` keep normal player movement. The temporary cast body is restored when its clip or scene ends; no idle/walk/run body remains attached afterward.
 
-**Custom player body animations are temporarily paused by default.** `bettermodel.player-body-animations: false` avoids the player-attached BetterModel equipment/disguise path while it is investigated. Custom standing, walking, running, pose, and player action body animations are disabled; sword textures, combat effects, abilities, slash models, and ultimate presentation remain available. `/ls status` reports the body-animation pause. The 0.2.2 animation clips remain bundled unchanged, and **the existing 0.2.2 combined resource pack can be reused**.
+Ultimates now play a shared charge/reveal scene **before releasing the attack and damage**. The blade appears 2.5 blocks ahead of the caster, with sword-specific reveal motion. The caster and visible nearby players within 40 blocks receive the same scene title; world particles and displays are shared. The ultimate pose holds until scene completion. A guarded timeout releases a stalled scene once, while cancellation on death, teleport, world change or shutdown disarms pending damage. This is an in-world scene, without changing game mode or forcing a camera/teleport.
+
+The inventory-copy and server-thread snapshot hardening from 0.2.3 is retained. Temporary cast bodies still use BetterModel's player equipment path: **the earlier equipment-packet disconnect has not been verified on a live client**. Set `bettermodel.cast-body-animations: false` to retain attack effects and scenes without character disguises if it recurs. Keep the existing **0.2.2 combined pack**; this version changes no models or client assets.
 
 ![Preview rendered from the supplied sword geometry](resource-pack/preview.png)
 
 ## Install or update
 
-1. Stop the server, remove the old LegendarySwords JAR from `plugins`, and upload **`LegendarySwords-0.2.3.jar`**. Keep only one version of the plugin.
-2. Keep `bettermodel.enabled: true` and leave `bettermodel.player-body-animations: false` in `plugins/LegendarySwords/config.yml`. Existing configurations without the new key use the false default; if yours explicitly sets it to true, set it to false before restarting.
-3. Start the server. If the **0.2.2 combined pack** is already installed, keep using it; this hotfix changes no resource-pack assets or model geometry. For a first installation, use `LegendarySwords-combined-resource-pack-0.2.2.zip` and keep it zipped.
-4. If using BetterModel, let the plugin install/update its bundled models and run `/bm reload`. Regenerate and merge `plugins/BetterModel/build.zip` only if your other BetterModel models or configuration changed. See [the BetterModel guide](docs/BETTERMODEL.md).
-5. Join as an operator and run `/ls status`, `/ls give all`, and `/ls charge 100`. Confirm the body-animation pause, then test all abilities and ultimates.
-
-**Upgrading from 0.2.0 or 0.2.1:** install the 0.2.3 JAR and the **0.2.2 combined pack**. Unedited bundled player files update automatically to the 0.2.2 clips; if edited files are preserved, back them up before installing files from `LegendarySwords-BetterModel-models.zip`. Earlier combined packs lack the 0.2.2 item selector. **Upgrading from 0.2.2 requires only the new JAR and the false body-animation setting.**
+1. Stop the server, remove the old LegendarySwords JAR from `plugins`, upload **`LegendarySwords-0.2.4.jar`**, then restart. Keep your configuration and player data.
+2. Keep `bettermodel.enabled: true`, `bettermodel.abilities-only: true` and `bettermodel.cast-body-animations: true`. Missing new keys use true, including old 0.2.3 configurations with `player-body-animations: false`. That old flag controls only the optional legacy locomotion mode.
+3. Keep your installed **0.2.2 combined pack**. First installations and upgrades from older packs should install it zipped. No new BetterModel `build.zip` is needed unless other server models or generated pack settings changed.
+4. Run `/ls cinematics on`, `/ls cinematics status` and `/ls status`. Keep server `cinematics.enabled: true`. Test an ultimate with `/ls charge 100`, then sneak + right-click. `/ls resetcooldowns` permits another test.
+5. Test with another player in F5. Normal movement should return when each cast finishes. Player damage remains controlled by `pvp-enabled` and your protection plugins; enable PvP deliberately if player targets should take damage.
 
 You do not need Java or Maven installed on your computer to upload the compiled plugin. The server needs **Java 25 when using BetterModel 3.1**. BetterModel is optional for combat and particle/display effects; its generated pack is required for body animations and slash models. The integration uses **BetterModel 3.1's API**. The installed `3.1-SNAPSHOT-526` build needs a real-server animation check; compilation cannot prove snapshot runtime behavior.
 
-**Right-click** uses an ability. **Sneak + right-click** uses the ultimate at 100 charge. Successful normal melee hits earn **10 charge**, and melee kills add **20** more. Ability damage does not generate charge. `/ls pose` and custom player movement/action clips remain paused while body animations are disabled.
+**Right-click** uses an ability. **Sneak + right-click** uses the ultimate at 100 charge. Successful normal melee hits earn **10 charge**, and melee kills add **20** more. Ability damage does not generate charge. `/ls pose` is unavailable in cast-only mode; ability and ultimate character clips play during casts.
 
 | Sword ID | Right-click ability | Charged ultimate | Default cooldowns |
 | --- | --- | --- | --- |
@@ -49,8 +49,8 @@ See [Minehut and Windows installation](docs/INSTALLATION.md), [BetterModel setup
 | `/ls list` | List sword IDs, abilities, and ultimates |
 | `/ls charge [player] <0-100>` | Set ultimate charge for testing |
 | `/ls resetcooldowns [player]` | Clear that player's cooldowns for testing |
-| `/ls pose` | Play the equipped sword's pose when body animations are enabled |
-| `/ls cinematics` | Toggle the in-place ultimate presentation |
+| `/ls pose` | Available only in the optional legacy animation mode |
+| `/ls cinematics [on\|off\|status]` | Enable, disable, inspect or toggle your ultimate scenes |
 | `/ls pack` | Request the configured resource pack |
 | `/ls status` | Show plugin, pack, and animation status |
 | `/ls reload` | Reload plugin configuration |
@@ -65,7 +65,7 @@ Install a **Java 25+ JDK** and **Maven 3.9+**, then open a terminal in the folde
 mvn --batch-mode verify
 ```
 
-This runs Java unit tests and creates `target/LegendarySwords-0.2.3.jar` and `target/LegendarySwords-resource-pack.zip`. Python 3's standard library can validate the pack and create the source, model, and complete download ZIPs:
+This runs Java unit tests and creates `target/LegendarySwords-0.2.4.jar` and `target/LegendarySwords-resource-pack.zip`. Python 3's standard library can validate the pack and create the source, model, and complete download ZIPs:
 
 ```sh
 python3 scripts/build_resource_pack.py --validate-only
@@ -74,7 +74,7 @@ python3 scripts/test_bettermodel_assets.py
 python3 scripts/create_release.py
 ```
 
-The complete bundle contains the JAR, sword pack and hash, source ZIP, separate sixteen-model BetterModel ZIP, and beginner installation notes. It can include the existing combined pack under a byte-identical 0.2.3 alias. The 0.2.3 hotfix requires no new BetterModel `build.zip`; regenerate it only if other models or generated client assets change.
+The complete bundle contains the JAR, sword pack and hash, source ZIP, separate sixteen-model BetterModel ZIP, and beginner installation notes. It can include the existing combined pack under a byte-identical 0.2.4 alias. The 0.2.4 hotfix requires no new BetterModel `build.zip`; regenerate it only if other models or generated client assets change.
 
 Build outputs in `target/` are ignored by Git. [The installation guide](docs/INSTALLATION.md#put-the-source-in-your-github-repository) explains extracting the source into an existing GitHub Desktop repository.
 
@@ -82,8 +82,8 @@ Build outputs in `target/` are ignored by Git. [The installation guide](docs/INS
 
 The sword pack provides custom geometry, animated energy textures, glint, and optional emissive overlays. Shader bloom and light illuminating nearby blocks depend on compatible client support. Temporary attack displays use full brightness but do not emit world lighting.
 
-The 0.2.3 default keeps the normal player body and pauses the bundled `idle`, `walk`, `run`, `pose`, `swing`, `ability`, and `ultimate` player body clips. BetterModel slash models and ultimate presentation remain enabled. **The vanilla first-person arm swing is unchanged.**
+The 0.2.4 default keeps normal player movement outside casts and plays only `ability` and `ultimate` body clips, together with attack effects and shared ultimate scenes. **The vanilla first-person arm swing is unchanged.**
 
-Only re-enable `bettermodel.player-body-animations: true` for a controlled test after collecting evidence for the equipment-packet issue; restart after changing this setting. When enabled, the player tracker selects the sword's `_animated` item model. The 0.2.2 pack hides the ordinary held copy only in third-person contexts and keeps the animated grip, inventory icon, and first-person sword visible. Ending the tracker restores the base item model. See [the controlled animation checklist](docs/TESTING.md#controlled-player-body-animation-test).
+`bettermodel.abilities-only: false` plus `bettermodel.player-body-animations: true` enables the old locomotion mode for controlled testing. It is not needed for cast-only animations. Temporary bodies select the `_animated` held-item model; ending a cast restores the base model. The inventory icon and first-person sword stay visible with the 0.2.2 pack.
 
 Automated tests cover mechanics and mocked lifecycle/protection behavior; pack checks verify file structure, references, textures, and animation data. Real client presentation, installed BetterModel compatibility, and multiplayer behavior remain manual server checks.

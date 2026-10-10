@@ -28,6 +28,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Transformation;
 import org.bukkit.util.Vector;
 import org.joml.Quaternionf;
@@ -45,6 +46,12 @@ public final class AbilityController implements AutoCloseable {
     private final AnimationBridge animations;
     private final EffectDisplay displays;
     private final Map<UUID, Set<BukkitRunnable>> tasks = new HashMap<>();
+    private final Map<UUID, PendingUltimate> pendingUltimates = new HashMap<>();
+    private boolean closed;
+
+    private static final class PendingUltimate {
+        BukkitTask fallback;
+    }
 
     public AbilityController(LegendarySwordsPlugin plugin, PluginSettings settings, PlayerStateStore states, CooldownBook cooldowns,
                              CombatService combat, VisualEffects effects, CinematicDirector cinematics, AnimationBridge animations) {
@@ -54,8 +61,12 @@ public final class AbilityController implements AutoCloseable {
     }
 
     public void activate(Player player, SwordType sword, boolean ultimate) {
-        if (!player.hasPermission("legendaryswords.use") || !player.isOnline() || player.isDead()
+        if (closed || !player.hasPermission("legendaryswords.use") || !player.isOnline() || player.isDead()
                 || player.getGameMode() == GameMode.SPECTATOR) return;
+        if (pendingUltimates.containsKey(player.getUniqueId())) {
+            effects.message(player, "An ultimate is still charging", sword);
+            return;
+        }
         String key = sword.id() + (ultimate ? ":ultimate" : ":ability");
         var meter = states.charge(player.getUniqueId());
         if (ultimate && !meter.isFull()) {
@@ -79,10 +90,35 @@ public final class AbilityController implements AutoCloseable {
         } catch (RuntimeException | LinkageError error) {
             plugin.getLogger().warning("Sword animation unavailable; spell still runs: " + error.getMessage());
         }
-        launch(player, sword, origin, direction, ultimate ? stats.ultimateDamage() : stats.abilityDamage(), ultimate);
-        if (ultimate) {
-            try { cinematics.start(player, sword, () -> { }); }
-            catch (RuntimeException | LinkageError error) { plugin.getLogger().warning("Cosmetic ritual unavailable: " + error.getMessage()); }
+        if (!ultimate) {
+            launch(player, sword, origin, direction, stats.abilityDamage(), false);
+            return;
+        }
+        PendingUltimate pending = new PendingUltimate();
+        UUID owner = player.getUniqueId();
+        pendingUltimates.put(owner, pending);
+        Runnable release = () -> {
+            if (!pendingUltimates.remove(owner, pending)) return;
+            if (pending.fallback != null) pending.fallback.cancel();
+            if (!valid(player, origin)) return;
+            effects.sound(origin, sword, true);
+            launch(player, sword, origin, direction, stats.ultimateDamage(), true);
+        };
+        try {
+            pending.fallback = plugin.getServer().getScheduler().runTaskLater(plugin, () -> {
+                // A stalled/failed visual scene must still release exactly one attack.
+                try { cinematics.cancel(player); }
+                finally { release.run(); }
+            }, Math.max(12, cinematics.durationTicks(sword)) + 4L);
+        } catch (RuntimeException error) {
+            plugin.getLogger().warning("Ultimate scene timer unavailable: " + error.getMessage());
+            release.run();
+            return;
+        }
+        try { cinematics.start(player, sword, release); }
+        catch (RuntimeException | LinkageError error) {
+            plugin.getLogger().warning("Cosmetic ritual unavailable: " + error.getMessage());
+            release.run();
         }
     }
 
@@ -118,7 +154,7 @@ public final class AbilityController implements AutoCloseable {
     }
 
     private boolean valid(Player player, Location origin) {
-        return player.isOnline() && !player.isDead() && player.getWorld().equals(origin.getWorld());
+        return !closed && player.isOnline() && !player.isDead() && player.getWorld().equals(origin.getWorld());
     }
     private Vector flat(Vector direction) {
         Vector forward = direction.clone().setY(0);
@@ -546,11 +582,16 @@ public final class AbilityController implements AutoCloseable {
     }
 
     public void cancel(Player player) {
+        PendingUltimate pending = pendingUltimates.remove(player.getUniqueId());
+        if (pending != null && pending.fallback != null) pending.fallback.cancel();
         Set<BukkitRunnable> owned = tasks.remove(player.getUniqueId());
         if (owned != null) owned.forEach(BukkitRunnable::cancel);
         displays.cancel(player);
     }
     @Override public void close() {
+        closed = true;
+        pendingUltimates.values().forEach(pending -> { if (pending.fallback != null) pending.fallback.cancel(); });
+        pendingUltimates.clear();
         tasks.values().forEach(owned -> owned.forEach(BukkitRunnable::cancel));
         tasks.clear(); displays.close();
     }

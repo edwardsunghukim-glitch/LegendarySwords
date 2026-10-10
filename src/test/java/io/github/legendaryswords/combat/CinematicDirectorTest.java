@@ -38,6 +38,46 @@ import static org.mockito.Mockito.*;
 
 /** Regression coverage for the spectator snap-back and interrupted ultimate problems. */
 class CinematicDirectorTest {
+    @Test void nearbyVictimsAndObserversSeeTheSameSceneAndTheCasterPoseEndsAtCompletion() {
+        Player observer = mock(Player.class), distant = mock(Player.class), hidden = mock(Player.class);
+        when(observer.canSee(player)).thenReturn(true);
+        when(observer.getLocation()).thenReturn(origin.clone().add(10, 0, 0));
+        when(distant.canSee(player)).thenReturn(true);
+        when(distant.getLocation()).thenReturn(origin.clone().add(50, 0, 0));
+        when(world.getPlayers()).thenReturn(java.util.List.of(player, observer, distant, hidden));
+        when(animations.ultimateSceneTicks(SwordType.MASTER_SWORD.id())).thenReturn(64);
+        startRitual();
+        var sharedTitle = org.mockito.ArgumentCaptor.forClass(net.kyori.adventure.title.Title.class);
+        verify(player).showTitle(sharedTitle.capture());
+        verify(observer).showTitle(sharedTitle.getValue());
+        verify(distant, never()).showTitle(any(net.kyori.adventure.title.Title.class));
+        verify(hidden, never()).showTitle(any(net.kyori.adventure.title.Title.class));
+        verify(animations).holdCastAnimation(player);
+        for (int frameIndex = 0; frameIndex < 32; frameIndex++) frame.get().run();
+        assertEquals(0, completions.get());
+        verify(animations, never()).stopCastAnimation(player);
+        frame.get().run();
+        assertEquals(1, completions.get());
+        verify(animations).stopCastAnimation(player);
+        assertPlayerUntouched();
+    }
+    @Test void ritualIsPresentedInFrontOfTheCasterInsteadOfInsideTheirCamera() {
+        startRitual();
+        var position = org.mockito.ArgumentCaptor.forClass(Location.class);
+        verify(world).spawn(position.capture(), eq(ItemDisplay.class), org.mockito.ArgumentMatchers.<Consumer<ItemDisplay>>any());
+        Location displayed = position.getValue();
+        Location facing = origin.clone();
+        facing.setPitch(0);
+        Vector offset = displayed.toVector().subtract(origin.toVector());
+        assertEquals(1.35, offset.getY(), 0.0001);
+        offset.setY(0);
+        assertEquals(2.5, offset.length(), 0.0001);
+        assertEquals(2.5, offset.dot(facing.getDirection()), 0.0001);
+        assertEquals(10, origin.getX());
+        assertEquals(70, origin.getY());
+        assertEquals(20, origin.getZ());
+        assertPlayerUntouched();
+    }
     private LegendarySwordsPlugin plugin;
     private PluginSettings settings;
     private PlayerStateStore states;

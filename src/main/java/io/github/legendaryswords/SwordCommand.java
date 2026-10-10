@@ -25,7 +25,7 @@ public final class SwordCommand implements CommandExecutor, TabCompleter {
     }
     @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0 || args[0].equalsIgnoreCase("help")) {
-            say(sender, "/ls list | /ls pose | /ls cinematics | /ls pack | /ls status");
+            say(sender, "/ls list | /ls pose | /ls cinematics [on|off|status] | /ls pack | /ls status");
             if (sender.hasPermission("legendaryswords.admin")) say(sender, "/ls give [player] <sword|all> | /ls charge [player] <0-100> | /ls resetcooldowns [player] | /ls reload");
             return true;
         }
@@ -63,6 +63,10 @@ public final class SwordCommand implements CommandExecutor, TabCompleter {
             case "pose" -> {
                 if (!(sender instanceof Player player)) { say(sender, "Use /ls pose in-game while holding a legendary sword."); return true; }
                 if (!player.hasPermission("legendaryswords.use")) { say(sender, "You need legendaryswords.use to pose."); return true; }
+                if (plugin.getConfig().getBoolean("bettermodel.abilities-only", true)) {
+                    say(sender, "Custom poses are disabled: animations play only during abilities and ultimates.");
+                    return true;
+                }
                 if (!plugin.getConfig().getBoolean("bettermodel.player-body-animations", false)) {
                     say(sender, "Custom sword poses are temporarily paused in this version.");
                     return true;
@@ -83,9 +87,20 @@ public final class SwordCommand implements CommandExecutor, TabCompleter {
             }
             case "cinematics" -> {
                 if (sender instanceof Player player) {
-                    if (plugin.cinematics().active(player)) plugin.cinematics().cancel(player);
-                    say(sender, "Ultimate presentation " + (plugin.states().toggleCinematics(player.getUniqueId()) ? "enabled" : "disabled") + " for you.");
-                } else say(sender, "Players can toggle their own ultimate presentation with /ls cinematics.");
+                    if (args.length > 2) { say(sender, "Usage: /ls cinematics [on|off|status]"); return true; }
+                    String option = args.length == 1 ? "toggle" : args[1].toLowerCase(Locale.ROOT);
+                    switch (option) {
+                        case "toggle" -> plugin.states().toggleCinematics(player.getUniqueId());
+                        case "on" -> plugin.states().setCinematics(player.getUniqueId(), true);
+                        case "off" -> plugin.states().setCinematics(player.getUniqueId(), false);
+                        case "status" -> { }
+                        default -> { say(sender, "Usage: /ls cinematics [on|off|status]"); return true; }
+                    }
+                    boolean enabled = plugin.states().cinematics(player.getUniqueId());
+                    if (!enabled && !option.equals("status") && plugin.cinematics().active(player)) plugin.cinematics().cancel(player);
+                    say(sender, "Ultimate presentation " + (enabled ? "enabled" : "disabled") + " for you."
+                            + (plugin.settings().cinematicsEnabled() ? "" : " Server cinematics.enabled is false."));
+                } else say(sender, "Players can use /ls cinematics [on|off|status] in-game.");
             }
             case "pack" -> {
                 if (sender instanceof Player player) plugin.packs().send(player);
@@ -115,6 +130,8 @@ public final class SwordCommand implements CommandExecutor, TabCompleter {
         if (args.length == 1) {
             candidates.addAll(List.of("help", "list", "pose", "cinematics", "pack", "status"));
             if (sender.hasPermission("legendaryswords.admin")) candidates.addAll(List.of("give", "charge", "resetcooldowns", "reload"));
+        } else if (args.length == 2 && args[0].equalsIgnoreCase("cinematics")) {
+            candidates.addAll(List.of("on", "off", "status"));
         } else if (sender.hasPermission("legendaryswords.admin")) {
             if (args[0].equalsIgnoreCase("give") && (args.length == 2 || args.length == 3)) {
                 candidates.add("all"); Arrays.stream(SwordType.values()).forEach(sword -> candidates.add(sword.id()));

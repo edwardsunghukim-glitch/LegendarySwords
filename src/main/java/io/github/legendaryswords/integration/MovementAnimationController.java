@@ -36,6 +36,12 @@ public final class MovementAnimationController implements Listener, AutoCloseabl
         for (Player player : plugin.getServer().getOnlinePlayers()) {
             UUID id = player.getUniqueId();
             var sword = swords.identify(player.getInventory().getItemInMainHand());
+            if (plugin.getConfig().getBoolean("bettermodel.abilities-only", true)) {
+                if (sword.isEmpty() || !player.hasPermission("legendaryswords.use") || player.isDead()
+                        || player.getGameMode() == GameMode.SPECTATOR) release(player);
+                else animations.tickMovement(player, sword.orElseThrow().id(), AnimationBridge.Locomotion.IDLE);
+                continue;
+            }
             if (sword.isEmpty() || !player.hasPermission("legendaryswords.use") || player.isDead()
                     || player.getGameMode() == GameMode.SPECTATOR || player.isFlying()
                     || player.isGliding() || player.isSwimming() || player.isInsideVehicle()

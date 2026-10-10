@@ -59,7 +59,7 @@ public final class LegendarySwordsPlugin extends JavaPlugin {
         abilities = new AbilityController(this, settings, states, cooldowns, combat, effects, cinematics, animations);
     }
     public void reloadSettings() {
-        cinematics.close(); abilities.close(); movement.close(); animations.close();
+        abilities.close(); cinematics.close(); movement.close(); animations.close();
         reloadConfig();
         animations = AnimationBridge.create(this);
         movement = new MovementAnimationController(this, animations, swords);
@@ -85,8 +85,8 @@ public final class LegendarySwordsPlugin extends JavaPlugin {
         }
     }
     @Override public void onDisable() {
-        if (cinematics != null) cinematics.close();
         if (abilities != null) abilities.close();
+        if (cinematics != null) cinematics.close();
         if (movement != null) movement.close();
         if (animations != null) animations.close();
         if (animatedSwordItems != null) animatedSwordItems.close();

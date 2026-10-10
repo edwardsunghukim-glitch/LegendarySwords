@@ -191,6 +191,23 @@ class AbilityControllerTest {
         verify(player, never()).teleport(any(Location.class));
     }
 
+    @org.junit.jupiter.params.ParameterizedTest
+    @org.junit.jupiter.params.provider.EnumSource(value = SwordType.class, names = {"MASTER_SWORD", "WHITE_SWORD", "TRUE_MASTER_SWORD", "GUARDIAN_SWORD"})
+    void beamsFollowVerticalAimFromEyeHeight(SwordType sword) {
+        Location eye = new Location(world, 10, 71.62, 20, 0, -45);
+        when(player.getEyeLocation()).thenReturn(eye);
+        controller.activate(player, sword, false);
+        advanceTicks(40);
+        var starts = org.mockito.ArgumentCaptor.forClass(Location.class);
+        var ends = org.mockito.ArgumentCaptor.forClass(Location.class);
+        verify(effects, atLeastOnce()).line(starts.capture(), ends.capture(), eq(sword), anyDouble());
+        for (int i = 0; i < starts.getAllValues().size(); i++) {
+            Location start = starts.getAllValues().get(i), end = ends.getAllValues().get(i);
+            assertEquals(eye.getY(), start.getY(), .001);
+            assertTrue(end.getY() > start.getY(), "Upward aim must produce an upward beam");
+        }
+    }
+
     @Test void ultimateWaitsForTheSceneThenReleasesExactlyOnceEvenIfCompletionRepeats() {
         java.util.concurrent.atomic.AtomicReference<Runnable> completion = new java.util.concurrent.atomic.AtomicReference<>();
         doAnswer(call -> { completion.set(call.getArgument(2)); return null; })

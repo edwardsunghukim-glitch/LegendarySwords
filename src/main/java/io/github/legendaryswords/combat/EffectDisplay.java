@@ -71,7 +71,12 @@ final class EffectDisplay implements AutoCloseable {
     private <T extends Display> T spawn(Location location, Class<T> type, Consumer<T> initialize) {
         Display[] partial = new Display[1];
         try {
-            return location.getWorld().spawn(location, type, entity -> {
+            // Transformations below already use world-space directions. Do not apply
+            // the caster location yaw/pitch again as the display entity rotation.
+            Location anchor = location.clone();
+            anchor.setYaw(0);
+            anchor.setPitch(0);
+            return location.getWorld().spawn(anchor, type, entity -> {
                 partial[0] = entity;
                 initialize.accept(entity);
             });

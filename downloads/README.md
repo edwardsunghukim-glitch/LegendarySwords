@@ -1,3 +1,7 @@
+## Laser aiming hotfix 0.3.1
+
+[Download plugin 0.3.1](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-0.3.1.jar). Beams use full vertical aim from eye height; display rotation no longer applies player yaw/pitch twice. Ultimates aim at release. Keep the 0.3.0 combined pack. Replace the old JAR and restart.
+
 # LegendarySwords 0.3.0 — 24 weapons
 
 - [Plugin JAR](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-0.3.0.jar)

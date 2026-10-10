@@ -1,5 +1,5 @@
 name: LegendarySwords
-version: '0.3.0'
+version: '0.3.1'
 main: io.github.legendaryswords.LegendarySwordsPlugin
 api-version: '1.21.11'
 description: Legendary blades with abilities, cinematic ultimates, and custom models.

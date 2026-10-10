@@ -34,6 +34,9 @@ class EffectDisplayTest {
         ItemDisplay display = mock(ItemDisplay.class);
         when(world.spawn(any(Location.class), eq(ItemDisplay.class), org.mockito.ArgumentMatchers.<Consumer<ItemDisplay>>any()))
                 .thenAnswer(call -> {
+                    Location anchor = call.getArgument(0);
+                    assertEquals(0f, anchor.getYaw());
+                    assertEquals(0f, anchor.getPitch());
                     Consumer<ItemDisplay> initialize = call.getArgument(2);
                     initialize.accept(display);
                     return display;
@@ -43,7 +46,7 @@ class EffectDisplayTest {
         ItemStack held = mock(ItemStack.class), clone = mock(ItemStack.class);
         when(held.clone()).thenReturn(clone);
         try (var effects = new EffectDisplay(plugin)) {
-            assertSame(display, effects.blade(player, new Location(world, 0, 64, 0), held, 5.5, Color.AQUA, 40));
+            assertSame(display, effects.blade(player, new Location(world, 0, 64, 0, 135, -40), held, 5.5, Color.AQUA, 40));
             verify(items).restoreItem(clone);
             verify(items, never()).restoreItem(held);
             verify(display).setItemStack(clone);

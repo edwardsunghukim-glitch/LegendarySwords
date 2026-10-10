@@ -104,7 +104,7 @@ public final class AbilityController implements AutoCloseable {
             effects.sound(origin, sword, true);
             try { animations.playRelease(player, sword.id()); }
             catch (RuntimeException | LinkageError error) { plugin.getLogger().warning("Ultimate follow-through unavailable; damage still runs: " + error.getMessage()); }
-            launch(player, sword, origin, direction, stats.ultimateDamage(), true);
+            launch(player, sword, player.getLocation().clone(), player.getEyeLocation().getDirection().clone().normalize(), stats.ultimateDamage(), true);
         };
         try {
             pending.fallback = plugin.getServer().getScheduler().runTaskLater(plugin, () -> {
@@ -126,7 +126,7 @@ public final class AbilityController implements AutoCloseable {
 
     private void launch(Player player, SwordType sword, Location origin, Vector direction, double damage, boolean ultimate) {
         switch (sword) {
-            case MASTER_SWORD -> laser(player, sword, origin.clone().add(0, 1.25, 0), direction, damage, ultimate);
+            case MASTER_SWORD -> laser(player, sword, player.getEyeLocation().clone(), direction, damage, ultimate);
             case FLAMEBLADE -> fireRing(player, sword, origin, damage, ultimate);
             case FIERCE_DEITY_SWORD -> {
                 if (ultimate) fallingMoon(player, sword, origin, direction, damage);
@@ -159,9 +159,11 @@ public final class AbilityController implements AutoCloseable {
     /** New relics share lifecycle safeguards, with separate spatial attack choreography. */
     private void relicAttack(Player player, SwordType sword, Location origin, Vector direction, double damage, boolean ultimate) {
         int pattern = sword.ordinal() - 8;
-        Vector forward = flat(direction), side = new Vector(-forward.getZ(), 0, forward.getX());
-        double reach = unobstructed(origin.clone().add(0, 1, 0), forward, ultimate ? 14 : 9);
-        Location source = origin.clone().add(0, 1.1, 0);
+        boolean aimedBeam = pattern == 0 || pattern == 4 || pattern == 11;
+        Vector forward = aimedBeam ? direction.clone().normalize() : flat(direction);
+        Vector side = new Vector(-forward.getZ(), 0, forward.getX());
+        Location source = aimedBeam ? player.getEyeLocation().clone() : origin.clone().add(0, 1.1, 0);
+        double reach = unobstructed(source, forward, ultimate ? 14 : 9);
         Location focus = origin.clone().add(forward.clone().multiply(Math.min(reach, ultimate ? 5 : 3)));
         Map<UUID, Integer> hits = new HashMap<>();
         int duration = ultimate ? 32 + pattern % 4 * 4 : 16 + pattern % 3 * 3;

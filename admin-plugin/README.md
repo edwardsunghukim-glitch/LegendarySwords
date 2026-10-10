@@ -1,3 +1,5 @@
+Direct commands in 0.1.1: `/heal`, `/feed`, `/fly`, `/vanish`, `/invsee`, `/kick`, `/ban`, `/unban`, `/mute`, `/freeze`, `/gm` (or `/gamemode`), `/tp`, `/tphere`, `/adminmenu`, `/adminhelp`. The existing `/la` commands still work. Permissions and argument order are unchanged. If another plugin owns a short command, use `/legendaryadmin:heal` (or the equivalent command).
+
 # LegendaryAdmin 0.1.0
 
 A separate admin plugin for Paper **1.21.11**, Java **21 or newer**. No BetterModel, resource pack, EssentialsX or LegendarySwords dependency.

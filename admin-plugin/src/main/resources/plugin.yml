@@ -1,5 +1,5 @@
 name: LegendaryAdmin
-version: '0.1.0'
+version: '0.1.1'
 main: io.github.legendaryadmin.LegendaryAdmin
 api-version: '1.21.11'
 description: Moderation commands, vanish, read-only inventory viewer and admin menu.
@@ -8,6 +8,37 @@ commands:
     aliases: [la, ladmin]
     description: Admin tools and menu
     usage: /la help
+  adminmenu:
+    description: LegendaryAdmin adminmenu
+  adminhelp:
+    description: LegendaryAdmin adminhelp
+  kick:
+    description: LegendaryAdmin kick
+  ban:
+    description: LegendaryAdmin ban
+  unban:
+    description: LegendaryAdmin unban
+  mute:
+    description: LegendaryAdmin mute
+  freeze:
+    description: LegendaryAdmin freeze
+  heal:
+    description: LegendaryAdmin heal
+  feed:
+    description: LegendaryAdmin feed
+  fly:
+    description: LegendaryAdmin fly
+  gm:
+    description: LegendaryAdmin gm
+    aliases: [gamemode]
+  tp:
+    description: LegendaryAdmin tp
+  tphere:
+    description: LegendaryAdmin tphere
+  vanish:
+    description: LegendaryAdmin vanish
+  invsee:
+    description: LegendaryAdmin invsee
 permissions:
   legendaryadmin.admin:
     default: op

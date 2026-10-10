@@ -24,6 +24,20 @@ class AdminSecurityTest {
         verify(sender, atLeastOnce()).sendMessage(any(net.kyori.adventure.text.Component.class));
         assertTrue(plugin.onTabComplete(sender, mock(Command.class), "la", new String[]{""}).isEmpty());
     }
+    @Test void directCommandsKeepArgumentsAndPermissions() {
+        LegendaryAdmin plugin = mock(LegendaryAdmin.class, CALLS_REAL_METHODS);
+        CommandSender sender = mock(CommandSender.class);
+        for (String name : LegendaryAdmin.DIRECT_COMMANDS) {
+            Command command = mock(Command.class);
+            when(command.getName()).thenReturn(name);
+            String action = name.equals("adminmenu") ? "menu" : name.equals("adminhelp") ? "help" : name;
+            assertArrayEquals(new String[]{action, "target", "reason"},
+                    LegendaryAdmin.commandArgs(command, new String[]{"target", "reason"}));
+            assertTrue(plugin.onCommand(sender, command, name, new String[]{"target"}));
+            assertTrue(plugin.onTabComplete(sender, command, name, new String[]{""}).isEmpty());
+        }
+        verify(plugin, never()).getServer();
+    }
     @Test void gamemodeAndBothTeleportCommandsUseTheirActualPermissionNodes() {
         CommandSender sender = mock(CommandSender.class);
         when(sender.hasPermission("legendaryadmin.teleport")).thenReturn(true);

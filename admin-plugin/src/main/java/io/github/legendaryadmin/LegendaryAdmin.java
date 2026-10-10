@@ -19,12 +19,25 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class LegendaryAdmin extends JavaPlugin implements Listener, CommandExecutor, TabCompleter {
     static final List<String> ACTIONS = List.of("menu", "kick", "ban", "unban", "mute", "freeze", "heal", "feed", "fly", "gm", "tp", "tphere", "vanish", "invsee", "help");
+    static final List<String> DIRECT_COMMANDS = List.of("adminmenu", "adminhelp", "kick", "ban", "unban", "mute", "freeze", "heal", "feed", "fly", "gm", "tp", "tphere", "vanish", "invsee");
+    static String[] commandArgs(Command command, String[] args) {
+        String name = command == null ? null : command.getName();
+        if (name == null || !DIRECT_COMMANDS.contains(name)) return args;
+        String[] expanded = new String[args.length + 1];
+        expanded[0] = name.equals("adminmenu") ? "menu" : name.equals("adminhelp") ? "help" : name;
+        System.arraycopy(args, 0, expanded, 1, args.length);
+        return expanded;
+    }
     private final Set<UUID> frozen = new HashSet<>(), vanished = new HashSet<>();
     private final Map<UUID, Flight> flights = new HashMap<>();
     private AdminState state;
     private record Flight(boolean allowed, boolean flying) { }
     @Override public void onEnable() {
         state = new AdminState(getDataFolder().toPath().resolve("mutes.yml"));
+        for (String name : DIRECT_COMMANDS) {
+            Objects.requireNonNull(getCommand(name)).setExecutor(this);
+            Objects.requireNonNull(getCommand(name)).setTabCompleter(this);
+        }
         Objects.requireNonNull(getCommand("legendaryadmin")).setExecutor(this);
         Objects.requireNonNull(getCommand("legendaryadmin")).setTabCompleter(this);
         getServer().getPluginManager().registerEvents(this, this);
@@ -60,16 +73,17 @@ public final class LegendaryAdmin extends JavaPlugin implements Listener, Comman
         if (sender instanceof Player player) return player;
         say(sender, "Specify an online player."); return null;
     }
-    private boolean usage(CommandSender sender, String text) { say(sender, "Usage: /la " + text); return true; }
+    private boolean usage(CommandSender sender, String text) { say(sender, "Usage: /" + text.replaceFirst("^menu", "adminmenu").replaceFirst("^help", "adminhelp")); return true; }
     @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        args = commandArgs(command, args);
         String action = args.length == 0 ? "menu" : args[0].toLowerCase(Locale.ROOT);
         if (action.equals("help")) {
             if (!ACTIONS.stream().filter(a -> !a.equals("help")).anyMatch(a -> allowed(sender, a))) {
                 say(sender, "You don't have permission to use admin tools."); return true;
             }
-            say(sender, "/la menu [player] | heal/feed/fly/vanish [player] | invsee <player>");
-            say(sender, "/la kick/ban <player> [reason] | unban <name|UUID> | mute/freeze <player>");
-            say(sender, "/la gm <survival|creative|adventure|spectator> [player] | tp <player> [destination] | tphere <player>");
+            say(sender, "/adminmenu [player] | /heal, /feed, /fly, /vanish [player] | /invsee <player>");
+            say(sender, "/kick, /ban <player> [reason] | /unban <name|UUID> | /mute, /freeze <player>");
+            say(sender, "/gm <survival|creative|adventure|spectator> [player] | /tp <player> [destination] | /tphere <player>");
             return true;
         }
         if (!ACTIONS.contains(action)) return usage(sender, "help");
@@ -255,7 +269,7 @@ public final class LegendaryAdmin extends JavaPlugin implements Listener, Comman
         ItemStack[] armor = target.getInventory().getArmorContents();
         for (int slot = 0; slot < armor.length; slot++) if (armor[slot] != null) view.inventory.setItem(36 + slot, armor[slot].clone());
         view.inventory.setItem(40, target.getInventory().getItemInOffHand().clone());
-        view.inventory.setItem(49, button(Material.PAPER, "Snapshot; reopen /la invsee to refresh"));
+        view.inventory.setItem(49, button(Material.PAPER, "Snapshot; reopen /invsee to refresh"));
         admin.openInventory(view.inventory);
     }
     static boolean protectedInventory(Inventory inventory) { return inventory.getHolder() instanceof AdminView; }
@@ -293,6 +307,7 @@ public final class LegendaryAdmin extends JavaPlugin implements Listener, Comman
         if (protectedInventory(event.getView().getTopInventory())) event.setCancelled(true);
     }
     @Override public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        args = commandArgs(command, args);
         List<String> choices = new ArrayList<>();
         if (args.length == 1) ACTIONS.stream().filter(a -> !a.equals("help") && allowed(sender, a)).forEach(choices::add);
         else if (args.length > 1 && allowed(sender, args[0].toLowerCase(Locale.ROOT))) {

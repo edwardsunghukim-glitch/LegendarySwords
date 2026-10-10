@@ -1,3 +1,5 @@
+[Download LegendaryAdmin 0.1.1](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendaryAdmin-0.1.1.jar): direct commands without `/la`, including `/heal`, `/fly`, `/vanish`, `/invsee`, and `/adminmenu`. Replace the old admin JAR and restart. 13 tests passed.
+
 ## Laser aiming hotfix 0.3.1
 
 [Download plugin 0.3.1](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-0.3.1.jar). Beams use full vertical aim from eye height; display rotation no longer applies player yaw/pitch twice. Ultimates aim at release. Keep the 0.3.0 combined pack. Replace the old JAR and restart.

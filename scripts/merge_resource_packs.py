@@ -36,7 +36,8 @@ def merge_packs(bettermodel, swords, output):
     entries, metadata = read_pack(bettermodel)
     sword_entries, sword_metadata = read_pack(swords)
     item_definitions = [name for name in sword_entries
-                        if name.startswith("assets/legendaryswords/items/") and name.endswith(".json")]
+                        if name.startswith("assets/legendaryswords/items/") and name.endswith(".json")
+                        and not Path(name).stem.endswith("_animated")]
     if not item_definitions:
         raise ValueError("The sword pack does not contain LegendarySwords item definitions.")
     for name, data in sword_entries.items():

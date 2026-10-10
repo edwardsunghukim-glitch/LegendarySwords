@@ -128,7 +128,9 @@ final class EffectDisplay implements AutoCloseable {
         if (!space(owner)) return null;
         ItemDisplay display = spawn(location, ItemDisplay.class, entity -> {
             initialize(entity, color);
-            entity.setItemStack(item.clone());
+            var visualSword = item.clone();
+            if (plugin.animatedSwordItems() != null) plugin.animatedSwordItems().restoreItem(visualSword);
+            entity.setItemStack(visualSword);
             entity.setItemDisplayTransform(ItemDisplay.ItemDisplayTransform.FIXED);
             entity.setTransformation(new Transformation(new Vector3f(), new Quaternionf(), new Vector3f((float) scale), new Quaternionf()));
         });

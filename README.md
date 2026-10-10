@@ -4,17 +4,19 @@ Paper **1.21.11** plugin with eight detailed Zelda sword designs, visible abilit
 
 The artwork and animation keyframes are original fan-made assets inspired by the named swords. Server compilation and automated checks do not verify how Minecraft renders them; complete the [real-server checklist](docs/TESTING.md).
 
-Version **0.2.1** corrects backward arm/elbow rotations, knee recovery, and the separated hip motion in the Blockbench 5 player animation files. Known original server models update automatically. The sword item artwork and slash geometry are unchanged.
+Version **0.2.2** adjusts all eight swords' idle, walk, run, and pose keyframes to reduce arm/blade clipping, with forward braces for heavy swords. It also updates swing, ability, and ultimate keyframes for Master Sword, Fierce Deity Sword, Thunderblade, Eightfold Blade, and Biggoron Sword. A new item-model selector preserves the selected hotbar sword while the animated body displays its own grip. Known original server models update automatically. Body geometry, sword artwork, textures, and slash effects are unchanged; **the updated resource pack is required** for the item selector.
 
 ![Preview rendered from the supplied sword geometry](resource-pack/preview.png)
 
 ## Install or update
 
-1. Stop the server, remove the old LegendarySwords JAR from `plugins`, and upload **`LegendarySwords-0.2.1.jar`**. Keep only one version of the plugin.
-2. Start the server. Install the **new** `LegendarySwords-resource-pack.zip` for the eight sword item models.
-3. If using BetterModel, let the plugin install/update its bundled models, run `/bm reload`, and download the newly generated `plugins/BetterModel/build.zip`.
-4. Combine that fresh BetterModel pack with the new sword pack if your server accepts one resource-pack URL. **An older combined pack does not contain the new models.** See [the BetterModel guide](docs/BETTERMODEL.md).
+1. Stop the server, remove the old LegendarySwords JAR from `plugins`, and upload **`LegendarySwords-0.2.2.jar`**. Keep only one version of the plugin.
+2. Start the server. Replace your old combined pack with **`LegendarySwords-combined-resource-pack-0.2.2.zip`** in Minecraft's Resource Packs menu. Keep it zipped. If using the standalone sword pack, replace it with the new `LegendarySwords-resource-pack.zip`.
+3. If using BetterModel, let the plugin install/update its bundled models and run `/bm reload`. Download the newly generated `plugins/BetterModel/build.zip` if your other BetterModel models or configuration changed.
+4. For first installation or changes to other generated BetterModel assets, combine that fresh BetterModel pack with the new sword pack if your server accepts one resource-pack URL. The published 0.2.2 combined pack already contains the existing `build (12).zip` BetterModel assets plus the updated sword pack. See [the BetterModel guide](docs/BETTERMODEL.md).
 5. Join as an operator and run `/ls status`, `/ls give all`, and `/ls charge 100`.
+
+**Upgrading from 0.2.0 or 0.2.1:** replace the JAR, restart, and install the **0.2.2 combined pack**. Unedited bundled player files update automatically; if edited files are preserved, back them up before installing the new files from `LegendarySwords-BetterModel-models.zip`. The earlier combined pack lacks the new item selector. Existing `build (12).zip` BetterModel assets can be reused in the merge while other models/configuration stay unchanged, but the sword pack must be updated.
 
 You do not need Java or Maven installed on your computer to upload the compiled plugin. The server needs **Java 25 when using BetterModel 3.1**. BetterModel is optional for combat and particle/display effects; its generated pack is required for body animations and slash models. The integration uses **BetterModel 3.1's API**. The installed `3.1-SNAPSHOT-526` build needs a real-server animation check; compilation cannot prove snapshot runtime behavior.
 
@@ -61,7 +63,7 @@ Install a **Java 25+ JDK** and **Maven 3.9+**, then open a terminal in the folde
 mvn --batch-mode verify
 ```
 
-This runs Java unit tests and creates `target/LegendarySwords-0.2.1.jar` and `target/LegendarySwords-resource-pack.zip`. Python 3's standard library can validate the pack and create the source, model, and complete download ZIPs:
+This runs Java unit tests and creates `target/LegendarySwords-0.2.2.jar` and `target/LegendarySwords-resource-pack.zip`. Python 3's standard library can validate the pack and create the source, model, and complete download ZIPs:
 
 ```sh
 python3 scripts/build_resource_pack.py --validate-only
@@ -79,5 +81,7 @@ Build outputs in `target/` are ignored by Git. [The installation guide](docs/INS
 The sword pack provides custom geometry, animated energy textures, glint, and optional emissive overlays. Shader bloom and light illuminating nearby blocks depend on compatible client support. Temporary attack displays use full brightness but do not emit world lighting.
 
 BetterModel replaces the rendered third-person body with an animated player model while a sword is held. It provides distinct idle, walk, run, pose, swing, ability, and ultimate clips for each sword. **The vanilla first-person arm swing is unchanged.** Use F5 or another player's view to inspect body animations.
+
+While its tracker is active, the plugin selects the sword's `_animated` item model. The new pack hides the ordinary held copy only in third-person contexts and keeps the animated grip, inventory icon, and first-person sword visible. Ending the tracker restores the base item model. This requires the plugin and pack to be updated together.
 
 Automated tests cover mechanics and mocked lifecycle/protection behavior; pack checks verify file structure, references, textures, and animation data. Real client presentation, installed BetterModel compatibility, and multiplayer behavior remain manual server checks.

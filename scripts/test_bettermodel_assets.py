@@ -15,6 +15,9 @@ import zlib
 ROOT = Path(__file__).resolve().parents[1] / "src/main/resources/bettermodel"
 SWORDS = {"master_sword", "flameblade", "fierce_deity_sword", "frostblade",
           "thunderblade", "royal_claymore", "eightfold_blade", "biggoron_sword"}
+REVISED_ACTION_SWORDS = {"master_sword", "fierce_deity_sword", "thunderblade",
+                        "eightfold_blade", "biggoron_sword"}
+ITEM_MODELS = Path(__file__).resolve().parents[1] / "resource-pack/assets/legendaryswords/models/item"
 
 
 def load(kind, sword):
@@ -34,6 +37,18 @@ def clips(model):
     return {animation["name"]: animation for animation in model["animations"]}
 
 
+def clearance_module():
+    path = Path(__file__).with_name("player_pose_clearance.py")
+    spec = importlib.util.spec_from_file_location("player_pose_clearance", path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def animated_item_model(sword):
+    return json.loads((ITEM_MODELS / (sword + "_animated.json")).read_text())
+
+
 def motion_signature(animation):
     # Ignore UUIDs/names so cosmetic metadata cannot hide identical motions.
     return tuple(sorted((animator["name"], tuple((key["channel"], key["time"], values(key))
@@ -51,6 +66,34 @@ def rotate_player_vector(vector, angles):
 
 
 class BetterModelAssetsTest(unittest.TestCase):
+    def test_animated_fixed_geometry_matches_authored_hand_transform(self):
+        module = clearance_module()
+        for sword in sorted(SWORDS):
+            base = json.loads((ITEM_MODELS / (sword + ".json")).read_text())
+            animated = animated_item_model(sword)
+            with self.subTest(sword=sword):
+                self.assertEqual(animated["display"]["fixed"], base["display"]["thirdperson_righthand"])
+                self.assertEqual(module.held_item_samples(animated, "fixed"),
+                                 module.held_item_samples(base, "thirdperson_righthand"))
+
+    def test_carry_and_pose_clear_full_arms_and_held_blades(self):
+        module = clearance_module()
+        for sword in sorted(SWORDS):
+            checker = module.PlayerPoseClearance(load("players", sword),
+                                                 animated_item_model(sword), "fixed")
+            for name in ("idle", "walk", "run", "pose"):
+                with self.subTest(sword=sword, motion=name):
+                    self.assertFalse(checker.collisions(name), "arm or held blade intersects the body")
+
+    def test_revised_action_clips_clear_full_arms_and_held_blades(self):
+        module = clearance_module()
+        for sword in sorted(REVISED_ACTION_SWORDS):
+            checker = module.PlayerPoseClearance(load("players", sword),
+                                                 animated_item_model(sword), "fixed")
+            for name in ("swing", "ability", "ultimate"):
+                with self.subTest(sword=sword, motion=name):
+                    self.assertFalse(checker.collisions(name), "action puts arm or held blade inside the body")
+
     def test_walking_hands_stay_forward_and_knees_bend_back(self):
         for sword in SWORDS:
             model = load("players", sword)

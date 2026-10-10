@@ -531,12 +531,24 @@ def main():
             raise ValueError(name + " exceeds the bounded 80-cube art budget")
         write_json(ASSETS / "items" / (name + ".json"),
                    {"model": {"type": "minecraft:model", "model": "legendaryswords:item/" + name}})
-        write_json(ASSETS / "models" / "item" / (name + ".json"),
-                   {"credit": "Original LegendarySwords voxel art; authored procedurally, no ripped assets.",
+        model = {"credit": "Original LegendarySwords voxel art; authored procedurally, no ripped assets.",
                     "ambientocclusion": False, "gui_light": "front",
                     "textures": {"atlas": "legendaryswords:item/" + name,
                                  "particle": "legendaryswords:item/" + name},
-                    "elements": elements, "display": display})
+                    "elements": elements, "display": display}
+        write_json(ASSETS / "models" / "item" / (name + ".json"), model)
+        # Keep the actual inventory item visible while BetterModel renders its
+        # animated hand. Only vanilla third-person hands use the empty branch.
+        animated_name = name + "_animated"
+        write_json(ASSETS / "items" / (animated_name + ".json"), {"model": {
+            "type": "minecraft:select", "property": "minecraft:display_context",
+            "cases": [{"when": ["thirdperson_lefthand", "thirdperson_righthand"],
+                       "model": {"type": "minecraft:empty"}}],
+            "fallback": {"type": "minecraft:model", "model": "legendaryswords:item/" + animated_name},
+        }})
+        animated_model = json.loads(json.dumps(model))
+        animated_model["display"]["fixed"] = json.loads(json.dumps(display["thirdperson_righthand"]))
+        write_json(ASSETS / "models" / "item" / (animated_name + ".json"), animated_model)
         print("%s: %d sculpted elements, 128px animated material atlas" % (name, len(elements)))
     write_json(ROOT / "pack.mcmeta", {"pack": {"description": "LegendarySwords - eight detailed legendary blades",
                                                "min_format": [75, 0], "max_format": [75, 0]}})

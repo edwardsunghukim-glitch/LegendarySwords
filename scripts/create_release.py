@@ -32,7 +32,11 @@ def main():
         if archive.testzip() is not None:
             raise SystemExit("Resource pack ZIP checksum validation failed.")
         sword_ids = sorted(Path(name).stem for name in archive.namelist()
-                           if name.startswith("assets/legendaryswords/items/") and name.endswith(".json"))
+                           if name.startswith("assets/legendaryswords/items/") and name.endswith(".json")
+                           and not Path(name).stem.endswith("_animated"))
+        for sword in sword_ids:
+            if f"assets/legendaryswords/items/{sword}_animated.json" not in archive.namelist():
+                raise SystemExit("Resource pack is missing the animated inventory-safe item variant for " + sword)
     if not sword_ids:
         raise SystemExit("Resource pack must contain LegendarySwords item definitions.")
     with ZipFile(jar) as archive:
@@ -68,30 +72,54 @@ def main():
                 source_entries.append((file.relative_to(ROOT).as_posix(), file.read_bytes()))
     source = TARGET / "LegendarySwords-source.zip"
     write_zip(source, source_entries)
+    combined = TARGET / f"LegendarySwords-combined-resource-pack-{version}.zip"
+    combined_entries = []
+    combined_note = "Download the matching combined pack from the link below."
+    if combined.is_file():
+        with ZipFile(combined) as merged, ZipFile(pack) as swords:
+            if merged.testzip() is not None:
+                raise SystemExit("Combined resource pack ZIP checksum validation failed.")
+            for name in swords.namelist():
+                if name.startswith("assets/") and not name.endswith("/") and merged.read(name) != swords.read(name):
+                    raise SystemExit("Combined pack contains outdated sword assets; merge again: " + name)
+        combined_digest = hashlib.sha1(combined.read_bytes()).hexdigest()
+        combined_entries = [(combined.name, combined.read_bytes()),
+                            (combined.with_suffix(".sha1").name, (combined_digest + "\n").encode("ascii"))]
+        combined_note = "The matching combined pack is included in this bundle."
     instructions = f"""LegendarySwords {version} — Paper 1.21.11
 
 BetterModel 3.1 requires Java 25 on the SERVER. Core combat without BetterModel
 can run on Java 21. Uploading this compiled release needs no JDK on your computer.
 Building source yourself requires a Java 25+ JDK and Maven 3.9+.
 
-If upgrading from 0.2.0 to the 0.2.1 animation fix, keep the combined texture
-pack made from build (12).zip. This patch changes server animation keyframes
-and carry poses without changing the client geometry or texture mappings.
+If upgrading from 0.2.0 or 0.2.1, install the new JAR AND replace the old combined
+pack with LegendarySwords-combined-resource-pack-{version}.zip. Download it from:
+https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-combined-resource-pack-{version}.zip
+{combined_note}
+This update adjusts all eight idle/walk/run/pose clips and action clips for
+Master Sword, Fierce Deity Sword, Thunderblade, Eightfold Blade and Biggoron Sword.
+Heavy swords use a forward brace. Geometry, textures and slash effects are unchanged.
+The new pack adds an item selector to keep the hotbar/first-person sword visible
+while hiding only the ordinary third-person copy beside the animated grip.
 Install the new JAR and restart; unedited bundled player files update automatically.
-The pack installation/merging steps below apply to first installation or other
-model changes, not solely to this animation patch under the same configuration.
+If edited files are preserved, back them up before manually replacing them with
+files from LegendarySwords-BetterModel-models.zip.
+Existing build (12).zip BetterModel assets can be reused in the new merge when
+other models/configuration stay unchanged. The old combined ZIP must be replaced.
 
 1. Stop the server. Remove the old LegendarySwords JAR from plugins, then upload
    {jar.name} directly into plugins and start the server. Keep only one version.
-2. Install {pack.name} in Minecraft's Resource Packs menu to see all {len(sword_ids)} swords.
+2. Install the new combined pack in Minecraft's Resource Packs menu for BetterModel,
+   or {pack.name} for sword items alone. Keep packs zipped; disable older versions.
 3. BetterModel integration uses the 3.1 API. The plugin installs {len(expected_models)} models,
    upgrades its known original assets, and preserves files you edited in Blockbench.
    For manual installation, extract LegendarySwords-BetterModel-models.zip and
    upload its players files to plugins/BetterModel/players and models files to
    plugins/BetterModel/models. Back up your own edits before replacing any file.
-4. Run /bm reload and download the NEW plugins/BetterModel/build.zip.
-   A v0.1 combined pack is outdated. Combine that fresh build.zip with the new
-   sword pack if your server supports one resource-pack URL. Full instructions
+4. Run /bm reload. If other BetterModel models/configuration changed, download the
+   NEW plugins/BetterModel/build.zip and merge it with the updated sword pack.
+   Otherwise the published {version} combined pack already contains compatible
+   build (12).zip BetterModel assets and the new sword selectors. Full instructions
    and scripts/merge_resource_packs.py are in LegendarySwords-source.zip.
    The sword pack alone does not contain BetterModel's generated player/shader assets.
 5. Join as an operator. Run /ls give all, /ls status, and /ls charge 100 to try an ultimate.
@@ -110,8 +138,9 @@ Detailed models, animated energy textures, glint and particles work on a vanilla
 client. Emissive overlays require supported client shaders/mods. BetterModel
 animates third-person bodies; it cannot replace the vanilla first-person arm swing.
 
-Compilation and automated checks were run. Client presentation, animations, and
-multiplayer behavior still need testing on your actual Paper server.
+Compilation and automated checks were run. No live-client test was run.
+Client presentation, animation transitions and multiplayer behavior still need
+testing on your actual Paper server.
 
 Resource-pack SHA-1: {sha1}
 """
@@ -119,7 +148,7 @@ Resource-pack SHA-1: {sha1}
     write_zip(bundle, [(jar.name, jar.read_bytes()), (pack.name, pack.read_bytes()),
                        (digest.name, digest.read_bytes()), (source.name, source.read_bytes()),
                        (models_zip.name, models_zip.read_bytes()),
-                       ("INSTALL-FIRST.txt", instructions.encode("utf-8"))])
+                       ("INSTALL-FIRST.txt", instructions.encode("utf-8"))] + combined_entries)
     print("Source:", source)
     print("Download:", bundle)
     print("BetterModel models:", models_zip)

@@ -1,28 +1,30 @@
 # Install or update LegendarySwords
 
-Use the compiled JAR and ZIPs from the **0.2.1** release. You do not need Maven on your computer just to install them on Minehut.
+Use the compiled JAR and ZIPs from the **0.2.2** release. You do not need Maven on your computer just to install them on Minehut.
 
 ## Upload the plugin on Minehut
 
 1. Stop your server in the Minehut dashboard.
-2. Open **File Manager → plugins**. If `LegendarySwords-0.1.0.jar` is present, remove that old JAR. Keep the `LegendarySwords` configuration folder.
-3. Upload **`LegendarySwords-0.2.1.jar`** directly inside `plugins`. Do not put it inside the configuration folder, and keep only one LegendarySwords JAR.
+2. Open **File Manager → plugins**. Remove the old LegendarySwords JAR, including any 0.2.0 or 0.2.1 version. Keep the `LegendarySwords` configuration folder.
+3. Upload **`LegendarySwords-0.2.2.jar`** directly inside `plugins`. Do not put it inside the configuration folder, and keep only one LegendarySwords JAR.
 4. Start the server. Check the console for a successful enable message. Use **Paper 1.21.11 and Java 25 with BetterModel 3.1**. Core combat without BetterModel can use Java 21. These are server requirements; uploading the compiled plugin does not require Java on your computer.
 5. Join as an operator and run `/ls status`, then `/ls give all`. Newly given swords include the updated item attributes and models.
 
 An existing configuration can keep your prior custom damage and cooldown values. New swords use their defaults when settings are missing. Compare with the new release's `src/main/resources/config.yml` if you want to reset to the supplied values.
+
+**For the 0.2.2 update:** restarting updates unedited bundled BetterModel files from 0.2.0/0.2.1. If the console reports edited files preserved, back them up and manually replace those files using `LegendarySwords-BetterModel-models.zip` as described in [the animation guide](BETTERMODEL.md#install-or-upgrade-the-models). **Replace the old combined pack with `LegendarySwords-combined-resource-pack-0.2.2.zip`.** The new item selector keeps the hotbar sword visible while the animated body holds its own copy. The old combined pack lacks that selector, even though BetterModel's geometry/textures are unchanged.
 
 ## Install the new sword pack
 
 For a personal test:
 
 1. In Minecraft, open **Options → Resource Packs → Open Pack Folder**.
-2. Copy the new **`LegendarySwords-resource-pack.zip`** into that folder. **Keep it zipped.**
+2. Copy the new **`LegendarySwords-combined-resource-pack-0.2.2.zip`** into that folder if using BetterModel, or the new **`LegendarySwords-resource-pack.zip`** for sword items alone. **Keep it zipped.**
 3. Return to Minecraft, disable the older LegendarySwords pack, enable the new one, and click **Done**.
 
-This gives all eight swords their item models. To see BetterModel body animations and slash effects, also use its **newly generated** pack, or combine both into one ZIP using [the animation guide](BETTERMODEL.md).
+The updated combined pack gives all eight swords their item models and includes BetterModel body/slash assets from `build (12).zip`. If you changed other BetterModel models or configuration, generate a fresh BetterModel pack and combine it with the updated sword pack using [the animation guide](BETTERMODEL.md).
 
-**Do not reuse the combined pack from version 0.1.0.** Installing a new plugin JAR cannot update a resource pack already stored on your computer or hosted at an old URL. Update the model files, regenerate BetterModel's pack, and merge again.
+**Replace earlier combined packs when upgrading to 0.2.2.** Installing a new plugin JAR cannot update a resource pack already stored on your computer or hosted at an old URL. Install the updated ZIP and use its new SHA-1 for server delivery.
 
 For everyone joining the server:
 
@@ -34,14 +36,14 @@ For everyone joining the server:
 The merge script writes a `.sha1` file alongside its ZIP. In Windows PowerShell you can also calculate it:
 
 ```powershell
-(Get-FileHash .\LegendarySwords-combined-resource-pack.zip -Algorithm SHA1).Hash.ToLower()
+(Get-FileHash .\LegendarySwords-combined-resource-pack-0.2.2.zip -Algorithm SHA1).Hash.ToLower()
 ```
 
 If using LegendarySwords' configuration:
 
 ```yaml
 resource-pack:
-  url: 'https://your-host.example/LegendarySwords-combined-resource-pack.zip'
+  url: 'https://your-host.example/LegendarySwords-combined-resource-pack-0.2.2.zip'
   sha1: 'paste_the_40_character_sha1_here'
   required: false
   send-on-join: true
@@ -68,7 +70,7 @@ If `/ls status` reports missing animations, confirm BetterModel's version, its e
 
 ## Configuration
 
-The plugin creates `plugins/LegendarySwords/config.yml`. Use `/ls reload` after editing it. Model edits additionally require `/bm reload` and a regenerated, redistributed resource pack.
+The plugin creates `plugins/LegendarySwords/config.yml`. Use `/ls reload` after editing it. Model edits additionally require `/bm reload`; changes to generated client assets also require a regenerated, redistributed resource pack.
 
 - `pvp-enabled: false` prevents abilities from damaging players by default.
 - `cinematics.enabled: false` disables the cosmetic ultimate presentation. `/ls cinematics` is the individual player preference. Damage casts do not wait for that presentation.
@@ -99,4 +101,4 @@ mvn --batch-mode verify
 python3 scripts/create_release.py
 ```
 
-Upload the resulting JAR to the server after removing the old JAR, then restart. Pack or BetterModel model changes also require updated client packs and the correct final ZIP hash.
+Upload the resulting JAR to the server after removing the old JAR, then restart. Pack or generated BetterModel client-asset changes also require updated client packs and the correct final ZIP hash. Version 0.2.2 requires the updated combined pack for its item selectors; the merge can reuse BetterModel's `build (12).zip` assets while other models/configuration stay unchanged.

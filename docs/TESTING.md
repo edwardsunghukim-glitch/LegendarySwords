@@ -4,13 +4,15 @@ Automated Java tests exercise mechanics, protection/event handling, and animatio
 
 ## Upgrade and assets
 
-- Stop the server and replace the old JAR with `LegendarySwords-0.2.1.jar`. Confirm only one LegendarySwords JAR exists.
+- Stop the server and replace the old JAR with `LegendarySwords-0.2.2.jar`. Confirm only one LegendarySwords JAR exists.
 - In F5, walk forward on level ground with each sword: the hands should carry the weapon in front, both legs should cycle continuously, knees should bend backward during recovery, and the pelvis should stay connected. Stop, sprint, and switch to an empty slot; check that the correct motion resumes or the vanilla body returns.
 - Preserve an old configuration and check that the original swords retain intended values and the five new swords receive distinct defaults. Also test a fresh configuration.
 - Test with BetterModel installed and absent. Combat and particle/display effects should work either way; `/ls status` should explain unavailable animation support.
 - Confirm all eight item models load with the new sword pack. Check first-person, third-person, inventory, dropped-item, and item-frame positions, textures, and animation.
 - Test an upgrade from the six original 0.1 model files. Known originals should be backed up and updated; deliberately edited files should be preserved and reported.
+- Also upgrade original 0.2.0 and 0.2.1 player files to 0.2.2. Confirm they update automatically with backups after restart. If edited files are preserved, back them up before manual replacement from the updated sixteen-model ZIP.
 - Run `/bm reload`. Confirm all sixteen model imports succeed, regenerate `build.zip`, and merge with the new sword pack. Reconnect with the final pack accepted.
+- Replace the earlier combined pack with `LegendarySwords-combined-resource-pack-0.2.2.zip`. Verify all eight swords and body/slash assets render. The merge reuses compatible `build (12).zip` BetterModel assets but adds the new sword item selectors.
 - Test pack decline/download failure. Gameplay should continue; ordinary item appearances are expected without the pack.
 
 ## Eight distinct attacks
@@ -49,6 +51,9 @@ Use `/ls give all`, `/ls charge 100`, and `/ls resetcooldowns` as an operator. T
 Use two players: one holds a sword, and one watches. Test every sword in F5 and from the observer's view.
 
 - Standing, walking, and sprinting should select distinct `idle`, `walk`, and `run` clips belonging to that sword. Confirm the player model follows the player rather than remaining at an old location.
+- Inspect all eight swords' full `idle`, `walk`, `run`, and `pose` cycles from front and side views. Arms and grips should stay outside the torso; blades should avoid the torso and head. Confirm Royal Claymore and Biggoron Sword use their forward braces. Include animation loop boundaries and transitions when checking clearance.
+- Inspect the updated `swing`, `ability`, and `ultimate` clips for Master Sword, Fierce Deity Sword, Thunderblade, Eightfold Blade, and Biggoron Sword. Check each clip's entry/exit and interruption transitions for remaining clipping; automated samples cannot establish every live-client transition.
+- With a tracker active, verify the selected hotbar/inventory icon and first-person sword stay visible, while only the animated grip appears in third person. Switch slots, swap to the offhand, move/drop the item, change worlds, die, reconnect, reload, and disable/restart the plugin. Check that the base item model is restored and no stale `_animated` item becomes invisible or renders twice.
 - Run `/ls pose`, then swing, cast an ability, and use an ultimate. One-shot clips should play and return to movement rather than being immediately overwritten.
 - Switch to another sword, empty hand, and ordinary tools. The previous sword's body animation must clear without affecting other plugins' models.
 - Test walking backwards, strafing, sneaking, jumping, swimming, mounting, and different skins. Check the body orientation and held sword attachment.

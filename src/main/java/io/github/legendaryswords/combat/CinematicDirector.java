@@ -81,7 +81,9 @@ public final class CinematicDirector implements AutoCloseable {
             session.blade = focus.getWorld().spawn(focus, ItemDisplay.class, blade -> {
                 // Retain the entity even if another initializer operation fails.
                 session.blade = blade;
-                blade.setItemStack(player.getInventory().getItemInMainHand().clone());
+                var visualSword = player.getInventory().getItemInMainHand().clone();
+                if (plugin.animatedSwordItems() != null) plugin.animatedSwordItems().restoreItem(visualSword);
+                blade.setItemStack(visualSword);
                 blade.setItemDisplayTransform(ItemDisplay.ItemDisplayTransform.FIXED);
                 blade.setBrightness(new Display.Brightness(15, 15));
                 blade.setGlowing(true);

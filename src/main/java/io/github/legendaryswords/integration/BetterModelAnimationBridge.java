@@ -1,15 +1,20 @@
 package io.github.legendaryswords.integration;
 
+import io.github.legendaryswords.LegendarySwordsPlugin;
 import kr.toxicity.model.api.BetterModel;
 import kr.toxicity.model.api.BetterModelPlatform;
 import kr.toxicity.model.api.bukkit.platform.BukkitAdapter;
 import kr.toxicity.model.api.animation.AnimationIterator;
 import kr.toxicity.model.api.animation.AnimationModifier;
+import kr.toxicity.model.api.bone.BoneItemMapper;
+import kr.toxicity.model.api.bone.BoneRenderContext;
 import kr.toxicity.model.api.data.renderer.ModelRenderer;
 import kr.toxicity.model.api.manager.ReloadInfo;
 import kr.toxicity.model.api.profile.ModelProfile;
+import kr.toxicity.model.api.platform.PlatformItemTransform;
 import kr.toxicity.model.api.tracker.DummyTracker;
 import kr.toxicity.model.api.tracker.EntityTracker;
+import kr.toxicity.model.api.tracker.EntityHideOption;
 import kr.toxicity.model.api.tracker.Tracker;
 import kr.toxicity.model.api.tracker.TrackerModifier;
 import kr.toxicity.model.api.tracker.TrackerUpdateAction;
@@ -17,14 +22,21 @@ import kr.toxicity.model.api.util.TransformedItemStack;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
+import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 import org.bukkit.event.server.PluginDisableEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitTask;
 
 import java.io.IOException;
@@ -37,6 +49,7 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.Supplier;
 import java.util.logging.Level;
 
 /** Direct integration with official BetterModel 3.1; engine classes stay out of the fallback. */
@@ -48,12 +61,15 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     private static final String PREFIX = "legendaryswords_";
     private static final long VIEW_DISTANCE_SQUARED = 1600L;
     private static final TrackerModifier BODY_MODIFIER = new TrackerModifier(false, false, true);
+    // Equipment hiding also clears the owner's selected inventory slot in BetterModel 3.1.
+    private static final EntityHideOption INVENTORY_SAFE_HIDE = new EntityHideOption(false, true, true, true);
     private static final AnimationModifier LOOP = AnimationModifier.builder().start(3).end(2).priority(10)
             .type(AnimationIterator.Type.LOOP).build();
     private static final AnimationModifier ACTION = AnimationModifier.builder().start(2).end(3).priority(30)
             .type(AnimationIterator.Type.PLAY_ONCE).override(true).build();
     private final JavaPlugin plugin;
     private final Plugin engine;
+    private final AnimatedSwordItems swordItems;
     private final Map<UUID, BodySession> bodies = new ConcurrentHashMap<>();
     private final Map<Tracker, Playback> effects = new ConcurrentHashMap<>();
     private final Map<UUID, DummyTracker> cinematicBodies = new ConcurrentHashMap<>();
@@ -66,7 +82,12 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     private final List<String> preservedModels = new ArrayList<>();
 
     BetterModelAnimationBridge(JavaPlugin plugin) {
+        this(plugin, ((LegendarySwordsPlugin) plugin).animatedSwordItems());
+    }
+
+    BetterModelAnimationBridge(JavaPlugin plugin, AnimatedSwordItems swordItems) {
         this.plugin = plugin;
+        this.swordItems = java.util.Objects.requireNonNull(swordItems);
         this.engine = java.util.Objects.requireNonNull(plugin.getServer().getPluginManager().getPlugin("BetterModel"));
         if (plugin.getConfig().getBoolean("bettermodel.install-bundled-models", true)) installModels();
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
@@ -208,18 +229,48 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     private BodySession body(Player player, String swordId) {
         UUID id = player.getUniqueId();
         BodySession previous = bodies.get(id);
-        if (previous != null && !previous.tracker.isClosed() && previous.swordId.equals(swordId)) return previous;
+        if (previous != null && !previous.tracker.isClosed() && previous.swordId.equals(swordId)) {
+            if (swordItems.begin(player, swordId)) return previous;
+            closePlayer(id);
+            return null;
+        }
         if (previous != null) closePlayer(id);
         ModelRenderer renderer = BetterModel.limbOrNull(PREFIX + swordId);
         if (renderer == null || LOOPS.stream().anyMatch(clip -> renderer.animation(clip).isEmpty())) return null;
-        EntityTracker tracker = renderer.create(BukkitAdapter.adapt(player), BODY_MODIFIER);
+        if (!swordItems.begin(player, swordId)) return null;
+        EntityTracker tracker;
+        try {
+            tracker = renderer.create(BukkitAdapter.adapt(player), BODY_MODIFIER, created -> {
+                created.hideOption(INVENTORY_SAFE_HIDE);
+                configureSwordDisplay(created, () -> swordItems.displayItem(player, swordId));
+            });
+        } catch (LinkageError | RuntimeException error) {
+            swordItems.restorePlayerSoon(id);
+            throw error;
+        }
         // Stop the engine's automatic movement predicates; our held-sword state owns these clips.
         for (String clip : List.of("idle", "walk", "idle_fly", "walk_fly", "spawn")) tracker.stopAnimation(clip);
         BodySession body = new BodySession(swordId, renderer, tracker);
         bodies.put(id, body);
-        tracker.handleCloseEvent((closedTracker, reason) -> bodies.remove(id, body));
+        tracker.handleCloseEvent((closedTracker, reason) -> {
+            if (bodies.remove(id, body)) swordItems.restorePlayerSoon(id);
+        });
         setLoop(body);
         return body;
+    }
+
+    private static void configureSwordDisplay(Tracker tracker, Supplier<ItemStack> sword) {
+        var hand = tracker.bone("right_item");
+        if (hand == null || hand.getDisplay() == null)
+            throw new IllegalStateException("BetterModel sword rig has no right_item display");
+        hand.setItemMapper(new BoneItemMapper() {
+            @Override public PlatformItemTransform transform() { return PlatformItemTransform.FIXED; }
+            @Override public TransformedItemStack apply(BoneRenderContext context, TransformedItemStack current) {
+                return TransformedItemStack.of(BukkitAdapter.adapt(sword.get()));
+            }
+        });
+        hand.getDisplay().display(PlatformItemTransform.FIXED);
+        tracker.update(TrackerUpdateAction.itemMapping(), bone -> bone == hand);
     }
 
     private void setLoop(BodySession body) {
@@ -264,11 +315,10 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
             ModelRenderer renderer = BetterModel.limbOrNull(PREFIX + swordId);
             if (renderer == null || renderer.animation("ultimate").isEmpty()) return false;
             cancelCinematic(player);
-            var sword = player.getInventory().getItemInMainHand().clone();
+            var sword = swordItems.displayItem(player, swordId);
             DummyTracker tracker = renderer.create(BukkitAdapter.adapt(origin.clone()),
                     ModelProfile.of(BukkitAdapter.adapt(player)), BODY_MODIFIER,
-                    created -> created.update(TrackerUpdateAction.itemStack(TransformedItemStack.of(BukkitAdapter.adapt(sword))),
-                            bone -> bone.name().name().equals("right_item")));
+                    created -> configureSwordDisplay(created, sword::clone));
             cinematicBodies.put(player.getUniqueId(), tracker);
             trackEffect(player.getUniqueId(), tracker, 5D);
             spawnNearby(tracker, player, origin);
@@ -333,7 +383,10 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
 
     private void closePlayer(UUID owner) {
         BodySession body = bodies.remove(owner);
-        if (body != null) body.tracker.close(); // Engine restores vanilla body/equipment visibility.
+        if (body != null) {
+            body.tracker.close(); // Engine restores vanilla body/equipment visibility.
+            swordItems.restorePlayerSoon(owner);
+        }
         effects.forEach((tracker, playback) -> {
             if (playback.owner().equals(owner)) { effects.remove(tracker); tracker.close(); }
         });
@@ -347,6 +400,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
                 + "; integration checked against 3.1; abilities still work";
         plugin.getLogger().log(Level.WARNING, diagnostic, error);
         bodies.values().forEach(body -> body.tracker.close());
+        bodies.keySet().forEach(swordItems::restorePlayerSoon);
         bodies.clear();
         effects.keySet().forEach(Tracker::close);
         effects.clear();
@@ -368,6 +422,21 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     @EventHandler public void quit(PlayerQuitEvent event) { closePlayer(event.getPlayer().getUniqueId()); }
     @EventHandler public void died(PlayerDeathEvent event) { closePlayer(event.getEntity().getUniqueId()); }
     @EventHandler public void worldChanged(PlayerChangedWorldEvent event) { closePlayer(event.getPlayer().getUniqueId()); }
+    @EventHandler(priority = EventPriority.MONITOR) public void held(PlayerItemHeldEvent event) {
+        closePlayer(event.getPlayer().getUniqueId());
+    }
+    @EventHandler(priority = EventPriority.MONITOR) public void dropped(PlayerDropItemEvent event) {
+        closePlayer(event.getPlayer().getUniqueId());
+    }
+    @EventHandler(priority = EventPriority.MONITOR) public void swapped(PlayerSwapHandItemsEvent event) {
+        closePlayer(event.getPlayer().getUniqueId());
+    }
+    @EventHandler(priority = EventPriority.MONITOR) public void clicked(InventoryClickEvent event) {
+        if (event.getWhoClicked() instanceof Player player) closePlayer(player.getUniqueId());
+    }
+    @EventHandler(priority = EventPriority.MONITOR) public void dragged(InventoryDragEvent event) {
+        if (event.getWhoClicked() instanceof Player player) closePlayer(player.getUniqueId());
+    }
     @EventHandler public void pluginDisabled(PluginDisableEvent event) { if (event.getPlugin() == engine) close(); }
 
     @Override public void close() {
@@ -377,6 +446,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
         watchdog.cancel();
         HandlerList.unregisterAll(this);
         bodies.values().forEach(body -> body.tracker.close());
+        bodies.keySet().forEach(swordItems::restorePlayerSoon);
         bodies.clear();
         effects.keySet().forEach(Tracker::close);
         effects.clear();

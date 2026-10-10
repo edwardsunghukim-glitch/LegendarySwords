@@ -180,7 +180,26 @@ def validate(pack):
         model_path = resource_path(pack, item.get("model"), "models", ".json")
         require(model_path.is_file(), "Item references missing model: " + str(item_path))
         validate_model(pack, model_path)
-    return {"items": len(ITEMS), "json": len(json_paths), "png": len(png_paths)}
+        animated_path = item_path.with_name(name + "_animated.json")
+        animated = load_json(animated_path).get("model", {})
+        require(animated.get("type") == "minecraft:select"
+                and animated.get("property") == "minecraft:display_context",
+                "Expected animated display-context selector: " + str(animated_path))
+        require(animated.get("cases") == [{"when": ["thirdperson_lefthand", "thirdperson_righthand"],
+                                           "model": {"type": "minecraft:empty"}}],
+                "Animated item must hide only vanilla third-person hands: " + str(animated_path))
+        fallback = animated.get("fallback", {})
+        require(fallback.get("type") == "minecraft:model"
+                and fallback.get("model") == "legendaryswords:item/" + name + "_animated",
+                "Animated inventory/first-person fallback is missing: " + str(animated_path))
+        animated_model_path = resource_path(pack, fallback["model"], "models", ".json")
+        validate_model(pack, animated_model_path)
+        expected = load_json(model_path)
+        expected["display"]["fixed"] = expected["display"]["thirdperson_righthand"]
+        require(load_json(animated_model_path) == expected,
+                "Animated FIXED model must preserve geometry, inventory and authored hand transforms: "
+                + str(animated_model_path))
+    return {"items": len(ITEMS), "animated_items": len(ITEMS), "json": len(json_paths), "png": len(png_paths)}
 
 
 def archive_files(pack):

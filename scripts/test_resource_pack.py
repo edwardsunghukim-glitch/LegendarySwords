@@ -25,6 +25,35 @@ class ResourcePackTests(unittest.TestCase):
     def test_all_swords_validate(self):
         self.assertEqual(validate(self.pack)["items"], len(ITEMS))
 
+    def test_animated_items_keep_inventory_first_person_and_fixed_visible(self):
+        for name in ITEMS:
+            item = json.loads((self.pack / "assets/legendaryswords/items" / (name + "_animated.json")).read_text())["model"]
+            self.assertEqual(item["property"], "minecraft:display_context")
+            hidden = {context for case in item["cases"] if case["model"]["type"] == "minecraft:empty"
+                      for context in case["when"]}
+            self.assertEqual(hidden, {"thirdperson_lefthand", "thirdperson_righthand"})
+            for context in ("gui", "firstperson_lefthand", "firstperson_righthand", "ground", "fixed"):
+                with self.subTest(sword=name, context=context):
+                    self.assertNotIn(context, hidden)
+                    self.assertEqual(item["fallback"]["type"], "minecraft:model")
+                    self.assertTrue((self.pack / "assets/legendaryswords/models/item" / (name + "_animated.json")).is_file())
+
+    def test_animated_inventory_hiding_is_rejected(self):
+        path = self.pack / "assets/legendaryswords/items/master_sword_animated.json"
+        data = json.loads(path.read_text())
+        data["model"]["cases"][0]["when"].append("gui")
+        path.write_text(json.dumps(data))
+        with self.assertRaisesRegex(PackValidationError, "hide only vanilla third-person"):
+            validate(self.pack)
+
+    def test_mismatched_fixed_hand_transform_is_rejected(self):
+        path = self.pack / "assets/legendaryswords/models/item/master_sword_animated.json"
+        data = json.loads(path.read_text())
+        data["display"]["fixed"]["rotation"][0] += 90
+        path.write_text(json.dumps(data))
+        with self.assertRaisesRegex(PackValidationError, "authored hand transforms"):
+            validate(self.pack)
+
     def test_swords_have_distinct_geometry_and_high_resolution_energy(self):
         signatures = set()
         for name in ITEMS:
@@ -104,6 +133,7 @@ class ResourcePackTests(unittest.TestCase):
             self.assertNotIn("README.md", archive.namelist())
             for name in ITEMS:
                 self.assertIn("assets/legendaryswords/items/" + name + ".json", archive.namelist())
+                self.assertIn("assets/legendaryswords/items/" + name + "_animated.json", archive.namelist())
             self.assertIsNone(archive.testzip())
 
 

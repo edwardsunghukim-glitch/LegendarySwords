@@ -1,0 +1,189 @@
+package io.github.legendaryswords.integration;
+
+import io.github.legendaryswords.sword.SwordCatalog;
+import java.util.UUID;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.HandlerList;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.entity.EntityPickupItemEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCreativeEvent;
+import org.bukkit.event.inventory.InventoryDragEvent;
+import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerItemHeldEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerSwapHandItemsEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.InventoryView;
+import org.bukkit.plugin.java.JavaPlugin;
+
+/** Owns the temporary item model used while a BetterModel body holds a sword. */
+public final class AnimatedSwordItems implements Listener, AutoCloseable {
+    private final JavaPlugin plugin;
+    private final SwordCatalog swords;
+    private final Map<UUID, Integer> pendingUpdates = new ConcurrentHashMap<>();
+
+    public AnimatedSwordItems(JavaPlugin plugin, SwordCatalog swords) {
+        this.plugin = plugin;
+        this.swords = swords;
+        plugin.getServer().getPluginManager().registerEvents(this, plugin);
+        plugin.getServer().getOnlinePlayers().forEach(this::restorePlayer);
+    }
+
+    /** Selects an animated model only for a recognized sword with our own item model. */
+    public boolean begin(Player player, String swordId) {
+        if (pendingUpdates.containsKey(player.getUniqueId())) return false;
+        ItemStack item = player.getInventory().getItemInMainHand();
+        if (!owned(item, swordId)) return false;
+        var meta = item.getItemMeta();
+        NamespacedKey animated = animated(swordId);
+        if (!animated.equals(meta.getItemModel())) {
+            meta.setItemModel(animated);
+            item.setItemMeta(meta);
+            player.getInventory().setItemInMainHand(item);
+        }
+        return true;
+    }
+
+    /** The animated display gets its own clone; inventory event cleanup cannot hide it. */
+    public ItemStack displayItem(Player player, String swordId) {
+        ItemStack held = player.getInventory().getItemInMainHand();
+        if (!owned(held, swordId)) return new ItemStack(Material.AIR);
+        ItemStack display = held.clone();
+        var meta = display.getItemMeta();
+        meta.setItemModel(animated(swordId));
+        display.setItemMeta(meta);
+        return display;
+    }
+
+    private boolean owned(ItemStack item, String swordId) {
+        return swords.identify(item).filter(sword -> sword.id().equals(swordId)).isPresent()
+                && item.hasItemMeta() && (base(swordId).equals(item.getItemMeta().getItemModel())
+                || animated(swordId).equals(item.getItemMeta().getItemModel()));
+    }
+
+    /** Restores only our temporary model identifier, leaving the item's other metadata intact. */
+    public boolean restoreItem(ItemStack item) {
+        var sword = swords.identify(item);
+        if (sword.isEmpty() || !item.hasItemMeta()) return false;
+        String id = sword.orElseThrow().id();
+        var meta = item.getItemMeta();
+        if (!animated(id).equals(meta.getItemModel())) return false;
+        meta.setItemModel(base(id));
+        item.setItemMeta(meta);
+        return true;
+    }
+
+    public void restorePlayer(Player player) {
+        var inventory = player.getInventory();
+        ItemStack[] contents = inventory.getContents();
+        for (int slot = 0; slot < contents.length; slot++)
+            if (restoreItem(contents[slot])) inventory.setItem(slot, contents[slot]);
+        ItemStack cursor = player.getItemOnCursor();
+        if (restoreItem(cursor)) player.setItemOnCursor(cursor);
+    }
+
+    /** BetterModel close callbacks can arrive on its worker threads. */
+    public void restorePlayerSoon(UUID id) {
+        Runnable restore = () -> {
+            Player player = plugin.getServer().getPlayer(id);
+            if (player != null) restorePlayer(player);
+        };
+        if (plugin.getServer().isPrimaryThread()) restore.run();
+        else if (plugin.isEnabled()) queueCleanup(id, restore);
+    }
+
+    private void queueCleanup(UUID id, Runnable cleanup) {
+        pendingUpdates.merge(id, 1, Integer::sum);
+        try {
+            plugin.getServer().getScheduler().runTask(plugin, () -> {
+                try { cleanup.run(); }
+                finally { finishCleanup(id); }
+            });
+        } catch (RuntimeException error) {
+            finishCleanup(id);
+            throw error;
+        }
+    }
+
+    private void finishCleanup(UUID id) {
+        pendingUpdates.computeIfPresent(id, (owner, count) -> count > 1 ? count - 1 : null);
+    }
+
+    private void afterInventoryUpdate(Player player, InventoryView view, Collection<Integer> rawSlots) {
+        if (!plugin.isEnabled()) return;
+        queueCleanup(player.getUniqueId(), () -> {
+            // Paper applies drag destinations after the event; modifying event snapshots is insufficient.
+            for (int slot : rawSlots) {
+                if (slot < 0 || slot >= view.countSlots()) continue;
+                ItemStack item = view.getItem(slot);
+                if (restoreItem(item)) view.setItem(slot, item);
+            }
+            restorePlayer(player);
+        });
+    }
+
+    private static NamespacedKey base(String id) { return new NamespacedKey("legendaryswords", id); }
+    private static NamespacedKey animated(String id) { return new NamespacedKey("legendaryswords", id + "_animated"); }
+
+    @EventHandler public void join(PlayerJoinEvent event) { restorePlayer(event.getPlayer()); }
+    @EventHandler public void quit(PlayerQuitEvent event) { restorePlayer(event.getPlayer()); }
+    @EventHandler public void held(PlayerItemHeldEvent event) { restorePlayer(event.getPlayer()); }
+    @EventHandler public void swapped(PlayerSwapHandItemsEvent event) {
+        restorePlayer(event.getPlayer());
+        ItemStack main = event.getMainHandItem(), off = event.getOffHandItem();
+        if (restoreItem(main)) event.setMainHandItem(main);
+        if (restoreItem(off)) event.setOffHandItem(off);
+    }
+    @EventHandler public void dropped(PlayerDropItemEvent event) {
+        ItemStack item = event.getItemDrop().getItemStack();
+        if (restoreItem(item)) event.getItemDrop().setItemStack(item);
+        restorePlayer(event.getPlayer());
+    }
+    @EventHandler public void pickedUp(EntityPickupItemEvent event) {
+        if (event.getEntity() instanceof Player) {
+            ItemStack item = event.getItem().getItemStack();
+            if (restoreItem(item)) event.getItem().setItemStack(item);
+        }
+    }
+    @EventHandler public void died(PlayerDeathEvent event) {
+        event.getDrops().forEach(this::restoreItem);
+        restorePlayer(event.getEntity());
+    }
+    @EventHandler public void clicked(InventoryClickEvent event) {
+        if (event.getWhoClicked() instanceof Player player) {
+            if (event instanceof InventoryCreativeEvent creative) {
+                ItemStack cursor = creative.getCursor();
+                if (restoreItem(cursor)) creative.setCursor(cursor);
+            }
+            ItemStack item = event.getCurrentItem();
+            if (restoreItem(item)) event.setCurrentItem(item);
+            restorePlayer(player);
+            afterInventoryUpdate(player, event.getView(), List.of(event.getRawSlot()));
+        }
+    }
+    @EventHandler public void dragged(InventoryDragEvent event) {
+        if (event.getWhoClicked() instanceof Player player) {
+            ItemStack cursor = event.getCursor();
+            if (restoreItem(cursor)) event.setCursor(cursor);
+            restorePlayer(player);
+            afterInventoryUpdate(player, event.getView(), Set.copyOf(event.getRawSlots()));
+        }
+    }
+
+    @Override public void close() {
+        plugin.getServer().getOnlinePlayers().forEach(this::restorePlayer);
+        pendingUpdates.clear();
+        HandlerList.unregisterAll(this);
+    }
+}

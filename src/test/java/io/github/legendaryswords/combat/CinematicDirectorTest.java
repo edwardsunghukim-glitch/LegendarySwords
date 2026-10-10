@@ -4,6 +4,7 @@ import io.github.legendaryswords.LegendarySwordsPlugin;
 import io.github.legendaryswords.PlayerStateStore;
 import io.github.legendaryswords.PluginSettings;
 import io.github.legendaryswords.integration.AnimationBridge;
+import io.github.legendaryswords.integration.AnimatedSwordItems;
 import io.github.legendaryswords.sword.SwordType;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -131,6 +132,19 @@ class CinematicDirectorTest {
 
     @AfterEach
     void releaseStaticMock() { bukkit.close(); }
+
+    @Test void detachedRitualUsesTheOrdinaryFixedModelWithoutChangingTheHeldSword() {
+        AnimatedSwordItems items = mock(AnimatedSwordItems.class);
+        ItemStack held = mock(ItemStack.class), visual = mock(ItemStack.class);
+        when(plugin.animatedSwordItems()).thenReturn(items);
+        when(player.getInventory().getItemInMainHand()).thenReturn(held);
+        when(held.clone()).thenReturn(visual);
+        startRitual();
+        verify(items).restoreItem(visual);
+        verify(items, never()).restoreItem(held);
+        verify(blade).setItemStack(visual);
+        director.close();
+    }
 
     @Test
     void ordinaryCompletionShowsTheRitualWithoutChangingPlayerControl() {

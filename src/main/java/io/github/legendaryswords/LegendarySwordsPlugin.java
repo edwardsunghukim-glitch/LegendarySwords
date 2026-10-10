@@ -5,6 +5,7 @@ import io.github.legendaryswords.combat.CinematicDirector;
 import io.github.legendaryswords.combat.CombatService;
 import io.github.legendaryswords.combat.VisualEffects;
 import io.github.legendaryswords.integration.AnimationBridge;
+import io.github.legendaryswords.integration.AnimatedSwordItems;
 import io.github.legendaryswords.integration.MovementAnimationController;
 import io.github.legendaryswords.mechanics.CooldownBook;
 import io.github.legendaryswords.sword.SwordCatalog;
@@ -25,6 +26,7 @@ public final class LegendarySwordsPlugin extends JavaPlugin {
     private CinematicDirector cinematics;
     private AnimationBridge animations;
     private MovementAnimationController movement;
+    private AnimatedSwordItems animatedSwordItems;
     private AbilityController abilities;
     private ResourcePackManager packs;
 
@@ -32,6 +34,7 @@ public final class LegendarySwordsPlugin extends JavaPlugin {
         saveDefaultConfig();
         settings = new PluginSettings(this);
         swords = new SwordCatalog(this, settings);
+        animatedSwordItems = new AnimatedSwordItems(this, swords);
         states = new PlayerStateStore(this);
         cooldowns = new CooldownBook();
         effects = new VisualEffects();
@@ -86,6 +89,7 @@ public final class LegendarySwordsPlugin extends JavaPlugin {
         if (abilities != null) abilities.close();
         if (movement != null) movement.close();
         if (animations != null) animations.close();
+        if (animatedSwordItems != null) animatedSwordItems.close();
         if (states != null) states.close();
     }
     public PluginSettings settings() { return settings; }
@@ -96,6 +100,7 @@ public final class LegendarySwordsPlugin extends JavaPlugin {
     public CombatService combat() { return combat; }
     public CinematicDirector cinematics() { return cinematics; }
     public AnimationBridge animations() { return animations; }
+    public AnimatedSwordItems animatedSwordItems() { return animatedSwordItems; }
     public AbilityController abilities() { return abilities; }
     public ResourcePackManager packs() { return packs; }
 }

@@ -556,7 +556,7 @@ def main():
     emissive_config = ROOT / "assets" / "minecraft" / "optifine" / "emissive.properties"
     emissive_config.parent.mkdir(parents=True, exist_ok=True)
     emissive_config.write_text("# Optional OptiFine-compatible emissive textures; vanilla ignores this.\nsuffix.emissive=_e\n", encoding="ascii")
-    print("Generated eight original sword models, animated emissive material atlases, and pack icon.")
+    print("Generated eight original sword models, animated emissive material atlases, and pack icon. Run expand_weapon_assets.py for the sixteen additions.")
 
 
 if __name__ == "__main__":

@@ -32,6 +32,9 @@ public interface AnimationBridge extends AutoCloseable {
 
     void playUltimate(Player player, String swordId);
 
+    /** Short impact follow-through after the shared ultimate windup. */
+    default void playRelease(Player player, String swordId) { }
+
     /** A held-sword body tracker is retained across movement and actions, then restored on release. */
     default void tickMovement(Player player, String swordId, Locomotion movement) { }
 

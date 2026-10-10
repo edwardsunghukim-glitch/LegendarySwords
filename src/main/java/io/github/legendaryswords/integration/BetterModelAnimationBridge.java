@@ -56,10 +56,10 @@ import java.util.logging.Level;
 
 /** Direct integration with official BetterModel 3.1; engine classes stay out of the fallback. */
 final class BetterModelAnimationBridge implements AnimationBridge, Listener {
-    private static final List<String> SWORDS = List.of("master_sword", "flameblade", "fierce_deity_sword",
-            "frostblade", "thunderblade", "royal_claymore", "eightfold_blade", "biggoron_sword");
+    private static final List<String> SWORDS = java.util.Arrays.stream(io.github.legendaryswords.sword.SwordType.values())
+            .map(io.github.legendaryswords.sword.SwordType::id).toList();
     private static final List<String> LOOPS = List.of("idle", "walk", "run");
-    private static final List<String> ACTIONS = List.of("pose", "swing", "ability", "ultimate");
+    private static final List<String> ACTIONS = List.of("pose", "swing", "ability", "ultimate", "release");
     private static final String PREFIX = "legendaryswords_";
     private static final long VIEW_DISTANCE_SQUARED = 1600L;
     private static final long SWING_THROTTLE_NANOS = TimeUnit.MILLISECONDS.toNanos(220L);
@@ -189,7 +189,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
             if (!abilitiesOnly() || playerBodyAnimationsEnabled()) {
                 ModelRenderer body = BetterModel.limbOrNull(PREFIX + sword);
                 if (body == null) missing.add(sword + ":player");
-                else for (String clip : abilitiesOnly() ? List.of("ability", "ultimate")
+                else for (String clip : abilitiesOnly() ? List.of("ability", "ultimate", "release")
                         : List.of("idle", "walk", "run", "pose", "swing", "ability", "ultimate")) {
                     if (body.animation(clip).isEmpty()) missing.add(sword + ":" + clip);
                 }
@@ -208,10 +208,10 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
                 + (abilitiesOnly()
                 ? ": abilities/ultimates only; " + (playerBodyAnimationsEnabled()
                         ? "temporary cast body animations" : "attack effects only")
-                        + "; normal movement and swings; existing 0.2.2 combined pack works"
+                        + "; normal movement and swings; install the 0.3.0 pack and updated BetterModel build"
                 : playerBodyAnimationsEnabled()
-                ? ": 8 motion sets loaded (idle/walk/run/pose/swing/ability/ultimate); install regenerated client pack"
-                : ": player body animations paused (bettermodel.player-body-animations=false); slash effects available; existing 0.2.2 combined pack works")
+                ? ": 24 motion sets loaded (idle/walk/run/pose/swing/ability/ultimate); install regenerated client pack"
+                : ": player body animations paused (bettermodel.player-body-animations=false); slash effects available; install the 0.3.0 pack and updated BetterModel build")
                 + (preservedModels.isEmpty() ? "" : "; " + preservedModels.size() + " edited files preserved");
     }
 
@@ -261,6 +261,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     @Override public void playSwing(Player player, String swordId) { play(player, swordId, "swing", 2); }
     @Override public void playAbility(Player player, String swordId) { play(player, swordId, "ability", 3); }
     @Override public void playUltimate(Player player, String swordId) { play(player, swordId, "ultimate", 4); }
+    @Override public void playRelease(Player player, String swordId) { play(player, swordId, "release", 5); }
     @Override public void playPose(Player player, String swordId) { play(player, swordId, "pose", 1); }
 
     private boolean usable(Player player, String swordId) {
@@ -361,7 +362,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     }
 
     private void play(Player player, String swordId, String animation, int priority) {
-        if (abilitiesOnly() && !animation.equals("ability") && !animation.equals("ultimate")) return;
+        if (abilitiesOnly() && !animation.equals("ability") && !animation.equals("ultimate") && !animation.equals("release")) return;
         if (!usable(player, swordId)) return;
         try {
             if (!playerBodyAnimationsEnabled()) {
@@ -373,7 +374,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
                     if (previous != null && now - previous < SWING_THROTTLE_NANOS) return;
                     lastSlashSwings.put(owner, now);
                 }
-                if (!animation.equals("pose")) playSlashAt(player, swordId, animation, player.getLocation());
+                if (!animation.equals("pose") && !animation.equals("release")) playSlashAt(player, swordId, animation, player.getLocation());
                 return;
             }
             BodySession body = body(player, swordId);
@@ -397,7 +398,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
             AnimationModifier modifier = abilitiesOnly() && animation.equals("ultimate") ? ULTIMATE_CAST.toBuilder().speed((float) (length * 20D
                     / PluginSettings.ultimateWindupTicks(plugin.getConfig(), swordId))).build() : ACTION;
             if (!body.tracker.animate(animation, modifier)) { finishAction(body); return; }
-            if (!animation.equals("pose")) playSlashAt(player, swordId, animation, player.getLocation());
+            if (!animation.equals("pose") && !animation.equals("release")) playSlashAt(player, swordId, animation, player.getLocation());
         } catch (LinkageError | RuntimeException error) {
             disableAnimation(error);
         }

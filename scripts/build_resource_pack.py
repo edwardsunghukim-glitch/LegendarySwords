@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PACK = ROOT / "resource-pack"
 ITEMS = ("master_sword", "flameblade", "fierce_deity_sword", "frostblade",
          "thunderblade", "royal_claymore", "eightfold_blade", "biggoron_sword")
+ITEMS += tuple(w["id"] for w in json.loads((ROOT / "scripts/expanded_weapons.json").read_text()))
 RESOURCE_ID = re.compile(r"^[a-z0-9_.-]+:[a-z0-9/._-]+$")
 
 

@@ -191,6 +191,20 @@ class BetterModelAnimationBridgeTest {
         }
     }
 
+    @Test void releaseAnimatesAtImpactThenRestoresWithoutAHiddenOwnerInventory() {
+        try (Fixture f = new Fixture()) {
+            f.config.set("bettermodel.abilities-only", true);
+            f.bridge.playRelease(f.player, "master_sword");
+            verify(f.tracker).animate(eq("release"), any(AnimationModifier.class));
+            verify(f.swordItems, never()).begin(any(), anyString());
+            verify(f.slashRenderer, never()).create(any(PlatformLocation.class), any(TrackerModifier.class), any());
+            f.nanos.addAndGet(TimeUnit.SECONDS.toNanos(2));
+            f.bridge.tickMovement(f.player, "master_sword", WALK);
+            verify(f.tracker).close();
+            for (String loop : List.of("idle", "walk", "run")) verify(f.tracker, never()).animate(eq(loop), any(AnimationModifier.class));
+        }
+    }
+
     @Test void firstViewerReclaimsEngineLoopsOnceAndWalkingDoesNotRestartEveryTick() {
         try (Fixture f = new Fixture()) {
             f.bridge.tickMovement(f.player, "master_sword", WALK);
@@ -268,7 +282,7 @@ class BetterModelAnimationBridgeTest {
             verify(f.tracker, never()).hideOption(any());
             assertTrue(f.bridge.status().contains("player body animations paused"));
             assertTrue(f.bridge.status().contains("slash effects available"));
-            assertTrue(f.bridge.status().contains("existing 0.2.2 combined pack works"));
+            assertTrue(f.bridge.status().contains("install the 0.3.0 pack and updated BetterModel build"));
         }
     }
 
@@ -530,8 +544,7 @@ class BetterModelAnimationBridgeTest {
             });
             when(tracker.animate(anyString(), any(AnimationModifier.class))).thenReturn(true);
             engineApi.when(() -> BetterModel.limbOrNull("legendaryswords_master_sword")).thenReturn(renderer);
-            for (String sword : List.of("master_sword", "flameblade", "fierce_deity_sword", "frostblade",
-                    "thunderblade", "royal_claymore", "eightfold_blade", "biggoron_sword")) {
+            for (String sword : java.util.Arrays.stream(io.github.legendaryswords.sword.SwordType.values()).map(io.github.legendaryswords.sword.SwordType::id).toList()) {
                 engineApi.when(() -> BetterModel.limbOrNull("legendaryswords_" + sword)).thenReturn(renderer);
                 engineApi.when(() -> BetterModel.modelOrNull("legendaryswords_" + sword + "_slash"))
                         .thenReturn(slashRenderer);

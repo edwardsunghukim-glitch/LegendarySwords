@@ -63,6 +63,7 @@ class AbilityControllerTest {
     private AbilityController controller;
     private final List<Scheduled> scheduled = new ArrayList<>();
     private MockedStatic<Bukkit> bukkit;
+    private MockedStatic<io.papermc.paper.registry.RegistryAccess> registryApi;
 
     @BeforeEach
     void setUp() {
@@ -138,6 +139,13 @@ class AbilityControllerTest {
         bukkit = mockStatic(Bukkit.class);
         bukkit.when(Bukkit::getScheduler).thenReturn(scheduler);
         bukkit.when(Bukkit::getServer).thenReturn(server);
+        registryApi = mockStatic(io.papermc.paper.registry.RegistryAccess.class);
+        var access = mock(io.papermc.paper.registry.RegistryAccess.class);
+        when(access.getRegistry(any(Class.class))).thenAnswer(call -> mock(org.bukkit.Registry.class));
+        when(access.getRegistry(any(io.papermc.paper.registry.RegistryKey.class))).thenAnswer(call -> mock(org.bukkit.Registry.class));
+        registryApi.when(io.papermc.paper.registry.RegistryAccess::registryAccess).thenReturn(access);
+        doAnswer(call -> mock(org.bukkit.potion.PotionEffectType.class)).when(org.bukkit.Registry.MOB_EFFECT)
+                .getOrThrow(any(net.kyori.adventure.key.Key.class));
         controller = new AbilityController(plugin, settings, states, cooldowns, combat, effects, cinematics, animations);
     }
 
@@ -145,6 +153,30 @@ class AbilityControllerTest {
     void tearDown() {
         if (controller != null) controller.close();
         if (bukkit != null) bukkit.close();
+        if (registryApi != null) registryApi.close();
+    }
+
+    @org.junit.jupiter.params.ParameterizedTest
+    @org.junit.jupiter.params.provider.EnumSource(value = SwordType.class,
+            names = {"MASTER_SWORD", "FLAMEBLADE", "FIERCE_DEITY_SWORD", "FROSTBLADE", "THUNDERBLADE", "ROYAL_CLAYMORE", "EIGHTFOLD_BLADE", "BIGGORON_SWORD"},
+            mode = org.junit.jupiter.params.provider.EnumSource.Mode.EXCLUDE)
+    void everyNewRelicProducesEffectsAndProtectedAbilityAndUltimateDamage(SwordType sword) {
+        // Put the target directly ahead, within both beam and area attack footprints.
+        when(target.getLocation()).thenAnswer(invocation -> new Location(world, 10, 70, 23));
+        controller.activate(player, sword, false);
+        advanceTicks(110);
+        verify(combat, atLeastOnce()).damage(eq(player), eq(target), anyDouble(), any(Vector.class), anyInt());
+        assertTrue(mockingDetails(effects).getInvocations().stream()
+                .anyMatch(call -> java.util.Arrays.asList(call.getArguments()).contains(sword)));
+        verify(combat, atMost(1)).damage(eq(player), eq(target), anyDouble(), any(Vector.class), anyInt());
+        clearInvocations(combat, effects);
+        charge.set(100);
+        controller.activate(player, sword, true);
+        advanceTicks(200);
+        verify(animations).playRelease(player, sword.id());
+        verify(combat, atLeastOnce()).damage(eq(player), eq(target), anyDouble(), any(Vector.class), anyInt());
+        assertEquals(0, charge.value());
+        verify(player, never()).teleport(any(Location.class));
     }
 
     @Test

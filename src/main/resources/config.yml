@@ -98,3 +98,115 @@ swords:
     ability-cooldown-seconds: 12.0
     ultimate-damage: 16.0
     ultimate-cooldown-seconds: 100.0
+  white_sword:
+    attack-damage: 8.0
+    attack-speed: 1.0
+    ability-damage: 8.0
+    ability-cooldown-seconds: 6.0
+    ultimate-damage: 9.0
+    ultimate-cooldown-seconds: 65.0
+  goddess_sword:
+    attack-damage: 9.0
+    attack-speed: 1.25
+    ability-damage: 9.0
+    ability-cooldown-seconds: 7.0
+    ultimate-damage: 10.0
+    ultimate-cooldown-seconds: 70.0
+  goddess_longsword:
+    attack-damage: 10.0
+    attack-speed: 1.5
+    ability-damage: 10.0
+    ability-cooldown-seconds: 8.0
+    ultimate-damage: 11.0
+    ultimate-cooldown-seconds: 75.0
+  goddess_white_sword:
+    attack-damage: 11.0
+    attack-speed: 1.75
+    ability-damage: 11.0
+    ability-cooldown-seconds: 9.0
+    ultimate-damage: 12.0
+    ultimate-cooldown-seconds: 80.0
+  true_master_sword:
+    attack-damage: 12.0
+    attack-speed: 2.0
+    ability-damage: 12.0
+    ability-cooldown-seconds: 10.0
+    ultimate-damage: 13.0
+    ultimate-cooldown-seconds: 85.0
+  phantom_sword:
+    attack-damage: 13.0
+    attack-speed: 1.0
+    ability-damage: 8.0
+    ability-cooldown-seconds: 6.0
+    ultimate-damage: 14.0
+    ultimate-cooldown-seconds: 90.0
+  locomo_sword:
+    attack-damage: 8.0
+    attack-speed: 1.25
+    ability-damage: 9.0
+    ability-cooldown-seconds: 7.0
+    ultimate-damage: 15.0
+    ultimate-cooldown-seconds: 65.0
+  razor_sword:
+    attack-damage: 9.0
+    attack-speed: 1.5
+    ability-damage: 10.0
+    ability-cooldown-seconds: 8.0
+    ultimate-damage: 16.0
+    ultimate-cooldown-seconds: 70.0
+  gilded_sword:
+    attack-damage: 10.0
+    attack-speed: 1.75
+    ability-damage: 11.0
+    ability-cooldown-seconds: 9.0
+    ultimate-damage: 9.0
+    ultimate-cooldown-seconds: 75.0
+  great_fairy_sword:
+    attack-damage: 11.0
+    attack-speed: 2.0
+    ability-damage: 12.0
+    ability-cooldown-seconds: 10.0
+    ultimate-damage: 10.0
+    ultimate-cooldown-seconds: 80.0
+  sword_of_six_sages:
+    attack-damage: 12.0
+    attack-speed: 1.0
+    ability-damage: 8.0
+    ability-cooldown-seconds: 6.0
+    ultimate-damage: 11.0
+    ultimate-cooldown-seconds: 85.0
+  guardian_sword:
+    attack-damage: 13.0
+    attack-speed: 1.25
+    ability-damage: 9.0
+    ability-cooldown-seconds: 7.0
+    ultimate-damage: 12.0
+    ultimate-cooldown-seconds: 90.0
+  ancient_short_sword:
+    attack-damage: 8.0
+    attack-speed: 1.5
+    ability-damage: 10.0
+    ability-cooldown-seconds: 8.0
+    ultimate-damage: 13.0
+    ultimate-cooldown-seconds: 65.0
+  scimitar_of_the_seven:
+    attack-damage: 9.0
+    attack-speed: 1.75
+    ability-damage: 11.0
+    ability-cooldown-seconds: 9.0
+    ultimate-damage: 14.0
+    ultimate-cooldown-seconds: 70.0
+  forest_dweller_sword:
+    attack-damage: 10.0
+    attack-speed: 2.0
+    ability-damage: 12.0
+    ability-cooldown-seconds: 10.0
+    ultimate-damage: 15.0
+    ultimate-cooldown-seconds: 75.0
+  dusk_claymore:
+    attack-damage: 11.0
+    attack-speed: 1.0
+    ability-damage: 8.0
+    ability-cooldown-seconds: 6.0
+    ultimate-damage: 16.0
+    ultimate-cooldown-seconds: 80.0

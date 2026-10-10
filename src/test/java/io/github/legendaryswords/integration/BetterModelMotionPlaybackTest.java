@@ -37,8 +37,7 @@ class BetterModelMotionPlaybackTest {
             when(platform.config()).thenReturn(config);
             when(adapter.air()).thenReturn(mock(PlatformItemStack.class));
             BetterModel.register(platform);
-            for (String sword : List.of("master_sword", "flameblade", "fierce_deity_sword", "frostblade",
-                    "thunderblade", "royal_claymore", "eightfold_blade", "biggoron_sword")) {
+            for (String sword : java.util.Arrays.stream(io.github.legendaryswords.sword.SwordType.values()).map(io.github.legendaryswords.sword.SwordType::id).toList()) {
                 String name = "legendaryswords_" + sword;
                 try (var stream = getClass().getResourceAsStream("/bettermodel/players/" + name + ".bbmodel")) {
                     assertNotNull(stream, name);

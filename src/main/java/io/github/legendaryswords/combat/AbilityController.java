@@ -34,7 +34,7 @@ import org.bukkit.util.Vector;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 
-/** Eight spells with distinct geometry. Combat never waits for an animation or a camera. */
+/** Twenty-four spell sets with bounded displays, staged ultimates and protected damage. */
 public final class AbilityController implements AutoCloseable {
     private final LegendarySwordsPlugin plugin;
     private final PluginSettings settings;
@@ -102,6 +102,8 @@ public final class AbilityController implements AutoCloseable {
             if (pending.fallback != null) pending.fallback.cancel();
             if (!valid(player, origin)) return;
             effects.sound(origin, sword, true);
+            try { animations.playRelease(player, sword.id()); }
+            catch (RuntimeException | LinkageError error) { plugin.getLogger().warning("Ultimate follow-through unavailable; damage still runs: " + error.getMessage()); }
             launch(player, sword, origin, direction, stats.ultimateDamage(), true);
         };
         try {
@@ -150,7 +152,144 @@ public final class AbilityController implements AutoCloseable {
                 if (ultimate) eruption(player, sword, origin, damage);
                 else goronSpin(player, sword, origin, damage);
             }
+            default -> relicAttack(player, sword, origin, direction, damage, ultimate);
         }
+    }
+
+    /** New relics share lifecycle safeguards, with separate spatial attack choreography. */
+    private void relicAttack(Player player, SwordType sword, Location origin, Vector direction, double damage, boolean ultimate) {
+        int pattern = sword.ordinal() - 8;
+        Vector forward = flat(direction), side = new Vector(-forward.getZ(), 0, forward.getX());
+        double reach = unobstructed(origin.clone().add(0, 1, 0), forward, ultimate ? 14 : 9);
+        Location source = origin.clone().add(0, 1.1, 0);
+        Location focus = origin.clone().add(forward.clone().multiply(Math.min(reach, ultimate ? 5 : 3)));
+        Map<UUID, Integer> hits = new HashMap<>();
+        int duration = ultimate ? 32 + pattern % 4 * 4 : 16 + pattern % 3 * 3;
+        int maximumHits = ultimate ? 3 : 1;
+        Material glass = switch (pattern % 6) {
+            case 0 -> Material.WHITE_STAINED_GLASS;
+            case 1 -> Material.LIGHT_BLUE_STAINED_GLASS;
+            case 2 -> Material.YELLOW_STAINED_GLASS;
+            case 3 -> Material.PINK_STAINED_GLASS;
+            case 4 -> Material.LIME_STAINED_GLASS;
+            default -> Material.PURPLE_STAINED_GLASS;
+        };
+        repeat(player, origin, 0, 2, frame -> {
+            if (frame >= duration) return false;
+            double progress = (frame + 1D) / duration, angle = frame * .25;
+            boolean impact = frame % (ultimate ? 6 : 3) == 0;
+            switch (pattern) {
+                case 0, 4 -> { // Radiant fan and the focused Triforce triad.
+                    int rays = pattern == 4 ? 3 : ultimate ? 7 : 3;
+                    for (int ray = 0; ray < rays; ray++) {
+                        Vector heading = forward.clone().rotateAroundY((ray - (rays - 1) / 2D) * (pattern == 4 ? .15 : .25));
+                        double distance = unobstructed(source, heading, reach);
+                        Location end = source.clone().add(heading.clone().multiply(distance));
+                        effects.line(source, end, sword, .55);
+                        if (frame % 6 == 0) displays.line(player, source, end, glass, ultimate ? .25 : .12, sword.particleColor(), 10);
+                        if (impact) for (LivingEntity target : nearby(player, source, distance + 1)) {
+                            if (hits.getOrDefault(target.getUniqueId(), 0) < maximumHits
+                                    && Geometry.distanceSquaredToSegment(middle(target).toVector(), source.toVector(), end.toVector()) < .9
+                                    && strike(player, target, source, damage, .18, 0, 0, 0)) hits.merge(target.getUniqueId(), 1, Integer::sum);
+                        }
+                    }
+                }
+                case 1, 13 -> { // Advancing light corkscrew / tall sand tornado.
+                    Location center = origin.clone().add(forward.clone().multiply(reach * progress));
+                    double radius = pattern == 13 ? (ultimate ? 3 : 1.8) : (ultimate ? 2 : 1);
+                    effects.helix(center, radius, pattern == 13 ? 5 : 2.5, angle, sword);
+                    effects.ring(center.clone().add(0, .2, 0), radius, sword);
+                    if (frame % 3 == 0) displays.box(player, center.clone().add(0, 1, 0), glass, .35, 2, .35, sword.particleColor(), 5);
+                    if (impact) hitArea(player, center, radius + .6, damage, .2, 0, pattern == 13 ? 40 : 0, 0, hits, maximumHits);
+                }
+                case 2, 10 -> { // Falling stars / six stationary sealing pillars.
+                    int points = pattern == 10 ? 6 : ultimate ? 8 : 3;
+                    double radius = ultimate ? 4 : 2;
+                    for (int point = 0; point < points; point++) {
+                        double theta = point * Math.PI * 2 / points + (pattern == 2 ? angle * .3 : 0);
+                        Location landing = focus.clone().add(Math.cos(theta) * radius, .15, Math.sin(theta) * radius);
+                        Location top = landing.clone().add(0, pattern == 10 ? 6 : 8 * (1 - progress) + 2, 0);
+                        effects.line(landing, top, sword, .4);
+                        if (frame % 6 == point % 6) displays.line(player, landing, top, glass, .28, sword.particleColor(), 10);
+                        if (impact) hitArea(player, landing, 2.2, damage, .25, 0, 25, 0, hits, maximumHits);
+                    }
+                    effects.ring(focus.clone().add(0, .2, 0), radius, sword);
+                    if (ultimate && impact) hitArea(player, focus, radius, damage, .25, 0, 25, 0, hits, maximumHits);
+                }
+                case 3, 9 -> { // Concentric light bloom / layered fairy flower petals.
+                    Location center = pattern == 3 ? origin : focus;
+                    double radius = (ultimate ? 7 : 4) * (.25 + progress * .75);
+                    effects.ring(center.clone().add(0, .3, 0), radius, sword);
+                    int petals = pattern == 3 ? 4 : 7;
+                    for (int petal = 0; petal < petals; petal++) {
+                        double theta = angle + petal * Math.PI * 2 / petals;
+                        Location end = center.clone().add(Math.cos(theta) * radius, .5 + Math.sin(angle) * .3, Math.sin(theta) * radius);
+                        effects.line(center.clone().add(0, .6, 0), end, sword, .4);
+                        if (frame % 6 == 0) displays.line(player, center.clone().add(0, .6, 0), end, glass, .2, sword.particleColor(), 8);
+                    }
+                    if (impact) hitArea(player, center, radius, damage, .25, 0, 0, 0, hits, maximumHits);
+                }
+                case 5, 8 -> { // Sweeping phantom blades / rotating golden petal volley.
+                    int blades = ultimate ? 5 : 3;
+                    for (int blade = 0; blade < blades; blade++) {
+                        double spread = (blade - (blades - 1) / 2D) * (pattern == 5 ? .7 : 1.1);
+                        Location center = source.clone().add(forward.clone().multiply(reach * progress)).add(side.clone().multiply(spread));
+                        effects.arc(center, forward, pattern == 5 ? 1.2 : .8, 85, sword);
+                        if (frame % 4 == 0) displays.line(player, center.clone().add(side.clone().multiply(-.7)), center.clone().add(side.clone().multiply(.7)), glass, .18, sword.particleColor(), 6);
+                        if (impact) hitArea(player, center.clone().subtract(0, 1.1, 0), 1.8, damage, .2, 0, 0, 0, hits, maximumHits);
+                    }
+                }
+                case 6, 15 -> { // Parallel spirit tracks / branching twilight fracture.
+                    Location center = origin.clone().add(forward.clone().multiply(reach * progress));
+                    int lanes = ultimate ? 3 : 2;
+                    for (int lane = 0; lane < lanes; lane++) {
+                        double offset = (lane - (lanes - 1) / 2D) * (pattern == 15 ? progress * 4 : 1.2);
+                        Location point = center.clone().add(side.clone().multiply(offset)).add(0, .2, 0);
+                        effects.helix(point, .3, pattern == 15 ? 2 : 1, angle, sword);
+                        if (frame % 3 == 0) displays.box(player, point.clone().add(0, .5, 0), glass, .4, pattern == 15 ? 1.6 : .3, .5, sword.particleColor(), 7);
+                        if (impact) hitArea(player, point, 1.7, damage, .25, 0, 20, 0, hits, maximumHits);
+                    }
+                }
+                case 7, 12 -> { // Wide razor wheel / focused hexagonal blade array.
+                    Location center = pattern == 7 ? origin : focus;
+                    double radius = pattern == 7 ? 1.5 + progress * (ultimate ? 4.5 : 2) : ultimate ? 4 : 2.5;
+                    int points = pattern == 7 ? 8 : 6;
+                    for (int point = 0; point < points; point++) {
+                        double theta = angle + point * Math.PI * 2 / points;
+                        Location from = center.clone().add(Math.cos(theta) * radius, 1, Math.sin(theta) * radius);
+                        Location to = center.clone().add(Math.cos(theta + .5) * radius, 1.3, Math.sin(theta + .5) * radius);
+                        effects.line(from, to, sword, .22);
+                        if (frame % 4 == 0) displays.line(player, from, to, glass, .18, sword.particleColor(), 6);
+                    }
+                    if (impact) hitArea(player, center, radius + .5, damage, .25, 0, 0, 0, hits, maximumHits);
+                }
+                case 11 -> { // Rapid ancient energy pulses rather than a sustained beam.
+                    Location end = source.clone().add(forward.clone().multiply(reach));
+                    if (frame % 3 == 0) {
+                        effects.line(source, end, sword, .25); effects.pulse(end, sword);
+                        displays.line(player, source, end, glass, ultimate ? .5 : .25, sword.particleColor(), 3);
+                        for (LivingEntity target : nearby(player, source, reach + 1)) {
+                            if (hits.getOrDefault(target.getUniqueId(), 0) < maximumHits
+                                    && Geometry.distanceSquaredToSegment(middle(target).toVector(), source.toVector(), end.toVector()) < 1.1
+                                    && strike(player, target, source, damage, .15, 0, 0, 0)) hits.merge(target.getUniqueId(), 1, Integer::sum);
+                        }
+                    }
+                }
+                case 14 -> { // Rising vine cage: visible roots and a real slowing snare.
+                    double radius = ultimate ? 4 : 2.5;
+                    effects.ring(focus.clone().add(0, .1, 0), radius, sword);
+                    for (int vine = 0; vine < 7; vine++) {
+                        double theta = vine * Math.PI * 2 / 7;
+                        Location point = focus.clone().add(Math.cos(theta) * radius, 0, Math.sin(theta) * radius);
+                        effects.helix(point, .25, 1 + progress * 3, angle, sword);
+                        if (frame % 5 == 0) displays.box(player, point.clone().add(0, 1, 0), Material.LIME_STAINED_GLASS, .25, 2, .25, sword.particleColor(), 8);
+                    }
+                    if (impact) hitArea(player, focus, radius, damage, .05, 0, ultimate ? 100 : 60, 1, hits, maximumHits);
+                }
+                default -> throw new IllegalArgumentException("Unknown relic pattern: " + sword.id());
+            }
+            return true;
+        });
     }
 
     private boolean valid(Player player, Location origin) {

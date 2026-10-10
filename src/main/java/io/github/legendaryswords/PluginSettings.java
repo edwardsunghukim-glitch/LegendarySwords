@@ -35,6 +35,23 @@ public final class PluginSettings {
             case ROYAL_CLAYMORE -> new SwordStats(12, 0.95, 12, 10, 14, 95);
             case EIGHTFOLD_BLADE -> new SwordStats(7, 2.3, 7, 6, 6, 70);
             case BIGGORON_SWORD -> new SwordStats(15, 0.7, 14, 12, 16, 100);
+            case WHITE_SWORD -> new SwordStats(8, 1.0, 8, 6, 9, 65);
+            case GODDESS_SWORD -> new SwordStats(9, 1.25, 9, 7, 10, 70);
+            case GODDESS_LONGSWORD -> new SwordStats(10, 1.5, 10, 8, 11, 75);
+            case GODDESS_WHITE_SWORD -> new SwordStats(11, 1.75, 11, 9, 12, 80);
+            case TRUE_MASTER_SWORD -> new SwordStats(12, 2.0, 12, 10, 13, 85);
+            case PHANTOM_SWORD -> new SwordStats(13, 1.0, 8, 6, 14, 90);
+            case LOKOMO_SWORD -> new SwordStats(8, 1.25, 9, 7, 15, 65);
+            case RAZOR_SWORD -> new SwordStats(9, 1.5, 10, 8, 16, 70);
+            case GILDED_SWORD -> new SwordStats(10, 1.75, 11, 9, 9, 75);
+            case GREAT_FAIRY_SWORD -> new SwordStats(11, 2.0, 12, 10, 10, 80);
+            case SWORD_OF_SIX_SAGES -> new SwordStats(12, 1.0, 8, 6, 11, 85);
+            case GUARDIAN_SWORD -> new SwordStats(13, 1.25, 9, 7, 12, 90);
+            case ANCIENT_SHORT_SWORD -> new SwordStats(8, 1.5, 10, 8, 13, 65);
+            case SCIMITAR_OF_THE_SEVEN -> new SwordStats(9, 1.75, 11, 9, 14, 70);
+            case FOREST_DWELLER_SWORD -> new SwordStats(10, 2.0, 12, 10, 15, 75);
+            case DUSK_CLAYMORE -> new SwordStats(11, 1.0, 8, 6, 16, 80);
+
         };
         return new SwordStats(number(path + "attack-damage", defaults.attackDamage(), 1, 100),
                 number(path + "attack-speed", defaults.attackSpeed(), 0.1, 4),

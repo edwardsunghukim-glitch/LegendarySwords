@@ -1,25 +1,10 @@
-LegendarySwords 0.2.6: character animations only during casts
+LegendarySwords 0.3.0 — 24 weapons / 48 BetterModel models
 
-BetterModel 3.1 requires Java 25 on the Paper 1.21.11 server.
-abilities-only and cast-body-animations default to true, including old configs.
-Walking, running, standing, ordinary swings and manual poses use normal movement.
-Only ability/ultimate character clips create a temporary body. It restores at
-clip/scene end. An ultimate holds its final pose until the shared scene ends.
-Legacy player-body-animations is used only when abilities-only is false.
-
-Scenes charge and reveal the blade ahead of the caster, then release ultimate
-attack/damage once. Nearby visible players receive the shared scene title and
-see world effects. /ls cinematics on enables your scene without toggling it off;
-/ls cinematics status reports your preference. Server cinematics.enabled must
-also be true. Positions/game modes/cameras are unchanged. Use another player to inspect body clips; the caster keeps normal rendering.
-
-The inventory-copy/server-thread snapshot hardening remains. Cast bodies still
-use the equipment/disguise path and require live-client testing for the earlier
-disconnect. Set cast-body-animations false if it recurs; scenes and attack effects
-remain without player body trackers. First-person arm swings remain vanilla.
-
-All sixteen .bbmodel files and resource-pack assets are unchanged from 0.2.2.
-Reuse the existing 0.2.2 combined ZIP. No new build.zip is required unless other
-models or generated-client settings changed. The JAR installs known original
-models with backups and preserves edits. For manual updates, copy players files
-to BetterModel/players and slash models to BetterModel/models, then /bm reload.
+players: 24 cast rigs. models: 24 signature slash effects.
+Auto-install is enabled by default, with backups for known originals and edited files preserved.
+Ability and ultimate bodies are temporary; release plays with the ultimate attack.
+Normal walking, running, swings and idle remain vanilla in abilities-only mode.
+Additional draw/charge/recover clips are supplied for model editing.
+Observers see cast bodies; the caster keeps normal rendering and inventory.
+Use the NEW 0.3.0 combined client pack. A fresh build.zip must be merged if BetterModel namespace/export settings or other server models changed.
+If an equipment disconnect recurs, disable bettermodel.cast-body-animations.

@@ -51,7 +51,7 @@ public final class VisualEffects {
     }
     public void pulse(Location location, SwordType sword) {
         dust(location, sword, 20, 0.35);
-        Particle accent = switch (sword) {
+        Particle accent = switch (sword.archetype()) {
             case MASTER_SWORD -> Particle.END_ROD;
             case FLAMEBLADE -> Particle.FLAME;
             case FIERCE_DEITY_SWORD -> Particle.SOUL_FIRE_FLAME;
@@ -60,11 +60,12 @@ public final class VisualEffects {
             case ROYAL_CLAYMORE -> Particle.CRIT;
             case EIGHTFOLD_BLADE -> Particle.CLOUD;
             case BIGGORON_SWORD -> Particle.LAVA;
+            default -> Particle.END_ROD;
         };
         particle(location, accent, 12, 0.35, 0.025);
     }
     public void sound(Location location, SwordType sword, boolean ultimate) {
-        Sound sound = switch (sword) {
+        Sound sound = switch (sword.archetype()) {
             case MASTER_SWORD -> ultimate ? Sound.BLOCK_BEACON_ACTIVATE : Sound.BLOCK_BEACON_POWER_SELECT;
             case FLAMEBLADE -> ultimate ? Sound.ENTITY_BLAZE_SHOOT : Sound.ITEM_FIRECHARGE_USE;
             case FIERCE_DEITY_SWORD -> ultimate ? Sound.ENTITY_ILLUSIONER_CAST_SPELL : Sound.ENTITY_ALLAY_AMBIENT_WITHOUT_ITEM;
@@ -73,6 +74,7 @@ public final class VisualEffects {
             case ROYAL_CLAYMORE -> ultimate ? Sound.ENTITY_IRON_GOLEM_ATTACK : Sound.BLOCK_ANVIL_LAND;
             case EIGHTFOLD_BLADE -> ultimate ? Sound.ENTITY_BREEZE_WIND_BURST : Sound.ENTITY_PLAYER_ATTACK_SWEEP;
             case BIGGORON_SWORD -> ultimate ? Sound.ENTITY_GENERIC_EXPLODE : Sound.ENTITY_IRON_GOLEM_ATTACK;
+            default -> Sound.BLOCK_AMETHYST_BLOCK_CHIME;
         };
         try { location.getWorld().playSound(location, sound, ultimate ? 1.2f : 0.9f, ultimate ? 0.8f : 1.15f); }
         catch (RuntimeException ignored) { /* Optional presentation. */ }

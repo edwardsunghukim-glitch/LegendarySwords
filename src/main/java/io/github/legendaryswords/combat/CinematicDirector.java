@@ -140,7 +140,7 @@ public final class CinematicDirector implements AutoCloseable {
                         float scale = 0.05f + 1.35f * reveal;
                         Vector3f translation = new Vector3f(0, lift, 0);
                         Quaternionf rotation = new Quaternionf().rotationY((float) (progress * Math.PI * 2));
-                        switch (sword) {
+                        switch (sword.archetype()) {
                             case FLAMEBLADE -> rotation.rotationY((float) (progress * Math.PI * 6));
                             case FIERCE_DEITY_SWORD -> {
                                 translation.x = (float) Math.sin(progress * Math.PI * 2) * 0.6f;

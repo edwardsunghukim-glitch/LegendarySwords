@@ -558,11 +558,19 @@ def main():
             duration = style["pose"] if name == "pose" else style["lengths"][("swing", "ability", "ultimate").index(name)]
             clips.append(animation(sword, name, duration, frames, groups))
         model["animations"] = clips
+        from expand_weapon_assets import extra_clips
+        extra_clips(model)
+        if sword in ("frostblade", "royal_claymore", "flameblade"):
+            from expand_weapon_assets import safe_casts
+            item = json.loads((Path(__file__).resolve().parents[1] / "resource-pack/assets/legendaryswords/models/item" / (sword + "_animated.json")).read_text())
+            safe_casts(model, item, list(STYLES).index(sword))
         target = ROOT / "players" / f"legendaryswords_{sword}.bbmodel"
         target.write_text(json.dumps(model, indent=2) + "\n", encoding="utf-8")
         target = ROOT / "models" / f"legendaryswords_{sword}_slash.bbmodel"
         target.write_text(json.dumps(effect_model(sword, style), indent=2) + "\n", encoding="utf-8")
-    print(f"Generated {len(STYLES)} player motion sets and {len(STYLES)} distinct signature effects.")
+    from expand_weapon_assets import generate_models
+    generate_models(ROOT)
+    print(f"Generated {len(STYLES) + 16} player motion sets and {len(STYLES) + 16} distinct signature effects.")
 
 
 if __name__ == "__main__":

@@ -15,6 +15,7 @@ import zlib
 ROOT = Path(__file__).resolve().parents[1] / "src/main/resources/bettermodel"
 SWORDS = {"master_sword", "flameblade", "fierce_deity_sword", "frostblade",
           "thunderblade", "royal_claymore", "eightfold_blade", "biggoron_sword"}
+SWORDS |= {w["id"] for w in json.loads(Path(__file__).with_name("expanded_weapons.json").read_text())}
 REVISED_ACTION_SWORDS = {"master_sword", "fierce_deity_sword", "thunderblade",
                         "eightfold_blade", "biggoron_sword"}
 ITEM_MODELS = Path(__file__).resolve().parents[1] / "resource-pack/assets/legendaryswords/models/item"
@@ -94,6 +95,14 @@ class BetterModelAssetsTest(unittest.TestCase):
                 with self.subTest(sword=sword, motion=name):
                     self.assertFalse(checker.collisions(name), "action puts arm or held blade inside the body")
 
+    def test_expanded_cast_clips_keep_arms_and_items_outside_body(self):
+        module = clearance_module()
+        for sword in sorted(SWORDS):
+            checker = module.PlayerPoseClearance(load("players", sword), animated_item_model(sword), "fixed")
+            for name in ("ability", "ultimate", "release"):
+                with self.subTest(sword=sword, motion=name):
+                    self.assertFalse(checker.collisions(name), "cast clips intersect player body")
+
     def test_walking_hands_stay_forward_and_knees_bend_back(self):
         for sword in SWORDS:
             model = load("players", sword)
@@ -122,10 +131,10 @@ class BetterModelAssetsTest(unittest.TestCase):
                     for key in by_name[shin]:
                         self.assertLessEqual(values(key)[0], 0, "recovery knee bends forward")
 
-    def test_all_eight_swords_have_complete_player_and_effect_clips(self):
-        self.assertEqual(len(list(ROOT.rglob("*.bbmodel"))), 16)
+    def test_all_twenty_four_swords_have_complete_player_and_effect_clips(self):
+        self.assertEqual(len(list(ROOT.rglob("*.bbmodel"))), 48)
         for sword in SWORDS:
-            for kind, expected in (("players", {"idle", "walk", "run", "pose", "swing", "ability", "ultimate"}),
+            for kind, expected in (("players", {"idle", "walk", "run", "pose", "swing", "ability", "ultimate", "draw", "charge", "release", "recover"}),
                                    ("models", {"swing", "ability", "ultimate"})):
                 model = load(kind, sword)
                 self.assertEqual(model["meta"]["format_version"], "5.0")
@@ -165,7 +174,7 @@ class BetterModelAssetsTest(unittest.TestCase):
     def test_each_sword_has_distinct_guard_actions_and_running_motion(self):
         for name in ("idle", "walk", "run", "swing", "ability", "ultimate", "pose"):
             signatures = {motion_signature(clips(load("players", sword))[name]) for sword in SWORDS}
-            self.assertEqual(len(signatures), 8, f"repeated {name} choreography")
+            self.assertEqual(len(signatures), len(SWORDS), f"repeated {name} choreography")
         for sword in SWORDS:
             for name in ("swing", "ability", "ultimate", "pose"):
                 animation = clips(load("players", sword))[name]
@@ -197,7 +206,7 @@ class BetterModelAssetsTest(unittest.TestCase):
                     self.assertEqual(zlib.crc32(block) & 0xffffffff, crc)
                     offset += length + 12
                 self.assertEqual(offset, len(data))
-        self.assertEqual(len(shapes), 8, "signature effect shapes repeat")
+        self.assertEqual(len(shapes), len(SWORDS), "signature effect shapes repeat")
 
     def test_generator_reproduces_committed_assets_without_external_files(self):
         path = Path(__file__).with_name("generate_bettermodel_assets.py")

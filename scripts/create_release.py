@@ -122,12 +122,14 @@ server-thread snapshot fixes remain, but the prior disconnect has not been
 validated on a live client. If it recurs, set bettermodel.cast-body-animations
 false and restart; shared scenes and attack effects remain without disguises.
 
-Reuse LegendarySwords-combined-resource-pack-0.2.2.zip if already installed.
-No model/texture/clip/client asset changes are included in {version}.
+Install LegendarySwords-combined-resource-pack-{version}.zip: this expansion
+adds 16 weapons, for 24 total, and requires NEW client assets and 48 models.
 {combined_note}
-A combined ZIP named {version} in this bundle is byte-identical to the 0.2.2 ZIP.
-For first installation or an older pack, download the combined pack from:
-https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-combined-resource-pack-0.2.2.zip
+The combined pack targets the supplied BetterModel 3.1-SNAPSHOT-526 named-alias
+setup, preserving its existing assets and adding officially compiled effects.
+If your namespace/export settings or unrelated models changed, use a fresh
+server build.zip and merge it with this release's standalone sword pack.
+https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-combined-resource-pack-{version}.zip
 Keep it zipped in Minecraft Options > Resource Packs > Open Pack Folder.
 The standalone sword pack does not contain BetterModel's generated rig/shaders.
 

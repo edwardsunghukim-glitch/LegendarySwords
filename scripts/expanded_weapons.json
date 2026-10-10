@@ -1,0 +1,18 @@
+[
+ {"id":"white_sword","title":"White Sword","ability":"Radiant Fan","ultimate":"Dawn Barrage","base":"master_sword","color":[230,245,255]},
+ {"id":"goddess_sword","title":"Goddess Sword","ability":"Spiral Light","ultimate":"Sacred Helix","base":"frostblade","color":[140,170,255]},
+ {"id":"goddess_longsword","title":"Goddess Longsword","ability":"Falling Star","ultimate":"Celestial Rain","base":"royal_claymore","color":[90,150,245]},
+ {"id":"goddess_white_sword","title":"Goddess White Sword","ability":"Light Bloom","ultimate":"Heaven's Garden","base":"master_sword","color":[220,240,180]},
+ {"id":"true_master_sword","title":"True Master Sword","ability":"Triad Beam","ultimate":"Golden Trinity","base":"master_sword","color":[100,240,225]},
+ {"id":"phantom_sword","title":"Phantom Sword","ability":"Spirit Blades","ultimate":"Phantom Legion","base":"fierce_deity_sword","color":[185,120,250]},
+ {"id":"lokomo_sword","title":"Lokomo Sword","ability":"Spirit Rail","ultimate":"Divine Tracks","base":"thunderblade","color":[110,220,245]},
+ {"id":"razor_sword","title":"Razor Sword","ability":"Razor Wheel","ultimate":"Steel Cyclone","base":"eightfold_blade","color":[225,140,190]},
+ {"id":"gilded_sword","title":"Gilded Sword","ability":"Gilded Petals","ultimate":"Golden Tempest","base":"royal_claymore","color":[250,195,65]},
+ {"id":"great_fairy_sword","title":"Great Fairy Sword","ability":"Blossom Strike","ultimate":"Fairy's Awakening","base":"fierce_deity_sword","color":[255,125,205]},
+ {"id":"sword_of_six_sages","title":"Sword of the Six Sages","ability":"Sage Pillars","ultimate":"Sixfold Seal","base":"biggoron_sword","color":[240,155,60]},
+ {"id":"guardian_sword","title":"Guardian Sword","ability":"Pulse Burst","ultimate":"Guardian Overdrive","base":"thunderblade","color":[90,200,255]},
+ {"id":"ancient_short_sword","title":"Ancient Short Sword","ability":"Hex Blades","ultimate":"Ancient Array","base":"frostblade","color":[90,245,235]},
+ {"id":"scimitar_of_the_seven","title":"Scimitar of the Seven","ability":"Sand Spiral","ultimate":"Desert Sovereign","base":"eightfold_blade","color":[255,205,110]},
+ {"id":"forest_dweller_sword","title":"Forest Dweller's Sword","ability":"Vine Snare","ultimate":"Forest Dominion","base":"flameblade","color":[100,220,80]},
+ {"id":"dusk_claymore","title":"Dusk Claymore","ability":"Shadow Ridge","ultimate":"Twilight Rupture","base":"biggoron_sword","color":[170,90,225]}
+]

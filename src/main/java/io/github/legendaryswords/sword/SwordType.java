@@ -59,7 +59,12 @@ public enum SwordType {
     THUNDER_DRUM("thunder_drum", "Thunder Drum", "Resonance Wave", "Domain: Thunder Chamber", Material.DIAMOND_SWORD, NamedTextColor.GOLD, Color.fromRGB(255, 225, 60)),
     WRAITH_SCYTHE("wraith_scythe", "Wraith Scythe", "Reaping Arc", "Domain: Soul Harvest", Material.DIAMOND_SWORD, NamedTextColor.AQUA, Color.fromRGB(130, 245, 185)),
     VERDANT_OATH("verdant_oath", "Verdant Oath", "Seedburst", "Domain: Ancient Grove", Material.NETHERITE_SWORD, NamedTextColor.AQUA, Color.fromRGB(90, 220, 110)),
-    DRAGONHEART("dragonheart", "Dragonheart", "Dragon Breath", "Domain: Dragon Furnace", Material.DIAMOND_SWORD, NamedTextColor.GOLD, Color.fromRGB(245, 65, 35));
+    DRAGONHEART("dragonheart", "Dragonheart", "Dragon Breath", "Domain: Dragon Furnace", Material.DIAMOND_SWORD, NamedTextColor.GOLD, Color.fromRGB(245, 65, 35)),
+    ANGEL_SOVEREIGN("angel_sovereign", "Angel Sovereign", "Heavenly Cleave", "Ascension: Angel Sovereign", Material.NETHERITE_SWORD, NamedTextColor.GOLD, Color.fromRGB(255, 235, 155)),
+    GRANITE_COLOSSUS("granite_colossus", "Granite Colossus Fists", "Boulder Smash", "Awakening: Rock Colossus", Material.NETHERITE_SWORD, NamedTextColor.GRAY, Color.fromRGB(185, 160, 110)),
+    SKY_LEVIATHAN("sky_leviathan", "Sky Leviathan Fang", "Leviathan Bite", "Awakening: Flying Leviathan", Material.NETHERITE_SWORD, NamedTextColor.AQUA, Color.fromRGB(70, 215, 245)),
+    INFERNAL_DRAGON("infernal_dragon", "Infernal Dragon Claw", "Dragon Breath", "Awakening: Infernal Dragon", Material.NETHERITE_SWORD, NamedTextColor.RED, Color.fromRGB(255, 85, 45)),
+    FROST_TITAN("frost_titan", "Frost Titan Hammer", "Glacier Smash", "Awakening: Frost Titan", Material.NETHERITE_SWORD, NamedTextColor.BLUE, Color.fromRGB(170, 225, 255));
 
     private final String id, title, ability, ultimate;
     private final Material material;
@@ -120,9 +125,16 @@ public enum SwordType {
             case WRAITH_SCYTHE -> FIERCE_DEITY_SWORD;
             case VERDANT_OATH -> FLAMEBLADE;
             case DRAGONHEART -> FLAMEBLADE;
+            case ANGEL_SOVEREIGN -> MASTER_SWORD;
+            case GRANITE_COLOSSUS -> BIGGORON_SWORD;
+            case SKY_LEVIATHAN -> FROSTBLADE;
+            case INFERNAL_DRAGON -> FLAMEBLADE;
+            case FROST_TITAN -> FROSTBLADE;
             default -> this;
         };
     }
+    public boolean boss() { return ordinal() >= ANGEL_SOVEREIGN.ordinal(); }
+    public boolean bossFlight() { return this == ANGEL_SOVEREIGN || this == SKY_LEVIATHAN; }
     public String identity() {
         return switch (this) {
             case MASTER_SWORD -> "A sacred blade that channels piercing light.";

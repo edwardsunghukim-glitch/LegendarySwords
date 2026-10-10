@@ -30,8 +30,8 @@ class DomainAssetsTest(unittest.TestCase):
     def test_new_weapon_geometry_is_distinct_and_does_not_clone_previous_meshes(self):
         def shape(path):
             data=json.loads(path.read_text());return tuple((tuple(e['from']),tuple(e['to'])) for e in data['elements'])
-        previous={shape(p) for p in (ASSETS/'models/item').glob('*.json') if not p.stem.endswith('_animated') and p.stem not in {w['id'] for w in WEAPONS[16:]}}
-        new={shape(ASSETS/'models/item'/f'{w["id"]}.json') for w in WEAPONS[16:]}
+        previous={shape(p) for p in (ASSETS/'models/item').glob('*.json') if not p.stem.endswith('_animated') and p.stem not in {w['id'] for w in [w for w in WEAPONS if w.get("generation") == 2]}}
+        new={shape(ASSETS/'models/item'/f'{w["id"]}.json') for w in [w for w in WEAPONS if w.get("generation") == 2]}
         self.assertEqual(len(new),26);self.assertTrue(new.isdisjoint(previous))
 
     def test_all_expansion_blades_have_different_engraving_topology(self):
@@ -45,7 +45,7 @@ class DomainAssetsTest(unittest.TestCase):
         self.assertEqual(len(signatures),len(WEAPONS)+len(ORIGINALS),'repeated pattern with only a tint change')
 
     def test_second_collection_has_no_disconnected_geometry(self):
-        for weapon in WEAPONS[16:]:
+        for weapon in [w for w in WEAPONS if w.get("generation") == 2]:
             elements=json.loads((ASSETS/'models/item'/f'{weapon["id"]}.json').read_text())['elements']
             seen={0};pending=[0]
             while pending:
@@ -56,7 +56,7 @@ class DomainAssetsTest(unittest.TestCase):
             self.assertEqual(len(seen),len(elements),weapon['id']+' has floating/disconnected pieces')
 
     def test_second_collection_effect_shapes_do_not_copy_existing_effect_models(self):
-        new_ids={w['id'] for w in WEAPONS[16:]};old=set();new=set()
+        new_ids={w['id'] for w in [w for w in WEAPONS if w.get("generation") == 2]};old=set();new=set()
         for p in (ROOT/'src/main/resources/bettermodel/models').glob('*.bbmodel'):
             d=json.loads(p.read_text());shape=tuple((tuple(e['from']),tuple(e['to'])) for e in d['elements'])
             (new if p.stem.removeprefix('legendaryswords_').removesuffix('_slash') in new_ids else old).add(shape)

@@ -282,7 +282,7 @@ class BetterModelAnimationBridgeTest {
             verify(f.tracker, never()).hideOption(any());
             assertTrue(f.bridge.status().contains("player body animations paused"));
             assertTrue(f.bridge.status().contains("slash effects available"));
-            assertTrue(f.bridge.status().contains("install the 0.4.0 pack and updated BetterModel build"));
+            assertTrue(f.bridge.status().contains("install the 0.5.0 pack and updated BetterModel build"));
         }
     }
 
@@ -451,6 +451,33 @@ class BetterModelAnimationBridgeTest {
             f.bridge.close();
             verify(f.tracker).close();
             verify(f.swordItems).restorePlayerSoon(f.player.getUniqueId());
+        }
+    }
+
+    @Test void bossMorphUsesOrdinaryMeshesAndNeverHidesTheOwnersEquipment() {
+        try (Fixture f = new Fixture()) {
+            f.engineApi.when(() -> BetterModel.modelOrNull("legendaryswords_granite_colossus_boss")).thenReturn(f.renderer);
+            assertTrue(f.bridge.startBoss(f.player, "granite_colossus"));
+            verify(f.tracker).hideOption(kr.toxicity.model.api.tracker.EntityHideOption.DEFAULT);
+            @SuppressWarnings("unchecked") var viewers = org.mockito.ArgumentCaptor.forClass(java.util.Set.class);
+            verify(f.tracker).markPlayerForSpawn(viewers.capture());
+            assertFalse(viewers.getValue().contains(f.player.getUniqueId()));
+            assertFalse(viewers.getValue().isEmpty());
+            verify(f.tracker, never()).bone("right_item");
+            verify(f.player, never()).getInventory(); verifyNoInteractions(f.swordItems);
+            verify(f.tracker).animate(eq("idle"), any(AnimationModifier.class));
+            verify(f.tracker).animate(eq("transform"), any(AnimationModifier.class));
+            f.bridge.stopBoss(f.player); verify(f.tracker).close();
+        }
+    }
+    @Test void dragonBossUsesBreathAnimationAndASeparatePhysicalAttackModel() {
+        try (Fixture f = new Fixture()) {
+            f.engineApi.when(() -> BetterModel.modelOrNull("legendaryswords_infernal_dragon_boss")).thenReturn(f.renderer);
+            assertTrue(f.bridge.startBoss(f.player, "infernal_dragon"));
+            f.bridge.bossSmash(f.player);
+            verify(f.tracker).animate(eq("breath"), any(AnimationModifier.class));
+            verify(f.tracker, never()).animate(eq("smash"), any(AnimationModifier.class));
+            verify(f.slashRenderer).create(any(PlatformLocation.class), any(TrackerModifier.class), any());
         }
     }
 

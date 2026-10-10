@@ -34,14 +34,14 @@ class SwordBrowserTest {
         when(event.getRawSlot()).thenReturn(slot); when(event.getClick()).thenReturn(click);
         return new Fixture(plugin, new SwordBrowser(plugin), player, catalog, event, inventory);
     }
-    @Test void allFiftyWeaponsAppearOnceAcrossPages() {
+    @Test void allFiftyFiveWeaponsAppearOnceAcrossPages() {
         var seen = new HashSet<SwordType>();
         for (int page = 0; page < SwordBrowser.pages(); page++) for (int slot = 0; slot < 45; slot++) {
             var sword = SwordBrowser.selection(page, slot);
             if (sword != null) assertTrue(seen.add(sword));
         }
-        assertEquals(50, seen.size()); assertEquals(2, SwordBrowser.pages());
-        assertNull(SwordBrowser.selection(1, 5)); assertNull(SwordBrowser.selection(0, 54));
+        assertEquals(55, seen.size()); assertEquals(2, SwordBrowser.pages());
+        assertNull(SwordBrowser.selection(1, 10)); assertNull(SwordBrowser.selection(0, 54));
         assertNull(SwordBrowser.selection(-1, 0)); assertNull(SwordBrowser.selection(2, 0));
     }
     @Test void normalPlayersCannotReceiveOrStealDisplayItems() {

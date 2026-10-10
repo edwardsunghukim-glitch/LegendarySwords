@@ -1,17 +1,35 @@
-# LegendarySwords 0.4.1
+# LegendarySwords 0.5.0
 
-**50 legendary weapons** for Paper 1.21.11, with detailed original voxel art inspired by Zelda swords, animated material atlases, ability effects and staged ultimates. The latest 26 additions have freshly authored silhouettes and thematic textures, with rings, mines, moving hazards and persistent domains; no game assets are ripped. The previous 16 additions also receive separate engraved texture patterns.
+**55 legendary weapons** for Paper 1.21.11, with detailed original voxel art inspired by Zelda swords, animated material atlases, ability effects and staged ultimates. The latest 26 additions have freshly authored silhouettes and thematic textures, with rings, mines, moving hazards and persistent domains; no game assets are ripped. The previous 16 additions also receive separate engraved texture patterns.
 
 Right-click uses an ability. Sneak + right-click uses a fully charged ultimate. Ultimates play a shared reveal, then release their attack, damage and a short character follow-through. Observers see the cast body with vanilla armor hidden; the caster keeps normal first-person/F5 rendering and inventory. Ordinary walking/running/swings remain vanilla.
 
 ## Install
 
-1. Stop your server, replace the old LegendarySwords JAR with **LegendarySwords-0.4.1.jar**, and restart. Keep your configuration/data and the separate LegendaryAdmin JAR.
-2. The plugin installs/updates **100 BetterModel files** automatically, backing up known originals and preserving edits. Wait for imports, then check `/ls status`; use `/bm reload` if needed. BetterModel 3.1 requires Java 25 on the server.
-3. **Replace the old resource pack with the new 0.4.1 combined pack.** It preserves the previous supplied BetterModel pack and adds all 50 item definitions plus official-compiler geometry/textures for the new named slash aliases used by the reported BetterModel 3.1-SNAPSHOT-526 setup. Different BetterModel namespaces/builds or other changed server models need a fresh `build.zip` merged with this release's sword pack.
+1. Stop your server, replace the old LegendarySwords JAR with **LegendarySwords-0.5.0.jar**, and restart. Keep your configuration/data and the separate LegendaryAdmin JAR.
+2. The plugin installs/updates **115 BetterModel files** automatically, backing up known originals and preserving edits. Wait for imports, then check `/ls status`; use `/bm reload` if needed. BetterModel 3.1 requires Java 25 on the server.
+3. **Replace the old resource pack with the new 0.5.0 combined pack.** It preserves the previous supplied BetterModel pack and adds all 55 item definitions plus official-compiler geometry/textures for the new named slash aliases used by the reported BetterModel 3.1-SNAPSHOT-526 setup. Different BetterModel namespaces/builds or other changed server models need a fresh `build.zip` merged with this release's sword pack.
 4. Use `/ls give all`, `/ls cinematics on`, `/ls charge 100`, and `/ls resetcooldowns` to test. PvP remains off by default; enable `pvp-enabled` if player targets should take damage.
 
-The standalone sword pack contains all 50 item models. The combined pack is the single ZIP to enable in Minecraft; keep it zipped. No resource pack is needed for LegendaryAdmin.
+The standalone sword pack contains all 55 item models. The combined pack is the single ZIP to enable in Minecraft; keep it zipped. No resource pack is needed for LegendaryAdmin.
+
+## Boss weapons
+
+Five new implements have separate item art, physical attack meshes and original monster rigs:
+
+| Weapon | ID | Attack | Ultimate form / power |
+| --- | --- | --- | --- |
+| Angel Sovereign | `angel_sovereign` | Feathered wing cleave and radiant impacts | Winged angel; temporary flight and sanctuary healing |
+| Granite Colossus Fists | `granite_colossus` | Animated boulder fists and rubble shockwaves | Rock monster with oversized fists and boulder hurl |
+| Sky Leviathan Fang | `sky_leviathan` | Snapping fanged jaws and a directional bite | Flying sea serpent; bite and tidal roar |
+| Infernal Dragon Claw | `infernal_dragon` | Animated claws/jaws and aimed fire breath | Winged dragon; fire breath and claw rend |
+| Frost Titan Hammer | `frost_titan` | Ice hammer slam and rising ice shards | Giant with an animated hammer and ice prison |
+
+Boss forms begin when the ultimate releases and last five minutes by default. Left-click or right-click during the form triggers its primary attack; sneak + right-click triggers the secondary; two form abilities have separate configurable cooldowns. The reveal triggers an initial attack; further attacks are controlled by the player. A countdown shows remaining form time and the two ability names. Normal holding and walking remain vanilla. Flight ends with the form; prior flight is restored and survival flyers receive a short slow-falling landing window. Forms stop on death, quit, teleport, world change, reload and shutdown. Armor still reduces damage and PvP/protection rules apply.
+
+`bosses.duration-seconds` controls duration (3–600); `bosses.flight-enabled` controls flight; `bosses.smash-interval-ticks` controls the primary interval; `bosses.special-interval-ticks` controls the secondary interval (40–1200 ticks; primary 12–200). Existing `ultimates.speed` and per-weapon `swords.<id>.ultimate-speed` control reveal speed. Charge and normal ultimate cooldown are required to enter a form; its two skills then use their own cooldowns.
+
+**Viewing:** other players see the custom boss body with the vanilla body hidden. The owner keeps normal first-person/F5 rendering to avoid the previous equipment packet and camera issues, and sees the shared attack meshes and effects. Boss shapes do not enlarge the player's physical hitbox. BetterModel is required for custom meshes, and the matching combined pack is required on clients. Without BetterModel, attack particles, protected damage and temporary powers remain available. This release has automated validation, but requires an in-game check on your snapshot build.
 
 ## Weapons
 
@@ -80,7 +98,7 @@ All 50 weapons have separate atlas patterns and continuous blade UVs to avoid re
 
 The second collection uses 26 separate attack branches: hollow expanding rims, inward collapse/pull, orbiting satellites, travelling walls, conductive cages, rotating clock hands, converging orbs, proximity mines, thorn perimeters, descending columns, returning crescents, cross/grid seals, aimed corkscrews, magma eruptions, wing sweeps, three-pronged strikes/whirlpools, delayed echoes, falling meteors, inward ice crowns, aimed lances, gravity wells, contracting triangles, resonance shells, reaping arcs, root labyrinths and fire cones. Abilities last up to four seconds; ultimate fields last up to eight seconds after the reveal. Some leave a safe center or gaps: visible geometry defines their hit area. Domains are animated temporary hazards, not solid barriers, and they never alter world blocks or teleport players. At most one ability hit or three ultimate hits per victim; armor and protection rules still apply.
 
-`/ls give all` gives 50 weapons; inventory overflow drops at your feet. Use `/ls give <weapon_id>` for individual testing.
+`/ls give all` gives 55 weapons; inventory overflow drops at your feet. Use `/ls give <weapon_id>` for individual testing.
 
 ## Tuning
 
@@ -98,7 +116,7 @@ Speed 1.0 gives the default 1.2-second windup, 2.0 gives 0.6 seconds, and 0.5 gi
 
 ## Models and animations
 
-There are 50 player rigs and 50 signature effect models. Player files include `idle`, `walk`, `run`, `pose`, `swing`, `ability`, `ultimate`, plus `draw`, `charge`, `release`, `recover`. Runtime cast-only mode uses ability/ultimate and release; the extra authoring clips are included for editing, with ordinary movement/poses disabled. New casts use forward guards checked against actual arms, torso, head and held-item geometry. Optional OptiFine-compatible emissive textures brighten luminous materials; vanilla Minecraft does not make swords emit real world lighting.
+There are 55 player rigs, 55 signature effect models, and five ordinary monster rigs. Player files include `idle`, `walk`, `run`, `pose`, `swing`, `ability`, `ultimate`, plus `draw`, `charge`, `release`, `recover`. Runtime cast-only mode uses ability/ultimate and release; the extra authoring clips are included for editing, with ordinary movement/poses disabled. New casts use forward guards checked against actual arms, torso, head and held-item geometry. Optional OptiFine-compatible emissive textures brighten luminous materials; vanilla Minecraft does not make swords emit real world lighting.
 
 `bettermodel.cast-body-animations: false` disables character disguises if needed while preserving attack effects, cinematics and damage. The previous equipment disconnect still needs live-client verification. See [BetterModel setup](docs/BETTERMODEL.md) and [testing](docs/TESTING.md).
 

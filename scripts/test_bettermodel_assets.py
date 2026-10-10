@@ -132,7 +132,7 @@ class BetterModelAssetsTest(unittest.TestCase):
                         self.assertLessEqual(values(key)[0], 0, "recovery knee bends forward")
 
     def test_all_swords_have_complete_player_and_effect_clips(self):
-        self.assertEqual(len(list(ROOT.rglob("*.bbmodel"))), len(SWORDS) * 2)
+        self.assertEqual(len(list(ROOT.rglob("*.bbmodel"))), len(SWORDS) * 2 + 5)
         for sword in SWORDS:
             for kind, expected in (("players", {"idle", "walk", "run", "pose", "swing", "ability", "ultimate", "draw", "charge", "release", "recover"}),
                                    ("models", {"swing", "ability", "ultimate"})):
@@ -207,6 +207,21 @@ class BetterModelAssetsTest(unittest.TestCase):
                     offset += length + 12
                 self.assertEqual(offset, len(data))
         self.assertEqual(len(shapes), len(SWORDS), "signature effect shapes repeat")
+
+    def test_boss_forms_are_original_monsters_with_animated_limbs_and_no_equipment_bones(self):
+        shapes=set()
+        for sword in ['angel_sovereign','granite_colossus','sky_leviathan','infernal_dragon','frost_titan']:
+            model=json.loads((ROOT/'models'/f'legendaryswords_{sword}_boss.bbmodel').read_text())
+            self.assertGreater(len(model['elements']),20)
+            self.assertEqual({g['name'] for g in model['groups']},{'body','head','left','right','tail'})
+            self.assertTrue({'idle','transform','smash'}.issubset(clips(model)))
+            if sword=='infernal_dragon': self.assertIn('breath',clips(model))
+            for g in model['groups']:
+                node=next(n for n in model['outliner'] if n['uuid']==g['uuid'])
+                self.assertTrue(node['children'], sword+' has an invisible group')
+            self.assertTrue(any(len({values(k) for k in frames(a)})>1 for a in clips(model)['smash']['animators'].values()))
+            shapes.add(tuple((tuple(e['from']),tuple(e['to'])) for e in model['elements']))
+        self.assertEqual(len(shapes),5)
 
     def test_generator_reproduces_committed_assets_without_external_files(self):
         path = Path(__file__).with_name("generate_bettermodel_assets.py")

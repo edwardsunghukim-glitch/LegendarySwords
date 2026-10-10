@@ -77,6 +77,8 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     private final Plugin engine;
     private final AnimatedSwordItems swordItems;
     private final LongSupplier clock;
+    private final Map<UUID, String> bossIds = new ConcurrentHashMap<>();
+    private final Map<UUID, EntityTracker> bosses = new ConcurrentHashMap<>();
     private final Map<UUID, BodySession> bodies = new ConcurrentHashMap<>();
     private final Map<Tracker, Playback> effects = new ConcurrentHashMap<>();
     private final Map<UUID, DummyTracker> cinematicBodies = new ConcurrentHashMap<>();
@@ -119,6 +121,10 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
                     if (result == BundledModelInstaller.Result.NEW || result == BundledModelInstaller.Result.UPDATED) changed++;
                     if (result == BundledModelInstaller.Result.PRESERVED) preservedModels.add(relative);
                 }
+            }
+            for (var sword : io.github.legendaryswords.sword.SwordType.values()) if (sword.boss()) {
+                var result = installer.install("models/" + PREFIX + sword.id() + "_boss.bbmodel");
+                if (result == BundledModelInstaller.Result.NEW || result == BundledModelInstaller.Result.UPDATED) changed++;
             }
             installer.install("LICENSE-BetterModel.txt");
             installer.save();
@@ -208,10 +214,10 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
                 + (abilitiesOnly()
                 ? ": abilities/ultimates only; " + (playerBodyAnimationsEnabled()
                         ? "temporary cast body animations" : "attack effects only")
-                        + "; normal movement and swings; install the 0.4.0 pack and updated BetterModel build"
+                        + "; normal movement and swings; install the 0.5.0 pack and updated BetterModel build"
                 : playerBodyAnimationsEnabled()
-                ? ": 50 motion sets loaded (idle/walk/run/pose/swing/ability/ultimate); install regenerated client pack"
-                : ": player body animations paused (bettermodel.player-body-animations=false); slash effects available; install the 0.4.0 pack and updated BetterModel build")
+                ? ": 55 motion sets loaded (idle/walk/run/pose/swing/ability/ultimate); install regenerated client pack"
+                : ": player body animations paused (bettermodel.player-body-animations=false); slash effects available; install the 0.5.0 pack and updated BetterModel build")
                 + (preservedModels.isEmpty() ? "" : "; " + preservedModels.size() + " edited files preserved");
     }
 
@@ -434,6 +440,55 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
         }
     }
 
+    @Override public boolean startBoss(Player player, String swordId) {
+        stopBoss(player);
+        closeBody(player.getUniqueId());
+        if (closed || failed || !plugin.getServer().isPrimaryThread()) return false;
+        var renderer = BetterModel.modelOrNull(PREFIX + swordId + "_boss");
+        if (renderer == null) return false;
+        try {
+            EntityTracker tracker = renderer.create(BukkitAdapter.adapt(player), BODY_MODIFIER, created -> {
+                created.hideOption(EntityHideOption.DEFAULT);
+                markCastViewers(created, player);
+            });
+            bossIds.put(player.getUniqueId(), swordId);
+            bosses.put(player.getUniqueId(), tracker);
+            tracker.handleCloseEvent((t, reason) -> bosses.remove(player.getUniqueId(), tracker));
+            tracker.animate("idle", LOOP);
+            tracker.animate("transform", ACTION);
+            return true;
+        } catch (RuntimeException | LinkageError error) {
+            plugin.getLogger().warning("Boss morph unavailable; powers remain active: " + error.getMessage());
+            return false;
+        }
+    }
+    @Override public void bossSmash(Player player) {
+        EntityTracker tracker = bosses.get(player.getUniqueId());
+        if (tracker != null && !tracker.isClosed()) {
+            if (!tracker.animate("breath", ACTION)) tracker.animate("smash", ACTION);
+            String swordId = bossIds.get(player.getUniqueId());
+            if (swordId != null) playSlashAt(player, swordId, "ability", player.getLocation());
+        }
+    }
+    @Override public void bossSpecial(Player player) {
+        EntityTracker tracker = bosses.get(player.getUniqueId());
+        if (tracker != null && !tracker.isClosed()) {
+            tracker.animate("smash", ACTION);
+            String swordId = bossIds.get(player.getUniqueId());
+            if (swordId != null) playSlashAt(player, swordId, "ultimate", player.getLocation());
+        }
+    }
+    @Override public void tickBoss(Player player) {
+        EntityTracker tracker = bosses.get(player.getUniqueId());
+        if (tracker != null && !tracker.isClosed()) markCastViewers(tracker, player);
+    }
+
+    @Override public void stopBoss(Player player) {
+        bossIds.remove(player.getUniqueId());
+        EntityTracker tracker = bosses.remove(player.getUniqueId());
+        if (tracker != null) tracker.close();
+    }
+
     @Override public void cancelCinematic(Player player) {
         DummyTracker tracker = cinematicBodies.remove(player.getUniqueId());
         if (tracker != null) tracker.close();
@@ -447,6 +502,10 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
         location.setPitch(0F);
         DummyTracker tracker = renderer.create(BukkitAdapter.adapt(location), BODY_MODIFIER,
                 created -> created.update(TrackerUpdateAction.brightness(15, 15)));
+        var type = io.github.legendaryswords.sword.SwordType.parse(swordId);
+        if (type.isPresent() && type.get().boss()) tracker.rotation(() ->
+                new kr.toxicity.model.api.tracker.ModelRotation(
+                        type.get() == io.github.legendaryswords.sword.SwordType.SKY_LEVIATHAN || type.get() == io.github.legendaryswords.sword.SwordType.INFERNAL_DRAGON ? player.getEyeLocation().getPitch() : 0F, player.getLocation().getYaw()));
         double length = renderer.animation(animation).orElseThrow().length();
         trackEffect(player.getUniqueId(), tracker, Math.min(8D, length) + 1D);
         spawnNearby(tracker, player, location);
@@ -532,9 +591,9 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
         return diagnostic;
     }
 
-    @EventHandler public void quit(PlayerQuitEvent event) { closePlayer(event.getPlayer().getUniqueId()); }
-    @EventHandler public void died(PlayerDeathEvent event) { closePlayer(event.getEntity().getUniqueId()); }
-    @EventHandler public void worldChanged(PlayerChangedWorldEvent event) { closePlayer(event.getPlayer().getUniqueId()); }
+    @EventHandler public void quit(PlayerQuitEvent event) { stopBoss(event.getPlayer()); closePlayer(event.getPlayer().getUniqueId()); }
+    @EventHandler public void died(PlayerDeathEvent event) { stopBoss(event.getEntity()); closePlayer(event.getEntity().getUniqueId()); }
+    @EventHandler public void worldChanged(PlayerChangedWorldEvent event) { stopBoss(event.getPlayer()); closePlayer(event.getPlayer().getUniqueId()); }
     @EventHandler(priority = EventPriority.MONITOR) public void held(PlayerItemHeldEvent event) {
         closePlayer(event.getPlayer().getUniqueId());
     }
@@ -555,6 +614,9 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     @Override public void close() {
         if (closed) return;
         closed = true;
+        bosses.values().forEach(Tracker::close);
+        bosses.clear();
+        bossIds.clear();
         startupCheck.cancel();
         watchdog.cancel();
         HandlerList.unregisterAll(this);

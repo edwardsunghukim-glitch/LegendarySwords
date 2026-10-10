@@ -62,6 +62,13 @@ public interface AnimationBridge extends AutoCloseable {
     /** Removes any detached cinematic models when its camera finishes or is cancelled. */
     default void cancelCinematic(Player player) { }
 
+    /** Ordinary model meshes avoid native player equipment rendering. */
+    default boolean startBoss(Player player, String swordId) { return false; }
+    default void bossSmash(Player player) { }
+    default void bossSpecial(Player player) { }
+    default void tickBoss(Player player) { }
+    default void stopBoss(Player player) { }
+
     String status();
 
     @Override

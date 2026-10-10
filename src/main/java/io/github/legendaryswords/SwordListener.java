@@ -40,6 +40,7 @@ public final class SwordListener implements Listener {
     }
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onSwing(PlayerAnimationEvent event) {
+        if (event.getAnimationType() == PlayerAnimationType.ARM_SWING && plugin.abilities().bossSwing(event.getPlayer())) return;
         if (plugin.getConfig().getBoolean("bettermodel.abilities-only", true)
                 || event.getAnimationType() != PlayerAnimationType.ARM_SWING || plugin.cinematics().active(event.getPlayer())
                 || !event.getPlayer().hasPermission("legendaryswords.use")) return;

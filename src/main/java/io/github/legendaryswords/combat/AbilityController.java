@@ -34,7 +34,7 @@ import org.bukkit.util.Vector;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 
-/** Fifty spell sets with bounded displays, staged ultimates and protected damage. */
+/** Fifty-five spell sets with bounded displays, staged ultimates and protected damage. */
 public final class AbilityController implements AutoCloseable {
     private final LegendarySwordsPlugin plugin;
     private final PluginSettings settings;
@@ -48,6 +48,33 @@ public final class AbilityController implements AutoCloseable {
     private final Map<UUID, Set<BukkitRunnable>> tasks = new HashMap<>();
     private final Map<UUID, PendingUltimate> pendingUltimates = new HashMap<>();
     private boolean closed;
+    private final Map<UUID, BossSession> bosses = new HashMap<>();
+
+    private final class BossSession {
+        final Player player; final SwordType sword; final boolean flight, flying;
+        final GameMode mode; final Location origin; final double damage;
+        BukkitTask timer; int age, duration, lastSmash = -1000, lastSpecial = -10000; boolean granted;
+        BossSession(Player player, SwordType sword, double damage) {
+            this.player = player; this.sword = sword; this.damage = damage;
+            flight = player.getAllowFlight(); flying = player.isFlying(); mode = player.getGameMode();
+            origin = player.getLocation().clone();
+        }
+        void finish() {
+            if (timer != null) timer.cancel();
+            bosses.remove(player.getUniqueId(), this);
+            Set<BukkitRunnable> owned = tasks.remove(player.getUniqueId());
+            if (owned != null) owned.forEach(BukkitRunnable::cancel);
+            displays.cancel(player);
+            try { animations.stopBoss(player); } finally {
+                if (granted && player.getGameMode() != GameMode.CREATIVE && player.getGameMode() != GameMode.SPECTATOR
+                        && mode != GameMode.CREATIVE && mode != GameMode.SPECTATOR) {
+                    if (!flight && !player.isDead() && player.isOnline() && !player.isOnGround())
+                        player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_FALLING, 100, 0));
+                    player.setFlying(flight && flying); player.setAllowFlight(flight);
+                }
+            }
+        }
+    }
 
     private static final class PendingUltimate {
         BukkitTask fallback;
@@ -63,6 +90,10 @@ public final class AbilityController implements AutoCloseable {
     public void activate(Player player, SwordType sword, boolean ultimate) {
         if (closed || !player.hasPermission("legendaryswords.use") || !player.isOnline() || player.isDead()
                 || player.getGameMode() == GameMode.SPECTATOR) return;
+        if (bosses.containsKey(player.getUniqueId())) {
+            bossSkill(player, ultimate);
+            return;
+        }
         if (pendingUltimates.containsKey(player.getUniqueId())) {
             effects.message(player, "An ultimate is still charging", sword);
             return;
@@ -125,6 +156,7 @@ public final class AbilityController implements AutoCloseable {
     }
 
     private void launch(Player player, SwordType sword, Location origin, Vector direction, double damage, boolean ultimate) {
+        if (sword.boss()) { bossAttack(player, sword, damage, ultimate); return; }
         switch (sword) {
             case MASTER_SWORD -> laser(player, sword, player.getEyeLocation().clone(), direction, damage, ultimate);
             case FLAMEBLADE -> fireRing(player, sword, origin, damage, ultimate);
@@ -157,6 +189,217 @@ public final class AbilityController implements AutoCloseable {
                 else relicAttack(player, sword, origin, direction, damage, ultimate);
             }
         }
+    }
+
+    private void bossAttack(Player player, SwordType sword, double damage, boolean ultimate) {
+        if (!ultimate) {
+            bossImpact(player, sword, player.getLocation().clone(), damage, new HashMap<>(), 1, false);
+            return;
+        }
+        BossSession session = new BossSession(player, sword, damage);
+        bosses.put(player.getUniqueId(), session);
+        try { animations.startBoss(player, sword.id()); }
+        catch (RuntimeException | LinkageError error) { plugin.getLogger().warning("Boss morph unavailable: " + error.getMessage()); }
+        try {
+            if (sword.bossFlight() && plugin.getConfig().getBoolean("bosses.flight-enabled", true)) {
+            session.granted = true;
+            player.setAllowFlight(true);
+            player.setFlying(true);
+        }
+        int duration = Math.clamp(plugin.getConfig().getInt("bosses.duration-seconds", 300), 3, 600) * 20;
+        session.duration = duration;
+        session.timer = plugin.getServer().getScheduler().runTaskTimer(plugin, () -> {
+            try {
+                if (!valid(player, session.origin) || ++session.age >= duration) { session.finish(); return; }
+                if (session.age % 20 == 0) {
+                    animations.tickBoss(player);
+                    effects.helix(player.getLocation(), sword == SwordType.SKY_LEVIATHAN ? 2.8 : 1.6, 3, session.age * .15, sword);
+                    effects.particle(player.getLocation().add(0, 1.5, 0), bossParticle(sword), 12, 1.2, .03);
+                }
+                if (session.age == 8) bossSwing(player);
+            } catch (RuntimeException error) {
+                session.finish(); plugin.getLogger().warning("Boss power ended: " + error.getMessage());
+            }
+        }, 1L, 1L); } catch (RuntimeException error) { session.finish(); throw error; }
+    }
+
+    /** Temporary forms replace the usual ability/ultimate controls with two cooldown-based skills. */
+    public boolean bossSwing(Player player) { return bossSkill(player, false); }
+
+    private boolean bossSkill(Player player, boolean special) {
+        BossSession session = bosses.get(player.getUniqueId());
+        if (session == null) return false;
+        if (!player.hasPermission("legendaryswords.use") || !valid(player, session.origin)) { session.finish(); return true; }
+        int interval = special ? Math.clamp(plugin.getConfig().getInt("bosses.special-interval-ticks", 120), 40, 1200)
+                : Math.clamp(plugin.getConfig().getInt("bosses.smash-interval-ticks", 40), 12, 200);
+        int last = special ? session.lastSpecial : session.lastSmash;
+        if (session.age - last < interval) return true;
+        if (special) session.lastSpecial = session.age; else session.lastSmash = session.age;
+        try { if (special) animations.bossSpecial(player); else animations.bossSmash(player); }
+        catch (RuntimeException | LinkageError error) { plugin.getLogger().warning("Boss attack model unavailable; damage still runs: " + error.getMessage()); }
+        if (special) bossSpecialAttack(session);
+        else bossImpact(player, session.sword, player.getLocation().clone(), session.damage, new HashMap<>(), 1, true);
+        return true;
+    }
+
+    public String bossStatus(Player player) {
+        BossSession session = bosses.get(player.getUniqueId());
+        if (session == null) return null;
+        int seconds = Math.max(0, (session.duration - session.age + 19) / 20);
+        String skill = switch (session.sword) {
+            case ANGEL_SOVEREIGN -> "Wing Cleave / Sanctuary";
+            case GRANITE_COLOSSUS -> "Titan Smash / Boulder Hurl";
+            case SKY_LEVIATHAN -> "Leviathan Bite / Tidal Roar";
+            case INFERNAL_DRAGON -> "Fire Breath / Claw Rend";
+            case FROST_TITAN -> "Hammer Smash / Ice Prison";
+            default -> "Boss form";
+        };
+        return "Boss " + seconds / 60 + ":" + String.format(java.util.Locale.ROOT, "%02d", seconds % 60) + " | " + skill;
+    }
+
+    private void bossSpecialAttack(BossSession session) {
+        Player player = session.player; SwordType sword = session.sword;
+        Location origin = player.getLocation().clone();
+        Vector aim = player.getEyeLocation().getDirection().clone().normalize();
+        Map<UUID, Integer> hits = new HashMap<>();
+        effects.sound(origin, sword, true);
+        if (sword == SwordType.GRANITE_COLOSSUS) {
+            Location source = player.getEyeLocation().clone();
+            double reach = unobstructed(source, aim, 22);
+            repeat(player, origin, 0, 2, frame -> {
+                double distance = 1 + frame * 1.2;
+                if (distance > reach) return false;
+                Location rock = source.clone().add(aim.clone().multiply(distance));
+                for (int n=0; n<4; n++) displays.box(player, rock.clone().add((n%2-.5)*.7, (n/2-.5)*.7, 0),
+                        n%2==0 ? Material.TUFF : Material.STONE, .85, .85, .85, sword.particleColor(), 4);
+                effects.particle(rock, Particle.CLOUD, 5, .35, .03);
+                domainHit(player, rock, 2.2, session.damage * .85, .9, 0, 20, hits, 1);
+                return true;
+            });
+            return;
+        }
+        if (sword == SwordType.INFERNAL_DRAGON) {
+            effects.arc(player.getEyeLocation(), aim, 5, 65, sword);
+            for (LivingEntity target : nearby(player, origin, 7))
+                if (Geometry.inCone(middle(target).toVector().subtract(player.getEyeLocation().toVector()), aim, 6, 65))
+                    strike(player, target, player.getEyeLocation(), session.damage * 1.25, .65, 0, 40, 0);
+            return;
+        }
+        if (sword == SwordType.ANGEL_SOVEREIGN) {
+            // Respect the server's healing event before applying this instant sanctuary pulse.
+            var heal = new org.bukkit.event.entity.EntityRegainHealthEvent(player, 6,
+                    org.bukkit.event.entity.EntityRegainHealthEvent.RegainReason.MAGIC);
+            plugin.getServer().getPluginManager().callEvent(heal);
+            if (!heal.isCancelled()) player.setHealth(Math.min(player.getMaxHealth(), player.getHealth() + Math.max(0, heal.getAmount())));
+        }
+        Location center = sword == SwordType.FROST_TITAN
+                ? origin.clone().add(flat(aim).multiply(4)) : origin;
+        repeat(player, origin, 0, 2, frame -> {
+            if (frame >= 25) return false;
+            double radius = sword == SwordType.FROST_TITAN ? 3.5 : Math.min(8, 1 + frame * .4);
+            effects.ring(center, radius, sword);
+            if (frame % 4 == 0) for (int n=0; n<12; n++) {
+                double angle = n * Math.PI * 2 / 12;
+                Location point = center.clone().add(Math.cos(angle)*radius, .5, Math.sin(angle)*radius);
+                if (sword == SwordType.FROST_TITAN) displays.box(player, point, Material.BLUE_ICE, .4, 3.2, .4, sword.particleColor(), 12);
+                else effects.particle(point, bossParticle(sword), 10, .4, .06);
+            }
+            if (frame == 8) domainHit(player, center, sword == SwordType.FROST_TITAN ? 5 : 8,
+                    session.damage * .7, sword == SwordType.SKY_LEVIATHAN ? 1.2 : .3, 0,
+                    sword == SwordType.FROST_TITAN ? 100 : 30, hits, 1);
+            return true;
+        });
+    }
+
+    private Particle bossParticle(SwordType sword) {
+        return switch (sword) {
+            case ANGEL_SOVEREIGN -> Particle.END_ROD;
+            case GRANITE_COLOSSUS -> Particle.CLOUD;
+            case SKY_LEVIATHAN -> Particle.SPLASH;
+            case INFERNAL_DRAGON -> Particle.FLAME;
+            case FROST_TITAN -> Particle.SNOWFLAKE;
+            default -> Particle.CRIT;
+        };
+    }
+
+    private void dragonBreath(Player player, SwordType sword, double damage, Map<UUID, Integer> hits,
+                              int limit, boolean ultimate) {
+        Location mouth = player.getEyeLocation().clone();
+        double reach = ultimate ? 16 : 10;
+        repeat(player, mouth, 0, 1, frame -> {
+            if (frame >= 32) return false;
+            Location currentMouth = player.getEyeLocation().clone();
+            Vector aim = currentMouth.getDirection().clone().normalize();
+            Vector across = aim.clone().crossProduct(new Vector(0, 1, 0));
+            if (across.lengthSquared() < .001) across = new Vector(1, 0, 0);
+            across.normalize();
+            Vector up = across.clone().crossProduct(aim).normalize();
+            if (frame % 3 == 0) {
+                for (int ray = 0; ray < 9; ray++) {
+                    double angle = ray * Math.PI * 2 / 8;
+                    Vector direction = ray == 8 ? aim.clone() : aim.clone()
+                            .add(across.clone().multiply(Math.cos(angle) * .3))
+                            .add(up.clone().multiply(Math.sin(angle) * .3)).normalize();
+                    double length = unobstructed(currentMouth, direction, reach);
+                    for (double distance = .8; distance <= length; distance += .7) {
+                        Location fire = currentMouth.clone().add(direction.clone().multiply(distance));
+                        effects.particle(fire, Particle.FLAME, 3, .08 + distance * .025, .025);
+                        if (ray % 3 == 0) effects.particle(fire, Particle.SMALL_FLAME, 2, .1, .015);
+                    }
+                }
+                effects.particle(currentMouth.clone().add(aim), Particle.SMOKE, 5, .15, .025);
+            }
+            if (frame == 6) for (LivingEntity target : nearby(player, currentMouth, reach + 1)) {
+                if (hits.getOrDefault(target.getUniqueId(), 0) < limit
+                        && Geometry.inCone(middle(target).toVector().subtract(currentMouth.toVector()), aim, reach, 20)
+                        && strike(player, target, currentMouth, damage, .3, 100, 0, 0)) hits.merge(target.getUniqueId(), 1, Integer::sum);
+            }
+            return true;
+        });
+    }
+
+    private void bossImpact(Player player, SwordType sword, Location origin, double damage,
+                            Map<UUID, Integer> hits, int limit, boolean ultimate) {
+        if (sword == SwordType.INFERNAL_DRAGON) { dragonBreath(player, sword, damage, hits, limit, ultimate); return; }
+        Vector forward = flat(player.getEyeLocation().getDirection());
+        Location focus = origin.clone().add(forward.clone().multiply(3));
+        double radius = ultimate ? 7 : 4;
+        Material material = switch (sword) {
+            case ANGEL_SOVEREIGN -> Material.YELLOW_STAINED_GLASS;
+            case GRANITE_COLOSSUS -> Material.TUFF;
+            case SKY_LEVIATHAN -> Material.LIGHT_BLUE_STAINED_GLASS;
+            case INFERNAL_DRAGON -> Material.MAGMA_BLOCK;
+            default -> Material.BLUE_ICE;
+        };
+        repeat(player, origin, 0, 1, frame -> {
+            if (frame >= 20) return false;
+            double progress = (frame + 1) / 20.0;
+            effects.ring(focus.clone().add(0, .2, 0), radius * progress, sword);
+            if (frame % 4 == 0) {
+                for (int i = 0; i < 12; i++) {
+                    double angle = Math.PI * 2 * i / 12;
+                    Location point = focus.clone().add(Math.cos(angle) * radius * progress, .3, Math.sin(angle) * radius * progress);
+                    effects.particle(point, bossParticle(sword), 5, .2, .04);
+                    double height = sword == SwordType.GRANITE_COLOSSUS ? 1.4 : sword == SwordType.FROST_TITAN ? 2.8 : .4;
+                    displays.box(player, point, material, .45, height, .45, sword.particleColor(), 12);
+                    if (sword == SwordType.ANGEL_SOVEREIGN) effects.line(point.clone().add(0, 5, 0), point, sword, .4);
+                    if (sword == SwordType.SKY_LEVIATHAN) effects.helix(point, .5, 2, frame * .3, sword);
+                    if (sword == SwordType.INFERNAL_DRAGON) effects.particle(point.clone().add(0, 1, 0), Particle.FLAME, 15, .5, .08);
+                }
+            }
+            if (frame == 6) {
+                if (sword == SwordType.SKY_LEVIATHAN) {
+                    Vector aim = player.getEyeLocation().getDirection().clone().normalize();
+                    for (LivingEntity target : nearby(player, player.getEyeLocation(), 9))
+                        if (hits.getOrDefault(target.getUniqueId(), 0) < limit
+                                && Geometry.inCone(middle(target).toVector().subtract(player.getEyeLocation().toVector()), aim, 8, 55)
+                                && strike(player, target, player.getEyeLocation(), damage, .55, 0, 30, 0)) hits.merge(target.getUniqueId(), 1, Integer::sum);
+                } else domainHit(player, focus, radius, damage, .7, 0, sword == SwordType.FROST_TITAN ? 60 : 0, hits, limit);
+                effects.particle(focus, Particle.EXPLOSION, 2, .5, 0);
+                effects.sound(focus, sword, ultimate);
+            }
+            return true;
+        });
     }
 
     /** New relics share lifecycle safeguards, with separate spatial attack choreography. */
@@ -1237,6 +1480,8 @@ public final class AbilityController implements AutoCloseable {
     }
 
     public void cancel(Player player) {
+        BossSession boss = bosses.get(player.getUniqueId());
+        if (boss != null) boss.finish();
         PendingUltimate pending = pendingUltimates.remove(player.getUniqueId());
         if (pending != null && pending.fallback != null) pending.fallback.cancel();
         Set<BukkitRunnable> owned = tasks.remove(player.getUniqueId());
@@ -1245,6 +1490,7 @@ public final class AbilityController implements AutoCloseable {
     }
     @Override public void close() {
         closed = true;
+        new ArrayList<>(bosses.values()).forEach(BossSession::finish);
         pendingUltimates.values().forEach(pending -> { if (pending.fallback != null) pending.fallback.cancel(); });
         pendingUltimates.clear();
         tasks.values().forEach(owned -> owned.forEach(BukkitRunnable::cancel));

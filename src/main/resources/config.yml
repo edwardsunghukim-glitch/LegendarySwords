@@ -392,3 +392,10 @@ swords:
     ability-cooldown-seconds: 10
     ultimate-damage: 17
     ultimate-cooldown-seconds: 100
+
+# Boss forms exist only during their ultimate. Duration is seconds (3–600), default five minutes.
+bosses:
+  duration-seconds: 300
+  flight-enabled: true
+  smash-interval-ticks: 40
+  special-interval-ticks: 120

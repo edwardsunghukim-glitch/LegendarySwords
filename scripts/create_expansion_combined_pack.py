@@ -27,7 +27,7 @@ def main():
         entries.update({name: archive.read(name) for name in archive.namelist() if not name.endswith('/')})
     aliases = list(exported.glob('assets/bettermodel/items/c/*.json'))
     weapons = json.loads((ROOT / 'scripts/expanded_weapons.json').read_text())
-    expected = len(weapons) * 3
+    expected = len(weapons) * 3 + sum(5 for w in weapons if w.get("generation") == 3)
     if len(aliases) != expected:
         raise ValueError(f'Expected {expected} named slash aliases; run mvn clean verify first.')
     for path in exported.rglob('*'):

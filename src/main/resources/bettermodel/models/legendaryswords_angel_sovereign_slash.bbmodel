@@ -1,0 +1,6059 @@
+{
+  "meta": {
+    "format_version": "5.0",
+    "model_format": "free",
+    "box_uv": false
+  },
+  "name": "Angel Sovereign physical attack",
+  "model_identifier": "legendaryswords_angel_sovereign_slash",
+  "credit": "Original animated creature attack geometry by LegendarySwords",
+  "resolution": {
+    "width": 16,
+    "height": 16
+  },
+  "elements": [
+    {
+      "uuid": "7361b882-66c1-57d0-9c4b-c338b03ccbca",
+      "name": "sweeping feather 0/0",
+      "type": "cube",
+      "from": [
+        -4.4,
+        1.0,
+        -0.2
+      ],
+      "to": [
+        -3.6,
+        7.0,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "f7870cb2-6a64-5a83-8270-227745e586aa",
+      "name": "sweeping feather 0/1",
+      "type": "cube",
+      "from": [
+        -5.25,
+        1.4038,
+        -0.2
+      ],
+      "to": [
+        -4.45,
+        7.5538,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "eae2d23f-01f5-5d08-bb29-16ecf04ab051",
+      "name": "sweeping feather 0/2",
+      "type": "cube",
+      "from": [
+        -6.1,
+        1.8008,
+        -0.2
+      ],
+      "to": [
+        -5.3,
+        8.1008,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "0d3aec94-66e6-569b-a3db-39a9ff61ae6b",
+      "name": "sweeping feather 0/3",
+      "type": "cube",
+      "from": [
+        -6.95,
+        2.1841,
+        -0.2
+      ],
+      "to": [
+        -6.15,
+        8.6341,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "3b410fae-550c-5a3d-b872-917f89496a96",
+      "name": "sweeping feather 0/4",
+      "type": "cube",
+      "from": [
+        -7.8,
+        2.5471,
+        -0.2
+      ],
+      "to": [
+        -7.0,
+        9.1471,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "2f271e02-fafa-56a5-baa8-0c5e4c0c2636",
+      "name": "sweeping feather 0/5",
+      "type": "cube",
+      "from": [
+        -8.65,
+        2.8836,
+        -0.2
+      ],
+      "to": [
+        -7.85,
+        9.6336,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "881d7f93-e5b6-5268-89cb-06c064696b9b",
+      "name": "sweeping feather 0/6",
+      "type": "cube",
+      "from": [
+        -9.5,
+        3.1875,
+        -0.2
+      ],
+      "to": [
+        -8.7,
+        10.0875,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "64082e6d-646b-53cc-b91a-21b0b88d748a",
+      "name": "sweeping feather 0/7",
+      "type": "cube",
+      "from": [
+        -10.35,
+        3.4536,
+        -0.2
+      ],
+      "to": [
+        -9.55,
+        10.5036,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "dfc6a487-f996-597e-abc8-0c5f0bb8d104",
+      "name": "sweeping feather 0/8",
+      "type": "cube",
+      "from": [
+        -11.2,
+        3.6768,
+        -0.2
+      ],
+      "to": [
+        -10.4,
+        10.8768,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "e9cda9c0-21ce-5e60-be5c-0ae50c9c4d0c",
+      "name": "sweeping feather 0/9",
+      "type": "cube",
+      "from": [
+        -12.05,
+        3.8528,
+        -0.2
+      ],
+      "to": [
+        -11.25,
+        11.2028,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "2f352de5-25a9-53e3-8a69-63342005d7d6",
+      "name": "sweeping feather 0/10",
+      "type": "cube",
+      "from": [
+        -12.9,
+        3.9782,
+        -0.2
+      ],
+      "to": [
+        -12.1,
+        11.4782,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "5c400912-ceb2-54b0-bbda-633905fbcc1c",
+      "name": "sweeping feather 0/11",
+      "type": "cube",
+      "from": [
+        -13.75,
+        4.0499,
+        -0.2
+      ],
+      "to": [
+        -12.95,
+        11.6999,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "4451d831-65ed-581c-a732-2625bad7a58b",
+      "name": "sweeping feather 0/12",
+      "type": "cube",
+      "from": [
+        -14.6,
+        4.0658,
+        -0.2
+      ],
+      "to": [
+        -13.8,
+        11.8658,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "d2f068bf-fb5a-5ac2-8042-e32bf2eca3c3",
+      "name": "sweeping feather 0/13",
+      "type": "cube",
+      "from": [
+        -15.45,
+        4.0248,
+        -0.2
+      ],
+      "to": [
+        -14.65,
+        11.9748,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "9bb34c72-0ac9-5259-8498-3c85e86c96eb",
+      "name": "sweeping feather 0/14",
+      "type": "cube",
+      "from": [
+        -16.3,
+        3.9262,
+        -0.2
+      ],
+      "to": [
+        -15.5,
+        12.0262,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "4e5aeb3f-75ea-580c-b3f4-3c7ed609a411",
+      "name": "sweeping feather 0/15",
+      "type": "cube",
+      "from": [
+        -17.15,
+        3.7704,
+        -0.2
+      ],
+      "to": [
+        -16.35,
+        12.0204,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "28203891-89d3-569b-80f5-893123c4c308",
+      "name": "sweeping feather 0/16",
+      "type": "cube",
+      "from": [
+        -18.0,
+        3.5586,
+        -0.2
+      ],
+      "to": [
+        -17.2,
+        11.9586,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "b1f614cf-c082-5c87-8ef7-fa3808242c03",
+      "name": "sweeping feather 0/17",
+      "type": "cube",
+      "from": [
+        -18.85,
+        3.2927,
+        -0.2
+      ],
+      "to": [
+        -18.05,
+        11.8427,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "dfafca6d-0a70-58e9-8267-9da6d17b3732",
+      "name": "sweeping feather 1/0",
+      "type": "cube",
+      "from": [
+        3.6,
+        1.0,
+        -0.2
+      ],
+      "to": [
+        4.4,
+        7.0,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "82ec99b4-c1ce-5ef2-aac4-b88f61007ee5",
+      "name": "sweeping feather 1/1",
+      "type": "cube",
+      "from": [
+        4.45,
+        1.4038,
+        -0.2
+      ],
+      "to": [
+        5.25,
+        7.5538,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "c93f5079-d355-5962-9ab3-6352edac1c45",
+      "name": "sweeping feather 1/2",
+      "type": "cube",
+      "from": [
+        5.3,
+        1.8008,
+        -0.2
+      ],
+      "to": [
+        6.1,
+        8.1008,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "6850601f-896f-5750-a87e-9020555ba24f",
+      "name": "sweeping feather 1/3",
+      "type": "cube",
+      "from": [
+        6.15,
+        2.1841,
+        -0.2
+      ],
+      "to": [
+        6.95,
+        8.6341,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "25e49375-4653-5d3a-bed1-bd5e4e24c1f7",
+      "name": "sweeping feather 1/4",
+      "type": "cube",
+      "from": [
+        7.0,
+        2.5471,
+        -0.2
+      ],
+      "to": [
+        7.8,
+        9.1471,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "50235e10-3fa0-5066-92a0-1386882f849c",
+      "name": "sweeping feather 1/5",
+      "type": "cube",
+      "from": [
+        7.85,
+        2.8836,
+        -0.2
+      ],
+      "to": [
+        8.65,
+        9.6336,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "20ae1efe-861b-580b-96f7-89e866154bf8",
+      "name": "sweeping feather 1/6",
+      "type": "cube",
+      "from": [
+        8.7,
+        3.1875,
+        -0.2
+      ],
+      "to": [
+        9.5,
+        10.0875,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "6e268a91-15e9-5327-9e14-edde450aadd8",
+      "name": "sweeping feather 1/7",
+      "type": "cube",
+      "from": [
+        9.55,
+        3.4536,
+        -0.2
+      ],
+      "to": [
+        10.35,
+        10.5036,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "ebd2d077-e9cb-5b5e-b2da-68f916515afb",
+      "name": "sweeping feather 1/8",
+      "type": "cube",
+      "from": [
+        10.4,
+        3.6768,
+        -0.2
+      ],
+      "to": [
+        11.2,
+        10.8768,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "72fa718f-bde0-5acb-b3a4-1c6250b540ee",
+      "name": "sweeping feather 1/9",
+      "type": "cube",
+      "from": [
+        11.25,
+        3.8528,
+        -0.2
+      ],
+      "to": [
+        12.05,
+        11.2028,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "ea1faa5c-7a1c-50e7-ac89-e2472dd342cd",
+      "name": "sweeping feather 1/10",
+      "type": "cube",
+      "from": [
+        12.1,
+        3.9782,
+        -0.2
+      ],
+      "to": [
+        12.9,
+        11.4782,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "43627c46-3b24-5a7b-906f-635a50f17069",
+      "name": "sweeping feather 1/11",
+      "type": "cube",
+      "from": [
+        12.95,
+        4.0499,
+        -0.2
+      ],
+      "to": [
+        13.75,
+        11.6999,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "466bf356-596b-57c5-a1b6-34c2f34e240e",
+      "name": "sweeping feather 1/12",
+      "type": "cube",
+      "from": [
+        13.8,
+        4.0658,
+        -0.2
+      ],
+      "to": [
+        14.6,
+        11.8658,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "ef8e7dc4-6feb-546a-9908-1f881213fd5c",
+      "name": "sweeping feather 1/13",
+      "type": "cube",
+      "from": [
+        14.65,
+        4.0248,
+        -0.2
+      ],
+      "to": [
+        15.45,
+        11.9748,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "0348a46f-36f2-583b-827b-57554c662752",
+      "name": "sweeping feather 1/14",
+      "type": "cube",
+      "from": [
+        15.5,
+        3.9262,
+        -0.2
+      ],
+      "to": [
+        16.3,
+        12.0262,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "a464aa60-80e5-5eb5-9c49-13fdd51fb576",
+      "name": "sweeping feather 1/15",
+      "type": "cube",
+      "from": [
+        16.35,
+        3.7704,
+        -0.2
+      ],
+      "to": [
+        17.15,
+        12.0204,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "2876f281-0303-52b4-b0fc-910ceb51a973",
+      "name": "sweeping feather 1/16",
+      "type": "cube",
+      "from": [
+        17.2,
+        3.5586,
+        -0.2
+      ],
+      "to": [
+        18.0,
+        11.9586,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "398907fb-0724-511f-a3a3-6a89041a0723",
+      "name": "sweeping feather 1/17",
+      "type": "cube",
+      "from": [
+        18.05,
+        3.2927,
+        -0.2
+      ],
+      "to": [
+        18.85,
+        11.8427,
+        0.2
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "bb808a2e-99dc-54e9-ab3b-3a3f732182ca",
+      "name": "shed feather 0",
+      "type": "cube",
+      "from": [
+        19.8,
+        -1.0,
+        -0.15
+      ],
+      "to": [
+        20.2,
+        1.0,
+        0.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "6dbfea20-404f-5548-8cd3-81271d6ae876",
+      "name": "shed feather 1",
+      "type": "cube",
+      "from": [
+        -14.9479,
+        8.4565,
+        0.85
+      ],
+      "to": [
+        -14.5479,
+        10.4565,
+        1.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "f3a75144-a43f-5a33-a8c9-5878f118f3b7",
+      "name": "shed feather 2",
+      "type": "cube",
+      "from": [
+        1.55,
+        -14.9463,
+        1.85
+      ],
+      "to": [
+        1.95,
+        -12.9463,
+        2.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "f668a379-a19e-53f7-bb34-c1e193825295",
+      "name": "shed feather 3",
+      "type": "cube",
+      "from": [
+        11.967,
+        10.1114,
+        2.85
+      ],
+      "to": [
+        12.367,
+        12.1114,
+        3.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "11e74e5a-a255-5aa4-b77e-84a75985e59f",
+      "name": "shed feather 4",
+      "type": "cube",
+      "from": [
+        -19.8938,
+        -3.4406,
+        -0.15
+      ],
+      "to": [
+        -19.4938,
+        -1.4406,
+        0.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "19b0f619-6d25-5f60-ad43-f8b962f0c199",
+      "name": "shed feather 5",
+      "type": "cube",
+      "from": [
+        16.6771,
+        -8.512,
+        0.85
+      ],
+      "to": [
+        17.0771,
+        -6.512,
+        1.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "f9667964-db23-5fab-a991-ceb2eb956a05",
+      "name": "shed feather 6",
+      "type": "cube",
+      "from": [
+        -5.3963,
+        12.5192,
+        1.85
+      ],
+      "to": [
+        -4.9963,
+        14.5192,
+        2.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "e6f155dd-b580-5c57-869a-b658caf34dd3",
+      "name": "shed feather 7",
+      "type": "cube",
+      "from": [
+        -9.4136,
+        -13.4259,
+        2.85
+      ],
+      "to": [
+        -9.0136,
+        -11.4259,
+        3.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "0b1e789a-dd8c-5f25-81ca-0f7b5b994147",
+      "name": "shed feather 8",
+      "type": "cube",
+      "from": [
+        18.5844,
+        3.8064,
+        -0.15
+      ],
+      "to": [
+        18.9844,
+        5.8064,
+        0.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "f1659d51-1c66-52cc-9f15-ac64eaa6aeb6",
+      "name": "shed feather 9",
+      "type": "cube",
+      "from": [
+        -18.6894,
+        4.3375,
+        0.85
+      ],
+      "to": [
+        -18.2894,
+        6.3375,
+        1.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "da371acd-e1be-53dc-a53c-ab9101d459d2",
+      "name": "shed feather 10",
+      "type": "cube",
+      "from": [
+        8.2836,
+        -13.6781,
+        1.85
+      ],
+      "to": [
+        8.6836,
+        -11.6781,
+        2.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "22a18917-efb9-5235-89a6-fe1faf40544a",
+      "name": "shed feather 11",
+      "type": "cube",
+      "from": [
+        5.778,
+        12.36,
+        2.85
+      ],
+      "to": [
+        6.178,
+        14.36,
+        3.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "7e1618fa-fd42-5ba4-be37-8da34ba2f743",
+      "name": "shed feather 12",
+      "type": "cube",
+      "from": [
+        -17.4998,
+        -8.0251,
+        -0.15
+      ],
+      "to": [
+        -17.0998,
+        -6.0251,
+        0.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "03c7b037-1a90-5b02-8199-735d26609c83",
+      "name": "shed feather 13",
+      "type": "cube",
+      "from": [
+        19.3356,
+        -3.9995,
+        0.85
+      ],
+      "to": [
+        19.7356,
+        -1.9995,
+        1.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "15aa9812-e9d4-5135-84a1-8e4e6a7d6bd6",
+      "name": "shed feather 14",
+      "type": "cube",
+      "from": [
+        -11.711,
+        10.4487,
+        1.85
+      ],
+      "to": [
+        -11.311,
+        12.4487,
+        2.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "eb1aaa7d-865a-5bef-9024-693c1d0ef60e",
+      "name": "shed feather 15",
+      "type": "cube",
+      "from": [
+        -2.7593,
+        -14.8849,
+        2.85
+      ],
+      "to": [
+        -2.3593,
+        -12.8849,
+        3.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "b980fbba-103b-564f-8707-bc48618a81ab",
+      "name": "shed feather 16",
+      "type": "cube",
+      "from": [
+        15.0854,
+        8.0286,
+        -0.15
+      ],
+      "to": [
+        15.4854,
+        10.0286,
+        0.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "eca4bf5e-dd6c-5f71-abd9-83db86daa07a",
+      "name": "shed feather 17",
+      "type": "cube",
+      "from": [
+        -20.1834,
+        -0.4303,
+        0.85
+      ],
+      "to": [
+        -19.7834,
+        1.5697,
+        1.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "38e18d17-2dcd-52ad-b93d-f948ee9be667",
+      "name": "shed feather 18",
+      "type": "cube",
+      "from": [
+        13.9859,
+        -10.8687,
+        1.85
+      ],
+      "to": [
+        14.3859,
+        -8.8687,
+        2.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "79ab6756-bcbe-5025-9838-656948adbdfc",
+      "name": "shed feather 19",
+      "type": "cube",
+      "from": [
+        -1.1378,
+        12.9846,
+        2.85
+      ],
+      "to": [
+        -0.7378,
+        14.9846,
+        3.15
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    }
+  ],
+  "groups": [
+    {
+      "uuid": "a8473f5c-e907-5d00-a162-621552a1d9a3",
+      "name": "left_wing",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "visibility": true
+    },
+    {
+      "uuid": "5a9abd4c-571a-5675-b235-26d86382d529",
+      "name": "right_wing",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "visibility": true
+    },
+    {
+      "uuid": "51973497-d27a-58d5-afa0-8ba77473b9b1",
+      "name": "feathers",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "visibility": true
+    }
+  ],
+  "outliner": [
+    {
+      "uuid": "a8473f5c-e907-5d00-a162-621552a1d9a3",
+      "isOpen": true,
+      "children": [
+        "7361b882-66c1-57d0-9c4b-c338b03ccbca",
+        "f7870cb2-6a64-5a83-8270-227745e586aa",
+        "eae2d23f-01f5-5d08-bb29-16ecf04ab051",
+        "0d3aec94-66e6-569b-a3db-39a9ff61ae6b",
+        "3b410fae-550c-5a3d-b872-917f89496a96",
+        "2f271e02-fafa-56a5-baa8-0c5e4c0c2636",
+        "881d7f93-e5b6-5268-89cb-06c064696b9b",
+        "64082e6d-646b-53cc-b91a-21b0b88d748a",
+        "dfc6a487-f996-597e-abc8-0c5f0bb8d104",
+        "e9cda9c0-21ce-5e60-be5c-0ae50c9c4d0c",
+        "2f352de5-25a9-53e3-8a69-63342005d7d6",
+        "5c400912-ceb2-54b0-bbda-633905fbcc1c",
+        "4451d831-65ed-581c-a732-2625bad7a58b",
+        "d2f068bf-fb5a-5ac2-8042-e32bf2eca3c3",
+        "9bb34c72-0ac9-5259-8498-3c85e86c96eb",
+        "4e5aeb3f-75ea-580c-b3f4-3c7ed609a411",
+        "28203891-89d3-569b-80f5-893123c4c308",
+        "b1f614cf-c082-5c87-8ef7-fa3808242c03"
+      ]
+    },
+    {
+      "uuid": "5a9abd4c-571a-5675-b235-26d86382d529",
+      "isOpen": true,
+      "children": [
+        "dfafca6d-0a70-58e9-8267-9da6d17b3732",
+        "82ec99b4-c1ce-5ef2-aac4-b88f61007ee5",
+        "c93f5079-d355-5962-9ab3-6352edac1c45",
+        "6850601f-896f-5750-a87e-9020555ba24f",
+        "25e49375-4653-5d3a-bed1-bd5e4e24c1f7",
+        "50235e10-3fa0-5066-92a0-1386882f849c",
+        "20ae1efe-861b-580b-96f7-89e866154bf8",
+        "6e268a91-15e9-5327-9e14-edde450aadd8",
+        "ebd2d077-e9cb-5b5e-b2da-68f916515afb",
+        "72fa718f-bde0-5acb-b3a4-1c6250b540ee",
+        "ea1faa5c-7a1c-50e7-ac89-e2472dd342cd",
+        "43627c46-3b24-5a7b-906f-635a50f17069",
+        "466bf356-596b-57c5-a1b6-34c2f34e240e",
+        "ef8e7dc4-6feb-546a-9908-1f881213fd5c",
+        "0348a46f-36f2-583b-827b-57554c662752",
+        "a464aa60-80e5-5eb5-9c49-13fdd51fb576",
+        "2876f281-0303-52b4-b0fc-910ceb51a973",
+        "398907fb-0724-511f-a3a3-6a89041a0723"
+      ]
+    },
+    {
+      "uuid": "51973497-d27a-58d5-afa0-8ba77473b9b1",
+      "isOpen": true,
+      "children": [
+        "bb808a2e-99dc-54e9-ab3b-3a3f732182ca",
+        "6dbfea20-404f-5548-8cd3-81271d6ae876",
+        "f3a75144-a43f-5a33-a8c9-5878f118f3b7",
+        "f668a379-a19e-53f7-bb34-c1e193825295",
+        "11e74e5a-a255-5aa4-b77e-84a75985e59f",
+        "19b0f619-6d25-5f60-ad43-f8b962f0c199",
+        "f9667964-db23-5fab-a991-ceb2eb956a05",
+        "e6f155dd-b580-5c57-869a-b658caf34dd3",
+        "0b1e789a-dd8c-5f25-81ca-0f7b5b994147",
+        "f1659d51-1c66-52cc-9f15-ac64eaa6aeb6",
+        "da371acd-e1be-53dc-a53c-ab9101d459d2",
+        "22a18917-efb9-5235-89a6-fe1faf40544a",
+        "7e1618fa-fd42-5ba4-be37-8da34ba2f743",
+        "03c7b037-1a90-5b02-8199-735d26609c83",
+        "15aa9812-e9d4-5135-84a1-8e4e6a7d6bd6",
+        "eb1aaa7d-865a-5bef-9024-693c1d0ef60e",
+        "b980fbba-103b-564f-8707-bc48618a81ab",
+        "eca4bf5e-dd6c-5f71-abd9-83db86daa07a",
+        "38e18d17-2dcd-52ad-b93d-f948ee9be667",
+        "79ab6756-bcbe-5025-9838-656948adbdfc"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "name": "angel_sovereign_domain_0.png",
+      "id": "0",
+      "width": 16,
+      "height": 16,
+      "uv_width": 16,
+      "uv_height": 16,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAP0lEQVR42mP4/3r2fzB+s/T//3cb/v9/v/v//4/H/v//dOH//y+3IRjEBomB5EBqQGqh+hhGDRg1YNSA4WIAAOvco8781jqoAAAAAElFTkSuQmCC"
+    },
+    {
+      "name": "angel_sovereign_domain_1.png",
+      "id": "1",
+      "width": 16,
+      "height": 16,
+      "uv_width": 16,
+      "uv_height": 16,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVR42u2M2wnAIBAEr/8GlYhiE5KgyIRVq5D7WFj2MQaBpRlhPNATfBneAq1uyStTp42252cOcIADbgH8onvTbkTuo4YAAAAASUVORK5CYII="
+    }
+  ],
+  "animations": [
+    {
+      "uuid": "52e758c3-2498-5390-b9fc-e2fd9797888c",
+      "name": "swing",
+      "loop": "once",
+      "override": true,
+      "length": 0.55,
+      "snapping": 20,
+      "animators": {
+        "a8473f5c-e907-5d00-a162-621552a1d9a3": {
+          "name": "left_wing",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "2f3275f4-11d0-52bd-b1ff-8a71afae691f",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "fadfa4b6-d012-5e6a-b905-d817d238a90b",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.71500",
+                  "y": "0.71500",
+                  "z": "0.71500"
+                }
+              ],
+              "time": 0.099,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "610825ca-07fa-502a-8761-366599023209",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.10000",
+                  "y": "1.10000",
+                  "z": "1.10000"
+                }
+              ],
+              "time": 0.2475,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "a264f74e-88c4-56ad-ad71-3f054f39b00a",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.23200",
+                  "y": "1.23200",
+                  "z": "1.23200"
+                }
+              ],
+              "time": 0.44,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "94d40c15-8993-5dfc-9aca-abfe0f756de8",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.55,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "85981040-dcef-59fc-8067-c6afe0f71c98",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "-40.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "54982d3f-b987-552e-b113-c03f6df0fc7d",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "-45.00000"
+                }
+              ],
+              "time": 0.1375,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "bf0c8474-97eb-588b-92e6-83fd7baaea22",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "15.00000"
+                }
+              ],
+              "time": 0.275,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "77ff4d07-7cc5-5b5f-8ffc-4d69423529b7",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "5.00000"
+                }
+              ],
+              "time": 0.44,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "f193d565-fb62-5f1b-8971-5bee164e8518",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.55,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        },
+        "5a9abd4c-571a-5675-b235-26d86382d529": {
+          "name": "right_wing",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "32732a8b-95a4-5f3d-afdf-9e03f1544f62",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "6cf60843-3c6c-5905-9d3e-e0e7012ea134",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.71500",
+                  "y": "0.71500",
+                  "z": "0.71500"
+                }
+              ],
+              "time": 0.099,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "8e6a0c77-7237-55e1-9b12-49302473aee3",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.10000",
+                  "y": "1.10000",
+                  "z": "1.10000"
+                }
+              ],
+              "time": 0.2475,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "d5bc721d-234f-5f74-9585-a8d14429e0ea",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.23200",
+                  "y": "1.23200",
+                  "z": "1.23200"
+                }
+              ],
+              "time": 0.44,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "4c1d8f85-a453-5f11-ab51-be103a7e09da",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.55,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "2f5ce642-187b-54b6-9df7-5898c57fa5bf",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "40.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "f23ef177-71b7-563b-8599-354715f738ba",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "45.00000"
+                }
+              ],
+              "time": 0.1375,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "2642a5ab-c0a0-590f-9886-1048f9e6fae8",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "-15.00000"
+                }
+              ],
+              "time": 0.275,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "f734b55a-eb08-50e7-a989-63e2aadb20e0",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "-5.00000"
+                }
+              ],
+              "time": 0.44,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "575d3001-6ea4-5276-bbe8-3011948b51b5",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.55,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        },
+        "51973497-d27a-58d5-afa0-8ba77473b9b1": {
+          "name": "feathers",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "77bcce3c-16b9-5078-9dae-98af7b508296",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "65a342fd-894c-54ae-858e-1607e2db87f4",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.71500",
+                  "y": "0.71500",
+                  "z": "0.71500"
+                }
+              ],
+              "time": 0.099,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "b9cdb622-21d6-5b13-bd85-928a896d93e7",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.10000",
+                  "y": "1.10000",
+                  "z": "1.10000"
+                }
+              ],
+              "time": 0.2475,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "5075c598-50bd-571c-a928-0e93fda49708",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.23200",
+                  "y": "1.23200",
+                  "z": "1.23200"
+                }
+              ],
+              "time": 0.44,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "af37434c-93ae-526f-b673-68f76a6b4d1e",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.55,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "1b4eb648-a446-5d82-8a9d-016674ba68e2",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "-40.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "ca93e0e7-f6b3-5a1d-be2f-cce14e708945",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "-45.00000"
+                }
+              ],
+              "time": 0.1375,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "c2910778-4243-50a4-95e6-8d062fdb802a",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "15.00000"
+                }
+              ],
+              "time": 0.275,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "4bb1b47e-07fa-5de4-a044-ff0ef8720268",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "5.00000"
+                }
+              ],
+              "time": 0.44,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "5b06f803-1cc5-53ba-afe3-260624743c27",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.55,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "ea1eb395-4cae-5450-8998-1a9dc331d3ea",
+      "name": "ability",
+      "loop": "once",
+      "override": true,
+      "length": 1.49,
+      "snapping": 20,
+      "animators": {
+        "a8473f5c-e907-5d00-a162-621552a1d9a3": {
+          "name": "left_wing",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "5ad643e7-6f48-5ecc-b968-fc3aeda583ce",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "2ea2017b-550e-527b-bd67-3cde58b64a1b",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.04000",
+                  "y": "1.04000",
+                  "z": "1.04000"
+                }
+              ],
+              "time": 0.2682,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "deb3ba81-b32d-55bb-b5e1-890b05c3c6c9",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.60000",
+                  "y": "1.60000",
+                  "z": "1.60000"
+                }
+              ],
+              "time": 0.6705,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "19b134a9-3caa-5647-84e6-57d81c83f111",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.79200",
+                  "y": "1.79200",
+                  "z": "1.79200"
+                }
+              ],
+              "time": 1.192,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "8c451a67-33dd-5357-ab34-547ad6d95475",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 1.49,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "233c46a7-8ee6-5bda-b762-a83db549b9b2",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "-40.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "b9ffe4ed-f96f-5d71-8734-eb13acc13796",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "-45.00000"
+                }
+              ],
+              "time": 0.3725,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "d5b289fe-e18f-5e5c-8edf-b40f1060a0c1",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "15.00000"
+                }
+              ],
+              "time": 0.745,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "6b8999c6-897f-567e-98d9-8bbc081fc7f8",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "5.00000"
+                }
+              ],
+              "time": 1.192,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "6511fae7-755d-5f85-a48c-fdb749842dad",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.49,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        },
+        "5a9abd4c-571a-5675-b235-26d86382d529": {
+          "name": "right_wing",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "3cb8b25d-f0a2-55f0-b4de-cbb37e5da02f",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "5357237b-19b0-5432-b38b-8e5641799ee5",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.04000",
+                  "y": "1.04000",
+                  "z": "1.04000"
+                }
+              ],
+              "time": 0.2682,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "702974dc-a8ba-5d0e-9f06-e300fd629cf9",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.60000",
+                  "y": "1.60000",
+                  "z": "1.60000"
+                }
+              ],
+              "time": 0.6705,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "3bc406cb-cdaf-5a6b-a2d7-2e600054e5df",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.79200",
+                  "y": "1.79200",
+                  "z": "1.79200"
+                }
+              ],
+              "time": 1.192,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "933c36da-a564-5436-b3a6-adda2707067c",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 1.49,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "9e34671f-2646-5fac-b7fb-5e6032724d22",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "40.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "d6e71845-9935-5fc7-8d45-f55b924eb8c0",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "45.00000"
+                }
+              ],
+              "time": 0.3725,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "44709d5d-a0ae-5ebc-9025-557e739d24bf",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "-15.00000"
+                }
+              ],
+              "time": 0.745,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "45ba4e0a-e48d-57cf-ab9e-6690fa892ae0",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "-5.00000"
+                }
+              ],
+              "time": 1.192,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "c2848d03-d3d6-563f-859b-345ee8df4b31",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.49,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        },
+        "51973497-d27a-58d5-afa0-8ba77473b9b1": {
+          "name": "feathers",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "cb026e71-e011-5609-bf38-37d52d4b4c5a",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "56d324f0-582f-5b1f-84c3-2362befe577c",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.04000",
+                  "y": "1.04000",
+                  "z": "1.04000"
+                }
+              ],
+              "time": 0.2682,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "f3acfaca-63ba-5cb4-826e-c9ddb8d991ae",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.60000",
+                  "y": "1.60000",
+                  "z": "1.60000"
+                }
+              ],
+              "time": 0.6705,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "7c66110a-2288-5f31-9e63-375de32a6965",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.79200",
+                  "y": "1.79200",
+                  "z": "1.79200"
+                }
+              ],
+              "time": 1.192,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "c028ddc3-75fe-5d70-8800-01541dc11a38",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 1.49,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "5e3ebcb1-22f1-5623-a286-28dc35d54853",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "-40.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "4f4754ea-d25a-59fa-823f-a94b2fd5b023",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "-45.00000"
+                }
+              ],
+              "time": 0.3725,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "3755660f-5109-5fca-af73-9846017effdd",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "15.00000"
+                }
+              ],
+              "time": 0.745,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "954cd4bc-1a1b-50c1-afb6-ee5e35b92b84",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "5.00000"
+                }
+              ],
+              "time": 1.192,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "8242f320-cbdb-5d68-b741-5149f4f2a048",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.49,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "171ad560-2031-5b57-932b-ea8e8a90e3a5",
+      "name": "ultimate",
+      "loop": "once",
+      "override": true,
+      "length": 2.02,
+      "snapping": 20,
+      "animators": {
+        "a8473f5c-e907-5d00-a162-621552a1d9a3": {
+          "name": "left_wing",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "3994c8c4-9ff8-5dae-ad8f-08a5140777fa",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "69eb8d2a-d787-5562-b39e-ac33eb1eac6c",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.56000",
+                  "y": "1.56000",
+                  "z": "1.56000"
+                }
+              ],
+              "time": 0.3636,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "fc5fabd4-0e1c-5ba0-9dc0-c7af788173c9",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "2.40000",
+                  "y": "2.40000",
+                  "z": "2.40000"
+                }
+              ],
+              "time": 0.909,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "4309df03-b16d-58fc-ab59-85aaaeeee97e",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "2.68800",
+                  "y": "2.68800",
+                  "z": "2.68800"
+                }
+              ],
+              "time": 1.616,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "2a234d64-80d5-5727-8136-b20aea96014d",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 2.02,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "7e8066bf-ff32-50c8-a15e-17bf9911da5a",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "-40.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "9617e34e-ab05-59b8-b71a-95badb24018b",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "-45.00000"
+                }
+              ],
+              "time": 0.505,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "6e7b3748-44a4-5f85-a70a-8db27459bf0e",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "15.00000"
+                }
+              ],
+              "time": 1.01,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "7c665910-bd57-5d8e-80f9-68b5260fd633",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "5.00000"
+                }
+              ],
+              "time": 1.616,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "29f62248-6585-521d-b1cc-4da5301608df",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 2.02,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        },
+        "5a9abd4c-571a-5675-b235-26d86382d529": {
+          "name": "right_wing",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "2cb66e0b-125e-5130-8a71-cd612361a7d5",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "79e740a3-502c-5c3c-869b-4b57fcf7ae7e",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.56000",
+                  "y": "1.56000",
+                  "z": "1.56000"
+                }
+              ],
+              "time": 0.3636,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "40d148ac-5265-56cc-9f25-70b19c29ab4c",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "2.40000",
+                  "y": "2.40000",
+                  "z": "2.40000"
+                }
+              ],
+              "time": 0.909,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "50cd5fed-0eab-52b6-8eec-b89d8522741e",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "2.68800",
+                  "y": "2.68800",
+                  "z": "2.68800"
+                }
+              ],
+              "time": 1.616,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "1f3cf475-c901-5755-99a8-8adbb0e84f43",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 2.02,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "da7974a3-2728-53c6-9706-5e0e696ffea6",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "40.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "bf55e615-423e-59b5-ac41-f0066b369abb",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "45.00000"
+                }
+              ],
+              "time": 0.505,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "2a7ffaf9-f2cf-56f1-81a5-ef510ec0bf75",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "-15.00000"
+                }
+              ],
+              "time": 1.01,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "85aa880a-4af2-5baa-b24b-ab90f6253b7b",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "-5.00000"
+                }
+              ],
+              "time": 1.616,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "a95ff5af-d489-5653-888e-e0b2d834f67e",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 2.02,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        },
+        "51973497-d27a-58d5-afa0-8ba77473b9b1": {
+          "name": "feathers",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "88fecb42-0c50-5173-ab3e-555344e2555e",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "ebec1de0-9820-53da-bedc-439a3d661f41",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.56000",
+                  "y": "1.56000",
+                  "z": "1.56000"
+                }
+              ],
+              "time": 0.3636,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "23a5afa8-e56d-5742-8e8a-fe0c8e9c6a5e",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "2.40000",
+                  "y": "2.40000",
+                  "z": "2.40000"
+                }
+              ],
+              "time": 0.909,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "eec391c2-b6da-502e-a0a9-39f9ac5aeb8f",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "2.68800",
+                  "y": "2.68800",
+                  "z": "2.68800"
+                }
+              ],
+              "time": 1.616,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "086f75c7-eb8d-5c73-955a-79838ec9bc39",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 2.02,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "f0eab0df-be69-525f-bf26-9b336547da43",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "-40.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "60e66a77-b85a-5419-9531-0c726fe86f6c",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "-45.00000"
+                }
+              ],
+              "time": 0.505,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "7734530e-469a-5be3-a5b3-54532086583c",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "15.00000"
+                }
+              ],
+              "time": 1.01,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "ffece592-e705-5a61-a667-21c4509fcddf",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "5.00000"
+                }
+              ],
+              "time": 1.616,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "297c9ea1-b6b2-5062-9cff-57f2d5f7edd7",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 2.02,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

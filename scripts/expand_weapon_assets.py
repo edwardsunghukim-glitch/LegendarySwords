@@ -104,9 +104,13 @@ def generate_models(root):
         for kind in ['players', 'models']:
             suffix = '_slash' if kind == 'models' else ''
             model = json.loads((root / kind / f'legendaryswords_{base}{suffix}.bbmodel').read_text())
-            if kind == 'models' and weapon.get('generation') == 2:
+            if kind == 'models' and weapon.get('generation') in (2, 3):
                 from domain_weapon_art import effect_model
-                write(root / kind / f'legendaryswords_{name}{suffix}.bbmodel', effect_model(weapon, index - 16))
+                if weapon.get('generation') == 3:
+                    from boss_weapon_art import attack_model
+                    model = attack_model(weapon)
+                else: model = effect_model(weapon, index - 16)
+                write(root / kind / f'legendaryswords_{name}{suffix}.bbmodel', model)
                 continue
             model['name'] = weapon['title'] + (' signature effect' if suffix else ' cast choreography')
             model['model_identifier'] = f'legendaryswords_{name}{suffix}'
@@ -133,12 +137,20 @@ def generate_models(root):
                     texture['source'] = 'data:image/png;base64,' + base64.b64encode(motion.png(tuple(weapon['color']), (255, 245, 215))).decode()
             write(root / kind / f'legendaryswords_{name}{suffix}.bbmodel', remap_ids(model, name + suffix))
 
+    from boss_weapon_art import boss_model
+    for weapon in WEAPONS:
+        if weapon.get('generation') == 3:
+            write(root / 'models' / f"legendaryswords_{weapon['id']}_boss.bbmodel", boss_model(weapon))
+
 
 def generate_pack():
     for index, weapon in enumerate(WEAPONS):
         name, base = weapon['id'], weapon['base']
         palette = copy.deepcopy(art.PALETTES[base])
-        if weapon.get('generation') != 2:
+        if weapon.get('generation') == 3:
+            palette[0] = [(235,230,205),(120,110,95),(75,140,155),(120,55,35),(170,200,225)][index-42]
+            palette[4] = tuple(round(c*.3) for c in palette[0])
+        if weapon.get('generation', 1) == 1:
             materials=[(235,238,230),(165,175,205),(110,135,175),(205,225,195),(110,200,185),(85,65,110),(95,160,180),(165,115,130),(185,145,65),(205,130,175),(160,130,95),(75,135,170),(105,170,165),(185,150,105),(110,120,70),(70,60,100)]
             palette[0]=materials[index]
             palette[4]=tuple(round(c*.23) for c in materials[index])
@@ -155,11 +167,14 @@ def generate_pack():
         if weapon.get('generation') == 2:
             from domain_weapon_art import item_model
             model = item_model(weapon, index - 16)
-        for element in (model['elements'] if weapon.get('generation') != 2 else []):
+        if weapon.get('generation') == 3:
+            from boss_weapon_art import item_model as boss_item
+            model = boss_item(weapon)
+        for element in (model['elements'] if weapon.get('generation', 1) == 1 else []):
             for field in ['from', 'to']:
                 element[field][0] = round(8 + (element[field][0] - 8) * (1 - .005 * (index + 1)), 5)
                 if element[field][1] > 6: element[field][1] = round(6 + (element[field][1] - 6) * (1 - .004 * (index + 1)), 5)
-        for rune in range(0 if weapon.get("generation") == 2 else 3):
+        for rune in range(3 if weapon.get("generation", 1) == 1 else 0):
             y = 9 + rune * 2
             nearby = [e for e in model['elements'] if e['from'][1] <= y <= e['to'][1] and e['to'][0]-e['from'][0] > .5]
             if nearby:
@@ -179,7 +194,7 @@ def generate_pack():
             'type': 'minecraft:select', 'property': 'minecraft:display_context',
             'cases': [{'when': ['thirdperson_lefthand', 'thirdperson_righthand'], 'model': {'type': 'minecraft:empty'}}],
             'fallback': {'type': 'minecraft:model', 'model': 'legendaryswords:item/' + name + '_animated'}}})
-    metadata = json.loads((art.ROOT / 'pack.mcmeta').read_text()); metadata['pack']['description'] = 'LegendarySwords — 50 detailed legendary weapons'; write(art.ROOT / 'pack.mcmeta', metadata)
+    metadata = json.loads((art.ROOT / 'pack.mcmeta').read_text()); metadata['pack']['description'] = 'LegendarySwords — 55 legendary weapons and five boss forms'; write(art.ROOT / 'pack.mcmeta', metadata)
 
 
 if __name__ == '__main__':

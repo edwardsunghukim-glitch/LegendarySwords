@@ -1,23 +1,29 @@
-# LegendarySwords 0.4.1 downloads
+# LegendarySwords 0.5.0 downloads
 
-[Plugin JAR](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-0.4.1.jar) · [NEW combined resource pack](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-combined-resource-pack-0.4.1.zip) · [Full bundle](LegendarySwords-download.zip)
+[Plugin JAR](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-0.5.0.jar) · [Combined resource pack](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-combined-resource-pack-0.5.0.zip) · [Full bundle](LegendarySwords-download.zip)
 
-Visual polish: all 50 atlases have individual engraving patterns, continuous blade UVs, calmer surface shading and consistent first-person sizes. The new blades have finer connected tapers and flush fittings, with a connectivity check against floating pieces. The 26 new attacks have larger fields and distinct named manifestations: lightning cages, clockwork seals, portal rings, orbital blades, tidal walls, crystal spikes, wings, meteors, ice crowns, roots and dragon fire.
+55 weapons, including five new boss implements with separate models, animated creature attacks and five original morphs. An ultimate activates a **five-minute form**, unlocks two abilities with separate cooldowns, and restores normal appearance/powers afterward. Left/right click uses the primary; sneak + right-click uses the secondary. The action bar shows the form countdown.
 
-50 weapons, with 26 newly authored weapon/effect meshes, thematic engraved animated atlases and separate ring/domain/trap/projectile attack branches. The previous 16 additions also receive individual texture patterns. `/swords` and `/legendaryswords` open a two-page catalogue: everyone can browse, only admins can click to receive weapons. Normal movement remains vanilla; character animations play during casts. Laser aiming fixes from 0.3.1 are included.
+- Angel Sovereign: wing cleave, sanctuary healing and temporary flight.
+- Granite Colossus Fists: rock monster, fist smash and a thrown boulder.
+- Sky Leviathan Fang: flying sea serpent, snapping bite and tidal roar.
+- Infernal Dragon Claw: dragon, aimed fire breath and claw rend.
+- Frost Titan Hammer: giant, hammer smash and ice prison.
 
-Stop the server, replace the old LegendarySwords JAR with 0.4.1, and restart. Models install automatically. Replace your old combined client pack with the new ZIP and keep it zipped. Preserve your configuration/data and the separate LegendaryAdmin plugin. [Installation](../docs/INSTALLATION.md).
+Stop the server, replace the old LegendarySwords JAR with 0.5.0 and restart. Models install automatically. Replace the old client pack with this combined ZIP and keep it zipped. Preserve existing configuration/data and LegendaryAdmin. Use `/swords` to browse; only admins can click for weapons.
 
-The combined pack preserves the supplied BetterModel 3.1-SNAPSHOT-526 named-alias setup, adds all 50 sword items and 126 officially compiled expansion effect aliases, and updates the texture patterns. Different BetterModel export settings or changed unrelated server models require merging a fresh server build.zip. [Model setup](../docs/BETTERMODEL.md).
+`bosses.duration-seconds` defaults to 300. `bosses.smash-interval-ticks` and `bosses.special-interval-ticks` control form skill cooldowns. Flight is restored on expiry/interruption. Armor and protection rules still apply. Observers see the boss body; owners keep normal first-person/F5 rendering and see shared attack meshes/effects. Boss geometry does not enlarge the vanilla hitbox.
 
-[Standalone sword pack](LegendarySwords-resource-pack.zip) · [Model ZIP](LegendarySwords-BetterModel-models.zip) · [Source ZIP](LegendarySwords-source.zip) · [Front-view preview of the 26 additions](LegendarySwords-new-weapons-preview.png).
+The combined pack contains 55 sword items and 166 official-compiler expansion attack/boss aliases, tailored to the supplied BetterModel 3.1-SNAPSHOT-526 namespace/named-alias setup. Changed namespaces, exporter settings or unrelated models require merging a fresh server build.zip.
 
-Validation: 294 Java tests, 13 resource-pack checks, 10 model/animation checks and 4 geometry/texture-topology checks passed. Client rendering and live-server performance still need an in-game test.
+[Standalone pack](LegendarySwords-resource-pack.zip) · [115-model ZIP](LegendarySwords-BetterModel-models.zip) · [Source ZIP](LegendarySwords-source.zip) · [Boss weapon preview](LegendarySwords-boss-weapons-preview.png) · [Installation](../docs/INSTALLATION.md).
+
+Validation: 326 Java tests, 13 resource-pack checks, 11 model/animation checks and four geometry/texture checks passed. Client rendering and live-server performance require an in-game check.
 
 ## LegendaryAdmin
 
-[LegendaryAdmin 0.1.1 JAR](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendaryAdmin-0.1.1.jar) remains the current admin plugin, with direct commands such as `/heal`, `/fly`, `/vanish`, `/invsee` and `/adminmenu`. [Commands](../admin-plugin/README.md) · [Admin source](LegendaryAdmin-source.zip). No resource pack required.
+[LegendaryAdmin 0.1.1 JAR](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendaryAdmin-0.1.1.jar) remains current, with direct commands such as `/heal`, `/fly`, `/vanish`, `/invsee` and `/adminmenu`. [Commands](../admin-plugin/README.md) · [Source](LegendaryAdmin-source.zip). No resource pack required.
 
-Plugin SHA-256: `c0a0b8a82bb0c0746cdb4fae210ddb394b55a2c5ea2c57102c20efb06dd03fdc`.
+Plugin SHA-256: `17c619ef97ad64adf0b08c129f0722c8511c94f39afa1e96140bf36e618739cc`.
 
-Combined pack SHA-1: `e47e3cf72fc969b8b39b21c3bc7776cf2727e8d2`.
+Combined pack SHA-1: `fae20a661b1cf4e7f24926b67c3498723174c84b`.

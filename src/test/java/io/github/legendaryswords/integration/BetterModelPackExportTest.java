@@ -28,10 +28,14 @@ class BetterModelPackExportTest {
             when(platform.adapter()).thenReturn(adapter); when(platform.config()).thenReturn(config);
             when(adapter.air()).thenReturn(mock(PlatformItemStack.class)); BetterModel.register(platform);
             Path root = Path.of("target/bettermodel-expansion-pack");
+            if (Files.exists(root)) try (var files = Files.walk(root)) {
+                for (Path path : files.sorted(java.util.Comparator.reverseOrder()).toList()) Files.delete(path);
+            }
             AtomicInteger aliases = new AtomicInteger();
             for (SwordType sword : SwordType.values()) {
                 if (sword.ordinal() < 8) continue;
-                String name = "legendaryswords_" + sword.id() + "_slash";
+                for (String suffix : sword.boss() ? new String[]{"_slash", "_boss"} : new String[]{"_slash"}) {
+                String name = "legendaryswords_" + sword.id() + suffix;
                 try (var input = getClass().getResourceAsStream("/bettermodel/models/" + name + ".bbmodel")) {
                     assertNotNull(input);
                     ModelData raw = ModelData.GSON.fromJson(new InputStreamReader(input, StandardCharsets.UTF_8), ModelData.class);
@@ -61,7 +65,8 @@ class BetterModelPackExportTest {
                     }
                 }
             }
-            assertEquals((SwordType.values().length - 8) * 3, aliases.get());
+            }
+            assertEquals((SwordType.values().length - 8) * 3 + 25, aliases.get());
         } finally { singleton.set(null, previous); }
     }
     private static void write(Path file, byte[] bytes) throws Exception {

@@ -528,5 +528,75 @@
       35
     ],
     "generation": 2
+  },
+  {
+    "id": "angel_sovereign",
+    "title": "Angel Sovereign",
+    "ability": "Heavenly Cleave",
+    "ultimate": "Ascension: Angel Sovereign",
+    "base": "master_sword",
+    "color": [
+      255,
+      235,
+      155
+    ],
+    "generation": 3,
+    "pattern_index": 50
+  },
+  {
+    "id": "granite_colossus",
+    "title": "Granite Colossus Fists",
+    "ability": "Boulder Smash",
+    "ultimate": "Awakening: Rock Colossus",
+    "base": "biggoron_sword",
+    "color": [
+      185,
+      160,
+      110
+    ],
+    "generation": 3,
+    "pattern_index": 51
+  },
+  {
+    "id": "sky_leviathan",
+    "title": "Sky Leviathan Fang",
+    "ability": "Leviathan Bite",
+    "ultimate": "Awakening: Flying Leviathan",
+    "base": "frostblade",
+    "color": [
+      70,
+      215,
+      245
+    ],
+    "generation": 3,
+    "pattern_index": 52
+  },
+  {
+    "id": "infernal_dragon",
+    "title": "Infernal Dragon Claw",
+    "ability": "Dragon Breath",
+    "ultimate": "Awakening: Infernal Dragon",
+    "base": "flameblade",
+    "color": [
+      255,
+      85,
+      45
+    ],
+    "generation": 3,
+    "pattern_index": 53
+  },
+  {
+    "id": "frost_titan",
+    "title": "Frost Titan Hammer",
+    "ability": "Glacier Smash",
+    "ultimate": "Awakening: Frost Titan",
+    "base": "frostblade",
+    "color": [
+      170,
+      225,
+      255
+    ],
+    "generation": 3,
+    "pattern_index": 54
   }
 ]

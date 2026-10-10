@@ -1,0 +1,6059 @@
+{
+  "meta": {
+    "format_version": "5.0",
+    "model_format": "free",
+    "box_uv": false
+  },
+  "name": "Granite Colossus Fists physical attack",
+  "model_identifier": "legendaryswords_granite_colossus_slash",
+  "credit": "Original animated creature attack geometry by LegendarySwords",
+  "resolution": {
+    "width": 16,
+    "height": 16
+  },
+  "elements": [
+    {
+      "uuid": "e6a631ad-2f50-51ab-be95-ce1559ce9415",
+      "name": "stone fist facet 0/0/0",
+      "type": "cube",
+      "from": [
+        -12.5,
+        -4.05,
+        -4.05
+      ],
+      "to": [
+        -3.5,
+        -1.95,
+        -1.95
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "9a7d7ab5-79e1-5536-a69e-544db7f5b82e",
+      "name": "stone fist facet 0/0/1",
+      "type": "cube",
+      "from": [
+        -12.5,
+        -4.05,
+        -2.05
+      ],
+      "to": [
+        -3.5,
+        -1.95,
+        0.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "018090ea-c4c6-5b77-a4c6-6711d292bfb8",
+      "name": "stone fist facet 0/0/2",
+      "type": "cube",
+      "from": [
+        -12.5,
+        -4.05,
+        -0.05
+      ],
+      "to": [
+        -3.5,
+        -1.95,
+        2.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "68f9cdba-c618-57d7-88ec-65b488d938dc",
+      "name": "stone fist facet 0/0/3",
+      "type": "cube",
+      "from": [
+        -12.5,
+        -4.05,
+        1.95
+      ],
+      "to": [
+        -3.5,
+        -1.95,
+        4.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "76ea9c52-70bb-5526-966d-aa99de5de95c",
+      "name": "stone fist facet 0/1/0",
+      "type": "cube",
+      "from": [
+        -12.5,
+        -2.05,
+        -4.05
+      ],
+      "to": [
+        -3.5,
+        0.05,
+        -1.95
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "15fe7b54-eecf-58e2-a414-de6239be43b1",
+      "name": "stone fist facet 0/1/1",
+      "type": "cube",
+      "from": [
+        -12.5,
+        -2.05,
+        -2.05
+      ],
+      "to": [
+        -3.5,
+        0.05,
+        0.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "36eb1095-9198-5230-b332-14b6f177e38a",
+      "name": "stone fist facet 0/1/2",
+      "type": "cube",
+      "from": [
+        -12.5,
+        -2.05,
+        -0.05
+      ],
+      "to": [
+        -3.5,
+        0.05,
+        2.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "1c8e840f-d67d-592d-83d4-215ee5d81965",
+      "name": "stone fist facet 0/1/3",
+      "type": "cube",
+      "from": [
+        -12.5,
+        -2.05,
+        1.95
+      ],
+      "to": [
+        -3.5,
+        0.05,
+        4.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "42e13e4e-c500-5a4b-b80b-5f5a498c8fc9",
+      "name": "stone fist facet 0/2/0",
+      "type": "cube",
+      "from": [
+        -12.5,
+        -0.05,
+        -4.05
+      ],
+      "to": [
+        -3.5,
+        2.05,
+        -1.95
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "6c0d6ae9-f893-5cc9-b51d-0d816512db9a",
+      "name": "stone fist facet 0/2/1",
+      "type": "cube",
+      "from": [
+        -12.5,
+        -0.05,
+        -2.05
+      ],
+      "to": [
+        -3.5,
+        2.05,
+        0.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "1e6abdd1-11e9-5a32-b8a9-05664f682ad3",
+      "name": "stone fist facet 0/2/2",
+      "type": "cube",
+      "from": [
+        -12.5,
+        -0.05,
+        -0.05
+      ],
+      "to": [
+        -3.5,
+        2.05,
+        2.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "556b4d71-d386-573b-90b8-ac322151d2df",
+      "name": "stone fist facet 0/2/3",
+      "type": "cube",
+      "from": [
+        -12.5,
+        -0.05,
+        1.95
+      ],
+      "to": [
+        -3.5,
+        2.05,
+        4.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "2fd1f983-2bb3-506c-b1b9-73e9e956c202",
+      "name": "stone fist facet 0/3/0",
+      "type": "cube",
+      "from": [
+        -12.5,
+        1.95,
+        -4.05
+      ],
+      "to": [
+        -3.5,
+        4.05,
+        -1.95
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "db9dff21-fbd5-5d9e-90c7-b93cbab5e7ad",
+      "name": "stone fist facet 0/3/1",
+      "type": "cube",
+      "from": [
+        -12.5,
+        1.95,
+        -2.05
+      ],
+      "to": [
+        -3.5,
+        4.05,
+        0.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "a6b6ba8c-473c-5c3c-b2a0-897eb5a0d75b",
+      "name": "stone fist facet 0/3/2",
+      "type": "cube",
+      "from": [
+        -12.5,
+        1.95,
+        -0.05
+      ],
+      "to": [
+        -3.5,
+        4.05,
+        2.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "29094eb7-1ebc-5e52-833d-241d14482967",
+      "name": "stone fist facet 0/3/3",
+      "type": "cube",
+      "from": [
+        -12.5,
+        1.95,
+        1.95
+      ],
+      "to": [
+        -3.5,
+        4.05,
+        4.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "b5871ead-783e-50ab-94c1-0a7c6bddecba",
+      "name": "knuckle 0/0",
+      "type": "cube",
+      "from": [
+        -11.9,
+        3.0,
+        -5.5
+      ],
+      "to": [
+        -10.1,
+        5.0,
+        -2.5
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "f0709247-6194-5f11-b440-8f0d9a0d542e",
+      "name": "knuckle 0/1",
+      "type": "cube",
+      "from": [
+        -9.9,
+        3.0,
+        -5.5
+      ],
+      "to": [
+        -8.1,
+        5.0,
+        -2.5
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "b6ebf0fe-2b3b-520f-9703-01aa1fc307b9",
+      "name": "knuckle 0/2",
+      "type": "cube",
+      "from": [
+        -7.9,
+        3.0,
+        -5.5
+      ],
+      "to": [
+        -6.1,
+        5.0,
+        -2.5
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "d29d2ee4-bfe2-51c6-a130-e68e3b20ea47",
+      "name": "knuckle 0/3",
+      "type": "cube",
+      "from": [
+        -5.9,
+        3.0,
+        -5.5
+      ],
+      "to": [
+        -4.1,
+        5.0,
+        -2.5
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "3a50d024-5ebe-57e9-96ac-87ee6eb0c5eb",
+      "name": "stone fist facet 1/0/0",
+      "type": "cube",
+      "from": [
+        3.5,
+        -4.05,
+        -4.05
+      ],
+      "to": [
+        12.5,
+        -1.95,
+        -1.95
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "19b34b28-e5cf-5808-b0f2-c7aed9c1d89a",
+      "name": "stone fist facet 1/0/1",
+      "type": "cube",
+      "from": [
+        3.5,
+        -4.05,
+        -2.05
+      ],
+      "to": [
+        12.5,
+        -1.95,
+        0.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "dbc85f99-c69b-5a2f-b99f-21be412f15dc",
+      "name": "stone fist facet 1/0/2",
+      "type": "cube",
+      "from": [
+        3.5,
+        -4.05,
+        -0.05
+      ],
+      "to": [
+        12.5,
+        -1.95,
+        2.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "a7dbd017-4899-5cc4-9700-57f9311963fc",
+      "name": "stone fist facet 1/0/3",
+      "type": "cube",
+      "from": [
+        3.5,
+        -4.05,
+        1.95
+      ],
+      "to": [
+        12.5,
+        -1.95,
+        4.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "7f33ce6a-9b81-5377-942b-90ac6e437957",
+      "name": "stone fist facet 1/1/0",
+      "type": "cube",
+      "from": [
+        3.5,
+        -2.05,
+        -4.05
+      ],
+      "to": [
+        12.5,
+        0.05,
+        -1.95
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "e55f8e72-d8d2-5900-bf6a-c866f8bf8804",
+      "name": "stone fist facet 1/1/1",
+      "type": "cube",
+      "from": [
+        3.5,
+        -2.05,
+        -2.05
+      ],
+      "to": [
+        12.5,
+        0.05,
+        0.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "0d3c0469-4705-5538-950d-b334b21d7126",
+      "name": "stone fist facet 1/1/2",
+      "type": "cube",
+      "from": [
+        3.5,
+        -2.05,
+        -0.05
+      ],
+      "to": [
+        12.5,
+        0.05,
+        2.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "6ad34b0e-73bc-5797-b783-1946131d23e5",
+      "name": "stone fist facet 1/1/3",
+      "type": "cube",
+      "from": [
+        3.5,
+        -2.05,
+        1.95
+      ],
+      "to": [
+        12.5,
+        0.05,
+        4.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "246027f1-3fa3-5049-8fd4-577834256214",
+      "name": "stone fist facet 1/2/0",
+      "type": "cube",
+      "from": [
+        3.5,
+        -0.05,
+        -4.05
+      ],
+      "to": [
+        12.5,
+        2.05,
+        -1.95
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "680665e9-c390-53a4-884e-f44c7870b8e6",
+      "name": "stone fist facet 1/2/1",
+      "type": "cube",
+      "from": [
+        3.5,
+        -0.05,
+        -2.05
+      ],
+      "to": [
+        12.5,
+        2.05,
+        0.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "4f5f0f5b-5797-5510-ad70-e11628456645",
+      "name": "stone fist facet 1/2/2",
+      "type": "cube",
+      "from": [
+        3.5,
+        -0.05,
+        -0.05
+      ],
+      "to": [
+        12.5,
+        2.05,
+        2.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "ee2e1c0b-fb25-51d4-98de-65d689dab90e",
+      "name": "stone fist facet 1/2/3",
+      "type": "cube",
+      "from": [
+        3.5,
+        -0.05,
+        1.95
+      ],
+      "to": [
+        12.5,
+        2.05,
+        4.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "3ba5c5a1-e6f4-5ecc-983a-3725da0e200d",
+      "name": "stone fist facet 1/3/0",
+      "type": "cube",
+      "from": [
+        3.5,
+        1.95,
+        -4.05
+      ],
+      "to": [
+        12.5,
+        4.05,
+        -1.95
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "0913a920-fdb1-5c0a-9e84-cd7e4ad3161b",
+      "name": "stone fist facet 1/3/1",
+      "type": "cube",
+      "from": [
+        3.5,
+        1.95,
+        -2.05
+      ],
+      "to": [
+        12.5,
+        4.05,
+        0.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "b1b45ab3-e539-5266-a9be-8cad960471d1",
+      "name": "stone fist facet 1/3/2",
+      "type": "cube",
+      "from": [
+        3.5,
+        1.95,
+        -0.05
+      ],
+      "to": [
+        12.5,
+        4.05,
+        2.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "bc00b5c1-462f-5a5a-a409-69fa69acecd1",
+      "name": "stone fist facet 1/3/3",
+      "type": "cube",
+      "from": [
+        3.5,
+        1.95,
+        1.95
+      ],
+      "to": [
+        12.5,
+        4.05,
+        4.05
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "b9a219cc-4839-5486-ac14-1253f74a76e6",
+      "name": "knuckle 1/0",
+      "type": "cube",
+      "from": [
+        4.1,
+        3.0,
+        -5.5
+      ],
+      "to": [
+        5.9,
+        5.0,
+        -2.5
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "ffe8bbe5-e372-5fbf-93ba-55266c8e8e23",
+      "name": "knuckle 1/1",
+      "type": "cube",
+      "from": [
+        6.1,
+        3.0,
+        -5.5
+      ],
+      "to": [
+        7.9,
+        5.0,
+        -2.5
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "fc7048ca-e1d5-51fa-8125-cd9c6912b677",
+      "name": "knuckle 1/2",
+      "type": "cube",
+      "from": [
+        8.1,
+        3.0,
+        -5.5
+      ],
+      "to": [
+        9.9,
+        5.0,
+        -2.5
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "f46df290-a508-5987-a699-5349f8cf355f",
+      "name": "knuckle 1/3",
+      "type": "cube",
+      "from": [
+        10.1,
+        3.0,
+        -5.5
+      ],
+      "to": [
+        11.9,
+        5.0,
+        -2.5
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "95f62cbd-649b-5484-90c8-807614df5814",
+      "name": "impact rubble 0",
+      "type": "cube",
+      "from": [
+        17.0,
+        -1.0,
+        -1.0
+      ],
+      "to": [
+        19.0,
+        1.0,
+        1.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "07fdab5a-f04c-5ec1-943b-4aa6b1de3dd8",
+      "name": "impact rubble 1",
+      "type": "cube",
+      "from": [
+        8.7254,
+        6.4333,
+        10.7806
+      ],
+      "to": [
+        10.7254,
+        9.4333,
+        12.7806
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "3722f33c-a175-51f6-a33a-52a658bf3b2f",
+      "name": "impact rubble 2",
+      "type": "cube",
+      "from": [
+        -8.4906,
+        -4.0443,
+        11.7302
+      ],
+      "to": [
+        -6.4906,
+        -0.0443,
+        13.7302
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "369065d5-0580-56d9-838e-e65476c7b664",
+      "name": "impact rubble 3",
+      "type": "cube",
+      "from": [
+        -18.8199,
+        -8.4065,
+        0.9757
+      ],
+      "to": [
+        -16.8199,
+        -6.4065,
+        2.9757
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "b2f3f2a5-1a64-5672-8d19-08fc87a8f7ff",
+      "name": "impact rubble 4",
+      "type": "cube",
+      "from": [
+        -12.7656,
+        2.4529,
+        -11.5952
+      ],
+      "to": [
+        -10.7656,
+        5.4529,
+        -9.5952
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "af090bc8-97f1-58b3-9d01-d317a77c4cc6",
+      "name": "impact rubble 5",
+      "type": "cube",
+      "from": [
+        4.1059,
+        4.3879,
+        -14.4249
+      ],
+      "to": [
+        6.1059,
+        8.3879,
+        -12.4249
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "1b68b8a1-cecf-57ae-b845-9bdaff972f79",
+      "name": "impact rubble 6",
+      "type": "cube",
+      "from": [
+        16.2831,
+        -6.599,
+        -4.9118
+      ],
+      "to": [
+        18.2831,
+        -4.599,
+        -2.9118
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "1b157199-d5b0-561c-8bc1-18e8b001cd89",
+      "name": "impact rubble 7",
+      "type": "cube",
+      "from": [
+        12.5702,
+        -6.4451,
+        8.1978
+      ],
+      "to": [
+        14.5702,
+        -3.4451,
+        10.1978
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "d2eb46d0-25ad-536a-acf9-09d2052d3d42",
+      "name": "impact rubble 8",
+      "type": "cube",
+      "from": [
+        -3.619,
+        4.8733,
+        12.851
+      ],
+      "to": [
+        -1.619,
+        8.8733,
+        14.851
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "b6846eff-47c7-5ede-af68-7611aa6a229b",
+      "name": "impact rubble 9",
+      "type": "cube",
+      "from": [
+        -17.4003,
+        2.1739,
+        4.7697
+      ],
+      "to": [
+        -15.4003,
+        4.1739,
+        6.7697
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "26cff8c2-64a5-5940-9aa4-e08dc54ed69b",
+      "name": "impact rubble 10",
+      "type": "cube",
+      "from": [
+        -16.1033,
+        -9.1912,
+        -8.6163
+      ],
+      "to": [
+        -14.1033,
+        -6.1912,
+        -6.6163
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "6c4ca15f-9eb9-576a-bbb9-fe299ad8a312",
+      "name": "impact rubble 11",
+      "type": "cube",
+      "from": [
+        -0.9203,
+        -3.192,
+        -14.9999
+      ],
+      "to": [
+        1.0797,
+        0.808,
+        -12.9999
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "5c3c4d42-aaf4-55b0-8e37-5e6df2df8c95",
+      "name": "impact rubble 12",
+      "type": "cube",
+      "from": [
+        14.1894,
+        6.9983,
+        -8.512
+      ],
+      "to": [
+        16.1894,
+        8.9983,
+        -6.512
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "64f4cc71-ae2f-5d88-9f75-9cd0affa2c63",
+      "name": "impact rubble 13",
+      "type": "cube",
+      "from": [
+        15.334,
+        -2.3691,
+        4.8823
+      ],
+      "to": [
+        17.334,
+        0.6309,
+        6.8823
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "f925afce-b140-5cce-ade8-a6526acc8fba",
+      "name": "impact rubble 14",
+      "type": "cube",
+      "from": [
+        1.4613,
+        -9.7744,
+        12.8685
+      ],
+      "to": [
+        3.4613,
+        -5.7744,
+        14.8685
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "61b96b87-65ae-5e6b-a8fd-d19e2cc78c29",
+      "name": "impact rubble 15",
+      "type": "cube",
+      "from": [
+        -14.6744,
+        1.8725,
+        8.104
+      ],
+      "to": [
+        -12.6744,
+        3.8725,
+        10.104
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    }
+  ],
+  "groups": [
+    {
+      "uuid": "60469299-0ab2-5af8-aee2-8868de446a3e",
+      "name": "left_fist",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "visibility": true
+    },
+    {
+      "uuid": "bafcb05b-26cb-5739-947a-595c1fd90abd",
+      "name": "right_fist",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "visibility": true
+    },
+    {
+      "uuid": "4a1efdf8-ded2-52e4-9c3b-a7eec6120a7a",
+      "name": "rubble",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "visibility": true
+    }
+  ],
+  "outliner": [
+    {
+      "uuid": "60469299-0ab2-5af8-aee2-8868de446a3e",
+      "isOpen": true,
+      "children": [
+        "e6a631ad-2f50-51ab-be95-ce1559ce9415",
+        "9a7d7ab5-79e1-5536-a69e-544db7f5b82e",
+        "018090ea-c4c6-5b77-a4c6-6711d292bfb8",
+        "68f9cdba-c618-57d7-88ec-65b488d938dc",
+        "76ea9c52-70bb-5526-966d-aa99de5de95c",
+        "15fe7b54-eecf-58e2-a414-de6239be43b1",
+        "36eb1095-9198-5230-b332-14b6f177e38a",
+        "1c8e840f-d67d-592d-83d4-215ee5d81965",
+        "42e13e4e-c500-5a4b-b80b-5f5a498c8fc9",
+        "6c0d6ae9-f893-5cc9-b51d-0d816512db9a",
+        "1e6abdd1-11e9-5a32-b8a9-05664f682ad3",
+        "556b4d71-d386-573b-90b8-ac322151d2df",
+        "2fd1f983-2bb3-506c-b1b9-73e9e956c202",
+        "db9dff21-fbd5-5d9e-90c7-b93cbab5e7ad",
+        "a6b6ba8c-473c-5c3c-b2a0-897eb5a0d75b",
+        "29094eb7-1ebc-5e52-833d-241d14482967",
+        "b5871ead-783e-50ab-94c1-0a7c6bddecba",
+        "f0709247-6194-5f11-b440-8f0d9a0d542e",
+        "b6ebf0fe-2b3b-520f-9703-01aa1fc307b9",
+        "d29d2ee4-bfe2-51c6-a130-e68e3b20ea47"
+      ]
+    },
+    {
+      "uuid": "bafcb05b-26cb-5739-947a-595c1fd90abd",
+      "isOpen": true,
+      "children": [
+        "3a50d024-5ebe-57e9-96ac-87ee6eb0c5eb",
+        "19b34b28-e5cf-5808-b0f2-c7aed9c1d89a",
+        "dbc85f99-c69b-5a2f-b99f-21be412f15dc",
+        "a7dbd017-4899-5cc4-9700-57f9311963fc",
+        "7f33ce6a-9b81-5377-942b-90ac6e437957",
+        "e55f8e72-d8d2-5900-bf6a-c866f8bf8804",
+        "0d3c0469-4705-5538-950d-b334b21d7126",
+        "6ad34b0e-73bc-5797-b783-1946131d23e5",
+        "246027f1-3fa3-5049-8fd4-577834256214",
+        "680665e9-c390-53a4-884e-f44c7870b8e6",
+        "4f5f0f5b-5797-5510-ad70-e11628456645",
+        "ee2e1c0b-fb25-51d4-98de-65d689dab90e",
+        "3ba5c5a1-e6f4-5ecc-983a-3725da0e200d",
+        "0913a920-fdb1-5c0a-9e84-cd7e4ad3161b",
+        "b1b45ab3-e539-5266-a9be-8cad960471d1",
+        "bc00b5c1-462f-5a5a-a409-69fa69acecd1",
+        "b9a219cc-4839-5486-ac14-1253f74a76e6",
+        "ffe8bbe5-e372-5fbf-93ba-55266c8e8e23",
+        "fc7048ca-e1d5-51fa-8125-cd9c6912b677",
+        "f46df290-a508-5987-a699-5349f8cf355f"
+      ]
+    },
+    {
+      "uuid": "4a1efdf8-ded2-52e4-9c3b-a7eec6120a7a",
+      "isOpen": true,
+      "children": [
+        "95f62cbd-649b-5484-90c8-807614df5814",
+        "07fdab5a-f04c-5ec1-943b-4aa6b1de3dd8",
+        "3722f33c-a175-51f6-a33a-52a658bf3b2f",
+        "369065d5-0580-56d9-838e-e65476c7b664",
+        "b2f3f2a5-1a64-5672-8d19-08fc87a8f7ff",
+        "af090bc8-97f1-58b3-9d01-d317a77c4cc6",
+        "1b68b8a1-cecf-57ae-b845-9bdaff972f79",
+        "1b157199-d5b0-561c-8bc1-18e8b001cd89",
+        "d2eb46d0-25ad-536a-acf9-09d2052d3d42",
+        "b6846eff-47c7-5ede-af68-7611aa6a229b",
+        "26cff8c2-64a5-5940-9aa4-e08dc54ed69b",
+        "6c4ca15f-9eb9-576a-bbb9-fe299ad8a312",
+        "5c3c4d42-aaf4-55b0-8e37-5e6df2df8c95",
+        "64f4cc71-ae2f-5d88-9f75-9cd0affa2c63",
+        "f925afce-b140-5cce-ade8-a6526acc8fba",
+        "61b96b87-65ae-5e6b-a8fd-d19e2cc78c29"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "name": "granite_colossus_domain_0.png",
+      "id": "0",
+      "width": 16,
+      "height": 16,
+      "uv_width": 16,
+      "uv_height": 16,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQElEQVR42mPYuSDvPwgfXlv//9yuif9vHl/8/8mVLf/fPTz2/+e7G2AMYoPEQHIgNSC1MH0MowaMGjBqwHAxAAAKQjJOeE6e5QAAAABJRU5ErkJggg=="
+    },
+    {
+      "name": "granite_colossus_domain_1.png",
+      "id": "1",
+      "width": 16,
+      "height": 16,
+      "uv_width": 16,
+      "uv_height": 16,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQElEQVR42mP4emfVfxD+dn/T/x+Pd/3/+fzw/9+vT///8/7K/3+f74AxiA0SA8mB1IDUwvQxjBowasCoAcPFAADlyZ1urDLTcAAAAABJRU5ErkJggg=="
+    }
+  ],
+  "animations": [
+    {
+      "uuid": "3b1f9cff-9a67-5af1-ab77-2655216321a5",
+      "name": "swing",
+      "loop": "once",
+      "override": true,
+      "length": 0.55,
+      "snapping": 20,
+      "animators": {
+        "60469299-0ab2-5af8-aee2-8868de446a3e": {
+          "name": "left_fist",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "7a8e3a7c-97be-5431-818e-32ec8126d4f6",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "76d26042-2e20-5d4b-bfc5-45b794de4978",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.71500",
+                  "y": "0.71500",
+                  "z": "0.71500"
+                }
+              ],
+              "time": 0.099,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "48d1954e-cc88-52d9-bf69-2123af0da914",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.10000",
+                  "y": "1.10000",
+                  "z": "1.10000"
+                }
+              ],
+              "time": 0.2475,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "6d31591d-ac10-54be-abf1-38eb80292cac",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.23200",
+                  "y": "1.23200",
+                  "z": "1.23200"
+                }
+              ],
+              "time": 0.44,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "b0bde473-d6ca-58af-b921-fc4b195c31c3",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.55,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "6019810a-b6f3-5939-a76b-4e0d3ea02ab8",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-40.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "475a5d08-e1b9-55bd-805d-1660eef239aa",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-45.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.1375,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "aa060434-8c40-597f-b015-e6d6980982e9",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "15.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.275,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "68b4e167-5da2-5e1b-aff5-34fc1397c12c",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "5.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.44,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "672cd58d-5208-5de1-b014-6817d39f5e23",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.55,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        },
+        "bafcb05b-26cb-5739-947a-595c1fd90abd": {
+          "name": "right_fist",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "41135668-34e2-50b0-9ba6-0fb61da15b1a",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "9f16958a-840d-51f9-b011-9ac238ccc14f",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.71500",
+                  "y": "0.71500",
+                  "z": "0.71500"
+                }
+              ],
+              "time": 0.099,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "81b358f3-4811-5e81-a2c9-14e47f8995ad",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.10000",
+                  "y": "1.10000",
+                  "z": "1.10000"
+                }
+              ],
+              "time": 0.2475,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "ca4e89c4-e42b-52e2-97e7-d2a6fdb1fd21",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.23200",
+                  "y": "1.23200",
+                  "z": "1.23200"
+                }
+              ],
+              "time": 0.44,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "bf0eb0d0-5301-5342-a76b-be719b078c3c",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.55,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "d41d1815-d608-5939-8d47-e8860292112b",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "40.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "6120f90c-1186-5e74-87f5-058e623808d4",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "45.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.1375,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "c5a2739f-117e-5c26-a7ec-689e8722fcd5",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-15.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.275,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "01104935-a391-5117-8c75-296e21c59fbb",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-5.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.44,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "ea8b9310-c3ca-5a52-8869-c278f32ce0d5",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.55,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        },
+        "4a1efdf8-ded2-52e4-9c3b-a7eec6120a7a": {
+          "name": "rubble",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "3244b1bf-a743-5f57-90f3-7407cbb30683",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "31e2bce2-d078-53a8-a416-be5c8951d890",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.71500",
+                  "y": "0.71500",
+                  "z": "0.71500"
+                }
+              ],
+              "time": 0.099,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "c06df11a-6334-5380-a457-899f4a90ad63",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.10000",
+                  "y": "1.10000",
+                  "z": "1.10000"
+                }
+              ],
+              "time": 0.2475,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "fd28431e-7416-59c1-bb04-1adac8713f82",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.23200",
+                  "y": "1.23200",
+                  "z": "1.23200"
+                }
+              ],
+              "time": 0.44,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "107a1b64-8653-5200-8740-5ee6958bd9a3",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.55,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "e6945292-82b8-5979-8b51-a11f2a8116e8",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-40.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "ab9101c8-98b7-51c2-955b-a46695d21eb4",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-45.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.1375,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "7448f61f-0aac-5d88-b383-c9d57da5591b",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "15.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.275,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "8e7d844e-4c37-5d9a-b6e9-d7fbdedfdba1",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "5.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.44,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "3131f238-d504-5702-9206-37771816b4e0",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.55,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "dddf1303-6418-5113-9ca2-783820b2de2f",
+      "name": "ability",
+      "loop": "once",
+      "override": true,
+      "length": 1.505,
+      "snapping": 20,
+      "animators": {
+        "60469299-0ab2-5af8-aee2-8868de446a3e": {
+          "name": "left_fist",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "71791044-a23f-50a1-b59c-3cbabe081253",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "eb76c4b3-d107-51c5-81ab-266d8786a9b0",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.04000",
+                  "y": "1.04000",
+                  "z": "1.04000"
+                }
+              ],
+              "time": 0.2709,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "83007cb5-8ac1-573f-8185-c201d128701d",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.60000",
+                  "y": "1.60000",
+                  "z": "1.60000"
+                }
+              ],
+              "time": 0.67725,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "2a3b1bb4-9c86-5196-aa49-c9d29c10bcc1",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.79200",
+                  "y": "1.79200",
+                  "z": "1.79200"
+                }
+              ],
+              "time": 1.204,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "b9fb0e6c-d8a0-5993-956a-0cf84dae756a",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 1.505,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "ee465e99-54d7-5c08-9a9a-a92022cd2b96",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-40.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "18012bd0-bb72-5ff0-ab28-2976e9685290",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-45.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.37625,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "6e13cdf3-c167-5d4b-b9c9-6478baaf1b76",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "15.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.7525,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "7afb54d8-46a5-5b0b-b1c0-3a9a43866403",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "5.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.204,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "6a6fb33e-fb73-5920-baf3-61f96fb9a0fa",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.505,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        },
+        "bafcb05b-26cb-5739-947a-595c1fd90abd": {
+          "name": "right_fist",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "0e1a99bc-6dd7-5461-8d96-5d9aa4275b0d",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "18f5276d-a243-5f37-92b1-be32577b0937",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.04000",
+                  "y": "1.04000",
+                  "z": "1.04000"
+                }
+              ],
+              "time": 0.2709,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "0060f0e0-8a80-500f-a5db-9792c0f63fb9",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.60000",
+                  "y": "1.60000",
+                  "z": "1.60000"
+                }
+              ],
+              "time": 0.67725,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "2602fc59-fc32-5f50-9d22-33579076f9f5",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.79200",
+                  "y": "1.79200",
+                  "z": "1.79200"
+                }
+              ],
+              "time": 1.204,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "39d5fe0a-1220-51cd-a33c-8d15a65e6db8",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 1.505,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "ed21ce59-9524-5af7-9ed3-5dc0f868ae7e",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "40.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "f4e67fb7-2d52-574a-aea2-b583d5755a7b",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "45.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.37625,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "0f42cf70-ebee-59f6-8965-3923c7024cba",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-15.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.7525,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "b924b86a-b8ab-5e0e-9f92-30f615fdcd13",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-5.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.204,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "ca17c93a-2213-5a94-83d1-7328fcd22af5",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.505,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        },
+        "4a1efdf8-ded2-52e4-9c3b-a7eec6120a7a": {
+          "name": "rubble",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "b6085867-6b33-567b-9f76-5f5ecb117197",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "16bfcec4-b07d-59c0-8b67-9c911949f1bf",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.04000",
+                  "y": "1.04000",
+                  "z": "1.04000"
+                }
+              ],
+              "time": 0.2709,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "0b471299-aa09-5713-b8c5-502d27b02d51",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.60000",
+                  "y": "1.60000",
+                  "z": "1.60000"
+                }
+              ],
+              "time": 0.67725,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "8d240ede-75af-5cd0-8a00-d5893a021de7",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.79200",
+                  "y": "1.79200",
+                  "z": "1.79200"
+                }
+              ],
+              "time": 1.204,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "6af19994-e7fb-5516-8b96-2bf28f026391",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 1.505,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "4a8d4cf6-2d08-5c7a-85b1-028d098a35c7",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-40.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "c12c82ca-023a-586f-8dc1-8d4e2a897583",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-45.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.37625,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "03f8d3ca-85b9-5a35-8e85-9771caf49856",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "15.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.7525,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "0d9880e7-2b50-5fa4-b74d-4eb9b991e056",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "5.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.204,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "b19a8905-941f-501b-9ca2-b7e1699c2282",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.505,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "076cc7b7-ae43-5bbf-a474-172db2dfe794",
+      "name": "ultimate",
+      "loop": "once",
+      "override": true,
+      "length": 2.04,
+      "snapping": 20,
+      "animators": {
+        "60469299-0ab2-5af8-aee2-8868de446a3e": {
+          "name": "left_fist",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "36558f0a-2f46-5454-ad8e-0c13cf3f4871",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "8d63fefa-231c-5f32-994c-57fc907a33dd",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.56000",
+                  "y": "1.56000",
+                  "z": "1.56000"
+                }
+              ],
+              "time": 0.3672,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "e97a86b8-7b8d-5712-b3a8-793d8efcf3dc",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "2.40000",
+                  "y": "2.40000",
+                  "z": "2.40000"
+                }
+              ],
+              "time": 0.918,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "2a90ec39-c67e-5b26-948a-0502e2b84b7d",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "2.68800",
+                  "y": "2.68800",
+                  "z": "2.68800"
+                }
+              ],
+              "time": 1.632,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "1ca7fd85-e7bf-5ded-b0c8-147fc1dcb5cd",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 2.04,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "4212b9ee-9cae-5f40-b3d7-e02770ca9f49",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-40.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "59e78b78-aa2d-55de-a22b-396ad933fadf",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-45.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.51,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "e9bd3693-9edb-53bb-a9c8-2886c57f6c7c",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "15.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.02,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "559e5fce-97a0-57fd-ab7a-330b53fbdf4d",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "5.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.632,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "1eaa9517-2302-5c89-9030-0f00f5b890e4",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 2.04,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        },
+        "bafcb05b-26cb-5739-947a-595c1fd90abd": {
+          "name": "right_fist",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "fc4ae363-9404-5a0a-a0e9-ee88272ceadd",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "d317c31b-d777-57ef-91f2-2738242e361f",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.56000",
+                  "y": "1.56000",
+                  "z": "1.56000"
+                }
+              ],
+              "time": 0.3672,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "1c33f598-011f-5ce3-8be7-ed3800a897a6",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "2.40000",
+                  "y": "2.40000",
+                  "z": "2.40000"
+                }
+              ],
+              "time": 0.918,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "e0b33d83-6787-5711-a444-93baa3279ed6",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "2.68800",
+                  "y": "2.68800",
+                  "z": "2.68800"
+                }
+              ],
+              "time": 1.632,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "4335764d-cf33-5a5f-80f7-d0c25fe48a84",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 2.04,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "0b5b6dfe-0975-5c5a-b07a-c5589f544286",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "40.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "cdb9c721-f0da-531c-9f6c-a61b1d0defff",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "45.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.51,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "157ec835-4d9e-5aba-b978-4c078fbdd54f",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-15.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.02,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "fc52e437-49c3-52fb-ab82-8e2b26440968",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-5.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.632,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "dd5a7c79-2b20-5ab4-958d-146f05cd5b63",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 2.04,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        },
+        "4a1efdf8-ded2-52e4-9c3b-a7eec6120a7a": {
+          "name": "rubble",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "a205a4be-5227-53e0-a8ac-28c2bd8534c2",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "ddd452d3-6f59-592f-9bac-9203c3341d60",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.56000",
+                  "y": "1.56000",
+                  "z": "1.56000"
+                }
+              ],
+              "time": 0.3672,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "499f8984-eb87-54cf-a0cd-6c77b548cdc2",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "2.40000",
+                  "y": "2.40000",
+                  "z": "2.40000"
+                }
+              ],
+              "time": 0.918,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "7170a64f-610b-512d-84ac-da9a1ca09014",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "2.68800",
+                  "y": "2.68800",
+                  "z": "2.68800"
+                }
+              ],
+              "time": 1.632,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "41baf7d3-4952-5529-8820-412d40233a6e",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 2.04,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "7db849c8-728a-5736-85a1-c066597faf5a",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-40.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "a29991f8-c215-5fcd-acfa-4c0e3ae6d7ec",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-45.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.51,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "b457c1e3-8bc8-59b3-ad2b-101d7780d5e5",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "15.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.02,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "ae4c495e-4ce4-5ca0-bb53-68af7bbd67b9",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "5.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.632,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "f0e04897-ed69-5481-89f1-f71e38d1bc74",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 2.04,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

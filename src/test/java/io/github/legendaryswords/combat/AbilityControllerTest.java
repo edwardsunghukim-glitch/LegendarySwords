@@ -81,6 +81,8 @@ class AbilityControllerTest {
         cooldowns = new CooldownBook(() -> 0L);
         UUID ownerId = UUID.fromString("00000000-0000-0000-0000-000000000003");
 
+        when(plugin.getConfig()).thenReturn(new org.bukkit.configuration.file.YamlConfiguration());
+        plugin.getConfig().set("bosses.duration-seconds", 8);
         when(plugin.getLogger()).thenReturn(Logger.getLogger("LegendarySwords-ultimate-tests"));
         Server server = mock(Server.class);
         when(plugin.getServer()).thenReturn(server);
@@ -120,6 +122,7 @@ class AbilityControllerTest {
             scheduled.add(frame);
             BukkitTask task = mock(BukkitTask.class);
             when(task.getTaskId()).thenReturn(id);
+            doAnswer(call -> { frame.cancelled = true; return null; }).when(task).cancel();
             return task;
         });
         when(scheduler.runTaskLater(eq(plugin), any(Runnable.class), anyLong())).thenAnswer(invocation -> {
@@ -154,6 +157,107 @@ class AbilityControllerTest {
         if (controller != null) controller.close();
         if (bukkit != null) bukkit.close();
         if (registryApi != null) registryApi.close();
+    }
+
+    @Test void bossFlightIsGrantedOnlyAfterWindupAndRestoredOnExpiry() {
+        controller.activate(player, SwordType.ANGEL_SOVEREIGN, true);
+        advanceTicks(30);
+        verify(player, never()).setAllowFlight(anyBoolean());
+        advanceTicks(90);
+        verify(animations).startBoss(player, "angel_sovereign");
+        verify(player).setAllowFlight(true); verify(player).setFlying(true);
+        advanceTicks(180);
+        verify(player).setAllowFlight(false); verify(player).setFlying(false);
+        verify(animations).stopBoss(player);
+        assertFalse(controller.bossSwing(player));
+    }
+    @Test void bossCancellationRestoresFlightAndStopsFurtherDamage() {
+        controller.activate(player, SwordType.SKY_LEVIATHAN, true);
+        advanceTicks(80);
+        controller.cancel(player);
+        verify(player).setAllowFlight(false); verify(animations).stopBoss(player);
+        clearInvocations(combat);
+        advanceTicks(220);
+        verify(combat, never()).damage(any(), any(), anyDouble(), any(), anyInt());
+    }
+    @Test void bossDoesNotRemovePreexistingFlight() {
+        when(player.getAllowFlight()).thenReturn(true); when(player.isFlying()).thenReturn(true);
+        controller.activate(player, SwordType.ANGEL_SOVEREIGN, true);
+        advanceTicks(270);
+        verify(player, times(2)).setAllowFlight(true); verify(player, times(2)).setFlying(true);
+        verify(player, never()).setAllowFlight(false);
+    }
+    @Test void bossFlightCanBeDisabledWithoutRemovingTheMorphOrAttacks() {
+        plugin.getConfig().set("bosses.flight-enabled", false);
+        controller.activate(player, SwordType.ANGEL_SOVEREIGN, true);
+        advanceTicks(270);
+        verify(player, never()).setAllowFlight(anyBoolean());
+        verify(animations).startBoss(player, "angel_sovereign"); verify(animations, times(1)).bossSmash(player);
+    }
+    @Test void bossFlightRestorationRespectsChangesToCreativeMode() {
+        controller.activate(player, SwordType.ANGEL_SOVEREIGN, true);
+        advanceTicks(80); when(player.getGameMode()).thenReturn(GameMode.CREATIVE);
+        controller.cancel(player);
+        verify(player, never()).setAllowFlight(false);
+    }
+    @Test void temporaryBossFlightDoesNotLeakWhenChangingToAdventureMode() {
+        controller.activate(player, SwordType.ANGEL_SOVEREIGN, true);
+        advanceTicks(80); when(player.getGameMode()).thenReturn(GameMode.ADVENTURE);
+        controller.cancel(player);
+        verify(player).setAllowFlight(false); verify(player).setFlying(false);
+    }
+    @Test void transformedSwingsRespectTheirCooldown() {
+        when(target.getLocation()).thenAnswer(call -> new Location(world, 10, 70, 23));
+        controller.activate(player, SwordType.GRANITE_COLOSSUS, true);
+        advanceTicks(70);
+        for (int i=0; i<200; i++) assertTrue(controller.bossSwing(player));
+        advanceTicks(210);
+        verify(combat, atMost(3)).damage(eq(player), eq(target), anyDouble(), any(Vector.class), anyInt());
+        verify(animations, times(1)).bossSmash(player);
+    }
+    @Test void defaultBossFormLastsFiveMinutesAndThenRestoresThePlayer() {
+        plugin.getConfig().set("bosses.duration-seconds", null);
+        controller.activate(player, SwordType.ANGEL_SOVEREIGN, true);
+        advanceTicks(80);
+        assertTrue(controller.bossStatus(player).startsWith("Boss 5:00"));
+        advanceTicks(1000);
+        assertTrue(controller.bossStatus(player).startsWith("Boss 4:"));
+        verify(animations, never()).stopBoss(player);
+        advanceTicks(6300);
+        assertNull(controller.bossStatus(player));
+        verify(animations).stopBoss(player); verify(player).setAllowFlight(false);
+    }
+    @Test void longBossFormsAllowNewAttacksAfterMoreThanThreeUsesWithoutRecharging() {
+        plugin.getConfig().set("bosses.duration-seconds", 300);
+        controller.activate(player, SwordType.GRANITE_COLOSSUS, true);
+        advanceTicks(100);
+        for (int step=1; step<=5; step++) { advanceTicks(100+step*80); assertTrue(controller.bossSwing(player)); }
+        verify(animations, atLeast(5)).bossSmash(player);
+        assertEquals(0, charge.value()); assertNotNull(controller.bossStatus(player));
+    }
+    @org.junit.jupiter.params.ParameterizedTest
+    @org.junit.jupiter.params.provider.EnumSource(value=SwordType.class, names={"ANGEL_SOVEREIGN","GRANITE_COLOSSUS","SKY_LEVIATHAN","INFERNAL_DRAGON","FROST_TITAN"})
+    void eachFormUnlocksASecondarySkillWithItsOwnCooldown(SwordType sword) {
+        var manager=mock(org.bukkit.plugin.PluginManager.class);
+        when(plugin.getServer().getPluginManager()).thenReturn(manager);
+        when(player.getMaxHealth()).thenReturn(20.0); when(player.getHealth()).thenReturn(12.0);
+        plugin.getConfig().set("bosses.duration-seconds", 300);
+        controller.activate(player, sword, true); advanceTicks(80);
+        controller.activate(player, sword, true);
+        controller.activate(player, sword, true);
+        advanceTicks(140);
+        verify(animations, times(1)).bossSpecial(player);
+        assertEquals(0, charge.value()); assertNotNull(controller.bossStatus(player));
+        if (sword==SwordType.ANGEL_SOVEREIGN) verify(player).setHealth(18.0);
+        controller.cancel(player);
+        assertNull(controller.bossStatus(player));
+    }
+
+    @Test void dragonBreathHitsAheadAndLeavesTargetsBehindUnharmed() {
+        when(target.getLocation()).thenAnswer(call -> new Location(world, 10, 70, 16));
+        controller.activate(player, SwordType.INFERNAL_DRAGON, false); advanceTicks(50);
+        verify(combat, never()).damage(eq(player), eq(target), anyDouble(), any(Vector.class), anyInt());
+        verify(effects, atLeastOnce()).particle(any(Location.class), eq(org.bukkit.Particle.FLAME), anyInt(), anyDouble(), anyDouble());
     }
 
     @org.junit.jupiter.params.ParameterizedTest

@@ -1,0 +1,6059 @@
+{
+  "meta": {
+    "format_version": "5.0",
+    "model_format": "free",
+    "box_uv": false
+  },
+  "name": "Frost Titan Hammer physical attack",
+  "model_identifier": "legendaryswords_frost_titan_slash",
+  "credit": "Original animated creature attack geometry by LegendarySwords",
+  "resolution": {
+    "width": 16,
+    "height": 16
+  },
+  "elements": [
+    {
+      "uuid": "0c35051f-8166-554d-a59c-6afbccb0a9f0",
+      "name": "hammer ice facet 0/0",
+      "type": "cube",
+      "from": [
+        -9.05,
+        -4.05,
+        -4.0
+      ],
+      "to": [
+        -5.95,
+        -1.95,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "52cd6fc2-45c1-5cf6-81ff-fcb304894082",
+      "name": "hammer ice facet 0/1",
+      "type": "cube",
+      "from": [
+        -9.05,
+        -2.05,
+        -4.0
+      ],
+      "to": [
+        -5.95,
+        0.05,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "0b6c7e42-2483-5441-b878-e2889855f3f3",
+      "name": "hammer ice facet 0/2",
+      "type": "cube",
+      "from": [
+        -9.05,
+        -0.05,
+        -4.0
+      ],
+      "to": [
+        -5.95,
+        2.05,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "20f24161-ac92-5ffc-b9c2-b41fee4b4c79",
+      "name": "hammer ice facet 0/3",
+      "type": "cube",
+      "from": [
+        -9.05,
+        1.95,
+        -4.0
+      ],
+      "to": [
+        -5.95,
+        4.05,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "94aa19ac-e85e-5394-a1ce-d3818c31de98",
+      "name": "hammer ice facet 1/0",
+      "type": "cube",
+      "from": [
+        -6.05,
+        -4.05,
+        -4.0
+      ],
+      "to": [
+        -2.95,
+        -1.95,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "81d7790c-9412-5a9b-b73d-22becd057120",
+      "name": "hammer ice facet 1/1",
+      "type": "cube",
+      "from": [
+        -6.05,
+        -2.05,
+        -4.0
+      ],
+      "to": [
+        -2.95,
+        0.05,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "49c34900-2dec-5a3c-96db-5ebf17b19a39",
+      "name": "hammer ice facet 1/2",
+      "type": "cube",
+      "from": [
+        -6.05,
+        -0.05,
+        -4.0
+      ],
+      "to": [
+        -2.95,
+        2.05,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "a14af077-0820-51d9-9ba2-1d92fae0515b",
+      "name": "hammer ice facet 1/3",
+      "type": "cube",
+      "from": [
+        -6.05,
+        1.95,
+        -4.0
+      ],
+      "to": [
+        -2.95,
+        4.05,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "d5c91e8f-6cb4-5749-b1eb-ca66f7be2efa",
+      "name": "hammer ice facet 2/0",
+      "type": "cube",
+      "from": [
+        -3.05,
+        -4.05,
+        -4.0
+      ],
+      "to": [
+        0.05,
+        -1.95,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "7cba1aa2-16b9-54ef-a8e9-87561f8567b6",
+      "name": "hammer ice facet 2/1",
+      "type": "cube",
+      "from": [
+        -3.05,
+        -2.05,
+        -4.0
+      ],
+      "to": [
+        0.05,
+        0.05,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "bb147c22-63e9-5e95-b9dd-001c8f81d1c8",
+      "name": "hammer ice facet 2/2",
+      "type": "cube",
+      "from": [
+        -3.05,
+        -0.05,
+        -4.0
+      ],
+      "to": [
+        0.05,
+        2.05,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "0208bfb3-739b-5efb-b1a0-14fdf5835458",
+      "name": "hammer ice facet 2/3",
+      "type": "cube",
+      "from": [
+        -3.05,
+        1.95,
+        -4.0
+      ],
+      "to": [
+        0.05,
+        4.05,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "86007261-55ba-5ef0-b3b7-54e4e6a8982e",
+      "name": "hammer ice facet 3/0",
+      "type": "cube",
+      "from": [
+        -0.05,
+        -4.05,
+        -4.0
+      ],
+      "to": [
+        3.05,
+        -1.95,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "040af8be-7e5d-5766-ad6d-5bff31f62bb7",
+      "name": "hammer ice facet 3/1",
+      "type": "cube",
+      "from": [
+        -0.05,
+        -2.05,
+        -4.0
+      ],
+      "to": [
+        3.05,
+        0.05,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "020d7562-d9b2-56a3-829c-bbc07b082b63",
+      "name": "hammer ice facet 3/2",
+      "type": "cube",
+      "from": [
+        -0.05,
+        -0.05,
+        -4.0
+      ],
+      "to": [
+        3.05,
+        2.05,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "d6a6a129-db7a-59a3-a053-d7d8c0491e91",
+      "name": "hammer ice facet 3/3",
+      "type": "cube",
+      "from": [
+        -0.05,
+        1.95,
+        -4.0
+      ],
+      "to": [
+        3.05,
+        4.05,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "dc0e06d6-57d4-5e1d-ab37-121860891d97",
+      "name": "hammer ice facet 4/0",
+      "type": "cube",
+      "from": [
+        2.95,
+        -4.05,
+        -4.0
+      ],
+      "to": [
+        6.05,
+        -1.95,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "348daea6-7cd1-534c-9b00-a2116e06dc49",
+      "name": "hammer ice facet 4/1",
+      "type": "cube",
+      "from": [
+        2.95,
+        -2.05,
+        -4.0
+      ],
+      "to": [
+        6.05,
+        0.05,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "34a4f7bd-7376-52f7-8635-4dccbf4d2c50",
+      "name": "hammer ice facet 4/2",
+      "type": "cube",
+      "from": [
+        2.95,
+        -0.05,
+        -4.0
+      ],
+      "to": [
+        6.05,
+        2.05,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "b55d5805-d1fc-57bc-8e54-c0430855f918",
+      "name": "hammer ice facet 4/3",
+      "type": "cube",
+      "from": [
+        2.95,
+        1.95,
+        -4.0
+      ],
+      "to": [
+        6.05,
+        4.05,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "5f429f90-d659-5e8c-97cf-5615911bd6ba",
+      "name": "hammer ice facet 5/0",
+      "type": "cube",
+      "from": [
+        5.95,
+        -4.05,
+        -4.0
+      ],
+      "to": [
+        9.05,
+        -1.95,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "836b6516-6649-5b10-9a2a-03f30563ad95",
+      "name": "hammer ice facet 5/1",
+      "type": "cube",
+      "from": [
+        5.95,
+        -2.05,
+        -4.0
+      ],
+      "to": [
+        9.05,
+        0.05,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "9a4f3b6e-56f4-5b94-be02-809cdc4653b4",
+      "name": "hammer ice facet 5/2",
+      "type": "cube",
+      "from": [
+        5.95,
+        -0.05,
+        -4.0
+      ],
+      "to": [
+        9.05,
+        2.05,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "ddc30805-87e8-5aa7-a569-06533a89e6cf",
+      "name": "hammer ice facet 5/3",
+      "type": "cube",
+      "from": [
+        5.95,
+        1.95,
+        -4.0
+      ],
+      "to": [
+        9.05,
+        4.05,
+        4.0
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "9c52be5d-4bf6-53d1-be68-bb308187caa4",
+      "name": "hammer grip 0",
+      "type": "cube",
+      "from": [
+        -1.1,
+        -4.1,
+        -1.1
+      ],
+      "to": [
+        1.1,
+        -1.9,
+        1.1
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "a810e883-2018-5a29-a68b-279af69c4bd6",
+      "name": "hammer grip 1",
+      "type": "cube",
+      "from": [
+        -1.1,
+        -6.1,
+        -1.1
+      ],
+      "to": [
+        1.1,
+        -3.9,
+        1.1
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "0d864a84-71c5-5c54-bb01-8669db8b23ef",
+      "name": "hammer grip 2",
+      "type": "cube",
+      "from": [
+        -1.1,
+        -8.1,
+        -1.1
+      ],
+      "to": [
+        1.1,
+        -5.9,
+        1.1
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "3ad8f61e-3167-5ae3-91e2-66f5b3aecc5b",
+      "name": "hammer grip 3",
+      "type": "cube",
+      "from": [
+        -1.1,
+        -10.1,
+        -1.1
+      ],
+      "to": [
+        1.1,
+        -7.9,
+        1.1
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "d074c6eb-43c1-5c22-b290-24f380a9b8cd",
+      "name": "hammer grip 4",
+      "type": "cube",
+      "from": [
+        -1.1,
+        -12.1,
+        -1.1
+      ],
+      "to": [
+        1.1,
+        -9.9,
+        1.1
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "b872aa86-b338-5cf6-a168-7fc082d15a82",
+      "name": "hammer grip 5",
+      "type": "cube",
+      "from": [
+        -1.1,
+        -14.1,
+        -1.1
+      ],
+      "to": [
+        1.1,
+        -11.9,
+        1.1
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "c7aaf04e-b11a-5974-a184-749ece2d84a4",
+      "name": "hammer grip 6",
+      "type": "cube",
+      "from": [
+        -1.1,
+        -16.1,
+        -1.1
+      ],
+      "to": [
+        1.1,
+        -13.9,
+        1.1
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "uuid": "4904e53c-9756-5cc3-8e7a-50a52b8ca6da",
+      "name": "hammer grip 7",
+      "type": "cube",
+      "from": [
+        -1.1,
+        -18.1,
+        -1.1
+      ],
+      "to": [
+        1.1,
+        -15.9,
+        1.1
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "424b34fc-d81a-53c8-8ca1-63bbbb4166d1",
+      "name": "shattered ice 0",
+      "type": "cube",
+      "from": [
+        17.5,
+        -1.5,
+        -0.5
+      ],
+      "to": [
+        18.5,
+        1.5,
+        0.5
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "5f528345-ad60-5522-807b-e68590912b28",
+      "name": "shattered ice 1",
+      "type": "cube",
+      "from": [
+        9.2254,
+        5.8836,
+        11.2806
+      ],
+      "to": [
+        10.2254,
+        9.8836,
+        12.2806
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "6bd6e382-248b-526b-99f6-7052c3605930",
+      "name": "shattered ice 2",
+      "type": "cube",
+      "from": [
+        -7.9906,
+        0.1799,
+        12.2302
+      ],
+      "to": [
+        -6.9906,
+        5.1799,
+        13.2302
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "be8609c5-b3a5-5a3b-808c-c1025ef52b61",
+      "name": "shattered ice 3",
+      "type": "cube",
+      "from": [
+        -18.3199,
+        -9.9726,
+        1.4757
+      ],
+      "to": [
+        -17.3199,
+        -3.9726,
+        2.4757
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "66658b1b-b59e-5a2c-ab25-24af1404b295",
+      "name": "shattered ice 4",
+      "type": "cube",
+      "from": [
+        -12.2656,
+        -6.5501,
+        -11.0952
+      ],
+      "to": [
+        -11.2656,
+        -3.5501,
+        -10.0952
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "31ec5434-6efc-59da-a9f6-d0d7f5636528",
+      "name": "shattered ice 5",
+      "type": "cube",
+      "from": [
+        4.6059,
+        3.2559,
+        -13.9249
+      ],
+      "to": [
+        5.6059,
+        7.2559,
+        -12.9249
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "dc0262a4-c0dd-5684-b757-67568cd0d146",
+      "name": "shattered ice 6",
+      "type": "cube",
+      "from": [
+        16.7831,
+        4.3368,
+        -4.4118
+      ],
+      "to": [
+        17.7831,
+        9.3368,
+        -3.4118
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "0ca16bd5-3a4c-5e92-8cbd-208a9d84aacf",
+      "name": "shattered ice 7",
+      "type": "cube",
+      "from": [
+        13.0702,
+        -5.9318,
+        8.6978
+      ],
+      "to": [
+        14.0702,
+        0.0682,
+        9.6978
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "ea945191-5a25-50c0-8b5b-54cd30108756",
+      "name": "shattered ice 8",
+      "type": "cube",
+      "from": [
+        -3.119,
+        -9.3334,
+        13.351
+      ],
+      "to": [
+        -2.119,
+        -6.3334,
+        14.351
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "68f2465b-d06f-54de-b09b-a4b234be3495",
+      "name": "shattered ice 9",
+      "type": "cube",
+      "from": [
+        -16.9003,
+        -1.731,
+        5.2697
+      ],
+      "to": [
+        -15.9003,
+        2.269,
+        6.2697
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "5be7e581-e3ec-5216-b6b8-eaff08513f88",
+      "name": "shattered ice 10",
+      "type": "cube",
+      "from": [
+        -15.6033,
+        5.4249,
+        -8.1163
+      ],
+      "to": [
+        -14.6033,
+        10.4249,
+        -7.1163
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "90fb24ca-2f11-5d1d-842f-52eee0841d7e",
+      "name": "shattered ice 11",
+      "type": "cube",
+      "from": [
+        -0.4203,
+        -0.5751,
+        -14.4999
+      ],
+      "to": [
+        0.5797,
+        5.4249,
+        -13.4999
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "1294f13d-b3c1-5aac-a38c-890c80de624c",
+      "name": "shattered ice 12",
+      "type": "cube",
+      "from": [
+        14.6894,
+        -8.6005,
+        -8.012
+      ],
+      "to": [
+        15.6894,
+        -5.6005,
+        -7.012
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "a06ee7c0-c6c5-5742-9312-d1bab617eac1",
+      "name": "shattered ice 13",
+      "type": "cube",
+      "from": [
+        15.834,
+        -6.8387,
+        5.3823
+      ],
+      "to": [
+        16.834,
+        -2.8387,
+        6.3823
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "e55f3a42-1346-5421-afea-e6a00aecc586",
+      "name": "shattered ice 14",
+      "type": "cube",
+      "from": [
+        1.9613,
+        2.9557,
+        13.3685
+      ],
+      "to": [
+        2.9613,
+        7.9557,
+        14.3685
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "f1522350-2f73-5e0f-8fd6-819769ab11eb",
+      "name": "shattered ice 15",
+      "type": "cube",
+      "from": [
+        -14.1744,
+        3.6932,
+        8.604
+      ],
+      "to": [
+        -13.1744,
+        9.6932,
+        9.604
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "c76f1d46-184b-539a-82fe-93fcc5660bbf",
+      "name": "shattered ice 16",
+      "type": "cube",
+      "from": [
+        -17.7379,
+        -4.6804,
+        -4.5306
+      ],
+      "to": [
+        -16.7379,
+        -1.6804,
+        -3.5306
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "52d5aa14-1176-58bd-9af3-046b23a53495",
+      "name": "shattered ice 17",
+      "type": "cube",
+      "from": [
+        -5.4529,
+        -9.7744,
+        -13.9596
+      ],
+      "to": [
+        -4.4529,
+        -5.7744,
+        -12.9596
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "a923924c-101d-5cc0-9091-2a60682e31c9",
+      "name": "shattered ice 18",
+      "type": "cube",
+      "from": [
+        11.3857,
+        -1.9623,
+        -11.0138
+      ],
+      "to": [
+        12.3857,
+        3.0377,
+        -10.0138
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "1aca1588-5674-5265-b3af-88f2db13c31e",
+      "name": "shattered ice 19",
+      "type": "cube",
+      "from": [
+        17.2967,
+        4.9572,
+        1.5983
+      ],
+      "to": [
+        18.2967,
+        10.9572,
+        2.5983
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "f3a4bb73-b76f-5842-b46e-fd5adc6244eb",
+      "name": "shattered ice 20",
+      "type": "cube",
+      "from": [
+        6.8455,
+        0.6672,
+        12.2812
+      ],
+      "to": [
+        7.8455,
+        3.6672,
+        13.2812
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "c17d4d97-f5b9-5b72-8be0-e0d36943cceb",
+      "name": "shattered ice 21",
+      "type": "cube",
+      "from": [
+        -10.3591,
+        -9.2204,
+        11.2132
+      ],
+      "to": [
+        -9.3591,
+        -5.2204,
+        12.2132
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "15c0d506-3b26-5c25-8c77-ee24824ae644",
+      "name": "shattered ice 22",
+      "type": "cube",
+      "from": [
+        -18.4993,
+        -7.1217,
+        -0.6239
+      ],
+      "to": [
+        -17.4993,
+        -2.1217,
+        0.3761
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    },
+    {
+      "uuid": "db9001c4-078d-5c15-8c94-acf24017e81b",
+      "name": "shattered ice 23",
+      "type": "cube",
+      "from": [
+        -10.091,
+        2.6494,
+        -12.3471
+      ],
+      "to": [
+        -9.091,
+        8.6494,
+        -11.3471
+      ],
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 1
+        }
+      }
+    }
+  ],
+  "groups": [
+    {
+      "uuid": "be39031e-84b7-59be-901f-e06d4fbc5176",
+      "name": "hammer_head",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "visibility": true
+    },
+    {
+      "uuid": "b387183a-156b-5fb1-b238-b9a55a4382dc",
+      "name": "hammer_handle",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "visibility": true
+    },
+    {
+      "uuid": "ad850a70-9e2a-57c2-b937-544e17889454",
+      "name": "ice_shards",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "visibility": true
+    }
+  ],
+  "outliner": [
+    {
+      "uuid": "be39031e-84b7-59be-901f-e06d4fbc5176",
+      "isOpen": true,
+      "children": [
+        "0c35051f-8166-554d-a59c-6afbccb0a9f0",
+        "52cd6fc2-45c1-5cf6-81ff-fcb304894082",
+        "0b6c7e42-2483-5441-b878-e2889855f3f3",
+        "20f24161-ac92-5ffc-b9c2-b41fee4b4c79",
+        "94aa19ac-e85e-5394-a1ce-d3818c31de98",
+        "81d7790c-9412-5a9b-b73d-22becd057120",
+        "49c34900-2dec-5a3c-96db-5ebf17b19a39",
+        "a14af077-0820-51d9-9ba2-1d92fae0515b",
+        "d5c91e8f-6cb4-5749-b1eb-ca66f7be2efa",
+        "7cba1aa2-16b9-54ef-a8e9-87561f8567b6",
+        "bb147c22-63e9-5e95-b9dd-001c8f81d1c8",
+        "0208bfb3-739b-5efb-b1a0-14fdf5835458",
+        "86007261-55ba-5ef0-b3b7-54e4e6a8982e",
+        "040af8be-7e5d-5766-ad6d-5bff31f62bb7",
+        "020d7562-d9b2-56a3-829c-bbc07b082b63",
+        "d6a6a129-db7a-59a3-a053-d7d8c0491e91",
+        "dc0e06d6-57d4-5e1d-ab37-121860891d97",
+        "348daea6-7cd1-534c-9b00-a2116e06dc49",
+        "34a4f7bd-7376-52f7-8635-4dccbf4d2c50",
+        "b55d5805-d1fc-57bc-8e54-c0430855f918",
+        "5f429f90-d659-5e8c-97cf-5615911bd6ba",
+        "836b6516-6649-5b10-9a2a-03f30563ad95",
+        "9a4f3b6e-56f4-5b94-be02-809cdc4653b4",
+        "ddc30805-87e8-5aa7-a569-06533a89e6cf"
+      ]
+    },
+    {
+      "uuid": "b387183a-156b-5fb1-b238-b9a55a4382dc",
+      "isOpen": true,
+      "children": [
+        "9c52be5d-4bf6-53d1-be68-bb308187caa4",
+        "a810e883-2018-5a29-a68b-279af69c4bd6",
+        "0d864a84-71c5-5c54-bb01-8669db8b23ef",
+        "3ad8f61e-3167-5ae3-91e2-66f5b3aecc5b",
+        "d074c6eb-43c1-5c22-b290-24f380a9b8cd",
+        "b872aa86-b338-5cf6-a168-7fc082d15a82",
+        "c7aaf04e-b11a-5974-a184-749ece2d84a4",
+        "4904e53c-9756-5cc3-8e7a-50a52b8ca6da"
+      ]
+    },
+    {
+      "uuid": "ad850a70-9e2a-57c2-b937-544e17889454",
+      "isOpen": true,
+      "children": [
+        "424b34fc-d81a-53c8-8ca1-63bbbb4166d1",
+        "5f528345-ad60-5522-807b-e68590912b28",
+        "6bd6e382-248b-526b-99f6-7052c3605930",
+        "be8609c5-b3a5-5a3b-808c-c1025ef52b61",
+        "66658b1b-b59e-5a2c-ab25-24af1404b295",
+        "31ec5434-6efc-59da-a9f6-d0d7f5636528",
+        "dc0262a4-c0dd-5684-b757-67568cd0d146",
+        "0ca16bd5-3a4c-5e92-8cbd-208a9d84aacf",
+        "ea945191-5a25-50c0-8b5b-54cd30108756",
+        "68f2465b-d06f-54de-b09b-a4b234be3495",
+        "5be7e581-e3ec-5216-b6b8-eaff08513f88",
+        "90fb24ca-2f11-5d1d-842f-52eee0841d7e",
+        "1294f13d-b3c1-5aac-a38c-890c80de624c",
+        "a06ee7c0-c6c5-5742-9312-d1bab617eac1",
+        "e55f3a42-1346-5421-afea-e6a00aecc586",
+        "f1522350-2f73-5e0f-8fd6-819769ab11eb",
+        "c76f1d46-184b-539a-82fe-93fcc5660bbf",
+        "52d5aa14-1176-58bd-9af3-046b23a53495",
+        "a923924c-101d-5cc0-9091-2a60682e31c9",
+        "1aca1588-5674-5265-b3af-88f2db13c31e",
+        "f3a4bb73-b76f-5842-b46e-fd5adc6244eb",
+        "c17d4d97-f5b9-5b72-8be0-e0d36943cceb",
+        "15c0d506-3b26-5c25-8c77-ee24824ae644",
+        "db9001c4-078d-5c15-8c94-acf24017e81b"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "name": "frost_titan_domain_0.png",
+      "id": "0",
+      "width": 16,
+      "height": 16,
+      "uv_width": 16,
+      "uv_height": 16,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQElEQVR42mNY9fD/fxDe/uTX/yPPv/6/+Orj/3tv3/x//eH5/x+fH4MxiA0SA8mB1IDUwvQxjBowasCoAcPFAABWJqauJBdlngAAAABJRU5ErkJggg=="
+    },
+    {
+      "name": "frost_titan_domain_1.png",
+      "id": "1",
+      "width": 16,
+      "height": 16,
+      "uv_width": 16,
+      "uv_height": 16,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQElEQVR42mN49v//fxB++ffX/7e/v/7/+Ovj/68/3vz/+f35/79fH4MxiA0SA8mB1IDUwvQxjBowasCoAcPFAADEutvu/y0WzAAAAABJRU5ErkJggg=="
+    }
+  ],
+  "animations": [
+    {
+      "uuid": "446d9c0f-4222-589c-8db7-052dcef2603a",
+      "name": "swing",
+      "loop": "once",
+      "override": true,
+      "length": 0.55,
+      "snapping": 20,
+      "animators": {
+        "be39031e-84b7-59be-901f-e06d4fbc5176": {
+          "name": "hammer_head",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "097d3eb4-2c26-5c17-b52c-4293f2237efd",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "043feebb-cba4-5cba-929a-3afe05db526c",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.71500",
+                  "y": "0.71500",
+                  "z": "0.71500"
+                }
+              ],
+              "time": 0.099,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "4ce93d42-f8a8-51d2-927a-65c7f0e3d1f5",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.10000",
+                  "y": "1.10000",
+                  "z": "1.10000"
+                }
+              ],
+              "time": 0.2475,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "ab43814e-727d-5b11-8e23-b42315959475",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.23200",
+                  "y": "1.23200",
+                  "z": "1.23200"
+                }
+              ],
+              "time": 0.44,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "cca78419-7ab1-5403-b747-9c217d28dc01",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.55,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "365d803a-e399-5b87-940e-deb411730ee3",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-40.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "74b61571-9d34-592b-a98b-9831a21883ac",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-45.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.1375,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "0b3b6411-080c-5668-898f-5699a286469c",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "15.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.275,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "e19b2f24-3ed3-5831-8cd2-b1f2f823a11b",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "5.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.44,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "c79ff5b2-48f6-5522-9f55-9faf93a8a4a1",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.55,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        },
+        "b387183a-156b-5fb1-b238-b9a55a4382dc": {
+          "name": "hammer_handle",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "92533d97-b353-59c6-9cee-d8df2e785bf0",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "66779e77-b9fe-5c83-840a-01284c7976aa",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.71500",
+                  "y": "0.71500",
+                  "z": "0.71500"
+                }
+              ],
+              "time": 0.099,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "e7108c54-7b6e-5336-929c-5967e8bf0540",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.10000",
+                  "y": "1.10000",
+                  "z": "1.10000"
+                }
+              ],
+              "time": 0.2475,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "7602f910-8c39-5be9-9472-a1ac5b4d52eb",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.23200",
+                  "y": "1.23200",
+                  "z": "1.23200"
+                }
+              ],
+              "time": 0.44,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "94be496f-8fc0-5fbc-8ab7-380242760168",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.55,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "698e24d2-43c5-5f7f-9f51-ed5fb2313b3e",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "40.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "53947752-8c85-5765-b300-2b105e104e35",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "45.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.1375,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "c6a83af5-fb13-524a-981a-4d5f14997bbb",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-15.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.275,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "33995483-2d66-5a47-9382-39886db32343",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-5.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.44,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "2123b899-72c1-532c-8d79-b6f0532c90fb",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.55,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        },
+        "ad850a70-9e2a-57c2-b937-544e17889454": {
+          "name": "ice_shards",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "6137a2d6-979c-55a9-9db7-d3ffa764de2f",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "63ad2586-10a8-5064-9f35-7cb3b21524e7",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.71500",
+                  "y": "0.71500",
+                  "z": "0.71500"
+                }
+              ],
+              "time": 0.099,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "d1aeba35-0c96-596f-bdba-6c3dba1579fc",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.10000",
+                  "y": "1.10000",
+                  "z": "1.10000"
+                }
+              ],
+              "time": 0.2475,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "1353110a-ea2d-5aac-920d-6b932a5a8336",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.23200",
+                  "y": "1.23200",
+                  "z": "1.23200"
+                }
+              ],
+              "time": 0.44,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "8ca707b2-8936-5295-b300-3710477634b2",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.55,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "d67c8454-942d-5e81-8fd2-6ad250065c83",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-40.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "2c63cc8a-f9e3-546e-a54a-924f44f4d184",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-45.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.1375,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "579a9934-4705-55c5-acac-607bbcee01d1",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "15.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.275,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "ed19ab0c-5522-5bd7-a1db-48a12caf0846",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "5.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.44,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "43959647-9eed-529b-ae40-288b277d6c43",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.55,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "428eb54d-458d-549d-8a60-bae2f25fcac3",
+      "name": "ability",
+      "loop": "once",
+      "override": true,
+      "length": 1.55,
+      "snapping": 20,
+      "animators": {
+        "be39031e-84b7-59be-901f-e06d4fbc5176": {
+          "name": "hammer_head",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "f846f6ff-9c68-5abc-8fc5-195068874bb2",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "00fc21fd-94be-55a6-91a6-c5d35bb773a0",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.04000",
+                  "y": "1.04000",
+                  "z": "1.04000"
+                }
+              ],
+              "time": 0.279,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "08d7ebe9-3776-54d1-9951-8084c099755f",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.60000",
+                  "y": "1.60000",
+                  "z": "1.60000"
+                }
+              ],
+              "time": 0.6975,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "cb6b81bc-ab4a-5264-b86d-dec6a9f01f73",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.79200",
+                  "y": "1.79200",
+                  "z": "1.79200"
+                }
+              ],
+              "time": 1.24,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "652a26c6-18e6-56c2-a20f-f8131f45ce04",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 1.55,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "e4468503-9d1c-5856-8d63-e8b150f03232",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-40.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "828dff70-f64e-5363-90af-7a831f1a9b97",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-45.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.3875,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "fda8df58-852c-539b-a5c6-fbff25f76681",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "15.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.775,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "3dea9496-d52e-56c7-a34b-52a775e1166e",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "5.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.24,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "203d3f39-4f9f-512f-ab30-113e2bf3b565",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.55,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        },
+        "b387183a-156b-5fb1-b238-b9a55a4382dc": {
+          "name": "hammer_handle",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "f151e910-692d-525d-aad9-edd538331ddd",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "34c63750-218c-5733-8123-9e4ab2f7e422",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.04000",
+                  "y": "1.04000",
+                  "z": "1.04000"
+                }
+              ],
+              "time": 0.279,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "e7699a21-d72d-5d6f-8c0a-c927ca11b093",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.60000",
+                  "y": "1.60000",
+                  "z": "1.60000"
+                }
+              ],
+              "time": 0.6975,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "4499ee35-83c3-57e7-be8d-9464b34288b5",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.79200",
+                  "y": "1.79200",
+                  "z": "1.79200"
+                }
+              ],
+              "time": 1.24,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "16799e5a-c4b4-512d-bc55-408c27bddf5b",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 1.55,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "1f21bfaa-331e-5e5e-9e4a-c4d34116b602",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "40.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "2bc017d7-0130-57f1-bb83-7b827f852d39",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "45.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.3875,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "924403bd-ae2d-578f-be67-319028f2cfd0",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-15.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.775,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "dbac6b66-7aa6-524c-9586-f288819d4b96",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-5.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.24,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "c82fe40f-93ec-53ce-babe-bf9e9827b781",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.55,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        },
+        "ad850a70-9e2a-57c2-b937-544e17889454": {
+          "name": "ice_shards",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "2e991f0a-45b7-5a04-ace4-0fda027a4388",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "f48a75af-8960-5bbb-a6a3-a1bb9b448cce",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.04000",
+                  "y": "1.04000",
+                  "z": "1.04000"
+                }
+              ],
+              "time": 0.279,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "9684ef27-7a29-5f77-961b-38ae1e848b66",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.60000",
+                  "y": "1.60000",
+                  "z": "1.60000"
+                }
+              ],
+              "time": 0.6975,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "83cd49e0-4181-571f-b116-5aec5757ab59",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.79200",
+                  "y": "1.79200",
+                  "z": "1.79200"
+                }
+              ],
+              "time": 1.24,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "09b4d9ad-3c99-5b92-8e1a-7d9fbbc34fbd",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 1.55,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "12c6202b-0ea6-545e-ab9a-77c1f827ea5b",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-40.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "674e885f-0be4-549d-b30e-1889f8d7c195",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-45.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.3875,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "82201b45-c627-58e1-b9bc-463124f3baee",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "15.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.775,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "7ddcf616-5925-5353-8d01-e4425947f639",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "5.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.24,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "c8b2f85b-de84-5189-ae62-207c3a2cab6d",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.55,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "02605a30-66bd-5f48-8252-87592de5d117",
+      "name": "ultimate",
+      "loop": "once",
+      "override": true,
+      "length": 2.1,
+      "snapping": 20,
+      "animators": {
+        "be39031e-84b7-59be-901f-e06d4fbc5176": {
+          "name": "hammer_head",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "69c42c2f-5ed0-57fd-b81b-d26eaf8c57a2",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "90f3cc6d-496d-5172-8e4c-3c7a9e2c2c2a",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.56000",
+                  "y": "1.56000",
+                  "z": "1.56000"
+                }
+              ],
+              "time": 0.378,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "8d38955c-5e8d-5bc9-844e-737e81408e75",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "2.40000",
+                  "y": "2.40000",
+                  "z": "2.40000"
+                }
+              ],
+              "time": 0.945,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "b0d3452c-8066-5a1e-859b-1b6cf077f57c",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "2.68800",
+                  "y": "2.68800",
+                  "z": "2.68800"
+                }
+              ],
+              "time": 1.68,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "40f2198e-6381-5e2a-b588-893cd17e87ac",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 2.1,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "c7525255-f77e-54d0-9cbd-38d4101d5090",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-40.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "cbb7f30f-2219-5459-a9e6-45c75c8503cb",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-45.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.525,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "a153ef97-cc2a-579b-81e7-ff62817b57fe",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "15.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.05,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "4276fef9-f61a-5987-89f7-8d5d50517623",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "5.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.68,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "d8147b92-b202-51db-b8dd-6c7e6deec52f",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 2.1,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        },
+        "b387183a-156b-5fb1-b238-b9a55a4382dc": {
+          "name": "hammer_handle",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "6b46e191-77e1-517b-9939-edba2fc6f46b",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "456e7a66-9cfb-54ef-ae31-d00b3a40edd0",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.56000",
+                  "y": "1.56000",
+                  "z": "1.56000"
+                }
+              ],
+              "time": 0.378,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "5e4ad49d-845d-56cd-9e8f-5e553736289c",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "2.40000",
+                  "y": "2.40000",
+                  "z": "2.40000"
+                }
+              ],
+              "time": 0.945,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "7db99dd3-858a-5543-b065-765cdf6d35ef",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "2.68800",
+                  "y": "2.68800",
+                  "z": "2.68800"
+                }
+              ],
+              "time": 1.68,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "2420b6a6-9b77-505c-91d7-33de35e4890b",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 2.1,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "d40cb43a-e14d-55d8-bbaf-28ce654f72db",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "40.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "d88f9ca0-9cfe-5e93-be9a-1bab781c0622",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "45.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.525,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "ef5fdb7a-8882-5906-8cc0-4bc351cb90c2",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-15.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.05,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "2021c384-5eef-57e7-b0d0-38888cf69945",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-5.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.68,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "27eca059-7e44-54f7-9c81-8300450e0b13",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 2.1,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        },
+        "ad850a70-9e2a-57c2-b937-544e17889454": {
+          "name": "ice_shards",
+          "type": "bone",
+          "rotation_global": false,
+          "quaternion_interpolation": false,
+          "keyframes": [
+            {
+              "uuid": "7dc980c5-7420-56da-aa34-c07cc30eab25",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "9f45844e-35bd-50a4-a64a-c8483f065634",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "1.56000",
+                  "y": "1.56000",
+                  "z": "1.56000"
+                }
+              ],
+              "time": 0.378,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "d376619a-b34d-5a38-a00a-f37b64572e6b",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "2.40000",
+                  "y": "2.40000",
+                  "z": "2.40000"
+                }
+              ],
+              "time": 0.945,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "44c16738-329e-593b-b454-c1342b449599",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "2.68800",
+                  "y": "2.68800",
+                  "z": "2.68800"
+                }
+              ],
+              "time": 1.68,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "99b19db9-f685-5dca-b463-ebc8314f8361",
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": "0.01000",
+                  "y": "0.01000",
+                  "z": "0.01000"
+                }
+              ],
+              "time": 2.1,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "8196a583-e045-5d7c-b22f-7b8a6021d11b",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-40.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "66e4862c-9611-59cb-b247-9d7447bc9be4",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "-45.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 0.525,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "4ce275a5-bd56-5882-b568-38b2474b1be4",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "15.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.05,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "678442bf-7cad-5184-b3f0-876726265971",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "5.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 1.68,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "uuid": "a5e75f82-4aef-5940-a0cf-b68fe4aa758b",
+              "channel": "rotation",
+              "data_points": [
+                {
+                  "x": "0.00000",
+                  "y": "0.00000",
+                  "z": "0.00000"
+                }
+              ],
+              "time": 2.1,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

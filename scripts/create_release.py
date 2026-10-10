@@ -49,6 +49,9 @@ def main():
         models = {name for name in archive.namelist() if name.startswith("bettermodel/") and name.endswith(".bbmodel")}
         expected_models = {f"bettermodel/players/legendaryswords_{sword}.bbmodel" for sword in sword_ids}
         expected_models.update(f"bettermodel/models/legendaryswords_{sword}_slash.bbmodel" for sword in sword_ids)
+        import json
+        weapons = json.loads((ROOT / "scripts/expanded_weapons.json").read_text())
+        expected_models.update(f"bettermodel/models/legendaryswords_{w['id']}_boss.bbmodel" for w in weapons if w.get("generation") == 3)
         if models != expected_models:
             missing = sorted(expected_models - models)
             unexpected = sorted(models - expected_models)
@@ -115,6 +118,16 @@ change or shutdown disarms pending attacks.
 Run /ls cinematics on and /ls cinematics status. Server cinematics.enabled must
 be true. Use /ls give all, /ls charge 100 and /ls resetcooldowns to test.
 Right-click = ability. Sneak + right-click = charged ultimate.
+The five boss weapons are angel_sovereign, granite_colossus, sky_leviathan,
+infernal_dragon and frost_titan. Their ultimates transform for five minutes;
+left/right click triggers the primary; sneak + right-click triggers the secondary.
+Each has its own cooldown; the form does not need recharging for more attacks.
+Angel and leviathan forms grant temporary flight. Dragon attacks use aimed fire
+breath. Boss models are ordinary monster meshes; observers see the boss body,
+while the owner keeps normal first-person/F5 rendering and sees attack effects.
+Edit bosses.duration-seconds (3-600), bosses.flight-enabled and
+bosses.smash-interval-ticks (12-200) and bosses.special-interval-ticks (40-1200).
+Armor and protection rules still apply.
 Player-target damage still needs pvp-enabled true and protection permission.
 
 Temporary cast bodies still use BetterModel's equipment path. The item-copy and
@@ -123,7 +136,7 @@ validated on a live client. If it recurs, set bettermodel.cast-body-animations
 false and restart; shared scenes and attack effects remain without disguises.
 
 Install LegendarySwords-combined-resource-pack-{version}.zip: this expansion
-adds 26 weapons, for 50 total, and requires NEW client assets and 100 models.
+adds five boss weapons, for 55 total, and requires NEW client assets and 115 models.
 {combined_note}
 The combined pack targets the supplied BetterModel 3.1-SNAPSHOT-526 named-alias
 setup, preserving its existing assets and adding officially compiled effects.

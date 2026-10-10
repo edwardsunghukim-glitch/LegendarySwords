@@ -72,6 +72,11 @@ public final class LegendarySwordsPlugin extends JavaPlugin {
     private void updateHeldSwords() {
         for (var player : Bukkit.getOnlinePlayers()) {
             if (!player.hasPermission("legendaryswords.use") || cinematics.active(player)) continue;
+            String bossStatus = abilities.bossStatus(player);
+            if (bossStatus != null) {
+                player.sendActionBar(Component.text(bossStatus, NamedTextColor.GOLD));
+                continue;
+            }
             swords.identify(player.getInventory().getItemInMainHand()).ifPresent(sword -> {
                 int charge = states.charge(player.getUniqueId()).value();
                 long remaining = cooldowns.remainingMillis(player.getUniqueId(), sword.id() + ":ability");

@@ -145,7 +145,8 @@ def boss_model(w):
                 if animator['name']=='head':
                     key['data_points'][0]['x']=str(-18*math.sin(key['time']/1.4*math.pi))
         model['animations'].append(breath)
-    return model
+    from boss_form_art import rebuild
+    return rebuild(model,index)
 
 
 def attack_model(w):

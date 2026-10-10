@@ -209,19 +209,34 @@ class BetterModelAssetsTest(unittest.TestCase):
         self.assertEqual(len(shapes), len(SWORDS), "signature effect shapes repeat")
 
     def test_boss_forms_are_original_monsters_with_animated_limbs_and_no_equipment_bones(self):
-        shapes=set()
+        shapes=set();textures=set()
         for sword in ['angel_sovereign','granite_colossus','sky_leviathan','infernal_dragon','frost_titan']:
             model=json.loads((ROOT/'models'/f'legendaryswords_{sword}_boss.bbmodel').read_text())
-            self.assertGreater(len(model['elements']),20)
-            self.assertEqual({g['name'] for g in model['groups']},{'body','head','left','right','tail'})
+            self.assertGreater(len(model['elements']),200)
+            self.assertEqual(model['resolution'],{'width':128,'height':128})
+            data=base64.b64decode(model['textures'][0]['source'].split(',',1)[1])
+            self.assertEqual(struct.unpack('>II',data[16:24]),(128,128))
+            textures.add(data)
+            for element in model['elements']:
+                self.assertTrue(all(a<b for a,b in zip(element['from'],element['to'])))
+                for face in element['faces'].values():
+                    self.assertTrue(all(0<=v<=128 for v in face['uv']))
+            self.assertEqual({g['name'] for g in model['groups']},{'body','head','left','right','tail'} | ({'jaw'} | {'spine_'+str(n) for n in range(1,7)} if sword in ('sky_leviathan','infernal_dragon') else set()))
             self.assertTrue({'idle','transform','smash'}.issubset(clips(model)))
+            self.assertEqual(sum(any(k['channel']=='scale' for k in a['keyframes']) for a in clips(model)['transform']['animators'].values()),1)
             if sword=='infernal_dragon': self.assertIn('breath',clips(model))
+            def descendants(nodes):
+                for node in nodes:
+                    if isinstance(node,dict):
+                        yield node
+                        yield from descendants(node['children'])
             for g in model['groups']:
-                node=next(n for n in model['outliner'] if n['uuid']==g['uuid'])
+                node=next(n for n in descendants(model['outliner']) if n['uuid']==g['uuid'])
                 self.assertTrue(node['children'], sword+' has an invisible group')
             self.assertTrue(any(len({values(k) for k in frames(a)})>1 for a in clips(model)['smash']['animators'].values()))
             shapes.add(tuple((tuple(e['from']),tuple(e['to'])) for e in model['elements']))
         self.assertEqual(len(shapes),5)
+        self.assertEqual(len(textures),5)
 
     def test_generator_reproduces_committed_assets_without_external_files(self):
         path = Path(__file__).with_name("generate_bettermodel_assets.py")

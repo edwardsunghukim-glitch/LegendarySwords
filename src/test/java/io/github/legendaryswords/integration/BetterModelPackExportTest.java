@@ -42,7 +42,7 @@ class BetterModelPackExportTest {
                     var loaded = raw.loadBlueprint(name, false);
                     assertTrue(loaded.errors().isEmpty(), loaded.errors().toString());
                     var blueprint = loaded.blueprint(); var context = blueprint.context();
-                    for (BlueprintElement element : blueprint.elements()) {
+                    for (BlueprintElement element : flatten(blueprint.elements())) {
                         if (!(element instanceof BlueprintElement.Group group)) continue;
                         var models = group.buildModernJson(PackObfuscator.pair(PackObfuscator.NONE, PackObfuscator.NONE), context);
                         assertNotNull(models); assertFalse(models.isEmpty());
@@ -66,8 +66,16 @@ class BetterModelPackExportTest {
                 }
             }
             }
-            assertEquals((SwordType.values().length - 8) * 3 + 25, aliases.get());
+            assertEquals((SwordType.values().length - 8) * 3 + 39, aliases.get());
         } finally { singleton.set(null, previous); }
+    }
+    private static java.util.List<BlueprintElement> flatten(java.util.List<BlueprintElement> elements) {
+        var result = new java.util.ArrayList<BlueprintElement>();
+        for (var element : elements) {
+            result.add(element);
+            if (element instanceof BlueprintElement.Group group) result.addAll(flatten(group.children()));
+        }
+        return result;
     }
     private static void write(Path file, byte[] bytes) throws Exception {
         Files.createDirectories(file.getParent()); Files.write(file, bytes);

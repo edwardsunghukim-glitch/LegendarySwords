@@ -1,4 +1,4 @@
-# LegendarySwords 0.5.0
+# LegendarySwords 0.5.1
 
 **55 legendary weapons** for Paper 1.21.11, with detailed original voxel art inspired by Zelda swords, animated material atlases, ability effects and staged ultimates. The latest 26 additions have freshly authored silhouettes and thematic textures, with rings, mines, moving hazards and persistent domains; no game assets are ripped. The previous 16 additions also receive separate engraved texture patterns.
 
@@ -6,16 +6,16 @@ Right-click uses an ability. Sneak + right-click uses a fully charged ultimate. 
 
 ## Install
 
-1. Stop your server, replace the old LegendarySwords JAR with **LegendarySwords-0.5.0.jar**, and restart. Keep your configuration/data and the separate LegendaryAdmin JAR.
+1. Stop your server, replace the old LegendarySwords JAR with **LegendarySwords-0.5.1.jar**, and restart. Keep your configuration/data and the separate LegendaryAdmin JAR.
 2. The plugin installs/updates **115 BetterModel files** automatically, backing up known originals and preserving edits. Wait for imports, then check `/ls status`; use `/bm reload` if needed. BetterModel 3.1 requires Java 25 on the server.
-3. **Replace the old resource pack with the new 0.5.0 combined pack.** It preserves the previous supplied BetterModel pack and adds all 55 item definitions plus official-compiler geometry/textures for the new named slash aliases used by the reported BetterModel 3.1-SNAPSHOT-526 setup. Different BetterModel namespaces/builds or other changed server models need a fresh `build.zip` merged with this release's sword pack.
+3. **Replace the old resource pack with the new 0.5.1 combined pack.** It preserves the previous supplied BetterModel pack and adds all 55 item definitions plus official-compiler geometry/textures for the new named slash aliases used by the reported BetterModel 3.1-SNAPSHOT-526 setup. Different BetterModel namespaces/builds or other changed server models need a fresh `build.zip` merged with this release's sword pack.
 4. Use `/ls give all`, `/ls cinematics on`, `/ls charge 100`, and `/ls resetcooldowns` to test. PvP remains off by default; enable `pvp-enabled` if player targets should take damage.
 
 The standalone sword pack contains all 55 item models. The combined pack is the single ZIP to enable in Minecraft; keep it zipped. No resource pack is needed for LegendaryAdmin.
 
 ## Boss weapons
 
-Five new implements have separate item art, physical attack meshes and original monster rigs:
+Five implements have separate item art, physical attack meshes and original monster rigs. Version 0.5.1 rebuilds all five boss bodies with closed rounded contours, individual 128×128 material atlases, layered angel feathers, carved stone plates, long serpent forms, dragon membranes, and crystal armor. Dragon and leviathan jaws have separate animated controls. The uploaded dragon was used only as a visual reference; its geometry, textures and animations are not included.
 
 | Weapon | ID | Attack | Ultimate form / power |
 | --- | --- | --- | --- |

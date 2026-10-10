@@ -6,6 +6,12 @@ The plugin installs 115 models with backups, then imports them. If `/ls status` 
 
 Observers receive cast bodies with vanilla equipment hidden; the owner is excluded from that body/equipment packet path and keeps their normal character and inventory. Cast items are immutable snapshots captured on the server thread. Ultimate speed scales the windup/body clip; a short release clip plays with the attack afterward. Cleanup covers clip expiry, death, quit, teleport, world change and plugin shutdown.
 
-Use the new 0.5.0 combined pack. It retains the previously supplied generated BetterModel assets and adds officially compiled model geometry and textures for all expansion attack meshes and five new boss bodies, with named `bettermodel:c/legendaryswords_<id>_slash_<bone>` aliases. This is tailored to the reported snapshot, not a substitute for a fresh server build when BetterModel's namespace/export mode or unrelated models change. In those cases download the new `build.zip` and use the merge command in [installation](INSTALLATION.md).
+Use the new 0.5.1 combined pack. It retains the previously supplied generated BetterModel assets and adds officially compiled model geometry and textures for all expansion attack meshes and five new boss bodies, with named `bettermodel:c/legendaryswords_<id>_slash_<bone>` aliases. This is tailored to the reported snapshot, not a substitute for a fresh server build when BetterModel's namespace/export mode or unrelated models change. In those cases download the new `build.zip` and use the merge command in [installation](INSTALLATION.md).
 
 No live Minecraft-client test was performed. If an equipment decoder disconnect recurs, set `bettermodel.cast-body-animations: false` and restart; attacks and world effects continue. BetterModel cannot replace vanilla first-person arm animation without client support.
+
+## Boss art in 0.5.1
+
+All five boss bodies are original rebuilds with painted 128×128 material atlases. The dragon and leviathan have linked spine bones and separate jaw controls; other forms have connected body/limb controls. Only the root scales during transformation, so a long bone chain does not collapse from repeated scale multiplication. The official pack exporter traverses nested bones to include every drawable group. Uploaded reference assets are excluded from the plugin and source bundle.
+
+Optional visual review with Blender: `blender -b -t 4 --python scripts/render_boss_form.py -- src/main/resources/bettermodel/models/legendaryswords_infernal_dragon_boss.bbmodel /tmp/dragon.png`. This renders the real model and texture at an idle pose; it does not verify in-game viewer handling.

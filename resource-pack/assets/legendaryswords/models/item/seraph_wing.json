@@ -16,7 +16,7 @@
       ],
       "to": [
         8.65,
-        5,
+        5.45,
         8.65
       ],
       "faces": {
@@ -770,7 +770,7 @@
       "name": "Seraph Wing guard wing -1",
       "from": [
         5.109999999999999,
-        6.4,
+        5.9,
         7.35
       ],
       "to": [
@@ -839,7 +839,7 @@
       "name": "Seraph Wing guard wing 1",
       "from": [
         10.09,
-        6.4,
+        5.9,
         7.35
       ],
       "to": [
@@ -974,516 +974,171 @@
       }
     },
     {
-      "name": "Seraph Wing forged blade facet 0",
+      "name": "Seraph Wing blade ferrule",
       "from": [
-        7.15,
-        7,
-        7.65
+        7.25,
+        6,
+        7.35
       ],
       "to": [
-        8.85,
-        14,
-        8.35
+        8.75,
+        7.15,
+        8.65
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
             4,
-            4
+            8,
+            8,
+            12
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
             4,
-            4
+            8,
+            8,
+            12
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
             4,
+            4,
             8,
-            8,
-            12
+            8
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
+            4,
             8,
-            8,
-            12
+            8
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
+            4,
             8,
-            8,
-            12
+            8
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
+            4,
             8,
-            8,
-            12
+            8
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Seraph Wing cutting edge 0",
+      "name": "Seraph Wing continuous blade facet 0-0",
       "from": [
+        7.15,
         7.0,
-        7,
-        7.8
+        7.65
       ],
       "to": [
-        7.15,
-        14,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Seraph Wing spine ridge 0",
-      "from": [
         8.85,
-        7,
-        7.8
-      ],
-      "to": [
-        8.969999999999999,
-        14,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Seraph Wing inlaid energy channel 0",
-      "from": [
-        7.86,
-        7.2,
-        7.56
-      ],
-      "to": [
-        8.14,
-        13.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Seraph Wing forged blade facet 1",
-      "from": [
-        6.9,
-        14,
-        7.65
-      ],
-      "to": [
-        9.1,
-        20,
+        8.75,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.45455,
+            3.69565,
+            3.54545,
+            4.0
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.45455,
+            3.69565,
+            3.54545,
+            4.0
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Seraph Wing cutting edge 1",
+      "name": "Seraph Wing flush energy inlay 0-0",
       "from": [
-        6.75,
-        14,
-        7.8
+        7.9,
+        7.0,
+        7.59
       ],
       "to": [
-        6.9,
-        20,
-        8.2
+        8.1,
+        8.75,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            4,
-            0,
-            8,
-            4
+            9.4,
+            3.69565,
+            10.6,
+            4.0
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Seraph Wing spine ridge 1",
-      "from": [
-        9.1,
-        14,
-        7.8
-      ],
-      "to": [
-        9.219999999999999,
-        20,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Seraph Wing inlaid energy channel 1",
-      "from": [
-        7.86,
-        14.2,
-        7.56
-      ],
-      "to": [
-        8.14,
-        19.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            3.69565,
+            10.6,
+            4.0
           ],
           "texture": "#atlas"
         },
@@ -1526,240 +1181,102 @@
       }
     },
     {
-      "name": "Seraph Wing forged blade facet 2",
+      "name": "Seraph Wing continuous blade facet 0-1",
       "from": [
-        7.3,
-        20,
+        7.15,
+        8.75,
         7.65
       ],
       "to": [
-        8.7,
-        26,
+        8.85,
+        10.5,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.45455,
+            3.3913,
+            3.54545,
+            3.69565
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.45455,
+            3.3913,
+            3.54545,
+            3.69565
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Seraph Wing cutting edge 2",
+      "name": "Seraph Wing flush energy inlay 0-1",
       "from": [
-        7.1499999999999995,
-        20,
-        7.8
+        7.9,
+        8.75,
+        7.59
       ],
       "to": [
-        7.3,
-        26,
-        8.2
+        8.1,
+        10.5,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            4,
-            0,
-            8,
-            4
+            9.4,
+            3.3913,
+            10.6,
+            3.69565
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Seraph Wing spine ridge 2",
-      "from": [
-        8.7,
-        20,
-        7.8
-      ],
-      "to": [
-        8.819999999999999,
-        26,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Seraph Wing inlaid energy channel 2",
-      "from": [
-        7.86,
-        20.2,
-        7.56
-      ],
-      "to": [
-        8.14,
-        25.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            3.3913,
+            10.6,
+            3.69565
           ],
           "texture": "#atlas"
         },
@@ -1802,171 +1319,33 @@
       }
     },
     {
-      "name": "Seraph Wing forged blade facet 3",
+      "name": "Seraph Wing continuous blade facet 0-2",
       "from": [
-        7.75,
-        26,
+        7.15,
+        10.5,
         7.65
       ],
       "to": [
-        8.25,
-        30,
+        8.85,
+        12.25,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.45455,
+            3.08696,
+            3.54545,
+            3.3913
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Seraph Wing cutting edge 3",
-      "from": [
-        7.6,
-        26,
-        7.8
-      ],
-      "to": [
-        7.75,
-        30,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Seraph Wing spine ridge 3",
-      "from": [
-        8.25,
-        26,
-        7.8
-      ],
-      "to": [
-        8.37,
-        30,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
+            0.45455,
+            3.08696,
+            3.54545,
+            3.3913
           ],
           "texture": "#atlas"
         },
@@ -2009,33 +1388,1827 @@
       }
     },
     {
-      "name": "Seraph Wing inlaid energy channel 3",
+      "name": "Seraph Wing flush energy inlay 0-2",
       "from": [
-        7.86,
-        26.2,
-        7.56
+        7.9,
+        10.5,
+        7.59
       ],
       "to": [
-        8.14,
-        29.85,
-        8.44
+        8.1,
+        12.25,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            3.08696,
+            10.6,
+            3.3913
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
+            9.4,
+            3.08696,
+            10.6,
+            3.3913
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
             8,
-            0,
             12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing continuous blade facet 0-3",
+      "from": [
+        7.15,
+        12.25,
+        7.65
+      ],
+      "to": [
+        8.85,
+        14.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.45455,
+            2.78261,
+            3.54545,
+            3.08696
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.45455,
+            2.78261,
+            3.54545,
+            3.08696
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
             4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing flush energy inlay 0-3",
+      "from": [
+        7.9,
+        12.25,
+        7.59
+      ],
+      "to": [
+        8.1,
+        14.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.78261,
+            10.6,
+            3.08696
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.78261,
+            10.6,
+            3.08696
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing continuous blade facet 1-0",
+      "from": [
+        7.11875,
+        14.0,
+        7.65
+      ],
+      "to": [
+        8.88125,
+        15.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.39773,
+            2.52174,
+            3.60227,
+            2.78261
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.39773,
+            2.52174,
+            3.60227,
+            2.78261
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing flush energy inlay 1-0",
+      "from": [
+        7.9,
+        14.0,
+        7.59
+      ],
+      "to": [
+        8.1,
+        15.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.52174,
+            10.6,
+            2.78261
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.52174,
+            10.6,
+            2.78261
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing continuous blade facet 1-1",
+      "from": [
+        7.05625,
+        15.5,
+        7.65
+      ],
+      "to": [
+        8.94375,
+        17.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.28409,
+            2.26087,
+            3.71591,
+            2.52174
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.28409,
+            2.26087,
+            3.71591,
+            2.52174
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing flush energy inlay 1-1",
+      "from": [
+        7.9,
+        15.5,
+        7.59
+      ],
+      "to": [
+        8.1,
+        17.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.26087,
+            10.6,
+            2.52174
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.26087,
+            10.6,
+            2.52174
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing continuous blade facet 1-2",
+      "from": [
+        6.99375,
+        17.0,
+        7.65
+      ],
+      "to": [
+        9.00625,
+        18.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.17045,
+            2.0,
+            3.82955,
+            2.26087
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.17045,
+            2.0,
+            3.82955,
+            2.26087
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing flush energy inlay 1-2",
+      "from": [
+        7.9,
+        17.0,
+        7.59
+      ],
+      "to": [
+        8.1,
+        18.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.0,
+            10.6,
+            2.26087
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.0,
+            10.6,
+            2.26087
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing continuous blade facet 1-3",
+      "from": [
+        6.93125,
+        18.5,
+        7.65
+      ],
+      "to": [
+        9.06875,
+        20.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.05682,
+            1.73913,
+            3.94318,
+            2.0
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.05682,
+            1.73913,
+            3.94318,
+            2.0
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing flush energy inlay 1-3",
+      "from": [
+        7.9,
+        18.5,
+        7.59
+      ],
+      "to": [
+        8.1,
+        20.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.73913,
+            10.6,
+            2.0
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.73913,
+            10.6,
+            2.0
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing continuous blade facet 2-0",
+      "from": [
+        6.95,
+        20.0,
+        7.65
+      ],
+      "to": [
+        9.05,
+        21.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.09091,
+            1.47826,
+            3.90909,
+            1.73913
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.09091,
+            1.47826,
+            3.90909,
+            1.73913
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing flush energy inlay 2-0",
+      "from": [
+        7.9,
+        20.0,
+        7.59
+      ],
+      "to": [
+        8.1,
+        21.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.47826,
+            10.6,
+            1.73913
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.47826,
+            10.6,
+            1.73913
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing continuous blade facet 2-1",
+      "from": [
+        7.05,
+        21.5,
+        7.65
+      ],
+      "to": [
+        8.95,
+        23.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.27273,
+            1.21739,
+            3.72727,
+            1.47826
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.27273,
+            1.21739,
+            3.72727,
+            1.47826
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing flush energy inlay 2-1",
+      "from": [
+        7.9,
+        21.5,
+        7.59
+      ],
+      "to": [
+        8.1,
+        23.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.21739,
+            10.6,
+            1.47826
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.21739,
+            10.6,
+            1.47826
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing continuous blade facet 2-2",
+      "from": [
+        7.15,
+        23.0,
+        7.65
+      ],
+      "to": [
+        8.85,
+        24.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.45455,
+            0.95652,
+            3.54545,
+            1.21739
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.45455,
+            0.95652,
+            3.54545,
+            1.21739
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing flush energy inlay 2-2",
+      "from": [
+        7.9,
+        23.0,
+        7.59
+      ],
+      "to": [
+        8.1,
+        24.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.95652,
+            10.6,
+            1.21739
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.95652,
+            10.6,
+            1.21739
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing continuous blade facet 2-3",
+      "from": [
+        7.25,
+        24.5,
+        7.65
+      ],
+      "to": [
+        8.75,
+        26.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.63636,
+            0.69565,
+            3.36364,
+            0.95652
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.63636,
+            0.69565,
+            3.36364,
+            0.95652
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing flush energy inlay 2-3",
+      "from": [
+        7.9,
+        24.5,
+        7.59
+      ],
+      "to": [
+        8.1,
+        26.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.69565,
+            10.6,
+            0.95652
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.69565,
+            10.6,
+            0.95652
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing continuous blade facet 3-0",
+      "from": [
+        7.35625,
+        26.0,
+        7.65
+      ],
+      "to": [
+        8.64375,
+        27.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.82955,
+            0.52174,
+            3.17045,
+            0.69565
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.82955,
+            0.52174,
+            3.17045,
+            0.69565
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing flush energy inlay 3-0",
+      "from": [
+        7.9,
+        26.0,
+        7.59
+      ],
+      "to": [
+        8.1,
+        27.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.52174,
+            10.6,
+            0.69565
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.52174,
+            10.6,
+            0.69565
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing continuous blade facet 3-1",
+      "from": [
+        7.46875,
+        27.0,
+        7.65
+      ],
+      "to": [
+        8.53125,
+        28.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.03409,
+            0.34783,
+            2.96591,
+            0.52174
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.03409,
+            0.34783,
+            2.96591,
+            0.52174
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing flush energy inlay 3-1",
+      "from": [
+        7.9,
+        27.0,
+        7.59
+      ],
+      "to": [
+        8.1,
+        28.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.34783,
+            10.6,
+            0.52174
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.34783,
+            10.6,
+            0.52174
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing continuous blade facet 3-2",
+      "from": [
+        7.58125,
+        28.0,
+        7.65
+      ],
+      "to": [
+        8.41875,
+        29.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.23864,
+            0.17391,
+            2.76136,
+            0.34783
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.23864,
+            0.17391,
+            2.76136,
+            0.34783
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing flush energy inlay 3-2",
+      "from": [
+        7.9,
+        28.0,
+        7.59
+      ],
+      "to": [
+        8.1,
+        29.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.17391,
+            10.6,
+            0.34783
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.17391,
+            10.6,
+            0.34783
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing continuous blade facet 3-3",
+      "from": [
+        7.69375,
+        29.0,
+        7.65
+      ],
+      "to": [
+        8.30625,
+        30.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.44318,
+            0.0,
+            2.55682,
+            0.17391
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.44318,
+            0.0,
+            2.55682,
+            0.17391
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Seraph Wing flush energy inlay 3-3",
+      "from": [
+        7.9,
+        29.0,
+        7.59
+      ],
+      "to": [
+        8.1,
+        30.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.0,
+            10.6,
+            0.17391
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.0,
+            10.6,
+            0.17391
           ],
           "texture": "#atlas"
         },
@@ -2080,14 +3253,14 @@
     {
       "name": "Seraph Wing etched sigil 0",
       "from": [
-        7.65,
+        7.82,
         8.0,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        8.22,
-        7.65
+        8.18,
+        8.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2149,14 +3322,14 @@
     {
       "name": "Seraph Wing etched sigil 1",
       "from": [
-        7.65,
+        7.82,
         10.25,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        10.47,
-        7.65
+        8.18,
+        10.41,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2218,14 +3391,14 @@
     {
       "name": "Seraph Wing etched sigil 2",
       "from": [
-        7.65,
+        7.82,
         12.5,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        12.72,
-        7.65
+        8.18,
+        12.66,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2287,14 +3460,14 @@
     {
       "name": "Seraph Wing etched sigil 3",
       "from": [
-        7.65,
+        7.82,
         14.75,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        14.97,
-        7.65
+        8.18,
+        14.91,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2356,14 +3529,14 @@
     {
       "name": "Seraph Wing etched sigil 4",
       "from": [
-        7.65,
+        7.82,
         17.0,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        17.22,
-        7.65
+        8.18,
+        17.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2425,14 +3598,14 @@
     {
       "name": "Seraph Wing etched sigil 5",
       "from": [
-        7.65,
+        7.82,
         19.25,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        19.47,
-        7.65
+        8.18,
+        19.41,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2494,14 +3667,14 @@
     {
       "name": "Seraph Wing etched sigil 6",
       "from": [
-        7.65,
+        7.82,
         21.5,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        21.72,
-        7.65
+        8.18,
+        21.66,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2564,7 +3737,7 @@
       "name": "Seraph Wing wing filigree -1",
       "from": [
         6.2,
-        7,
+        5.9,
         7.68
       ],
       "to": [
@@ -2633,7 +3806,7 @@
       "name": "Seraph Wing wing filigree 1",
       "from": [
         9.4,
-        7,
+        5.9,
         7.68
       ],
       "to": [
@@ -2746,9 +3919,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.41481,
+        0.41481,
+        0.41481
       ]
     },
     "firstperson_lefthand": {
@@ -2763,9 +3936,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.41481,
+        0.41481,
+        0.41481
       ]
     },
     "gui": {
@@ -2780,9 +3953,9 @@
         0
       ],
       "scale": [
-        0.55,
-        0.55,
-        0.55
+        0.41481,
+        0.41481,
+        0.41481
       ]
     },
     "ground": {

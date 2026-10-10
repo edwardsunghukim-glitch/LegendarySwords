@@ -16,7 +16,7 @@
       ],
       "to": [
         8.65,
-        5,
+        5.45,
         8.65
       ],
       "faces": {
@@ -770,7 +770,7 @@
       "name": "Moonveil guard wing -1",
       "from": [
         5.109999999999999,
-        6.05,
+        5.9,
         7.35
       ],
       "to": [
@@ -839,7 +839,7 @@
       "name": "Moonveil guard wing 1",
       "from": [
         10.09,
-        6.05,
+        5.9,
         7.35
       ],
       "to": [
@@ -974,1068 +974,2241 @@
       }
     },
     {
-      "name": "Moonveil forged blade facet 0",
-      "from": [
-        7,
-        7,
-        7.65
-      ],
-      "to": [
-        9,
-        12,
-        8.35
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Moonveil cutting edge 0",
-      "from": [
-        6.85,
-        7,
-        7.8
-      ],
-      "to": [
-        7,
-        12,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Moonveil spine ridge 0",
-      "from": [
-        9,
-        7,
-        7.8
-      ],
-      "to": [
-        9.12,
-        12,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Moonveil inlaid energy channel 0",
-      "from": [
-        7.86,
-        7.2,
-        7.56
-      ],
-      "to": [
-        8.14,
-        11.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Moonveil forged blade facet 1",
-      "from": [
-        7.4,
-        12,
-        7.65
-      ],
-      "to": [
-        9.6,
-        18,
-        8.35
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Moonveil cutting edge 1",
+      "name": "Moonveil blade ferrule",
       "from": [
         7.25,
-        12,
-        7.8
+        6,
+        7.35
       ],
       "to": [
-        7.4,
-        18,
-        8.2
+        8.75,
+        7.15,
+        8.65
       ],
       "faces": {
         "north": {
           "uv": [
             4,
-            0,
             8,
-            4
+            8,
+            12
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
             4,
-            0,
             8,
-            4
+            8,
+            12
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
+            4,
+            4,
             8,
-            8,
-            12,
-            12
+            8
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
+            4,
+            4,
             8,
-            8,
-            12,
-            12
+            8
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
+            4,
+            4,
             8,
-            8,
-            12,
-            12
+            8
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
+            4,
+            4,
             8,
-            8,
-            12,
-            12
+            8
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Moonveil spine ridge 1",
+      "name": "Moonveil continuous blade facet 0-0",
+      "from": [
+        7.0,
+        7.0,
+        7.65
+      ],
+      "to": [
+        9.0,
+        8.25,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            3.7619,
+            2.58065,
+            4.0
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            3.7619,
+            2.58065,
+            4.0
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil flush energy inlay 0-0",
+      "from": [
+        7.9,
+        7.0,
+        7.59
+      ],
+      "to": [
+        8.1,
+        8.25,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            3.7619,
+            10.6,
+            4.0
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            3.7619,
+            10.6,
+            4.0
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil continuous blade facet 0-1",
+      "from": [
+        7.0,
+        8.25,
+        7.65
+      ],
+      "to": [
+        9.0,
+        9.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            3.52381,
+            2.58065,
+            3.7619
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            3.52381,
+            2.58065,
+            3.7619
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil flush energy inlay 0-1",
+      "from": [
+        7.9,
+        8.25,
+        7.59
+      ],
+      "to": [
+        8.1,
+        9.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            3.52381,
+            10.6,
+            3.7619
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            3.52381,
+            10.6,
+            3.7619
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil continuous blade facet 0-2",
+      "from": [
+        7.0,
+        9.5,
+        7.65
+      ],
+      "to": [
+        9.0,
+        10.75,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            3.28571,
+            2.58065,
+            3.52381
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            3.28571,
+            2.58065,
+            3.52381
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil flush energy inlay 0-2",
+      "from": [
+        7.9,
+        9.5,
+        7.59
+      ],
+      "to": [
+        8.1,
+        10.75,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            3.28571,
+            10.6,
+            3.52381
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            3.28571,
+            10.6,
+            3.52381
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil continuous blade facet 0-3",
+      "from": [
+        7.0,
+        10.75,
+        7.65
+      ],
+      "to": [
+        9.0,
+        12.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            3.04762,
+            2.58065,
+            3.28571
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            3.04762,
+            2.58065,
+            3.28571
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil flush energy inlay 0-3",
+      "from": [
+        7.9,
+        10.75,
+        7.59
+      ],
+      "to": [
+        8.1,
+        12.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            3.04762,
+            10.6,
+            3.28571
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            3.04762,
+            10.6,
+            3.28571
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil continuous blade facet 1-0",
+      "from": [
+        7.05,
+        12.0,
+        7.65
+      ],
+      "to": [
+        9.075,
+        13.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.06452,
+            2.7619,
+            2.67742,
+            3.04762
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.06452,
+            2.7619,
+            2.67742,
+            3.04762
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil flush energy inlay 1-0",
+      "from": [
+        7.9625,
+        12.0,
+        7.59
+      ],
+      "to": [
+        8.1625,
+        13.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.7619,
+            10.6,
+            3.04762
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.7619,
+            10.6,
+            3.04762
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil continuous blade facet 1-1",
+      "from": [
+        7.15,
+        13.5,
+        7.65
+      ],
+      "to": [
+        9.225,
+        15.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.19355,
+            2.47619,
+            2.87097,
+            2.7619
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.19355,
+            2.47619,
+            2.87097,
+            2.7619
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil flush energy inlay 1-1",
+      "from": [
+        8.0875,
+        13.5,
+        7.59
+      ],
+      "to": [
+        8.2875,
+        15.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.47619,
+            10.6,
+            2.7619
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.47619,
+            10.6,
+            2.7619
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil continuous blade facet 1-2",
+      "from": [
+        7.25,
+        15.0,
+        7.65
+      ],
+      "to": [
+        9.375,
+        16.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.32258,
+            2.19048,
+            3.06452,
+            2.47619
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.32258,
+            2.19048,
+            3.06452,
+            2.47619
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil flush energy inlay 1-2",
+      "from": [
+        8.2125,
+        15.0,
+        7.59
+      ],
+      "to": [
+        8.4125,
+        16.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.19048,
+            10.6,
+            2.47619
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.19048,
+            10.6,
+            2.47619
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil continuous blade facet 1-3",
+      "from": [
+        7.35,
+        16.5,
+        7.65
+      ],
+      "to": [
+        9.525,
+        18.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.45161,
+            1.90476,
+            3.25806,
+            2.19048
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.45161,
+            1.90476,
+            3.25806,
+            2.19048
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil flush energy inlay 1-3",
+      "from": [
+        8.3375,
+        16.5,
+        7.59
+      ],
+      "to": [
+        8.5375,
+        18.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.90476,
+            10.6,
+            2.19048
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.90476,
+            10.6,
+            2.19048
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil continuous blade facet 2-0",
+      "from": [
+        7.475,
+        18.0,
+        7.65
+      ],
+      "to": [
+        9.65,
+        19.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.6129,
+            1.61905,
+            3.41935,
+            1.90476
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.6129,
+            1.61905,
+            3.41935,
+            1.90476
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil flush energy inlay 2-0",
+      "from": [
+        8.4625,
+        18.0,
+        7.59
+      ],
+      "to": [
+        8.6625,
+        19.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.61905,
+            10.6,
+            1.90476
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.61905,
+            10.6,
+            1.90476
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil continuous blade facet 2-1",
+      "from": [
+        7.625,
+        19.5,
+        7.65
+      ],
+      "to": [
+        9.75,
+        21.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.80645,
+            1.33333,
+            3.54839,
+            1.61905
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.80645,
+            1.33333,
+            3.54839,
+            1.61905
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil flush energy inlay 2-1",
+      "from": [
+        8.5875,
+        19.5,
+        7.59
+      ],
+      "to": [
+        8.7875,
+        21.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.33333,
+            10.6,
+            1.61905
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.33333,
+            10.6,
+            1.61905
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil continuous blade facet 2-2",
+      "from": [
+        7.775,
+        21.0,
+        7.65
+      ],
+      "to": [
+        9.85,
+        22.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.0,
+            1.04762,
+            3.67742,
+            1.33333
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.0,
+            1.04762,
+            3.67742,
+            1.33333
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil flush energy inlay 2-2",
+      "from": [
+        8.7125,
+        21.0,
+        7.59
+      ],
+      "to": [
+        8.9125,
+        22.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.04762,
+            10.6,
+            1.33333
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.04762,
+            10.6,
+            1.33333
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil continuous blade facet 2-3",
+      "from": [
+        7.925,
+        22.5,
+        7.65
+      ],
+      "to": [
+        9.95,
+        24.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.19355,
+            0.7619,
+            3.80645,
+            1.04762
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.19355,
+            0.7619,
+            3.80645,
+            1.04762
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil flush energy inlay 2-3",
+      "from": [
+        8.8375,
+        22.5,
+        7.59
+      ],
+      "to": [
+        9.0375,
+        24.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.7619,
+            10.6,
+            1.04762
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.7619,
+            10.6,
+            1.04762
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil continuous blade facet 3-0",
+      "from": [
+        8.1875,
+        24.0,
+        7.65
+      ],
+      "to": [
+        10.0125,
+        25.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.53226,
+            0.57143,
+            3.8871,
+            0.7619
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.53226,
+            0.57143,
+            3.8871,
+            0.7619
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil flush energy inlay 3-0",
+      "from": [
+        9.0,
+        24.0,
+        7.59
+      ],
+      "to": [
+        9.2,
+        25.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.57143,
+            10.6,
+            0.7619
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.57143,
+            10.6,
+            0.7619
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil continuous blade facet 3-1",
+      "from": [
+        8.5625,
+        25.0,
+        7.65
+      ],
+      "to": [
+        10.037500000000001,
+        26.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.01613,
+            0.38095,
+            3.91935,
+            0.57143
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2.01613,
+            0.38095,
+            3.91935,
+            0.57143
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil flush energy inlay 3-1",
+      "from": [
+        9.200000000000001,
+        25.0,
+        7.59
+      ],
+      "to": [
+        9.4,
+        26.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.38095,
+            10.6,
+            0.57143
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.38095,
+            10.6,
+            0.57143
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil continuous blade facet 3-2",
+      "from": [
+        8.9375,
+        26.0,
+        7.65
+      ],
+      "to": [
+        10.0625,
+        27.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.5,
+            0.19048,
+            3.95161,
+            0.38095
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2.5,
+            0.19048,
+            3.95161,
+            0.38095
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil flush energy inlay 3-2",
+      "from": [
+        9.4,
+        26.0,
+        7.59
+      ],
+      "to": [
+        9.6,
+        27.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.19048,
+            10.6,
+            0.38095
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.19048,
+            10.6,
+            0.38095
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil continuous blade facet 3-3",
+      "from": [
+        9.3125,
+        27.0,
+        7.65
+      ],
+      "to": [
+        10.087499999999999,
+        28.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.98387,
+            0.0,
+            3.98387,
+            0.19048
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2.98387,
+            0.0,
+            3.98387,
+            0.19048
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Moonveil flush energy inlay 3-3",
       "from": [
         9.6,
-        12,
-        7.8
+        27.0,
+        7.59
       ],
       "to": [
-        9.719999999999999,
-        18,
-        8.2
+        9.799999999999999,
+        28.0,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            4,
-            8,
-            8,
-            12
+            9.4,
+            0.0,
+            10.6,
+            0.19048
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Moonveil inlaid energy channel 1",
-      "from": [
-        8.36,
-        12.2,
-        7.56
-      ],
-      "to": [
-        8.64,
-        17.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Moonveil forged blade facet 2",
-      "from": [
-        8,
-        18,
-        7.65
-      ],
-      "to": [
-        10,
-        24,
-        8.35
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Moonveil cutting edge 2",
-      "from": [
-        7.85,
-        18,
-        7.8
-      ],
-      "to": [
-        8,
-        24,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Moonveil spine ridge 2",
-      "from": [
-        10,
-        18,
-        7.8
-      ],
-      "to": [
-        10.12,
-        24,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Moonveil inlaid energy channel 2",
-      "from": [
-        8.86,
-        18.2,
-        7.56
-      ],
-      "to": [
-        9.14,
-        23.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Moonveil forged blade facet 3",
-      "from": [
-        9.5,
-        24,
-        7.65
-      ],
-      "to": [
-        10.100000000000001,
-        28,
-        8.35
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Moonveil cutting edge 3",
-      "from": [
-        9.35,
-        24,
-        7.8
-      ],
-      "to": [
-        9.5,
-        28,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Moonveil spine ridge 3",
-      "from": [
-        10.100000000000001,
-        24,
-        7.8
-      ],
-      "to": [
-        10.22,
-        28,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Moonveil inlaid energy channel 3",
-      "from": [
-        9.66,
-        24.2,
-        7.56
-      ],
-      "to": [
-        9.940000000000001,
-        27.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            0.0,
+            10.6,
+            0.19048
           ],
           "texture": "#atlas"
         },
@@ -2080,14 +3253,14 @@
     {
       "name": "Moonveil etched sigil 0",
       "from": [
-        7.65,
+        7.82,
         8.0,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        8.22,
-        7.65
+        8.18,
+        8.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2149,14 +3322,14 @@
     {
       "name": "Moonveil etched sigil 1",
       "from": [
-        7.65,
+        7.82,
         10.25,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        10.47,
-        7.65
+        8.18,
+        10.41,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2218,14 +3391,14 @@
     {
       "name": "Moonveil etched sigil 2",
       "from": [
-        8.15,
+        7.8825,
         12.5,
-        7.51
+        7.59
       ],
       "to": [
-        8.85,
-        12.72,
-        7.65
+        8.2425,
+        12.66,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2287,14 +3460,14 @@
     {
       "name": "Moonveil etched sigil 3",
       "from": [
-        8.15,
+        8.0075,
         14.75,
-        7.51
+        7.59
       ],
       "to": [
-        8.85,
-        14.97,
-        7.65
+        8.3675,
+        14.91,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2356,14 +3529,14 @@
     {
       "name": "Moonveil etched sigil 4",
       "from": [
-        8.65,
+        8.2575,
         17.0,
-        7.51
+        7.59
       ],
       "to": [
-        9.35,
-        17.22,
-        7.65
+        8.6175,
+        17.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2425,14 +3598,14 @@
     {
       "name": "Moonveil etched sigil 5",
       "from": [
-        8.65,
+        8.3825,
         19.25,
-        7.51
+        7.59
       ],
       "to": [
-        9.35,
-        19.47,
-        7.65
+        8.7425,
+        19.41,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2494,14 +3667,14 @@
     {
       "name": "Moonveil etched sigil 6",
       "from": [
-        9.450000000000001,
+        8.6325,
         21.5,
-        7.51
+        7.59
       ],
       "to": [
-        10.15,
-        21.72,
-        7.65
+        8.9925,
+        21.66,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2564,7 +3737,7 @@
       "name": "Moonveil wing filigree -1",
       "from": [
         6.2,
-        7,
+        5.9,
         7.68
       ],
       "to": [
@@ -2633,7 +3806,7 @@
       "name": "Moonveil wing filigree 1",
       "from": [
         9.4,
-        7,
+        5.9,
         7.68
       ],
       "to": [
@@ -2746,9 +3919,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.44211,
+        0.44211,
+        0.44211
       ]
     },
     "firstperson_lefthand": {
@@ -2763,9 +3936,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.44211,
+        0.44211,
+        0.44211
       ]
     },
     "gui": {
@@ -2780,9 +3953,9 @@
         0
       ],
       "scale": [
-        0.55,
-        0.55,
-        0.55
+        0.44211,
+        0.44211,
+        0.44211
       ]
     },
     "ground": {

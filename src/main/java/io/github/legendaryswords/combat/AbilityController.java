@@ -34,7 +34,7 @@ import org.bukkit.util.Vector;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 
-/** Twenty-four spell sets with bounded displays, staged ultimates and protected damage. */
+/** Fifty spell sets with bounded displays, staged ultimates and protected damage. */
 public final class AbilityController implements AutoCloseable {
     private final LegendarySwordsPlugin plugin;
     private final PluginSettings settings;
@@ -300,11 +300,11 @@ public final class AbilityController implements AutoCloseable {
     /** Second collection: spatial hazards with their own footprints, timings and hit rules. */
     private void domainAttack(Player player, SwordType sword, Location origin, Vector direction, double damage, boolean ultimate) {
         Vector forward = flat(direction), right = new Vector(-forward.getZ(), 0, forward.getX());
-        double distance = unobstructed(player.getEyeLocation(), forward, ultimate ? 7 : 5);
+        double distance = unobstructed(player.getEyeLocation(), forward, ultimate ? 16 : 10);
         Location focus = origin.clone().add(forward.clone().multiply(Math.min(3, distance)));
         Map<UUID, Integer> hits = new HashMap<>();
         int duration = ultimate ? 80 : 40, limit = ultimate ? 3 : 1;
-        double radius = ultimate ? 6 : 3.5;
+        double radius = ultimate ? 8 : 5;
         // Every mine has its own armed/triggered state, rather than an immediate area strike.
         boolean[] triggered = new boolean[9];
         repeat(player, origin, 0, 2, frame -> {
@@ -312,6 +312,7 @@ public final class AbilityController implements AutoCloseable {
             double progress = frame / (double) (duration - 1), angle = frame * .14;
             boolean impact = frame >= 4 && frame % 12 == 4;
             boolean draw = frame % 4 == 0;
+            if (frame % 6 == 0) signatureVisuals(player, sword, origin, focus, forward, right, radius, progress, frame, ultimate);
             switch (sword) {
                 case EMBER_HALO -> {
                     double wave = 1.2 + ((frame % 24) / 23D) * radius;
@@ -396,7 +397,7 @@ public final class AbilityController implements AutoCloseable {
                     for (int i = 0; i < thorns; i++) {
                         double theta = i * Math.PI * 2 / thorns;
                         Location root = ultimate ? focus.clone().add(Math.cos(theta) * radius * .75, 0, Math.sin(theta) * radius * .75)
-                                : origin.clone().add(forward.clone().multiply((i + 1) * 1.2));
+                                : origin.clone().add(forward.clone().multiply((i + 1) * 1.8));
                         if (draw) effects.helix(root, .35, .5 + (i + frame % 8) * .3, angle, sword);
                         if (frame >= 4 && frame % 12 == i % 12) hitArea(player, root, 2.2, damage, .05, 0, 60, 1, hits, limit);
                     }
@@ -502,7 +503,7 @@ public final class AbilityController implements AutoCloseable {
                     }
                 }
                 case GLACIAL_CROWN -> {
-                    double rim = ultimate ? radius * (1 - progress) : .5 + progress * radius;
+                    double rim = ultimate ? radius * (1 - progress) : .15 + progress * radius;
                     if (draw) {
                         ringMesh(player, focus, rim, 10, sword);
                         for (int i = 0; i < 10; i++) {
@@ -600,6 +601,144 @@ public final class AbilityController implements AutoCloseable {
             displays.line(player, center.clone().add(Math.cos(a) * radius, 0, Math.sin(a) * radius),
                     center.clone().add(Math.cos(b) * radius, 0, Math.sin(b) * radius), domainMaterial(sword),
                     .09, sword.particleColor(), 8);
+        }
+    }
+
+    /** Distinct manifestations: these supplement each weapon's own collision/damage branch. */
+    private void signatureVisuals(Player player, SwordType sword, Location origin, Location focus, Vector forward,
+                                  Vector right, double radius, double progress, int frame, boolean ultimate) {
+        double spin = frame * .15;
+        double reach = unobstructed(player.getEyeLocation(), forward, ultimate ? 16 : 10);
+        double size = ultimate ? 1 : .65;
+        switch (sword) {
+            case EMBER_HALO -> {
+                for (int i=0;i<8;i++) {
+                    double theta=i*Math.PI/4+spin;
+                    Location p=origin.clone().add(Math.cos(theta)*radius, .5, Math.sin(theta)*radius);
+                    effects.particle(p, Particle.FLAME, 5, .15, .035);
+                    displays.line(player,p,p.clone().add(0,1.5*size,0),Material.ORANGE_STAINED_GLASS,.18,sword.particleColor(),12);
+                }
+            }
+            case VOID_REAVER -> {
+                portal(player,focus.clone().add(0,2,0),radius*.65,spin,sword);
+                for(int i=0;i<6;i++) {double theta=spin+i*Math.PI/3;Location p=focus.clone().add(Math.cos(theta)*radius,1+Math.sin(spin)*.5,Math.sin(theta)*radius);displays.box(player,p,Material.OBSIDIAN,.45,.45,.45,sword.particleColor(),12);effects.line(p,focus.clone().add(0,1,0),sword,.7);}
+            }
+            case ASTRAL_EDGE -> {
+                for(int i=0;i<(ultimate?5:3);i++) {double theta=spin+i*Math.PI*2/(ultimate?5:3);Location star=focus.clone().add(Math.cos(theta)*radius*.6,2+Math.sin(theta)*1.2,Math.sin(theta)*radius*.6);manifestBlade(player,star,sword,.9*size);effects.particle(star,Particle.END_ROD,5,.12,.02);if(frame%12==0)effects.line(star,focus.clone().add(0,1,0),sword,.4);}
+            }
+            case TIDEBREAKER -> {
+                Location wave=origin.clone().add(forward.clone().multiply(reach*progress));
+                for(int i=-3;i<=3;i++) {Location crest=wave.clone().add(right.clone().multiply(i*radius/3)).add(0,1.3+Math.cos(i*.5)*size,0);displays.box(player,crest,Material.CYAN_STAINED_GLASS,radius/3,.7+size, .35,sword.particleColor(),12);effects.particle(crest,Particle.SPLASH,8,.2,.04);}
+            }
+            case STORM_CAGE -> {
+                for(int i=0;i<6;i++) {double theta=i*Math.PI/3;Location pole=focus.clone().add(Math.cos(theta)*radius,0,Math.sin(theta)*radius);jaggedBolt(player,pole.clone().add(0,7*size,0),pole,sword);}
+                if(frame%12==0)jaggedBolt(player,focus.clone().add(0,10,0),focus,sword);
+            }
+            case CHRONO_SABER -> {
+                for(int i=0;i<12;i++) {double theta=i*Math.PI/6;Location tick=focus.clone().add(Math.cos(theta)*radius,.25,Math.sin(theta)*radius);displays.box(player,tick,Material.GOLD_BLOCK,.18,.2,i%3==0?.8:.4,sword.particleColor(),12);}
+                Location center=focus.clone().add(0,.35,0);
+                displays.line(player,center,center.clone().add(Math.cos(spin)*radius,0,Math.sin(spin)*radius),Material.YELLOW_STAINED_GLASS,.2,sword.particleColor(),12);
+                effects.particle(center,Particle.ENCHANT,8,.4,0);
+            }
+            case ECLIPSE_FANG -> {
+                for(int sign:new int[]{-1,1}) {Location sun=focus.clone().add(right.clone().multiply(sign*radius*(1-progress))).add(0,2,0);portal(player,sun,1.2*size,spin*sign,sword);displays.box(player,sun,Material.BLACK_STAINED_GLASS,.9,.9,.9,sword.particleColor(),12);}
+            }
+            case CRYSTAL_OATH -> {
+                int count=ultimate?9:3;
+                for(int i=0;i<count;i++) {Location mine=focus.clone().add((i%3-1)*2.2,0,(i/3-(ultimate?1:0))*2.2);double height=.6+(frame%12)/12D*1.2;displays.box(player,mine.clone().add(0,height/2,0),Material.AMETHYST_BLOCK,.4,height,.4,sword.particleColor(),12);for(int sign:new int[]{-1,1})displays.line(player,mine.clone().add(sign*.6,0,0),mine.clone().add(0,height,0),Material.LIGHT_BLUE_STAINED_GLASS,.15,sword.particleColor(),12);}
+            }
+            case BLOODTHORN -> {
+                for(int i=0;i<(ultimate?8:4);i++) {double theta=i*Math.PI/4;Location thorn=ultimate?focus.clone().add(Math.cos(theta)*radius*.75,0,Math.sin(theta)*radius*.75):origin.clone().add(forward.clone().multiply((i+1)*1.8));Location tip=thorn.clone().add(Math.sin(theta)*.5,2.5*size,Math.cos(theta)*.5);displays.line(player,thorn,tip,Material.RED_STAINED_GLASS,.24,sword.particleColor(),12);effects.particle(tip,Particle.CRIMSON_SPORE,6,.25,0);}
+            }
+            case SUNSPIRE -> {
+                Location top=focus.clone().add(0,8,0);portal(player,top,2*size,spin,sword);
+                displays.line(player,top,focus,Material.YELLOW_STAINED_GLASS,.3*size,sword.particleColor(),12);
+                effects.particle(focus,Particle.END_ROD,12,.8,.025);
+            }
+            case MOONVEIL -> {
+                double travel=Math.sin(progress*Math.PI)*reach;
+                for(int i=0;i<(ultimate?3:1);i++) {Vector heading=forward.clone().rotateAroundY((i-(ultimate?1:0))*.45);Location crescent=origin.clone().add(heading.multiply(travel)).add(0,1.4,0);portalArc(player,crescent,right,2*size,-120,120,sword);manifestBlade(player,crescent,sword,1.1*size);}
+            }
+            case RUNIC_JUDGMENT -> {
+                int rows=ultimate?5:3;
+                for(int i=0;i<rows;i++) {double offset=(i-(rows-1)/2D)*2;Location seal=focus.clone().add(right.clone().multiply(offset));displays.box(player,seal.clone().add(0,.12,0),Material.ORANGE_STAINED_GLASS,.65,.08,.65,sword.particleColor(),12);effects.particle(seal,Particle.ENCHANT,6,.4,0);}
+                if(ultimate)portal(player,focus.clone().add(0,4,0),radius*.7,spin,sword);
+            }
+            case NEBULA_BLADE -> {
+                // Star clouds are a constellation trail, distinct from the physical corkscrew.
+                for(int i=0;i<5;i++) {Location star=focus.clone().add(Math.cos(spin+i*2.4)*radius*.6,2+Math.sin(i*2.4+spin)*1.5,Math.sin(spin+i*2.4)*radius*.6);effects.particle(star,Particle.END_ROD,3,.1,.015);if(i>0)effects.line(star,focus.clone().add(0,3,0),sword,.65);}
+            }
+            case OBSIDIAN_MAW -> {
+                for(int i=0;i<8;i++) {double theta=i*Math.PI/4;Location vent=focus.clone().add(Math.cos(theta)*radius*.7,0,Math.sin(theta)*radius*.7);displays.box(player,vent.clone().add(0,.6,0),Material.OBSIDIAN,.6,1.2,.6,sword.particleColor(),12);effects.particle(vent,Particle.LAVA,4,.2,.02);if(ultimate)displays.line(player,vent,vent.clone().add(0,3,0),Material.ORANGE_STAINED_GLASS,.22,sword.particleColor(),12);}
+            }
+            case SERAPH_WING -> {
+                for(int sign:new int[]{-1,1}) for(int i=0;i<6;i++) {Location feather=focus.clone().add(right.clone().multiply(sign*(1+i*.5))).add(0,1.8+i*.25,0);displays.line(player,feather,feather.clone().add(forward.clone().multiply(-1.8*size)).add(0,1,0),Material.WHITE_STAINED_GLASS,.2,sword.particleColor(),12);effects.particle(feather,Particle.END_ROD,3,.1,.01);}
+            }
+            case ABYSSAL_TRIDENT -> {
+                if(ultimate)for(int i=0;i<3;i++) {double theta=spin+i*Math.PI*2/3;Location p=focus.clone().add(Math.cos(theta)*radius*.6,.8,Math.sin(theta)*radius*.6);manifestBlade(player,p,sword,1.3);effects.particle(p,Particle.SPLASH,8,.25,.03);}
+                else for(int i=-1;i<=1;i++) {Location p=origin.clone().add(forward.clone().multiply(reach*progress)).add(right.clone().multiply(i*1.2)).add(0,1,0);displays.line(player,p,p.clone().subtract(forward.clone().multiply(1.8)),Material.CYAN_STAINED_GLASS,.22,sword.particleColor(),12);}
+            }
+            case MIRAGE_SABER -> {
+                for(int i=0;i<(ultimate?5:3);i++) {Location echo=focus.clone().add(Math.cos(i*2.4)*i*.8,1,Math.sin(i*2.4)*i*.8);manifestBlade(player,echo,sword,.9);effects.particle(echo,Particle.ENCHANT,8,.3,0);}
+            }
+            case METEOR_BRAND -> {
+                for(int i=0;i<(ultimate?9:3);i++) {int landing=10+i*5;if(frame>landing||frame<landing-8)continue;Location mark=i==0?focus:focus.clone().add(Math.cos(i*2.4)*3,0,Math.sin(i*2.4)*3);Location rock=mark.clone().add(0,(landing-frame)*.9+1,0);displays.box(player,rock,Material.MAGMA_BLOCK,1.1,1.1,1.1,sword.particleColor(),12);effects.line(rock,rock.clone().add(0,3,0),sword,.35);effects.particle(rock,Particle.FLAME,10,.3,.05);}
+            }
+            case GLACIAL_CROWN -> {
+                for(int i=0;i<10;i++) {double theta=i*Math.PI/5;double rim=ultimate?radius*(1-progress):.15+progress*radius;Location ice=focus.clone().add(Math.cos(theta)*rim,0,Math.sin(theta)*rim);displays.box(player,ice.clone().add(0,1,0),Material.BLUE_ICE,.3,2.2*size,.3,sword.particleColor(),12);effects.particle(ice,Particle.SNOWFLAKE,5,.2,.03);}
+            }
+            case TEMPEST_RAPIER -> {
+                // Vortex ribs show the wind field rather than another static dome.
+                for(int i=0;i<4;i++) {double theta=spin+i*Math.PI/2;Location a=focus.clone().add(Math.cos(theta)*radius,.3,Math.sin(theta)*radius);Location b=focus.clone().add(Math.cos(theta+.8)*radius*.5,4*size,Math.sin(theta+.8)*radius*.5);displays.line(player,a,b,Material.LIME_STAINED_GLASS,.1,sword.particleColor(),12);effects.particle(a,Particle.CLOUD,4,.1,.015);}
+            }
+            case GRAVITY_CLEAVER -> {
+                double shell=radius*(1-progress*.8);portal(player,focus.clone().add(0,2,0),shell,spin,sword);
+                for(int i=0;i<6;i++) {double theta=i*Math.PI/3+spin;Location shard=focus.clone().add(Math.cos(theta)*shell,1+i%3,Math.sin(theta)*shell);displays.box(player,shard,Material.OBSIDIAN,.4,.4,.4,sword.particleColor(),12);effects.line(shard,focus.clone().add(0,1,0),sword,.65);}
+            }
+            case PRISM_SWORD -> {
+                Location apex=focus.clone().add(0,5*size,0);
+                for(int i=0;i<3;i++) {double theta=spin+i*Math.PI*2/3;Location corner=focus.clone().add(Math.cos(theta)*radius,0,Math.sin(theta)*radius);displays.line(player,corner,apex,Material.MAGENTA_STAINED_GLASS,.2,sword.particleColor(),12);effects.particle(corner,Particle.END_ROD,4,.2,.02);}
+            }
+            case THUNDER_DRUM -> {
+                double shell=1+(frame%20)/19D*radius;
+                portal(player,focus.clone().add(0,1,0),shell,spin,sword);
+                if(frame%12==0)jaggedBolt(player,focus.clone().add(0,6,0),focus,sword);
+            }
+            case WRAITH_SCYTHE -> {
+                for(int i=0;i<(ultimate?4:2);i++) {double theta=spin+i*Math.PI/2;Location ghost=focus.clone().add(Math.cos(theta)*radius*.6,1.2,Math.sin(theta)*radius*.6);manifestBlade(player,ghost,sword,1.2*size);effects.particle(ghost,Particle.SOUL,4,.15,.02);}
+            }
+            case VERDANT_OATH -> {
+                for(int i=0;i<(ultimate?7:3);i++) {Location root=focus.clone().add(Math.cos(i*2.4)*i*.6,0,Math.sin(i*2.4)*i*.6);displays.line(player,root,root.clone().add(Math.sin(spin+i)*.5,2.8*size,Math.cos(spin+i)*.5),Material.MOSS_BLOCK,.2,sword.particleColor(),12);effects.particle(root.clone().add(0,2,0),Particle.HAPPY_VILLAGER,5,.35,0);}
+            }
+            case DRAGONHEART -> {
+                Location mouth=ultimate?focus.clone().add(0,1.5,0):origin.clone().add(0,1.5,0);
+                for(int i=-3;i<=3;i++) {Vector heading=forward.clone().rotateAroundY(i*.12+(ultimate?spin:0));Location tip=mouth.clone().add(heading.multiply(radius));effects.particle(tip,Particle.FLAME,8,.25,.06);displays.line(player,mouth,tip,Material.ORANGE_STAINED_GLASS,.07,sword.particleColor(),12);}
+            }
+            default -> { }
+        }
+    }
+    private void manifestBlade(Player player, Location location, SwordType sword, double scale) {
+        if(plugin.swords()!=null) displays.blade(player,location,plugin.swords().create(sword),scale,sword.particleColor(),12);
+    }
+    private void portal(Player player, Location center, double radius, double turn, SwordType sword) {
+        Vector horizontal=new Vector(Math.cos(turn),0,Math.sin(turn));
+        portalArc(player,center,horizontal,radius,0,360,sword);
+    }
+    private void portalArc(Player player, Location center, Vector horizontal, double radius, double start, double end, SwordType sword) {
+        for(int i=0;i<16;i++) {
+            double a=Math.toRadians(start+(end-start)*i/16),b=Math.toRadians(start+(end-start)*(i+1)/16);
+            Location from=center.clone().add(horizontal.clone().multiply(Math.cos(a)*radius)).add(0,Math.sin(a)*radius,0);
+            Location to=center.clone().add(horizontal.clone().multiply(Math.cos(b)*radius)).add(0,Math.sin(b)*radius,0);
+            displays.line(player,from,to,domainMaterial(sword),.12,sword.particleColor(),12);effects.line(from,to,sword,.5);
+        }
+    }
+    private void jaggedBolt(Player player, Location from, Location to, SwordType sword) {
+        Location previous=from;
+        for(int i=1;i<=7;i++) {
+            Location next=from.clone().add(to.toVector().subtract(from.toVector()).multiply(i/7D));
+            if(i<7)next.add(i%2==0?.35:-.35,0,i%3==0?.3:-.15);
+            displays.line(player,previous,next,Material.LIGHT_BLUE_STAINED_GLASS,.16,sword.particleColor(),12);
+            effects.particle(next,Particle.ELECTRIC_SPARK,4,.1,.025); previous=next;
         }
     }
 

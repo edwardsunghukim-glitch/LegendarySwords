@@ -16,7 +16,7 @@
       ],
       "to": [
         8.65,
-        5,
+        5.45,
         8.65
       ],
       "faces": {
@@ -770,7 +770,7 @@
       "name": "Crystal Oath guard wing -1",
       "from": [
         4.89,
-        6.05,
+        5.9,
         7.35
       ],
       "to": [
@@ -839,7 +839,7 @@
       "name": "Crystal Oath guard wing 1",
       "from": [
         10.31,
-        6.05,
+        5.9,
         7.35
       ],
       "to": [
@@ -974,447 +974,240 @@
       }
     },
     {
-      "name": "Crystal Oath forged blade facet 0",
+      "name": "Crystal Oath blade ferrule",
+      "from": [
+        7.25,
+        6,
+        7.35
+      ],
+      "to": [
+        8.75,
+        7.15,
+        8.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath continuous blade facet 0-0",
       "from": [
         6.9,
-        7,
+        7.0,
         7.65
       ],
       "to": [
         9.1,
-        10,
+        7.75,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.0,
+            3.86364,
+            4.0,
+            4.0
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.0,
+            3.86364,
+            4.0,
+            4.0
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Crystal Oath cutting edge 0",
+      "name": "Crystal Oath flush energy inlay 0-0",
       "from": [
-        6.75,
-        7,
-        7.8
+        7.9,
+        7.0,
+        7.59
       ],
       "to": [
+        8.1,
+        7.75,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            3.86364,
+            10.6,
+            4.0
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            3.86364,
+            10.6,
+            4.0
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath continuous blade facet 0-1",
+      "from": [
         6.9,
-        10,
-        8.2
+        7.75,
+        7.65
       ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Crystal Oath spine ridge 0",
-      "from": [
+      "to": [
         9.1,
-        7,
-        7.8
-      ],
-      "to": [
-        9.219999999999999,
-        10,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Crystal Oath inlaid energy channel 0",
-      "from": [
-        7.86,
-        7.2,
-        7.56
-      ],
-      "to": [
-        8.14,
-        9.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Crystal Oath forged blade facet 1",
-      "from": [
-        7.0,
-        10,
-        7.65
-      ],
-      "to": [
-        8.4,
-        18,
+        8.5,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.0,
+            3.72727,
+            4.0,
+            3.86364
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Crystal Oath cutting edge 1",
-      "from": [
-        6.85,
-        10,
-        7.8
-      ],
-      "to": [
-        7.0,
-        18,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Crystal Oath spine ridge 1",
-      "from": [
-        8.4,
-        10,
-        7.8
-      ],
-      "to": [
-        8.52,
-        18,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
+            0.0,
+            3.72727,
+            4.0,
+            3.86364
           ],
           "texture": "#atlas"
         },
@@ -1457,516 +1250,102 @@
       }
     },
     {
-      "name": "Crystal Oath inlaid energy channel 1",
+      "name": "Crystal Oath flush energy inlay 0-1",
       "from": [
-        7.5600000000000005,
-        10.2,
-        7.56
-      ],
-      "to": [
-        7.84,
-        17.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Crystal Oath forged blade facet 2",
-      "from": [
-        7.6000000000000005,
-        18,
-        7.65
-      ],
-      "to": [
-        9.0,
-        26,
-        8.35
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Crystal Oath cutting edge 2",
-      "from": [
-        7.45,
-        18,
-        7.8
-      ],
-      "to": [
-        7.6000000000000005,
-        26,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Crystal Oath spine ridge 2",
-      "from": [
-        9.0,
-        18,
-        7.8
-      ],
-      "to": [
-        9.12,
-        26,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Crystal Oath inlaid energy channel 2",
-      "from": [
-        8.16,
-        18.2,
-        7.56
-      ],
-      "to": [
-        8.440000000000001,
-        25.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Crystal Oath forged blade facet 3",
-      "from": [
+        7.9,
         7.75,
-        26,
+        7.59
+      ],
+      "to": [
+        8.1,
+        8.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            3.72727,
+            10.6,
+            3.86364
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            3.72727,
+            10.6,
+            3.86364
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath continuous blade facet 0-2",
+      "from": [
+        6.9,
+        8.5,
         7.65
       ],
       "to": [
-        8.25,
-        29,
+        9.1,
+        9.25,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.0,
+            3.59091,
+            4.0,
+            3.72727
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Crystal Oath cutting edge 3",
-      "from": [
-        7.6,
-        26,
-        7.8
-      ],
-      "to": [
-        7.75,
-        29,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Crystal Oath spine ridge 3",
-      "from": [
-        8.25,
-        26,
-        7.8
-      ],
-      "to": [
-        8.37,
-        29,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
+            0.0,
+            3.59091,
+            4.0,
+            3.72727
           ],
           "texture": "#atlas"
         },
@@ -2009,33 +1388,1827 @@
       }
     },
     {
-      "name": "Crystal Oath inlaid energy channel 3",
+      "name": "Crystal Oath flush energy inlay 0-2",
       "from": [
-        7.86,
-        26.2,
-        7.56
+        7.9,
+        8.5,
+        7.59
       ],
       "to": [
-        8.14,
-        28.85,
-        8.44
+        8.1,
+        9.25,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            3.59091,
+            10.6,
+            3.72727
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
+            9.4,
+            3.59091,
+            10.6,
+            3.72727
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
             8,
-            0,
             12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath continuous blade facet 0-3",
+      "from": [
+        6.9,
+        9.25,
+        7.65
+      ],
+      "to": [
+        9.1,
+        10.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            3.45455,
+            4.0,
+            3.59091
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            3.45455,
+            4.0,
+            3.59091
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
             4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath flush energy inlay 0-3",
+      "from": [
+        7.9,
+        9.25,
+        7.59
+      ],
+      "to": [
+        8.1,
+        10.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            3.45455,
+            10.6,
+            3.59091
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            3.45455,
+            10.6,
+            3.59091
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath continuous blade facet 1-0",
+      "from": [
+        6.9125000000000005,
+        10.0,
+        7.65
+      ],
+      "to": [
+        9.012500000000001,
+        12.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.02273,
+            3.09091,
+            3.84091,
+            3.45455
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.02273,
+            3.09091,
+            3.84091,
+            3.45455
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath flush energy inlay 1-0",
+      "from": [
+        7.862500000000001,
+        10.0,
+        7.59
+      ],
+      "to": [
+        8.0625,
+        12.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            3.09091,
+            10.6,
+            3.45455
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            3.09091,
+            10.6,
+            3.45455
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath continuous blade facet 1-1",
+      "from": [
+        6.9375,
+        12.0,
+        7.65
+      ],
+      "to": [
+        8.8375,
+        14.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.06818,
+            2.72727,
+            3.52273,
+            3.09091
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.06818,
+            2.72727,
+            3.52273,
+            3.09091
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath flush energy inlay 1-1",
+      "from": [
+        7.7875000000000005,
+        12.0,
+        7.59
+      ],
+      "to": [
+        7.9875,
+        14.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.72727,
+            10.6,
+            3.09091
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.72727,
+            10.6,
+            3.09091
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath continuous blade facet 1-2",
+      "from": [
+        6.9625,
+        14.0,
+        7.65
+      ],
+      "to": [
+        8.6625,
+        16.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.11364,
+            2.36364,
+            3.20455,
+            2.72727
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.11364,
+            2.36364,
+            3.20455,
+            2.72727
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath flush energy inlay 1-2",
+      "from": [
+        7.7125,
+        14.0,
+        7.59
+      ],
+      "to": [
+        7.9125,
+        16.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.36364,
+            10.6,
+            2.72727
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.36364,
+            10.6,
+            2.72727
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath continuous blade facet 1-3",
+      "from": [
+        6.9875,
+        16.0,
+        7.65
+      ],
+      "to": [
+        8.4875,
+        18.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.15909,
+            2.0,
+            2.88636,
+            2.36364
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.15909,
+            2.0,
+            2.88636,
+            2.36364
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath flush energy inlay 1-3",
+      "from": [
+        7.6375,
+        16.0,
+        7.59
+      ],
+      "to": [
+        7.8374999999999995,
+        18.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.0,
+            10.6,
+            2.36364
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.0,
+            10.6,
+            2.36364
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath continuous blade facet 2-0",
+      "from": [
+        7.074999999999999,
+        18.0,
+        7.65
+      ],
+      "to": [
+        8.475,
+        20.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.31818,
+            1.63636,
+            2.86364,
+            2.0
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.31818,
+            1.63636,
+            2.86364,
+            2.0
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath flush energy inlay 2-0",
+      "from": [
+        7.675,
+        18.0,
+        7.59
+      ],
+      "to": [
+        7.874999999999999,
+        20.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.63636,
+            10.6,
+            2.0
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.63636,
+            10.6,
+            2.0
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath continuous blade facet 2-1",
+      "from": [
+        7.225,
+        20.0,
+        7.65
+      ],
+      "to": [
+        8.625,
+        22.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.59091,
+            1.27273,
+            3.13636,
+            1.63636
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.59091,
+            1.27273,
+            3.13636,
+            1.63636
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath flush energy inlay 2-1",
+      "from": [
+        7.825,
+        20.0,
+        7.59
+      ],
+      "to": [
+        8.025,
+        22.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.27273,
+            10.6,
+            1.63636
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.27273,
+            10.6,
+            1.63636
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath continuous blade facet 2-2",
+      "from": [
+        7.374999999999999,
+        22.0,
+        7.65
+      ],
+      "to": [
+        8.774999999999999,
+        24.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.86364,
+            0.90909,
+            3.40909,
+            1.27273
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.86364,
+            0.90909,
+            3.40909,
+            1.27273
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath flush energy inlay 2-2",
+      "from": [
+        7.975,
+        22.0,
+        7.59
+      ],
+      "to": [
+        8.174999999999999,
+        24.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.90909,
+            10.6,
+            1.27273
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.90909,
+            10.6,
+            1.27273
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath continuous blade facet 2-3",
+      "from": [
+        7.5249999999999995,
+        24.0,
+        7.65
+      ],
+      "to": [
+        8.924999999999999,
+        26.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.13636,
+            0.54545,
+            3.68182,
+            0.90909
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.13636,
+            0.54545,
+            3.68182,
+            0.90909
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath flush energy inlay 2-3",
+      "from": [
+        8.125,
+        24.0,
+        7.59
+      ],
+      "to": [
+        8.325,
+        26.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.54545,
+            10.6,
+            0.90909
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.54545,
+            10.6,
+            0.90909
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath continuous blade facet 3-0",
+      "from": [
+        7.6187499999999995,
+        26.0,
+        7.65
+      ],
+      "to": [
+        8.90625,
+        26.75,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.30682,
+            0.40909,
+            3.64773,
+            0.54545
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.30682,
+            0.40909,
+            3.64773,
+            0.54545
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath flush energy inlay 3-0",
+      "from": [
+        8.1625,
+        26.0,
+        7.59
+      ],
+      "to": [
+        8.362499999999999,
+        26.75,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.40909,
+            10.6,
+            0.54545
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.40909,
+            10.6,
+            0.54545
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath continuous blade facet 3-1",
+      "from": [
+        7.65625,
+        26.75,
+        7.65
+      ],
+      "to": [
+        8.71875,
+        27.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.375,
+            0.27273,
+            3.30682,
+            0.40909
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.375,
+            0.27273,
+            3.30682,
+            0.40909
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath flush energy inlay 3-1",
+      "from": [
+        8.0875,
+        26.75,
+        7.59
+      ],
+      "to": [
+        8.2875,
+        27.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.27273,
+            10.6,
+            0.40909
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.27273,
+            10.6,
+            0.40909
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath continuous blade facet 3-2",
+      "from": [
+        7.6937500000000005,
+        27.5,
+        7.65
+      ],
+      "to": [
+        8.53125,
+        28.25,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.44318,
+            0.13636,
+            2.96591,
+            0.27273
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.44318,
+            0.13636,
+            2.96591,
+            0.27273
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath flush energy inlay 3-2",
+      "from": [
+        8.012500000000001,
+        27.5,
+        7.59
+      ],
+      "to": [
+        8.2125,
+        28.25,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.13636,
+            10.6,
+            0.27273
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.13636,
+            10.6,
+            0.27273
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath continuous blade facet 3-3",
+      "from": [
+        7.731249999999999,
+        28.25,
+        7.65
+      ],
+      "to": [
+        8.34375,
+        29.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.51136,
+            0.0,
+            2.625,
+            0.13636
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.51136,
+            0.0,
+            2.625,
+            0.13636
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crystal Oath flush energy inlay 3-3",
+      "from": [
+        7.9375,
+        28.25,
+        7.59
+      ],
+      "to": [
+        8.1375,
+        29.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.0,
+            10.6,
+            0.13636
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.0,
+            10.6,
+            0.13636
           ],
           "texture": "#atlas"
         },
@@ -2080,14 +3253,14 @@
     {
       "name": "Crystal Oath etched sigil 0",
       "from": [
-        7.65,
+        7.82,
         8.0,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        8.22,
-        7.65
+        8.18,
+        8.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2149,14 +3322,14 @@
     {
       "name": "Crystal Oath etched sigil 1",
       "from": [
-        7.65,
+        7.82,
         10.25,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        10.47,
-        7.65
+        8.18,
+        10.41,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2218,14 +3391,14 @@
     {
       "name": "Crystal Oath etched sigil 2",
       "from": [
-        7.3500000000000005,
+        7.7075000000000005,
         12.5,
-        7.51
+        7.59
       ],
       "to": [
-        8.05,
-        12.72,
-        7.65
+        8.0675,
+        12.66,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2287,14 +3460,14 @@
     {
       "name": "Crystal Oath etched sigil 3",
       "from": [
-        7.3500000000000005,
+        7.6325,
         14.75,
-        7.51
+        7.59
       ],
       "to": [
-        8.05,
-        14.97,
-        7.65
+        7.9925,
+        14.91,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2356,14 +3529,14 @@
     {
       "name": "Crystal Oath etched sigil 4",
       "from": [
-        7.950000000000001,
+        7.557500000000001,
         17.0,
-        7.51
+        7.59
       ],
       "to": [
-        8.65,
-        17.22,
-        7.65
+        7.9175,
+        17.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2425,14 +3598,14 @@
     {
       "name": "Crystal Oath etched sigil 5",
       "from": [
-        7.950000000000001,
+        7.595,
         19.25,
-        7.51
+        7.59
       ],
       "to": [
-        8.65,
-        19.47,
-        7.65
+        7.954999999999999,
+        19.41,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2494,14 +3667,14 @@
     {
       "name": "Crystal Oath etched sigil 6",
       "from": [
-        7.65,
+        7.745,
         21.5,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        21.72,
-        7.65
+        8.105,
+        21.66,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2563,14 +3736,14 @@
     {
       "name": "Crystal Oath etched sigil 7",
       "from": [
-        7.65,
+        7.895,
         23.75,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        23.97,
-        7.65
+        8.254999999999999,
+        23.91,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2630,16 +3803,16 @@
       }
     },
     {
-      "name": "Crystal Oath floating crystal 0",
+      "name": "Crystal Oath embedded crystal 0",
       "from": [
-        6.58,
+        7.6875,
         13,
-        7.7
+        7.59
       ],
       "to": [
-        7.02,
-        14,
-        8.3
+        8.0875,
+        13.8,
+        7.73
       ],
       "faces": {
         "north": {
@@ -2699,16 +3872,16 @@
       }
     },
     {
-      "name": "Crystal Oath floating crystal 1",
+      "name": "Crystal Oath embedded crystal 1",
       "from": [
-        8.979999999999999,
+        7.6125,
         16,
-        7.7
+        7.59
       ],
       "to": [
-        9.42,
-        17,
-        8.3
+        8.0125,
+        16.8,
+        7.73
       ],
       "faces": {
         "north": {
@@ -2768,16 +3941,16 @@
       }
     },
     {
-      "name": "Crystal Oath floating crystal 2",
+      "name": "Crystal Oath embedded crystal 2",
       "from": [
-        6.58,
+        7.574999999999999,
         19,
-        7.7
+        7.59
       ],
       "to": [
-        7.02,
-        20,
-        8.3
+        7.975,
+        19.8,
+        7.73
       ],
       "faces": {
         "north": {
@@ -2837,16 +4010,16 @@
       }
     },
     {
-      "name": "Crystal Oath floating crystal 3",
+      "name": "Crystal Oath embedded crystal 3",
       "from": [
-        8.979999999999999,
+        7.725,
         22,
-        7.7
+        7.59
       ],
       "to": [
-        9.42,
-        23,
-        8.3
+        8.125,
+        22.8,
+        7.73
       ],
       "faces": {
         "north": {
@@ -2953,9 +4126,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.42803,
+        0.42803,
+        0.42803
       ]
     },
     "firstperson_lefthand": {
@@ -2970,9 +4143,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.42803,
+        0.42803,
+        0.42803
       ]
     },
     "gui": {
@@ -2987,9 +4160,9 @@
         0
       ],
       "scale": [
-        0.55,
-        0.55,
-        0.55
+        0.42803,
+        0.42803,
+        0.42803
       ]
     },
     "ground": {

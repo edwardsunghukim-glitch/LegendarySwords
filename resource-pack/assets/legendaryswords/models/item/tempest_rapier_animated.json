@@ -16,7 +16,7 @@
       ],
       "to": [
         8.65,
-        5,
+        5.45,
         8.65
       ],
       "faces": {
@@ -770,7 +770,7 @@
       "name": "Tempest Rapier guard wing -1",
       "from": [
         4.89,
-        6.05,
+        5.9,
         7.35
       ],
       "to": [
@@ -839,7 +839,7 @@
       "name": "Tempest Rapier guard wing 1",
       "from": [
         10.31,
-        6.05,
+        5.9,
         7.35
       ],
       "to": [
@@ -974,516 +974,309 @@
       }
     },
     {
-      "name": "Tempest Rapier forged blade facet 0",
+      "name": "Tempest Rapier blade ferrule",
+      "from": [
+        7.25,
+        6,
+        7.35
+      ],
+      "to": [
+        8.75,
+        7.15,
+        8.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier continuous blade facet 0-0",
       "from": [
         7.6,
-        7,
+        7.0,
         7.65
       ],
       "to": [
         8.4,
-        15,
+        9.0,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.0,
+            3.66667,
+            4.0,
+            4.0
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.0,
+            3.66667,
+            4.0,
+            4.0
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Tempest Rapier cutting edge 0",
+      "name": "Tempest Rapier flush energy inlay 0-0",
       "from": [
-        7.449999999999999,
-        7,
-        7.8
+        7.9,
+        7.0,
+        7.59
       ],
       "to": [
+        8.1,
+        9.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            3.66667,
+            10.6,
+            4.0
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            3.66667,
+            10.6,
+            4.0
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier continuous blade facet 0-1",
+      "from": [
         7.6,
-        15,
-        8.2
+        9.0,
+        7.65
       ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Tempest Rapier spine ridge 0",
-      "from": [
+      "to": [
         8.4,
-        7,
-        7.8
-      ],
-      "to": [
-        8.52,
-        15,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Tempest Rapier inlaid energy channel 0",
-      "from": [
-        7.86,
-        7.2,
-        7.56
-      ],
-      "to": [
-        8.14,
-        14.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Tempest Rapier forged blade facet 1",
-      "from": [
-        7.65,
-        15,
-        7.65
-      ],
-      "to": [
-        8.35,
-        24,
+        11.0,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.0,
+            3.33333,
+            4.0,
+            3.66667
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.0,
+            3.33333,
+            4.0,
+            3.66667
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Tempest Rapier cutting edge 1",
+      "name": "Tempest Rapier flush energy inlay 0-1",
       "from": [
-        7.5,
-        15,
-        7.8
+        7.9,
+        9.0,
+        7.59
       ],
       "to": [
-        7.65,
-        24,
-        8.2
+        8.1,
+        11.0,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            4,
-            0,
-            8,
-            4
+            9.4,
+            3.33333,
+            10.6,
+            3.66667
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Tempest Rapier spine ridge 1",
-      "from": [
-        8.35,
-        15,
-        7.8
-      ],
-      "to": [
-        8.469999999999999,
-        24,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Tempest Rapier inlaid energy channel 1",
-      "from": [
-        7.86,
-        15.2,
-        7.56
-      ],
-      "to": [
-        8.14,
-        23.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            3.33333,
+            10.6,
+            3.66667
           ],
           "texture": "#atlas"
         },
@@ -1526,171 +1319,33 @@
       }
     },
     {
-      "name": "Tempest Rapier forged blade facet 2",
+      "name": "Tempest Rapier continuous blade facet 0-2",
       "from": [
-        7.88,
-        24,
+        7.6,
+        11.0,
         7.65
       ],
       "to": [
-        8.12,
-        31,
+        8.4,
+        13.0,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.0,
+            3.0,
+            4.0,
+            3.33333
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Tempest Rapier cutting edge 2",
-      "from": [
-        7.7299999999999995,
-        24,
-        7.8
-      ],
-      "to": [
-        7.88,
-        31,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Tempest Rapier spine ridge 2",
-      "from": [
-        8.12,
-        24,
-        7.8
-      ],
-      "to": [
-        8.239999999999998,
-        31,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
+            0.0,
+            3.0,
+            4.0,
+            3.33333
           ],
           "texture": "#atlas"
         },
@@ -1733,33 +1388,1275 @@
       }
     },
     {
-      "name": "Tempest Rapier inlaid energy channel 2",
+      "name": "Tempest Rapier flush energy inlay 0-2",
       "from": [
-        7.86,
-        24.2,
-        7.56
+        7.9,
+        11.0,
+        7.59
       ],
       "to": [
-        8.14,
-        30.85,
-        8.44
+        8.1,
+        13.0,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            3.0,
+            10.6,
+            3.33333
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
+            9.4,
+            3.0,
+            10.6,
+            3.33333
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
             8,
-            0,
             12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier continuous blade facet 0-3",
+      "from": [
+        7.6,
+        13.0,
+        7.65
+      ],
+      "to": [
+        8.4,
+        15.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            2.66667,
+            4.0,
+            3.0
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            2.66667,
+            4.0,
+            3.0
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
             4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier flush energy inlay 0-3",
+      "from": [
+        7.9,
+        13.0,
+        7.59
+      ],
+      "to": [
+        8.1,
+        15.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.66667,
+            10.6,
+            3.0
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.66667,
+            10.6,
+            3.0
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier continuous blade facet 1-0",
+      "from": [
+        7.60625,
+        15.0,
+        7.65
+      ],
+      "to": [
+        8.39375,
+        17.25,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.03125,
+            2.29167,
+            3.96875,
+            2.66667
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.03125,
+            2.29167,
+            3.96875,
+            2.66667
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier flush energy inlay 1-0",
+      "from": [
+        7.9,
+        15.0,
+        7.59
+      ],
+      "to": [
+        8.1,
+        17.25,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.29167,
+            10.6,
+            2.66667
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.29167,
+            10.6,
+            2.66667
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier continuous blade facet 1-1",
+      "from": [
+        7.61875,
+        17.25,
+        7.65
+      ],
+      "to": [
+        8.38125,
+        19.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.09375,
+            1.91667,
+            3.90625,
+            2.29167
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.09375,
+            1.91667,
+            3.90625,
+            2.29167
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier flush energy inlay 1-1",
+      "from": [
+        7.9,
+        17.25,
+        7.59
+      ],
+      "to": [
+        8.1,
+        19.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.91667,
+            10.6,
+            2.29167
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.91667,
+            10.6,
+            2.29167
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier continuous blade facet 1-2",
+      "from": [
+        7.63125,
+        19.5,
+        7.65
+      ],
+      "to": [
+        8.36875,
+        21.75,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.15625,
+            1.54167,
+            3.84375,
+            1.91667
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.15625,
+            1.54167,
+            3.84375,
+            1.91667
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier flush energy inlay 1-2",
+      "from": [
+        7.9,
+        19.5,
+        7.59
+      ],
+      "to": [
+        8.1,
+        21.75,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.54167,
+            10.6,
+            1.91667
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.54167,
+            10.6,
+            1.91667
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier continuous blade facet 1-3",
+      "from": [
+        7.64375,
+        21.75,
+        7.65
+      ],
+      "to": [
+        8.35625,
+        24.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.21875,
+            1.16667,
+            3.78125,
+            1.54167
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.21875,
+            1.16667,
+            3.78125,
+            1.54167
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier flush energy inlay 1-3",
+      "from": [
+        7.9,
+        21.75,
+        7.59
+      ],
+      "to": [
+        8.1,
+        24.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.16667,
+            10.6,
+            1.54167
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.16667,
+            10.6,
+            1.54167
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier continuous blade facet 2-0",
+      "from": [
+        7.67875,
+        24.0,
+        7.65
+      ],
+      "to": [
+        8.32125,
+        25.75,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.39375,
+            0.875,
+            3.60625,
+            1.16667
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.39375,
+            0.875,
+            3.60625,
+            1.16667
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier flush energy inlay 2-0",
+      "from": [
+        7.9,
+        24.0,
+        7.59
+      ],
+      "to": [
+        8.1,
+        25.75,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.875,
+            10.6,
+            1.16667
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.875,
+            10.6,
+            1.16667
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier continuous blade facet 2-1",
+      "from": [
+        7.73625,
+        25.75,
+        7.65
+      ],
+      "to": [
+        8.26375,
+        27.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.68125,
+            0.58333,
+            3.31875,
+            0.875
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.68125,
+            0.58333,
+            3.31875,
+            0.875
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier flush energy inlay 2-1",
+      "from": [
+        7.9,
+        25.75,
+        7.59
+      ],
+      "to": [
+        8.1,
+        27.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.58333,
+            10.6,
+            0.875
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.58333,
+            10.6,
+            0.875
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier continuous blade facet 2-2",
+      "from": [
+        7.79375,
+        27.5,
+        7.65
+      ],
+      "to": [
+        8.20625,
+        29.25,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.96875,
+            0.29167,
+            3.03125,
+            0.58333
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.96875,
+            0.29167,
+            3.03125,
+            0.58333
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier flush energy inlay 2-2",
+      "from": [
+        7.9,
+        27.5,
+        7.59
+      ],
+      "to": [
+        8.1,
+        29.25,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.29167,
+            10.6,
+            0.58333
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.29167,
+            10.6,
+            0.58333
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier continuous blade facet 2-3",
+      "from": [
+        7.85125,
+        29.25,
+        7.65
+      ],
+      "to": [
+        8.14875,
+        31.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.25625,
+            0.0,
+            2.74375,
+            0.29167
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.25625,
+            0.0,
+            2.74375,
+            0.29167
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tempest Rapier flush energy inlay 2-3",
+      "from": [
+        7.9,
+        29.25,
+        7.59
+      ],
+      "to": [
+        8.1,
+        31.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.0,
+            10.6,
+            0.29167
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.0,
+            10.6,
+            0.29167
           ],
           "texture": "#atlas"
         },
@@ -1804,14 +2701,14 @@
     {
       "name": "Tempest Rapier etched sigil 0",
       "from": [
-        7.65,
+        7.82,
         8.0,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        8.22,
-        7.65
+        8.18,
+        8.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -1873,14 +2770,14 @@
     {
       "name": "Tempest Rapier etched sigil 1",
       "from": [
-        7.65,
+        7.82,
         10.25,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        10.47,
-        7.65
+        8.18,
+        10.41,
+        7.67
       ],
       "faces": {
         "north": {
@@ -1942,14 +2839,14 @@
     {
       "name": "Tempest Rapier etched sigil 2",
       "from": [
-        7.65,
+        7.82,
         12.5,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        12.72,
-        7.65
+        8.18,
+        12.66,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2011,14 +2908,14 @@
     {
       "name": "Tempest Rapier etched sigil 3",
       "from": [
-        7.65,
+        7.82,
         14.75,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        14.97,
-        7.65
+        8.18,
+        14.91,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2080,14 +2977,14 @@
     {
       "name": "Tempest Rapier etched sigil 4",
       "from": [
-        7.65,
+        7.82,
         17.0,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        17.22,
-        7.65
+        8.18,
+        17.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2149,14 +3046,14 @@
     {
       "name": "Tempest Rapier etched sigil 5",
       "from": [
-        7.65,
+        7.82,
         19.25,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        19.47,
-        7.65
+        8.18,
+        19.41,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2218,14 +3115,14 @@
     {
       "name": "Tempest Rapier etched sigil 6",
       "from": [
-        7.65,
+        7.82,
         21.5,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        21.72,
-        7.65
+        8.18,
+        21.66,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2287,14 +3184,14 @@
     {
       "name": "Tempest Rapier etched sigil 7",
       "from": [
-        7.65,
+        7.82,
         23.75,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        23.97,
-        7.65
+        8.18,
+        23.91,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2357,7 +3254,7 @@
       "name": "Tempest Rapier wing filigree -1",
       "from": [
         6.2,
-        7,
+        5.9,
         7.68
       ],
       "to": [
@@ -2426,7 +3323,7 @@
       "name": "Tempest Rapier wing filigree 1",
       "from": [
         9.4,
-        7,
+        5.9,
         7.68
       ],
       "to": [
@@ -2539,9 +3436,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.4024,
+        0.4024,
+        0.4024
       ]
     },
     "firstperson_lefthand": {
@@ -2556,9 +3453,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.4024,
+        0.4024,
+        0.4024
       ]
     },
     "gui": {
@@ -2573,9 +3470,9 @@
         0
       ],
       "scale": [
-        0.55,
-        0.55,
-        0.55
+        0.4024,
+        0.4024,
+        0.4024
       ]
     },
     "ground": {

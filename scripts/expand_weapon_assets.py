@@ -138,6 +138,10 @@ def generate_pack():
     for index, weapon in enumerate(WEAPONS):
         name, base = weapon['id'], weapon['base']
         palette = copy.deepcopy(art.PALETTES[base])
+        if weapon.get('generation') != 2:
+            materials=[(235,238,230),(165,175,205),(110,135,175),(205,225,195),(110,200,185),(85,65,110),(95,160,180),(165,115,130),(185,145,65),(205,130,175),(160,130,95),(75,135,170),(105,170,165),(185,150,105),(110,120,70),(70,60,100)]
+            palette[0]=materials[index]
+            palette[4]=tuple(round(c*.23) for c in materials[index])
         if weapon.get('generation') == 2:
             from domain_weapon_art import palette as new_palette
             palette = new_palette(weapon, index - 16)
@@ -157,9 +161,15 @@ def generate_pack():
                 if element[field][1] > 6: element[field][1] = round(6 + (element[field][1] - 6) * (1 - .004 * (index + 1)), 5)
         for rune in range(0 if weapon.get("generation") == 2 else 3):
             y = 9 + rune * 2
-            art.box(model['elements'], weapon['title'] + ' luminous sigil ' + str(rune),
-                    [7.6, y, 6.98], [8.4, y + .4, 7.15], 'rune', 'energy')
+            nearby = [e for e in model['elements'] if e['from'][1] <= y <= e['to'][1] and e['to'][0]-e['from'][0] > .5]
+            if nearby:
+                surface = min(nearby, key=lambda e: e['from'][2]); x = (surface['from'][0]+surface['to'][0])/2; z = surface['from'][2]
+                art.box(model['elements'], weapon['title'] + ' flush luminous sigil ' + str(rune),
+                        [x-.2, y, z-.02], [x+.2, y+.2, z+.02], 'rune', 'energy')
         assert len(model['elements']) <= 80, name
+        from polish_weapon_pack import fit_display, continuous_uv
+        fit_display(model)
+        if weapon.get('generation') != 2: continuous_uv(model)
         model['textures'] = {'atlas': 'legendaryswords:item/' + name, 'particle': 'legendaryswords:item/' + name}
         write(art.ASSETS / 'models/item' / (name + '.json'), model)
         write(art.ASSETS / 'items' / (name + '.json'), {'model': {'type': 'minecraft:model', 'model': 'legendaryswords:item/' + name}})

@@ -1,4 +1,6 @@
-# Testing 0.4.0
+# Testing 0.4.1
+
+Asset checks include separate engraving topology for all 50 weapons and connected geometry for the 26 additions. Combat tests also check enlarged reach, actual inward pull and weapon-specific elemental accents.
 
 Second-collection regression checks also cover hollow ring footprints, mine arming delays, visibility protection, caster-death cleanup and bounded hits for all 26 attacks. Run `python3 scripts/test_domain_assets.py` for separate geometry and texture-pattern checks.
 

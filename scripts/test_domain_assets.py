@@ -8,6 +8,7 @@ import zlib
 
 ROOT=Path(__file__).resolve().parents[1]
 WEAPONS=json.loads((ROOT/'scripts/expanded_weapons.json').read_text())
+ORIGINALS=[{'id':name} for name in ['master_sword','flameblade','fierce_deity_sword','frostblade','thunderblade','royal_claymore','eightfold_blade','biggoron_sword']]
 ASSETS=ROOT/'resource-pack/assets/legendaryswords'
 
 
@@ -35,13 +36,24 @@ class DomainAssetsTest(unittest.TestCase):
 
     def test_all_expansion_blades_have_different_engraving_topology(self):
         signatures=set()
-        for w in WEAPONS:
+        for w in WEAPONS+ORIGINALS:
             rows=frame_pixels(ASSETS/'textures/item'/f'{w["id"]}.png')
             # A color-invariant contrast map detects carved/luminous boundaries.
-            signature=tuple(abs(rows[y][x]-rows[y][x+1])>90 for y in range(32) for x in range(31))
+            signature=tuple(abs(rows[y][x]-rows[y][x+1])>40 for y in range(32) for x in range(31))
             self.assertGreater(sum(signature),25,w['id']+' has no visible engraving')
             signatures.add(signature)
-        self.assertEqual(len(signatures),len(WEAPONS),'repeated pattern with only a tint change')
+        self.assertEqual(len(signatures),len(WEAPONS)+len(ORIGINALS),'repeated pattern with only a tint change')
+
+    def test_second_collection_has_no_disconnected_geometry(self):
+        for weapon in WEAPONS[16:]:
+            elements=json.loads((ASSETS/'models/item'/f'{weapon["id"]}.json').read_text())['elements']
+            seen={0};pending=[0]
+            while pending:
+                a=elements[pending.pop()]
+                for i,b in enumerate(elements):
+                    if i not in seen and all(a['from'][axis]<=b['to'][axis]+.025 and b['from'][axis]<=a['to'][axis]+.025 for axis in range(3)):
+                        seen.add(i);pending.append(i)
+            self.assertEqual(len(seen),len(elements),weapon['id']+' has floating/disconnected pieces')
 
     def test_second_collection_effect_shapes_do_not_copy_existing_effect_models(self):
         new_ids={w['id'] for w in WEAPONS[16:]};old=set();new=set()

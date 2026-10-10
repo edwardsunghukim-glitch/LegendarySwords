@@ -116,7 +116,7 @@ class ResourcePackTests(unittest.TestCase):
     def test_emissive_animation_stays_synchronized(self):
         path = self.pack / "assets/legendaryswords/textures/item/flameblade_e.png.mcmeta"
         data = json.loads(path.read_text())
-        data["animation"]["frametime"] = 6
+        data["animation"]["frametime"] += 1
         path.write_text(json.dumps(data))
         with self.assertRaisesRegex(PackValidationError, "animation differs"):
             validate(self.pack)

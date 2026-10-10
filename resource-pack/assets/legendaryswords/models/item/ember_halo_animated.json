@@ -16,7 +16,7 @@
       ],
       "to": [
         8.65,
-        5,
+        5.45,
         8.65
       ],
       "faces": {
@@ -770,7 +770,7 @@
       "name": "Ember Halo guard wing -1",
       "from": [
         5.55,
-        5.7,
+        5.9,
         7.35
       ],
       "to": [
@@ -839,7 +839,7 @@
       "name": "Ember Halo guard wing 1",
       "from": [
         9.65,
-        5.7,
+        5.9,
         7.35
       ],
       "to": [
@@ -974,516 +974,309 @@
       }
     },
     {
-      "name": "Ember Halo forged blade facet 0",
+      "name": "Ember Halo blade ferrule",
+      "from": [
+        7.25,
+        6,
+        7.35
+      ],
+      "to": [
+        8.75,
+        7.15,
+        8.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo continuous blade facet 0-0",
       "from": [
         6.699999999999999,
-        7,
+        7.0,
         7.65
       ],
       "to": [
         8.9,
-        12,
+        8.25,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.14286,
+            3.77273,
+            3.28571,
+            4.0
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.14286,
+            3.77273,
+            3.28571,
+            4.0
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Ember Halo cutting edge 0",
+      "name": "Ember Halo flush energy inlay 0-0",
       "from": [
-        6.549999999999999,
-        7,
-        7.8
+        7.7,
+        7.0,
+        7.59
       ],
       "to": [
+        7.8999999999999995,
+        8.25,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            3.77273,
+            10.6,
+            4.0
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            3.77273,
+            10.6,
+            4.0
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo continuous blade facet 0-1",
+      "from": [
         6.699999999999999,
-        12,
-        8.2
+        8.25,
+        7.65
       ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Ember Halo spine ridge 0",
-      "from": [
+      "to": [
         8.9,
-        7,
-        7.8
-      ],
-      "to": [
-        9.02,
-        12,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Ember Halo inlaid energy channel 0",
-      "from": [
-        7.66,
-        7.2,
-        7.56
-      ],
-      "to": [
-        7.9399999999999995,
-        11.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Ember Halo forged blade facet 1",
-      "from": [
-        6.6,
-        12,
-        7.65
-      ],
-      "to": [
-        9.4,
-        18,
+        9.5,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.14286,
+            3.54545,
+            3.28571,
+            3.77273
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.14286,
+            3.54545,
+            3.28571,
+            3.77273
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Ember Halo cutting edge 1",
+      "name": "Ember Halo flush energy inlay 0-1",
       "from": [
-        6.449999999999999,
-        12,
-        7.8
+        7.7,
+        8.25,
+        7.59
       ],
       "to": [
-        6.6,
-        18,
-        8.2
+        7.8999999999999995,
+        9.5,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            4,
-            0,
-            8,
-            4
+            9.4,
+            3.54545,
+            10.6,
+            3.77273
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Ember Halo spine ridge 1",
-      "from": [
-        9.4,
-        12,
-        7.8
-      ],
-      "to": [
-        9.52,
-        18,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Ember Halo inlaid energy channel 1",
-      "from": [
-        7.86,
-        12.2,
-        7.56
-      ],
-      "to": [
-        8.14,
-        17.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            3.54545,
+            10.6,
+            3.77273
           ],
           "texture": "#atlas"
         },
@@ -1526,240 +1319,102 @@
       }
     },
     {
-      "name": "Ember Halo forged blade facet 2",
+      "name": "Ember Halo continuous blade facet 0-2",
       "from": [
-        7.299999999999999,
-        18,
+        6.699999999999999,
+        9.5,
         7.65
       ],
       "to": [
-        9.1,
-        24,
+        8.9,
+        10.75,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.14286,
+            3.31818,
+            3.28571,
+            3.54545
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.14286,
+            3.31818,
+            3.28571,
+            3.54545
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Ember Halo cutting edge 2",
+      "name": "Ember Halo flush energy inlay 0-2",
       "from": [
-        7.149999999999999,
-        18,
-        7.8
+        7.7,
+        9.5,
+        7.59
       ],
       "to": [
-        7.299999999999999,
-        24,
-        8.2
+        7.8999999999999995,
+        10.75,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            4,
-            0,
-            8,
-            4
+            9.4,
+            3.31818,
+            10.6,
+            3.54545
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Ember Halo spine ridge 2",
-      "from": [
-        9.1,
-        18,
-        7.8
-      ],
-      "to": [
-        9.219999999999999,
-        24,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Ember Halo inlaid energy channel 2",
-      "from": [
-        8.059999999999999,
-        18.2,
-        7.56
-      ],
-      "to": [
-        8.34,
-        23.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            3.31818,
+            10.6,
+            3.54545
           ],
           "texture": "#atlas"
         },
@@ -1802,171 +1457,33 @@
       }
     },
     {
-      "name": "Ember Halo forged blade facet 3",
+      "name": "Ember Halo continuous blade facet 0-3",
       "from": [
-        7.65,
-        24,
+        6.699999999999999,
+        10.75,
         7.65
       ],
       "to": [
-        8.35,
-        29,
+        8.9,
+        12.0,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.14286,
+            3.09091,
+            3.28571,
+            3.31818
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Ember Halo cutting edge 3",
-      "from": [
-        7.5,
-        24,
-        7.8
-      ],
-      "to": [
-        7.65,
-        29,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Ember Halo spine ridge 3",
-      "from": [
-        8.35,
-        24,
-        7.8
-      ],
-      "to": [
-        8.469999999999999,
-        29,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
+            0.14286,
+            3.09091,
+            3.28571,
+            3.31818
           ],
           "texture": "#atlas"
         },
@@ -2009,33 +1526,1689 @@
       }
     },
     {
-      "name": "Ember Halo inlaid energy channel 3",
+      "name": "Ember Halo flush energy inlay 0-3",
       "from": [
-        7.86,
-        24.2,
-        7.56
+        7.7,
+        10.75,
+        7.59
       ],
       "to": [
-        8.14,
-        28.85,
-        8.44
+        7.8999999999999995,
+        12.0,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            3.09091,
+            10.6,
+            3.31818
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
+            9.4,
+            3.09091,
+            10.6,
+            3.31818
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
             8,
-            0,
             12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo continuous blade facet 1-0",
+      "from": [
+        6.6875,
+        12.0,
+        7.65
+      ],
+      "to": [
+        8.9625,
+        13.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.125,
+            2.81818,
+            3.375,
+            3.09091
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.125,
+            2.81818,
+            3.375,
+            3.09091
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
             4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo flush energy inlay 1-0",
+      "from": [
+        7.7250000000000005,
+        12.0,
+        7.59
+      ],
+      "to": [
+        7.925,
+        13.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.81818,
+            10.6,
+            3.09091
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.81818,
+            10.6,
+            3.09091
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo continuous blade facet 1-1",
+      "from": [
+        6.6625,
+        13.5,
+        7.65
+      ],
+      "to": [
+        9.0875,
+        15.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.08929,
+            2.54545,
+            3.55357,
+            2.81818
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.08929,
+            2.54545,
+            3.55357,
+            2.81818
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo flush energy inlay 1-1",
+      "from": [
+        7.775,
+        13.5,
+        7.59
+      ],
+      "to": [
+        7.975,
+        15.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.54545,
+            10.6,
+            2.81818
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.54545,
+            10.6,
+            2.81818
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo continuous blade facet 1-2",
+      "from": [
+        6.637499999999999,
+        15.0,
+        7.65
+      ],
+      "to": [
+        9.2125,
+        16.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.05357,
+            2.27273,
+            3.73214,
+            2.54545
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.05357,
+            2.27273,
+            3.73214,
+            2.54545
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo flush energy inlay 1-2",
+      "from": [
+        7.825,
+        15.0,
+        7.59
+      ],
+      "to": [
+        8.025,
+        16.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.27273,
+            10.6,
+            2.54545
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.27273,
+            10.6,
+            2.54545
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo continuous blade facet 1-3",
+      "from": [
+        6.6125,
+        16.5,
+        7.65
+      ],
+      "to": [
+        9.337499999999999,
+        18.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.01786,
+            2.0,
+            3.91071,
+            2.27273
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.01786,
+            2.0,
+            3.91071,
+            2.27273
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo flush energy inlay 1-3",
+      "from": [
+        7.875,
+        16.5,
+        7.59
+      ],
+      "to": [
+        8.075,
+        18.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.0,
+            10.6,
+            2.27273
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.0,
+            10.6,
+            2.27273
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo continuous blade facet 2-0",
+      "from": [
+        6.6875,
+        18.0,
+        7.65
+      ],
+      "to": [
+        9.3625,
+        19.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.125,
+            1.72727,
+            3.94643,
+            2.0
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.125,
+            1.72727,
+            3.94643,
+            2.0
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo flush energy inlay 2-0",
+      "from": [
+        7.925000000000001,
+        18.0,
+        7.59
+      ],
+      "to": [
+        8.125,
+        19.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.72727,
+            10.6,
+            2.0
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.72727,
+            10.6,
+            2.0
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo continuous blade facet 2-1",
+      "from": [
+        6.862499999999999,
+        19.5,
+        7.65
+      ],
+      "to": [
+        9.2875,
+        21.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.375,
+            1.45455,
+            3.83929,
+            1.72727
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.375,
+            1.45455,
+            3.83929,
+            1.72727
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo flush energy inlay 2-1",
+      "from": [
+        7.975,
+        19.5,
+        7.59
+      ],
+      "to": [
+        8.174999999999999,
+        21.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.45455,
+            10.6,
+            1.72727
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.45455,
+            10.6,
+            1.72727
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo continuous blade facet 2-2",
+      "from": [
+        7.0375,
+        21.0,
+        7.65
+      ],
+      "to": [
+        9.2125,
+        22.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.625,
+            1.18182,
+            3.73214,
+            1.45455
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.625,
+            1.18182,
+            3.73214,
+            1.45455
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo flush energy inlay 2-2",
+      "from": [
+        8.025,
+        21.0,
+        7.59
+      ],
+      "to": [
+        8.225,
+        22.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.18182,
+            10.6,
+            1.45455
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.18182,
+            10.6,
+            1.45455
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo continuous blade facet 2-3",
+      "from": [
+        7.2125,
+        22.5,
+        7.65
+      ],
+      "to": [
+        9.137500000000001,
+        24.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.875,
+            0.90909,
+            3.625,
+            1.18182
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.875,
+            0.90909,
+            3.625,
+            1.18182
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo flush energy inlay 2-3",
+      "from": [
+        8.075000000000001,
+        22.5,
+        7.59
+      ],
+      "to": [
+        8.275,
+        24.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.90909,
+            10.6,
+            1.18182
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.90909,
+            10.6,
+            1.18182
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo continuous blade facet 3-0",
+      "from": [
+        7.343750000000001,
+        24.0,
+        7.65
+      ],
+      "to": [
+        9.006250000000001,
+        25.25,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.0625,
+            0.68182,
+            3.4375,
+            0.90909
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.0625,
+            0.68182,
+            3.4375,
+            0.90909
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo flush energy inlay 3-0",
+      "from": [
+        8.075000000000001,
+        24.0,
+        7.59
+      ],
+      "to": [
+        8.275,
+        25.25,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.68182,
+            10.6,
+            0.90909
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.68182,
+            10.6,
+            0.90909
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo continuous blade facet 3-1",
+      "from": [
+        7.43125,
+        25.25,
+        7.65
+      ],
+      "to": [
+        8.81875,
+        26.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.1875,
+            0.45455,
+            3.16964,
+            0.68182
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.1875,
+            0.45455,
+            3.16964,
+            0.68182
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo flush energy inlay 3-1",
+      "from": [
+        8.025,
+        25.25,
+        7.59
+      ],
+      "to": [
+        8.225,
+        26.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.45455,
+            10.6,
+            0.68182
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.45455,
+            10.6,
+            0.68182
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo continuous blade facet 3-2",
+      "from": [
+        7.518749999999999,
+        26.5,
+        7.65
+      ],
+      "to": [
+        8.63125,
+        27.75,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.3125,
+            0.22727,
+            2.90179,
+            0.45455
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.3125,
+            0.22727,
+            2.90179,
+            0.45455
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo flush energy inlay 3-2",
+      "from": [
+        7.975,
+        26.5,
+        7.59
+      ],
+      "to": [
+        8.174999999999999,
+        27.75,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.22727,
+            10.6,
+            0.45455
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.22727,
+            10.6,
+            0.45455
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo continuous blade facet 3-3",
+      "from": [
+        7.60625,
+        27.75,
+        7.65
+      ],
+      "to": [
+        8.44375,
+        29.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.4375,
+            0.0,
+            2.63393,
+            0.22727
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.4375,
+            0.0,
+            2.63393,
+            0.22727
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo flush energy inlay 3-3",
+      "from": [
+        7.925000000000001,
+        27.75,
+        7.59
+      ],
+      "to": [
+        8.125,
+        29.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.0,
+            10.6,
+            0.22727
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.0,
+            10.6,
+            0.22727
           ],
           "texture": "#atlas"
         },
@@ -2080,14 +3253,14 @@
     {
       "name": "Ember Halo etched sigil 0",
       "from": [
-        7.45,
+        7.62,
         8.0,
-        7.51
+        7.59
       ],
       "to": [
-        8.15,
-        8.22,
-        7.65
+        7.9799999999999995,
+        8.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2149,14 +3322,14 @@
     {
       "name": "Ember Halo etched sigil 1",
       "from": [
-        7.45,
+        7.62,
         10.25,
-        7.51
+        7.59
       ],
       "to": [
-        8.15,
-        10.47,
-        7.65
+        7.9799999999999995,
+        10.41,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2218,14 +3391,14 @@
     {
       "name": "Ember Halo etched sigil 2",
       "from": [
-        7.65,
+        7.6450000000000005,
         12.5,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        12.72,
-        7.65
+        8.005,
+        12.66,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2287,14 +3460,14 @@
     {
       "name": "Ember Halo etched sigil 3",
       "from": [
-        7.65,
+        7.695,
         14.75,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        14.97,
-        7.65
+        8.055,
+        14.91,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2356,14 +3529,14 @@
     {
       "name": "Ember Halo etched sigil 4",
       "from": [
-        7.85,
+        7.795,
         17.0,
-        7.51
+        7.59
       ],
       "to": [
-        8.549999999999999,
-        17.22,
-        7.65
+        8.155,
+        17.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2423,16 +3596,16 @@
       }
     },
     {
-      "name": "Ember Halo open halo 0",
+      "name": "Ember Halo flush halo inlay 0",
       "from": [
-        9.100000000000001,
-        8.8,
-        7.48
+        8.65,
+        8.9,
+        7.59
       ],
       "to": [
-        9.5,
-        9.2,
-        7.66
+        8.85,
+        9.1,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2492,16 +3665,16 @@
       }
     },
     {
-      "name": "Ember Halo open halo 1",
+      "name": "Ember Halo flush halo inlay 1",
       "from": [
-        8.719238815542512,
-        9.719238815542512,
-        7.48
+        8.65,
+        9.819238815542512,
+        7.59
       ],
       "to": [
-        9.119238815542511,
-        10.119238815542511,
-        7.66
+        8.85,
+        10.019238815542511,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2561,292 +3734,16 @@
       }
     },
     {
-      "name": "Ember Halo open halo 2",
+      "name": "Ember Halo flush halo inlay 2",
       "from": [
-        7.8,
-        10.100000000000001,
-        7.48
-      ],
-      "to": [
-        8.2,
-        10.5,
-        7.66
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            4,
-            8,
-            8
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            4,
-            8,
-            8
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Ember Halo open halo 3",
-      "from": [
-        6.880761184457488,
-        9.719238815542512,
-        7.48
-      ],
-      "to": [
-        7.280761184457488,
-        10.119238815542511,
-        7.66
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            4,
-            8,
-            8
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            4,
-            8,
-            8
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Ember Halo open halo 4",
-      "from": [
-        6.5,
-        8.8,
-        7.48
-      ],
-      "to": [
-        6.9,
-        9.2,
-        7.66
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            4,
-            8,
-            8
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            4,
-            8,
-            8
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Ember Halo open halo 5",
-      "from": [
-        6.880761184457488,
-        7.880761184457488,
-        7.48
-      ],
-      "to": [
-        7.280761184457488,
-        8.280761184457488,
-        7.66
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            4,
-            8,
-            8
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            4,
-            8,
-            8
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Ember Halo open halo 6",
-      "from": [
-        7.8,
-        7.5,
-        7.48
-      ],
-      "to": [
-        8.2,
         7.9,
-        7.66
+        10.200000000000001,
+        7.59
+      ],
+      "to": [
+        8.1,
+        10.4,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2906,16 +3803,292 @@
       }
     },
     {
-      "name": "Ember Halo open halo 7",
+      "name": "Ember Halo flush halo inlay 3",
       "from": [
-        8.719238815542512,
-        7.880761184457488,
-        7.48
+        7.122182540694798,
+        9.819238815542512,
+        7.59
       ],
       "to": [
-        9.119238815542511,
-        8.280761184457488,
-        7.66
+        7.322182540694797,
+        10.019238815542511,
+        7.67
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo flush halo inlay 4",
+      "from": [
+        6.800000000000001,
+        8.9,
+        7.59
+      ],
+      "to": [
+        7.0,
+        9.1,
+        7.67
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo flush halo inlay 5",
+      "from": [
+        7.122182540694798,
+        7.980761184457489,
+        7.59
+      ],
+      "to": [
+        7.322182540694797,
+        8.180761184457488,
+        7.67
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo flush halo inlay 6",
+      "from": [
+        7.9,
+        7.6000000000000005,
+        7.59
+      ],
+      "to": [
+        8.1,
+        7.8,
+        7.67
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Ember Halo flush halo inlay 7",
+      "from": [
+        8.65,
+        7.980761184457489,
+        7.59
+      ],
+      "to": [
+        8.85,
+        8.180761184457488,
+        7.67
       ],
       "faces": {
         "north": {
@@ -3022,9 +4195,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.42803,
+        0.42803,
+        0.42803
       ]
     },
     "firstperson_lefthand": {
@@ -3039,9 +4212,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.42803,
+        0.42803,
+        0.42803
       ]
     },
     "gui": {
@@ -3056,9 +4229,9 @@
         0
       ],
       "scale": [
-        0.55,
-        0.55,
-        0.55
+        0.42803,
+        0.42803,
+        0.42803
       ]
     },
     "ground": {

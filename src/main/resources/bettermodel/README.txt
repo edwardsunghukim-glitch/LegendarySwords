@@ -1,4 +1,4 @@
-LegendarySwords 0.4.0 — 50 weapons / 100 BetterModel models
+LegendarySwords 0.4.1 — 50 weapons / 100 BetterModel models
 
 players: 50 cast rigs. models: 50 signature slash effects.
 Auto-install is enabled by default, with backups for known originals and edited files preserved.
@@ -6,5 +6,5 @@ Ability and ultimate bodies are temporary; release plays with the ultimate attac
 Normal walking, running, swings and idle remain vanilla in abilities-only mode.
 Additional draw/charge/recover clips are supplied for model editing.
 Observers see cast bodies; the caster keeps normal rendering and inventory.
-Use the NEW 0.4.0 combined client pack. A fresh build.zip must be merged if BetterModel namespace/export settings or other server models changed.
+Use the NEW 0.4.1 combined client pack. A fresh build.zip must be merged if BetterModel namespace/export settings or other server models changed.
 If an equipment disconnect recurs, disable bettermodel.cast-body-animations.

@@ -54,7 +54,7 @@ def item_model(weapon, index):
     def box(label,x0,y0,z0,x1,y1,z1,tile,side=None):
         art.box(e, weapon['title']+' '+label,[x0,y0,z0],[x1,y1,z1],tile,side)
     # A separately authored segmented grip, jeweled pommel and asymmetric guard.
-    box('grip core',7.35,-1,7.35,8.65,5,8.65,'grip','dark')
+    box('grip core',7.35,-1,7.35,8.65,5.45,8.65,'grip','dark')
     for i in range(7):
         y=-.7+i*.75
         box('braided wrap '+str(i),7.23,y,7.23,8.77,y+.16,8.77,'stripe','grip')
@@ -65,25 +65,40 @@ def item_model(weapon, index):
     for sign in [-1,1]:
         x=8+sign*(guard-.25)
         y=5.7+(index%3)*.35
-        box('guard wing '+str(sign),x-.4,y,7.35,x+.4,y+1,8.65,'gold','accent')
+        box('guard wing '+str(sign),x-.4,5.9,7.35,x+.4,y+1,8.65,'gold','accent')
     box('guard jewel',7.55,5.5,6.9,8.45,6.7,9.1,'gem','energy')
+    box('blade ferrule',7.25,6,7.35,8.75,7.15,8.65,'metal','gold')
+    blade_bounds=[]
+    xmin=min(8+o-w for o,w,_,_ in PROFILES[index]); xmax=max(8+o+w for o,w,_,_ in PROFILES[index])
+    top=max(part[3] for part in PROFILES[index])
+    previous=PROFILES[index][0][:2]
     for i,(offset,width,y0,y1) in enumerate(PROFILES[index]):
-        x=8+offset
-        box('forged blade facet '+str(i),x-width,y0,7.65,x+width,y1,8.35,'blade','metal')
-        box('cutting edge '+str(i),x-width-.15,y0,7.8,x-width,y1,8.2,'edge','tip')
-        box('spine ridge '+str(i),x+width,y0,7.8,x+width+.12,y1,8.2,'metal','edge')
-        box('inlaid energy channel '+str(i),x-.14,y0+.2,7.56,x+.14,y1-.15,8.44,'energy','core')
+        for step in range(4):
+            t=(step+.5)/4; x=8+previous[0]*(1-t)+offset*t
+            half=previous[1]*(1-t)+width*t
+            low=y0+(y1-y0)*step/4; high=y0+(y1-y0)*(step+1)/4
+            box('continuous blade facet '+str(i)+'-'+str(step),x-half,low,7.65,x+half,high,8.35,'blade','edge')
+            blade_bounds.append((x-half,x+half,low,high))
+            # Continuous UVs prevent a large motif repeating at every stepped cube.
+            for face in ['north','south']:
+                e[-1]['faces'][face]['uv']=[round((x-half-xmin)/(xmax-xmin)*4,5),round((top-high)/(top-7)*4,5),round((x+half-xmin)/(xmax-xmin)*4,5),round((top-low)/(top-7)*4,5)]
+            box('flush energy inlay '+str(i)+'-'+str(step),x-.1,low,7.59,x+.1,high,8.41,'energy','core')
+            for face in ['north','south']:
+                e[-1]['faces'][face]['uv']=[9.4,round((top-high)/(top-7)*4,5),10.6,round((top-low)/(top-7)*4,5)]
+        previous=(offset,width)
+    def blade_at(y):
+        return min(blade_bounds,key=lambda b: abs((b[2]+b[3])/2-y))
     # Individual ornaments, not extra cubes on one reused blade.
     for rune in range(5+index%4):
         y=8+rune*2.25
-        offset=PROFILES[index][min(len(PROFILES[index])-1,rune//2)][0]
-        x=8+offset
-        box('etched sigil '+str(rune),x-.35,y,7.51,x+.35,y+.22,7.65,'rune','energy')
+        bounds=blade_at(y); x=(bounds[0]+bounds[1])/2
+        box('etched sigil '+str(rune),x-.18,y,7.59,x+.18,y+.16,7.67,'rune','energy')
     if index in [0,4,5,6,18,22]:
         for i in range(8):
             theta=i*math.pi/4
-            x,y=8+math.cos(theta)*1.3,9+math.sin(theta)*1.3
-            box('open halo '+str(i),x-.2,y-.2,7.48,x+.2,y+.2,7.66,'gold','energy')
+            y=9+math.sin(theta)*1.3; bounds=blade_at(y)
+            x=max(bounds[0]+.15,min(bounds[1]-.15,8+math.cos(theta)*1.1))
+            box('flush halo inlay '+str(i),x-.1,y-.1,7.59,x+.1,y+.1,7.67,'gold','energy')
     elif index==15:  # A real three-pronged silhouette.
         for side in [-1,1]:
             x=8+side*1.75
@@ -93,14 +108,15 @@ def item_model(weapon, index):
     elif index in [8,13,17,20,25]:
         for i in range(4):
             side=-1 if i%2==0 else 1;y=12+i*3
-            box('serrated thorn '+str(i),8+side*1.4-.28,y,7.8,8+side*1.4+.28,y+1.2,8.2,'tip','energy')
+            bounds=blade_at(y); center=(bounds[0]+bounds[1])/2
+            box('attached thorn '+str(i),min(center,center+side*1.7),y,7.8,max(center,center+side*1.7),y+1.2,8.2,'tip','energy')
     elif index in [2,7,12,21]:
         for i in range(4):
-            x=8+(-1 if i%2==0 else 1)*1.2;y=13+i*3
-            box('floating crystal '+str(i),x-.22,y,7.7,x+.22,y+1,8.3,'gem','energy')
+            y=13+i*3; bounds=blade_at(y); x=(bounds[0]+bounds[1])/2
+            box('embedded crystal '+str(i),x-.2,y,7.59,x+.2,y+.8,7.73,'gem','energy')
     else:
         for side in [-1,1]:
-            box('wing filigree '+str(side),8+side*1.6-.2,7,7.68,8+side*1.6+.2,11,8.32,'inlay','gold')
+            box('wing filigree '+str(side),8+side*1.6-.2,5.9,7.68,8+side*1.6+.2,11,8.32,'inlay','gold')
     assert 30<=len(e)<=80, (weapon['id'],len(e))
     display=copy.deepcopy(art.DISPLAY)
     for context in ['thirdperson_righthand','thirdperson_lefthand']:
@@ -180,7 +196,7 @@ def effect_model(weapon,index):
 def texture(weapon, index):
     """Paint a separate themed atlas: etching topology and material finish vary by weapon."""
     name=weapon['id'];colors=art.PALETTES[name];pixels=[];emissive=[]
-    themed_index=index-16 if weapon.get('generation')==2 else index+26
+    themed_index=weapon.get('pattern_index',index-16 if weapon.get('generation')==2 else index+26)
     # Each predicate draws a different motif, rather than tinting a shared texture.
     def motif(x,y,k):
         r=math.hypot(x-15.5,y-15.5);theta=math.atan2(y-15.5,x-15.5)
@@ -210,6 +226,14 @@ def texture(weapon, index):
         if k==23: return abs(r-12)<1 and y<18 or abs(y-16)<1 and x<15
         if k==24: return abs(x-16-2*math.sin(y*.2))<1 or abs(y%10-5)<1 and abs(x-16)<y*.25
         if k==25: return abs((x+y)%12-6)<1 or abs((x-y)%12-6)<1 and x%12<6
+        if k==42: return abs(y-6-(x if x<16 else 32-x))<.8 or abs(y-22)<.8
+        if k==43: return abs(x-15-4*math.sin(y*.3))<1 or abs(x-22-3*math.sin(y*.32+.8))<1
+        if k==44: return abs(x-16-7*math.sin(y*.22))<1 or abs(x-16+7*math.sin(y*.22))<1
+        if k==45: return abs(x-16)<.8 or abs(y-16)<.8 or (abs(x-y)<.8 or abs(x+y-32)<.8) and r<9
+        if k==46: return abs(x-(11+(y//6)%2*9))<1 or y%6==0 and 11<x<20
+        if k==47: return abs(x-8)<1 and 7<y<22 or abs(x-24)<1 and 7<y<22 or abs(y-7)<1 and 8<x<24 or abs(y-22-(8-abs(x-16)))<1
+        if k==48: return abs(y-10-2*math.sin(x*.2))<1 or abs(y-18-2*math.sin(x*.2+.7))<1 or abs(y-26-2*math.sin(x*.2+1.4))<1
+        if k==49: return abs(x-5-(y//5)*3)<.8 or abs(y-12-x*.25)<.8 or abs(y-24+x*.2)<.8
         # The older expansion gets sixteen individual knotwork / rune maps as well.
         a=k-26
         return ((x*(a%5+2)+y*(a%7+1))%(17+a)<2 or
@@ -223,15 +247,17 @@ def texture(weapon, index):
                 base=colors[tile]
                 # Hammered, brushed, pearlescent, stone and organic finishes alternate.
                 finish=themed_index%5
-                grain=[((lx*13+ly*19)%11)-5,round(6*math.sin(lx*.7)),round(8*math.cos((lx+ly)*.18)),((lx//4*7+ly//4*11)%13)-8,round(7*math.sin(lx*.23+ly*.09))][finish]
-                bevel=12 if lx<3 or ly<2 else -18 if lx>28 else 0
+                grain=[((lx*13+ly*19)%3)-1,round(2*math.sin(lx*.3)),round(3*math.cos((lx+ly)*.12)),((lx//4*7+ly//4*11)%5)-2,round(3*math.sin(lx*.23+ly*.09))][finish]
+                bevel=7 if lx<3 or ly<2 else -7 if lx>28 else 0
                 etched=motif(lx,(ly-frame*3)%32 if luminous else ly,themed_index)
-                if tile==4: etched=(lx+ly*(1+themed_index%3))%(6+themed_index%4)<2
+                if tile==4:
+                    style=themed_index%8; spacing=5+themed_index%7
+                    etched=[(lx+ly)%spacing<1,lx%spacing<1,(lx-ly)%spacing<1,abs(lx-16-3*math.sin(ly*.3))<1,(lx%spacing<2 and ly%spacing<2),(lx+2*ly)%spacing<1,abs((lx+ly)%spacing-spacing/2)<1,(ly//spacing)%2==0 and lx%spacing<1][style]
                 if etched:
-                    rgb=[min(255,c+55+frame*3) for c in weapon['color']] if luminous else [max(0,c-65) for c in base]
+                    rgb=[min(255,c+55+frame*3) for c in weapon['color']] if luminous else [max(0,c-25) for c in base]
                 else:
                     rgb=[max(0,min(255,c+grain+bevel)) for c in base]
-                    if luminous: rgb=[round(c*.48) for c in rgb]
+                    if luminous: rgb=[round(c*.65) for c in rgb]
                 pixels.extend(rgb+[255]);emissive.extend(rgb+[255] if luminous and etched else [0,0,0,0])
     path=art.ASSETS/'textures/item'/f'{name}.png'
     art.png(path,128,512,pixels);art.png(path.with_name(name+'_e.png'),128,512,emissive)

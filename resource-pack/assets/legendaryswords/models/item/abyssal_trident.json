@@ -16,7 +16,7 @@
       ],
       "to": [
         8.65,
-        5,
+        5.45,
         8.65
       ],
       "faces": {
@@ -770,7 +770,7 @@
       "name": "Abyssal Trident guard wing -1",
       "from": [
         4.89,
-        5.7,
+        5.9,
         7.35
       ],
       "to": [
@@ -839,7 +839,7 @@
       "name": "Abyssal Trident guard wing 1",
       "from": [
         10.31,
-        5.7,
+        5.9,
         7.35
       ],
       "to": [
@@ -974,516 +974,309 @@
       }
     },
     {
-      "name": "Abyssal Trident forged blade facet 0",
+      "name": "Abyssal Trident blade ferrule",
+      "from": [
+        7.25,
+        6,
+        7.35
+      ],
+      "to": [
+        8.75,
+        7.15,
+        8.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident continuous blade facet 0-0",
       "from": [
         7.55,
-        7,
+        7.0,
         7.65
       ],
       "to": [
         8.45,
-        20,
+        10.25,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.0,
+            3.43478,
+            4.0,
+            4.0
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.0,
+            3.43478,
+            4.0,
+            4.0
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Abyssal Trident cutting edge 0",
+      "name": "Abyssal Trident flush energy inlay 0-0",
       "from": [
-        7.3999999999999995,
-        7,
-        7.8
+        7.9,
+        7.0,
+        7.59
       ],
       "to": [
+        8.1,
+        10.25,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            3.43478,
+            10.6,
+            4.0
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            3.43478,
+            10.6,
+            4.0
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident continuous blade facet 0-1",
+      "from": [
         7.55,
-        20,
-        8.2
+        10.25,
+        7.65
       ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Abyssal Trident spine ridge 0",
-      "from": [
+      "to": [
         8.45,
-        7,
-        7.8
-      ],
-      "to": [
-        8.569999999999999,
-        20,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Abyssal Trident inlaid energy channel 0",
-      "from": [
-        7.86,
-        7.2,
-        7.56
-      ],
-      "to": [
-        8.14,
-        19.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Abyssal Trident forged blade facet 1",
-      "from": [
-        7.6,
-        20,
-        7.65
-      ],
-      "to": [
-        8.4,
-        26,
+        13.5,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.0,
+            2.86957,
+            4.0,
+            3.43478
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.0,
+            2.86957,
+            4.0,
+            3.43478
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Abyssal Trident cutting edge 1",
+      "name": "Abyssal Trident flush energy inlay 0-1",
       "from": [
-        7.449999999999999,
-        20,
-        7.8
+        7.9,
+        10.25,
+        7.59
       ],
       "to": [
-        7.6,
-        26,
-        8.2
+        8.1,
+        13.5,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            4,
-            0,
-            8,
-            4
+            9.4,
+            2.86957,
+            10.6,
+            3.43478
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Abyssal Trident spine ridge 1",
-      "from": [
-        8.4,
-        20,
-        7.8
-      ],
-      "to": [
-        8.52,
-        26,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Abyssal Trident inlaid energy channel 1",
-      "from": [
-        7.86,
-        20.2,
-        7.56
-      ],
-      "to": [
-        8.14,
-        25.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            2.86957,
+            10.6,
+            3.43478
           ],
           "texture": "#atlas"
         },
@@ -1526,171 +1319,33 @@
       }
     },
     {
-      "name": "Abyssal Trident forged blade facet 2",
+      "name": "Abyssal Trident continuous blade facet 0-2",
       "from": [
-        7.85,
-        26,
+        7.55,
+        13.5,
         7.65
       ],
       "to": [
-        8.15,
-        30,
+        8.45,
+        16.75,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.0,
+            2.30435,
+            4.0,
+            2.86957
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Abyssal Trident cutting edge 2",
-      "from": [
-        7.699999999999999,
-        26,
-        7.8
-      ],
-      "to": [
-        7.85,
-        30,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Abyssal Trident spine ridge 2",
-      "from": [
-        8.15,
-        26,
-        7.8
-      ],
-      "to": [
-        8.27,
-        30,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
+            0.0,
+            2.30435,
+            4.0,
+            2.86957
           ],
           "texture": "#atlas"
         },
@@ -1733,33 +1388,1275 @@
       }
     },
     {
-      "name": "Abyssal Trident inlaid energy channel 2",
+      "name": "Abyssal Trident flush energy inlay 0-2",
       "from": [
-        7.86,
-        26.2,
-        7.56
+        7.9,
+        13.5,
+        7.59
       ],
       "to": [
-        8.14,
-        29.85,
-        8.44
+        8.1,
+        16.75,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            2.30435,
+            10.6,
+            2.86957
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
+            9.4,
+            2.30435,
+            10.6,
+            2.86957
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
             8,
-            0,
             12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident continuous blade facet 0-3",
+      "from": [
+        7.55,
+        16.75,
+        7.65
+      ],
+      "to": [
+        8.45,
+        20.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            1.73913,
+            4.0,
+            2.30435
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            1.73913,
+            4.0,
+            2.30435
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
             4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident flush energy inlay 0-3",
+      "from": [
+        7.9,
+        16.75,
+        7.59
+      ],
+      "to": [
+        8.1,
+        20.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.73913,
+            10.6,
+            2.30435
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.73913,
+            10.6,
+            2.30435
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident continuous blade facet 1-0",
+      "from": [
+        7.55625,
+        20.0,
+        7.65
+      ],
+      "to": [
+        8.44375,
+        21.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.02778,
+            1.47826,
+            3.97222,
+            1.73913
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.02778,
+            1.47826,
+            3.97222,
+            1.73913
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident flush energy inlay 1-0",
+      "from": [
+        7.9,
+        20.0,
+        7.59
+      ],
+      "to": [
+        8.1,
+        21.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.47826,
+            10.6,
+            1.73913
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.47826,
+            10.6,
+            1.73913
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident continuous blade facet 1-1",
+      "from": [
+        7.56875,
+        21.5,
+        7.65
+      ],
+      "to": [
+        8.43125,
+        23.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.08333,
+            1.21739,
+            3.91667,
+            1.47826
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.08333,
+            1.21739,
+            3.91667,
+            1.47826
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident flush energy inlay 1-1",
+      "from": [
+        7.9,
+        21.5,
+        7.59
+      ],
+      "to": [
+        8.1,
+        23.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.21739,
+            10.6,
+            1.47826
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.21739,
+            10.6,
+            1.47826
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident continuous blade facet 1-2",
+      "from": [
+        7.58125,
+        23.0,
+        7.65
+      ],
+      "to": [
+        8.41875,
+        24.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.13889,
+            0.95652,
+            3.86111,
+            1.21739
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.13889,
+            0.95652,
+            3.86111,
+            1.21739
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident flush energy inlay 1-2",
+      "from": [
+        7.9,
+        23.0,
+        7.59
+      ],
+      "to": [
+        8.1,
+        24.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.95652,
+            10.6,
+            1.21739
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.95652,
+            10.6,
+            1.21739
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident continuous blade facet 1-3",
+      "from": [
+        7.59375,
+        24.5,
+        7.65
+      ],
+      "to": [
+        8.40625,
+        26.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.19444,
+            0.69565,
+            3.80556,
+            0.95652
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.19444,
+            0.69565,
+            3.80556,
+            0.95652
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident flush energy inlay 1-3",
+      "from": [
+        7.9,
+        24.5,
+        7.59
+      ],
+      "to": [
+        8.1,
+        26.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.69565,
+            10.6,
+            0.95652
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.69565,
+            10.6,
+            0.95652
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident continuous blade facet 2-0",
+      "from": [
+        7.63125,
+        26.0,
+        7.65
+      ],
+      "to": [
+        8.36875,
+        27.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.36111,
+            0.52174,
+            3.63889,
+            0.69565
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.36111,
+            0.52174,
+            3.63889,
+            0.69565
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident flush energy inlay 2-0",
+      "from": [
+        7.9,
+        26.0,
+        7.59
+      ],
+      "to": [
+        8.1,
+        27.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.52174,
+            10.6,
+            0.69565
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.52174,
+            10.6,
+            0.69565
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident continuous blade facet 2-1",
+      "from": [
+        7.69375,
+        27.0,
+        7.65
+      ],
+      "to": [
+        8.30625,
+        28.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.63889,
+            0.34783,
+            3.36111,
+            0.52174
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.63889,
+            0.34783,
+            3.36111,
+            0.52174
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident flush energy inlay 2-1",
+      "from": [
+        7.9,
+        27.0,
+        7.59
+      ],
+      "to": [
+        8.1,
+        28.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.34783,
+            10.6,
+            0.52174
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.34783,
+            10.6,
+            0.52174
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident continuous blade facet 2-2",
+      "from": [
+        7.75625,
+        28.0,
+        7.65
+      ],
+      "to": [
+        8.24375,
+        29.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.91667,
+            0.17391,
+            3.08333,
+            0.34783
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.91667,
+            0.17391,
+            3.08333,
+            0.34783
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident flush energy inlay 2-2",
+      "from": [
+        7.9,
+        28.0,
+        7.59
+      ],
+      "to": [
+        8.1,
+        29.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.17391,
+            10.6,
+            0.34783
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.17391,
+            10.6,
+            0.34783
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident continuous blade facet 2-3",
+      "from": [
+        7.81875,
+        29.0,
+        7.65
+      ],
+      "to": [
+        8.18125,
+        30.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.19444,
+            0.0,
+            2.80556,
+            0.17391
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.19444,
+            0.0,
+            2.80556,
+            0.17391
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Abyssal Trident flush energy inlay 2-3",
+      "from": [
+        7.9,
+        29.0,
+        7.59
+      ],
+      "to": [
+        8.1,
+        30.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.0,
+            10.6,
+            0.17391
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.0,
+            10.6,
+            0.17391
           ],
           "texture": "#atlas"
         },
@@ -1804,14 +2701,14 @@
     {
       "name": "Abyssal Trident etched sigil 0",
       "from": [
-        7.65,
+        7.82,
         8.0,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        8.22,
-        7.65
+        8.18,
+        8.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -1873,14 +2770,14 @@
     {
       "name": "Abyssal Trident etched sigil 1",
       "from": [
-        7.65,
+        7.82,
         10.25,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        10.47,
-        7.65
+        8.18,
+        10.41,
+        7.67
       ],
       "faces": {
         "north": {
@@ -1942,14 +2839,14 @@
     {
       "name": "Abyssal Trident etched sigil 2",
       "from": [
-        7.65,
+        7.82,
         12.5,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        12.72,
-        7.65
+        8.18,
+        12.66,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2011,14 +2908,14 @@
     {
       "name": "Abyssal Trident etched sigil 3",
       "from": [
-        7.65,
+        7.82,
         14.75,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        14.97,
-        7.65
+        8.18,
+        14.91,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2080,14 +2977,14 @@
     {
       "name": "Abyssal Trident etched sigil 4",
       "from": [
-        7.65,
+        7.82,
         17.0,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        17.22,
-        7.65
+        8.18,
+        17.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2149,14 +3046,14 @@
     {
       "name": "Abyssal Trident etched sigil 5",
       "from": [
-        7.65,
+        7.82,
         19.25,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        19.47,
-        7.65
+        8.18,
+        19.41,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2218,14 +3115,14 @@
     {
       "name": "Abyssal Trident etched sigil 6",
       "from": [
-        7.65,
+        7.82,
         21.5,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        21.72,
-        7.65
+        8.18,
+        21.66,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2287,14 +3184,14 @@
     {
       "name": "Abyssal Trident etched sigil 7",
       "from": [
-        7.65,
+        7.82,
         23.75,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        23.97,
-        7.65
+        8.18,
+        23.91,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2815,9 +3712,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.41481,
+        0.41481,
+        0.41481
       ]
     },
     "firstperson_lefthand": {
@@ -2832,9 +3729,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.41481,
+        0.41481,
+        0.41481
       ]
     },
     "gui": {
@@ -2849,9 +3746,9 @@
         0
       ],
       "scale": [
-        0.55,
-        0.55,
-        0.55
+        0.41481,
+        0.41481,
+        0.41481
       ]
     },
     "ground": {

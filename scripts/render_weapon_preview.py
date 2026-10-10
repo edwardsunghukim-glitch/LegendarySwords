@@ -6,6 +6,7 @@ Optional development tool: requires Pillow. It does not alter authored assets.
 from PIL import Image,ImageDraw
 from pathlib import Path
 import json
+import math
 
 ROOT=Path(__file__).resolve().parents[1]
 assets=ROOT/'resource-pack/assets/legendaryswords'
@@ -19,7 +20,7 @@ for i,w in enumerate(weapons):
         uv=e['faces']['north']['uv'];a,b=e['from'],e['to']
         rect=(round(x0+82+(a[0]-8)*8),round(y0+280-(b[1]+2.5)*8),round(x0+82+(b[0]-8)*8),round(y0+280-(a[1]+2.5)*8))
         width=max(1,rect[2]-rect[0]);height=max(1,rect[3]-rect[1])
-        tile=atlas.crop(tuple(round(v*8) for v in uv)).resize((width,height))
+        tile=atlas.crop((math.floor(uv[0]*8),math.floor(uv[1]*8),max(math.floor(uv[0]*8)+1,math.ceil(uv[2]*8)),max(math.floor(uv[1]*8)+1,math.ceil(uv[3]*8)))).resize((width,height))
         canvas.paste(tile,(rect[0],rect[1]),tile)
     draw.text((x0+8,y0+296),w['title'],fill=(225,230,240))
 output=ROOT/'target/LegendarySwords-new-weapons-preview.png'

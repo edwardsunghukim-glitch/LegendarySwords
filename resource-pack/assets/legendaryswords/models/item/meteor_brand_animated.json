@@ -16,7 +16,7 @@
       ],
       "to": [
         8.65,
-        5,
+        5.45,
         8.65
       ],
       "faces": {
@@ -770,7 +770,7 @@
       "name": "Meteor Brand guard wing -1",
       "from": [
         5.33,
-        6.4,
+        5.9,
         7.35
       ],
       "to": [
@@ -839,7 +839,7 @@
       "name": "Meteor Brand guard wing 1",
       "from": [
         9.87,
-        6.4,
+        5.9,
         7.35
       ],
       "to": [
@@ -974,171 +974,240 @@
       }
     },
     {
-      "name": "Meteor Brand forged blade facet 0",
+      "name": "Meteor Brand blade ferrule",
+      "from": [
+        7.25,
+        6,
+        7.35
+      ],
+      "to": [
+        8.75,
+        7.15,
+        8.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand continuous blade facet 0-0",
       "from": [
         6.7,
-        7,
+        7.0,
         7.65
       ],
       "to": [
         9.3,
-        14,
+        8.75,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.125,
+            3.69565,
+            3.375,
+            4.0
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.125,
+            3.69565,
+            3.375,
+            4.0
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Meteor Brand cutting edge 0",
+      "name": "Meteor Brand flush energy inlay 0-0",
       "from": [
-        6.55,
-        7,
-        7.8
+        7.9,
+        7.0,
+        7.59
       ],
       "to": [
+        8.1,
+        8.75,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            3.69565,
+            10.6,
+            4.0
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            3.69565,
+            10.6,
+            4.0
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand continuous blade facet 0-1",
+      "from": [
         6.7,
-        14,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Meteor Brand spine ridge 0",
-      "from": [
-        9.3,
-        7,
-        7.8
+        8.75,
+        7.65
       ],
       "to": [
-        9.42,
-        14,
-        8.2
+        9.3,
+        10.5,
+        8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            4,
-            8,
-            8,
-            12
+            0.125,
+            3.3913,
+            3.375,
+            3.69565
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            4,
-            8,
-            8,
-            12
+            0.125,
+            3.3913,
+            3.375,
+            3.69565
           ],
           "texture": "#atlas"
         },
@@ -1181,309 +1250,1689 @@
       }
     },
     {
-      "name": "Meteor Brand inlaid energy channel 0",
+      "name": "Meteor Brand flush energy inlay 0-1",
       "from": [
-        7.86,
+        7.9,
+        8.75,
+        7.59
+      ],
+      "to": [
+        8.1,
+        10.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            3.3913,
+            10.6,
+            3.69565
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            3.3913,
+            10.6,
+            3.69565
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand continuous blade facet 0-2",
+      "from": [
+        6.7,
+        10.5,
+        7.65
+      ],
+      "to": [
+        9.3,
+        12.25,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.125,
+            3.08696,
+            3.375,
+            3.3913
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.125,
+            3.08696,
+            3.375,
+            3.3913
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand flush energy inlay 0-2",
+      "from": [
+        7.9,
+        10.5,
+        7.59
+      ],
+      "to": [
+        8.1,
+        12.25,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            3.08696,
+            10.6,
+            3.3913
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            3.08696,
+            10.6,
+            3.3913
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand continuous blade facet 0-3",
+      "from": [
+        6.7,
+        12.25,
+        7.65
+      ],
+      "to": [
+        9.3,
+        14.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.125,
+            2.78261,
+            3.375,
+            3.08696
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.125,
+            2.78261,
+            3.375,
+            3.08696
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand flush energy inlay 0-3",
+      "from": [
+        7.9,
+        12.25,
+        7.59
+      ],
+      "to": [
+        8.1,
+        14.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.78261,
+            10.6,
+            3.08696
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.78261,
+            10.6,
+            3.08696
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand continuous blade facet 1-0",
+      "from": [
+        6.6875,
+        14.0,
+        7.65
+      ],
+      "to": [
+        9.3625,
+        15.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.10938,
+            2.52174,
+            3.45313,
+            2.78261
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.10938,
+            2.52174,
+            3.45313,
+            2.78261
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand flush energy inlay 1-0",
+      "from": [
+        7.925000000000001,
+        14.0,
+        7.59
+      ],
+      "to": [
+        8.125,
+        15.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.52174,
+            10.6,
+            2.78261
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.52174,
+            10.6,
+            2.78261
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand continuous blade facet 1-1",
+      "from": [
+        6.6625,
+        15.5,
+        7.65
+      ],
+      "to": [
+        9.487499999999999,
+        17.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.07813,
+            2.26087,
+            3.60938,
+            2.52174
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.07813,
+            2.26087,
+            3.60938,
+            2.52174
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand flush energy inlay 1-1",
+      "from": [
+        7.975,
+        15.5,
+        7.59
+      ],
+      "to": [
+        8.174999999999999,
+        17.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.26087,
+            10.6,
+            2.52174
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.26087,
+            10.6,
+            2.52174
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand continuous blade facet 1-2",
+      "from": [
+        6.6375,
+        17.0,
+        7.65
+      ],
+      "to": [
+        9.6125,
+        18.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.04688,
+            2.0,
+            3.76563,
+            2.26087
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.04688,
+            2.0,
+            3.76563,
+            2.26087
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand flush energy inlay 1-2",
+      "from": [
+        8.025,
+        17.0,
+        7.59
+      ],
+      "to": [
+        8.225,
+        18.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.0,
+            10.6,
+            2.26087
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.0,
+            10.6,
+            2.26087
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand continuous blade facet 1-3",
+      "from": [
+        6.612500000000001,
+        18.5,
+        7.65
+      ],
+      "to": [
+        9.7375,
+        20.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.01563,
+            1.73913,
+            3.92188,
+            2.0
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.01563,
+            1.73913,
+            3.92188,
+            2.0
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand flush energy inlay 1-3",
+      "from": [
+        8.075000000000001,
+        18.5,
+        7.59
+      ],
+      "to": [
+        8.275,
+        20.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.73913,
+            10.6,
+            2.0
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.73913,
+            10.6,
+            2.0
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand continuous blade facet 2-0",
+      "from": [
+        6.6375,
+        20.0,
+        7.65
+      ],
+      "to": [
+        9.662500000000001,
+        21.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.04688,
+            1.47826,
+            3.82813,
+            1.73913
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.04688,
+            1.47826,
+            3.82813,
+            1.73913
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand flush energy inlay 2-0",
+      "from": [
+        8.05,
+        20.0,
+        7.59
+      ],
+      "to": [
+        8.25,
+        21.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.47826,
+            10.6,
+            1.73913
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.47826,
+            10.6,
+            1.73913
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand continuous blade facet 2-1",
+      "from": [
+        6.7125,
+        21.5,
+        7.65
+      ],
+      "to": [
+        9.387500000000001,
+        23.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.14063,
+            1.21739,
+            3.48438,
+            1.47826
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.14063,
+            1.21739,
+            3.48438,
+            1.47826
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand flush energy inlay 2-1",
+      "from": [
+        7.950000000000001,
+        21.5,
+        7.59
+      ],
+      "to": [
+        8.15,
+        23.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.21739,
+            10.6,
+            1.47826
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.21739,
+            10.6,
+            1.47826
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand continuous blade facet 2-2",
+      "from": [
+        6.7875,
+        23.0,
+        7.65
+      ],
+      "to": [
+        9.112499999999999,
+        24.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.23438,
+            0.95652,
+            3.14062,
+            1.21739
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.23438,
+            0.95652,
+            3.14062,
+            1.21739
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand flush energy inlay 2-2",
+      "from": [
+        7.85,
+        23.0,
+        7.59
+      ],
+      "to": [
+        8.049999999999999,
+        24.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.95652,
+            10.6,
+            1.21739
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.95652,
+            10.6,
+            1.21739
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand continuous blade facet 2-3",
+      "from": [
+        6.862500000000001,
+        24.5,
+        7.65
+      ],
+      "to": [
+        8.8375,
+        26.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.32813,
+            0.69565,
+            2.79688,
+            0.95652
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.32813,
+            0.69565,
+            2.79688,
+            0.95652
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand flush energy inlay 2-3",
+      "from": [
+        7.750000000000001,
+        24.5,
+        7.59
+      ],
+      "to": [
+        7.95,
+        26.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.69565,
+            10.6,
+            0.95652
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.69565,
+            10.6,
+            0.95652
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand continuous blade facet 3-0",
+      "from": [
+        7.0,
+        26.0,
+        7.65
+      ],
+      "to": [
+        8.65,
+        27.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.5,
+            0.52174,
+            2.5625,
+            0.69565
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.5,
+            0.52174,
+            2.5625,
+            0.69565
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand flush energy inlay 3-0",
+      "from": [
+        7.7250000000000005,
+        26.0,
+        7.59
+      ],
+      "to": [
+        7.925,
+        27.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.52174,
+            10.6,
+            0.69565
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.52174,
+            10.6,
+            0.69565
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Meteor Brand continuous blade facet 3-1",
+      "from": [
         7.2,
-        7.56
-      ],
-      "to": [
-        8.14,
-        13.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Meteor Brand forged blade facet 1",
-      "from": [
-        6.6,
-        14,
+        27.0,
         7.65
       ],
       "to": [
-        9.799999999999999,
-        20,
+        8.55,
+        28.0,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.75,
+            0.34783,
+            2.4375,
+            0.52174
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.75,
+            0.34783,
+            2.4375,
+            0.52174
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Meteor Brand cutting edge 1",
+      "name": "Meteor Brand flush energy inlay 3-1",
       "from": [
-        6.449999999999999,
-        14,
-        7.8
+        7.775,
+        27.0,
+        7.59
       ],
       "to": [
-        6.6,
-        20,
-        8.2
+        7.975,
+        28.0,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            4,
-            0,
-            8,
-            4
+            9.4,
+            0.34783,
+            10.6,
+            0.52174
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Meteor Brand spine ridge 1",
-      "from": [
-        9.799999999999999,
-        14,
-        7.8
-      ],
-      "to": [
-        9.919999999999998,
-        20,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Meteor Brand inlaid energy channel 1",
-      "from": [
-        8.059999999999999,
-        14.2,
-        7.56
-      ],
-      "to": [
-        8.34,
-        19.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            0.34783,
+            10.6,
+            0.52174
           ],
           "texture": "#atlas"
         },
@@ -1526,240 +2975,102 @@
       }
     },
     {
-      "name": "Meteor Brand forged blade facet 2",
+      "name": "Meteor Brand continuous blade facet 3-2",
       "from": [
-        6.8999999999999995,
-        20,
+        7.3999999999999995,
+        28.0,
         7.65
       ],
       "to": [
-        8.7,
-        26,
+        8.45,
+        29.0,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            1.0,
+            0.17391,
+            2.3125,
+            0.34783
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            1.0,
+            0.17391,
+            2.3125,
+            0.34783
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Meteor Brand cutting edge 2",
+      "name": "Meteor Brand flush energy inlay 3-2",
       "from": [
-        6.749999999999999,
-        20,
-        7.8
+        7.825,
+        28.0,
+        7.59
       ],
       "to": [
-        6.8999999999999995,
-        26,
-        8.2
+        8.025,
+        29.0,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            4,
-            0,
-            8,
-            4
+            9.4,
+            0.17391,
+            10.6,
+            0.34783
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Meteor Brand spine ridge 2",
-      "from": [
-        8.7,
-        20,
-        7.8
-      ],
-      "to": [
-        8.819999999999999,
-        26,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Meteor Brand inlaid energy channel 2",
-      "from": [
-        7.66,
-        20.2,
-        7.56
-      ],
-      "to": [
-        7.9399999999999995,
-        25.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            0.17391,
+            10.6,
+            0.34783
           ],
           "texture": "#atlas"
         },
@@ -1802,171 +3113,33 @@
       }
     },
     {
-      "name": "Meteor Brand forged blade facet 3",
+      "name": "Meteor Brand continuous blade facet 3-3",
       "from": [
-        7.7,
-        26,
+        7.6,
+        29.0,
         7.65
       ],
       "to": [
-        8.3,
-        30,
+        8.35,
+        30.0,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            1.25,
+            0.0,
+            2.1875,
+            0.17391
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Meteor Brand cutting edge 3",
-      "from": [
-        7.55,
-        26,
-        7.8
-      ],
-      "to": [
-        7.7,
-        30,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Meteor Brand spine ridge 3",
-      "from": [
-        8.3,
-        26,
-        7.8
-      ],
-      "to": [
-        8.42,
-        30,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
+            1.25,
+            0.0,
+            2.1875,
+            0.17391
           ],
           "texture": "#atlas"
         },
@@ -2009,33 +3182,33 @@
       }
     },
     {
-      "name": "Meteor Brand inlaid energy channel 3",
+      "name": "Meteor Brand flush energy inlay 3-3",
       "from": [
-        7.86,
-        26.2,
-        7.56
+        7.875,
+        29.0,
+        7.59
       ],
       "to": [
-        8.14,
-        29.85,
-        8.44
+        8.075,
+        30.0,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            0.0,
+            10.6,
+            0.17391
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            0.0,
+            10.6,
+            0.17391
           ],
           "texture": "#atlas"
         },
@@ -2080,14 +3253,14 @@
     {
       "name": "Meteor Brand etched sigil 0",
       "from": [
-        7.65,
+        7.82,
         8.0,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        8.22,
-        7.65
+        8.18,
+        8.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2149,14 +3322,14 @@
     {
       "name": "Meteor Brand etched sigil 1",
       "from": [
-        7.65,
+        7.82,
         10.25,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        10.47,
-        7.65
+        8.18,
+        10.41,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2218,14 +3391,14 @@
     {
       "name": "Meteor Brand etched sigil 2",
       "from": [
-        7.85,
+        7.82,
         12.5,
-        7.51
+        7.59
       ],
       "to": [
-        8.549999999999999,
-        12.72,
-        7.65
+        8.18,
+        12.66,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2287,14 +3460,14 @@
     {
       "name": "Meteor Brand etched sigil 3",
       "from": [
-        7.85,
+        7.845000000000001,
         14.75,
-        7.51
+        7.59
       ],
       "to": [
-        8.549999999999999,
-        14.97,
-        7.65
+        8.205,
+        14.91,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2356,14 +3529,14 @@
     {
       "name": "Meteor Brand etched sigil 4",
       "from": [
-        7.45,
+        7.895,
         17.0,
-        7.51
+        7.59
       ],
       "to": [
-        8.15,
-        17.22,
-        7.65
+        8.254999999999999,
+        17.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2425,14 +3598,14 @@
     {
       "name": "Meteor Brand etched sigil 5",
       "from": [
-        7.45,
+        7.995000000000001,
         19.25,
-        7.51
+        7.59
       ],
       "to": [
-        8.15,
-        19.47,
-        7.65
+        8.355,
+        19.41,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2492,14 +3665,14 @@
       }
     },
     {
-      "name": "Meteor Brand serrated thorn 0",
+      "name": "Meteor Brand attached thorn 0",
       "from": [
-        6.319999999999999,
+        6.3,
         12,
         7.8
       ],
       "to": [
-        6.88,
+        8.0,
         13.2,
         8.2
       ],
@@ -2561,14 +3734,14 @@
       }
     },
     {
-      "name": "Meteor Brand serrated thorn 1",
+      "name": "Meteor Brand attached thorn 1",
       "from": [
-        9.120000000000001,
+        8.025,
         15,
         7.8
       ],
       "to": [
-        9.68,
+        9.725,
         16.2,
         8.2
       ],
@@ -2630,14 +3803,14 @@
       }
     },
     {
-      "name": "Meteor Brand serrated thorn 2",
+      "name": "Meteor Brand attached thorn 2",
       "from": [
-        6.319999999999999,
+        6.425,
         18,
         7.8
       ],
       "to": [
-        6.88,
+        8.125,
         19.2,
         8.2
       ],
@@ -2699,14 +3872,14 @@
       }
     },
     {
-      "name": "Meteor Brand serrated thorn 3",
+      "name": "Meteor Brand attached thorn 3",
       "from": [
-        9.120000000000001,
+        8.15,
         21,
         7.8
       ],
       "to": [
-        9.68,
+        9.85,
         22.2,
         8.2
       ],
@@ -2815,9 +3988,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.41481,
+        0.41481,
+        0.41481
       ]
     },
     "firstperson_lefthand": {
@@ -2832,9 +4005,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.41481,
+        0.41481,
+        0.41481
       ]
     },
     "gui": {
@@ -2849,9 +4022,9 @@
         0
       ],
       "scale": [
-        0.55,
-        0.55,
-        0.55
+        0.41481,
+        0.41481,
+        0.41481
       ]
     },
     "ground": {

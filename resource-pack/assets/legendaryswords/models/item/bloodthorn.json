@@ -16,7 +16,7 @@
       ],
       "to": [
         8.65,
-        5,
+        5.45,
         8.65
       ],
       "faces": {
@@ -770,7 +770,7 @@
       "name": "Bloodthorn guard wing -1",
       "from": [
         5.55,
-        6.4,
+        5.9,
         7.35
       ],
       "to": [
@@ -839,7 +839,7 @@
       "name": "Bloodthorn guard wing 1",
       "from": [
         9.65,
-        6.4,
+        5.9,
         7.35
       ],
       "to": [
@@ -974,447 +974,240 @@
       }
     },
     {
-      "name": "Bloodthorn forged blade facet 0",
+      "name": "Bloodthorn blade ferrule",
+      "from": [
+        7.25,
+        6,
+        7.35
+      ],
+      "to": [
+        8.75,
+        7.15,
+        8.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn continuous blade facet 0-0",
       "from": [
         7.3,
-        7,
+        7.0,
         7.65
       ],
       "to": [
         8.7,
-        14,
+        8.75,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.0,
+            3.68182,
+            2.33333,
+            4.0
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.0,
+            3.68182,
+            2.33333,
+            4.0
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Bloodthorn cutting edge 0",
+      "name": "Bloodthorn flush energy inlay 0-0",
       "from": [
-        7.1499999999999995,
-        7,
-        7.8
+        7.9,
+        7.0,
+        7.59
       ],
       "to": [
+        8.1,
+        8.75,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            3.68182,
+            10.6,
+            4.0
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            3.68182,
+            10.6,
+            4.0
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn continuous blade facet 0-1",
+      "from": [
         7.3,
-        14,
-        8.2
+        8.75,
+        7.65
       ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Bloodthorn spine ridge 0",
-      "from": [
+      "to": [
         8.7,
-        7,
-        7.8
-      ],
-      "to": [
-        8.819999999999999,
-        14,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Bloodthorn inlaid energy channel 0",
-      "from": [
-        7.86,
-        7.2,
-        7.56
-      ],
-      "to": [
-        8.14,
-        13.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Bloodthorn forged blade facet 1",
-      "from": [
-        7.5,
-        14,
-        7.65
-      ],
-      "to": [
-        9.3,
-        20,
+        10.5,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.0,
+            3.36364,
+            2.33333,
+            3.68182
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Bloodthorn cutting edge 1",
-      "from": [
-        7.35,
-        14,
-        7.8
-      ],
-      "to": [
-        7.5,
-        20,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Bloodthorn spine ridge 1",
-      "from": [
-        9.3,
-        14,
-        7.8
-      ],
-      "to": [
-        9.42,
-        20,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
+            0.0,
+            3.36364,
+            2.33333,
+            3.68182
           ],
           "texture": "#atlas"
         },
@@ -1457,309 +1250,33 @@
       }
     },
     {
-      "name": "Bloodthorn inlaid energy channel 1",
+      "name": "Bloodthorn flush energy inlay 0-1",
       "from": [
-        8.26,
-        14.2,
-        7.56
-      ],
-      "to": [
-        8.540000000000001,
-        19.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Bloodthorn forged blade facet 2",
-      "from": [
-        8.1,
-        20,
-        7.65
-      ],
-      "to": [
-        9.700000000000001,
-        25,
-        8.35
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Bloodthorn cutting edge 2",
-      "from": [
-        7.949999999999999,
-        20,
-        7.8
+        7.9,
+        8.75,
+        7.59
       ],
       "to": [
         8.1,
-        25,
-        8.2
+        10.5,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            4,
-            0,
-            8,
-            4
+            9.4,
+            3.36364,
+            10.6,
+            3.68182
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Bloodthorn spine ridge 2",
-      "from": [
-        9.700000000000001,
-        20,
-        7.8
-      ],
-      "to": [
-        9.82,
-        25,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Bloodthorn inlaid energy channel 2",
-      "from": [
-        8.76,
-        20.2,
-        7.56
-      ],
-      "to": [
-        9.040000000000001,
-        24.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            3.36364,
+            10.6,
+            3.68182
           ],
           "texture": "#atlas"
         },
@@ -1802,171 +1319,33 @@
       }
     },
     {
-      "name": "Bloodthorn forged blade facet 3",
+      "name": "Bloodthorn continuous blade facet 0-2",
       "from": [
-        8.899999999999999,
-        25,
+        7.3,
+        10.5,
         7.65
       ],
       "to": [
-        9.5,
-        29,
+        8.7,
+        12.25,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.0,
+            3.04545,
+            2.33333,
+            3.36364
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Bloodthorn cutting edge 3",
-      "from": [
-        8.749999999999998,
-        25,
-        7.8
-      ],
-      "to": [
-        8.899999999999999,
-        29,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Bloodthorn spine ridge 3",
-      "from": [
-        9.5,
-        25,
-        7.8
-      ],
-      "to": [
-        9.62,
-        29,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
+            0.0,
+            3.04545,
+            2.33333,
+            3.36364
           ],
           "texture": "#atlas"
         },
@@ -2009,33 +1388,1827 @@
       }
     },
     {
-      "name": "Bloodthorn inlaid energy channel 3",
+      "name": "Bloodthorn flush energy inlay 0-2",
       "from": [
-        9.059999999999999,
-        25.2,
-        7.56
+        7.9,
+        10.5,
+        7.59
       ],
       "to": [
-        9.34,
-        28.85,
-        8.44
+        8.1,
+        12.25,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            3.04545,
+            10.6,
+            3.36364
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
+            9.4,
+            3.04545,
+            10.6,
+            3.36364
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
             8,
-            0,
             12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn continuous blade facet 0-3",
+      "from": [
+        7.3,
+        12.25,
+        7.65
+      ],
+      "to": [
+        8.7,
+        14.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            2.72727,
+            2.33333,
+            3.04545
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            2.72727,
+            2.33333,
+            3.04545
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
             4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn flush energy inlay 0-3",
+      "from": [
+        7.9,
+        12.25,
+        7.59
+      ],
+      "to": [
+        8.1,
+        14.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.72727,
+            10.6,
+            3.04545
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.72727,
+            10.6,
+            3.04545
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn continuous blade facet 1-0",
+      "from": [
+        7.325000000000001,
+        14.0,
+        7.65
+      ],
+      "to": [
+        8.775,
+        15.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.04167,
+            2.45455,
+            2.45833,
+            2.72727
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.04167,
+            2.45455,
+            2.45833,
+            2.72727
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn flush energy inlay 1-0",
+      "from": [
+        7.950000000000001,
+        14.0,
+        7.59
+      ],
+      "to": [
+        8.15,
+        15.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.45455,
+            10.6,
+            2.72727
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.45455,
+            10.6,
+            2.72727
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn continuous blade facet 1-1",
+      "from": [
+        7.375,
+        15.5,
+        7.65
+      ],
+      "to": [
+        8.925,
+        17.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.125,
+            2.18182,
+            2.70833,
+            2.45455
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.125,
+            2.18182,
+            2.70833,
+            2.45455
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn flush energy inlay 1-1",
+      "from": [
+        8.05,
+        15.5,
+        7.59
+      ],
+      "to": [
+        8.25,
+        17.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.18182,
+            10.6,
+            2.45455
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.18182,
+            10.6,
+            2.45455
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn continuous blade facet 1-2",
+      "from": [
+        7.425,
+        17.0,
+        7.65
+      ],
+      "to": [
+        9.075,
+        18.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.20833,
+            1.90909,
+            2.95833,
+            2.18182
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.20833,
+            1.90909,
+            2.95833,
+            2.18182
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn flush energy inlay 1-2",
+      "from": [
+        8.15,
+        17.0,
+        7.59
+      ],
+      "to": [
+        8.35,
+        18.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.90909,
+            10.6,
+            2.18182
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.90909,
+            10.6,
+            2.18182
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn continuous blade facet 1-3",
+      "from": [
+        7.475,
+        18.5,
+        7.65
+      ],
+      "to": [
+        9.225,
+        20.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.29167,
+            1.63636,
+            3.20833,
+            1.90909
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.29167,
+            1.63636,
+            3.20833,
+            1.90909
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn flush energy inlay 1-3",
+      "from": [
+        8.25,
+        18.5,
+        7.59
+      ],
+      "to": [
+        8.45,
+        20.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.63636,
+            10.6,
+            1.90909
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.63636,
+            10.6,
+            1.90909
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn continuous blade facet 2-0",
+      "from": [
+        7.575,
+        20.0,
+        7.65
+      ],
+      "to": [
+        9.35,
+        21.25,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.45833,
+            1.40909,
+            3.41667,
+            1.63636
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.45833,
+            1.40909,
+            3.41667,
+            1.63636
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn flush energy inlay 2-0",
+      "from": [
+        8.3625,
+        20.0,
+        7.59
+      ],
+      "to": [
+        8.5625,
+        21.25,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.40909,
+            10.6,
+            1.63636
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.40909,
+            10.6,
+            1.63636
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn continuous blade facet 2-1",
+      "from": [
+        7.7250000000000005,
+        21.25,
+        7.65
+      ],
+      "to": [
+        9.450000000000001,
+        22.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.70833,
+            1.18182,
+            3.58333,
+            1.40909
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.70833,
+            1.18182,
+            3.58333,
+            1.40909
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn flush energy inlay 2-1",
+      "from": [
+        8.4875,
+        21.25,
+        7.59
+      ],
+      "to": [
+        8.6875,
+        22.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.18182,
+            10.6,
+            1.40909
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.18182,
+            10.6,
+            1.40909
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn continuous blade facet 2-2",
+      "from": [
+        7.875,
+        22.5,
+        7.65
+      ],
+      "to": [
+        9.55,
+        23.75,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.95833,
+            0.95455,
+            3.75,
+            1.18182
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.95833,
+            0.95455,
+            3.75,
+            1.18182
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn flush energy inlay 2-2",
+      "from": [
+        8.6125,
+        22.5,
+        7.59
+      ],
+      "to": [
+        8.8125,
+        23.75,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.95455,
+            10.6,
+            1.18182
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.95455,
+            10.6,
+            1.18182
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn continuous blade facet 2-3",
+      "from": [
+        8.025,
+        23.75,
+        7.65
+      ],
+      "to": [
+        9.65,
+        25.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.20833,
+            0.72727,
+            3.91667,
+            0.95455
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.20833,
+            0.72727,
+            3.91667,
+            0.95455
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn flush energy inlay 2-3",
+      "from": [
+        8.7375,
+        23.75,
+        7.59
+      ],
+      "to": [
+        8.9375,
+        25.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.72727,
+            10.6,
+            0.95455
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.72727,
+            10.6,
+            0.95455
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn continuous blade facet 3-0",
+      "from": [
+        8.2,
+        25.0,
+        7.65
+      ],
+      "to": [
+        9.675,
+        26.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.5,
+            0.54545,
+            3.95833,
+            0.72727
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.5,
+            0.54545,
+            3.95833,
+            0.72727
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn flush energy inlay 3-0",
+      "from": [
+        8.8375,
+        25.0,
+        7.59
+      ],
+      "to": [
+        9.0375,
+        26.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.54545,
+            10.6,
+            0.72727
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.54545,
+            10.6,
+            0.72727
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn continuous blade facet 3-1",
+      "from": [
+        8.399999999999999,
+        26.0,
+        7.65
+      ],
+      "to": [
+        9.625,
+        27.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.83333,
+            0.36364,
+            3.875,
+            0.54545
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.83333,
+            0.36364,
+            3.875,
+            0.54545
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn flush energy inlay 3-1",
+      "from": [
+        8.9125,
+        26.0,
+        7.59
+      ],
+      "to": [
+        9.112499999999999,
+        27.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.36364,
+            10.6,
+            0.54545
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.36364,
+            10.6,
+            0.54545
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn continuous blade facet 3-2",
+      "from": [
+        8.6,
+        27.0,
+        7.65
+      ],
+      "to": [
+        9.575000000000001,
+        28.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.16667,
+            0.18182,
+            3.79167,
+            0.36364
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2.16667,
+            0.18182,
+            3.79167,
+            0.36364
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn flush energy inlay 3-2",
+      "from": [
+        8.9875,
+        27.0,
+        7.59
+      ],
+      "to": [
+        9.1875,
+        28.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.18182,
+            10.6,
+            0.36364
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.18182,
+            10.6,
+            0.36364
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn continuous blade facet 3-3",
+      "from": [
+        8.8,
+        28.0,
+        7.65
+      ],
+      "to": [
+        9.525000000000002,
+        29.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.5,
+            0.0,
+            3.70833,
+            0.18182
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2.5,
+            0.0,
+            3.70833,
+            0.18182
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bloodthorn flush energy inlay 3-3",
+      "from": [
+        9.062500000000002,
+        28.0,
+        7.59
+      ],
+      "to": [
+        9.262500000000001,
+        29.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.0,
+            10.6,
+            0.18182
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.0,
+            10.6,
+            0.18182
           ],
           "texture": "#atlas"
         },
@@ -2080,14 +3253,14 @@
     {
       "name": "Bloodthorn etched sigil 0",
       "from": [
-        7.65,
+        7.82,
         8.0,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        8.22,
-        7.65
+        8.18,
+        8.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2149,14 +3322,14 @@
     {
       "name": "Bloodthorn etched sigil 1",
       "from": [
-        7.65,
+        7.82,
         10.25,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        10.47,
-        7.65
+        8.18,
+        10.41,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2218,14 +3391,14 @@
     {
       "name": "Bloodthorn etched sigil 2",
       "from": [
-        8.05,
+        7.82,
         12.5,
-        7.51
+        7.59
       ],
       "to": [
-        8.75,
-        12.72,
-        7.65
+        8.18,
+        12.66,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2287,14 +3460,14 @@
     {
       "name": "Bloodthorn etched sigil 3",
       "from": [
-        8.05,
+        7.870000000000001,
         14.75,
-        7.51
+        7.59
       ],
       "to": [
-        8.75,
-        14.97,
-        7.65
+        8.23,
+        14.91,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2356,14 +3529,14 @@
     {
       "name": "Bloodthorn etched sigil 4",
       "from": [
-        8.55,
+        7.970000000000001,
         17.0,
-        7.51
+        7.59
       ],
       "to": [
-        9.25,
-        17.22,
-        7.65
+        8.33,
+        17.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2423,14 +3596,14 @@
       }
     },
     {
-      "name": "Bloodthorn serrated thorn 0",
+      "name": "Bloodthorn attached thorn 0",
       "from": [
-        6.319999999999999,
+        6.3,
         12,
         7.8
       ],
       "to": [
-        6.88,
+        8.0,
         13.2,
         8.2
       ],
@@ -2492,14 +3665,14 @@
       }
     },
     {
-      "name": "Bloodthorn serrated thorn 1",
+      "name": "Bloodthorn attached thorn 1",
       "from": [
-        9.120000000000001,
+        8.05,
         15,
         7.8
       ],
       "to": [
-        9.68,
+        9.75,
         16.2,
         8.2
       ],
@@ -2561,14 +3734,14 @@
       }
     },
     {
-      "name": "Bloodthorn serrated thorn 2",
+      "name": "Bloodthorn attached thorn 2",
       "from": [
-        6.319999999999999,
+        6.55,
         18,
         7.8
       ],
       "to": [
-        6.88,
+        8.25,
         19.2,
         8.2
       ],
@@ -2630,14 +3803,14 @@
       }
     },
     {
-      "name": "Bloodthorn serrated thorn 3",
+      "name": "Bloodthorn attached thorn 3",
       "from": [
-        9.120000000000001,
+        8.4625,
         21,
         7.8
       ],
       "to": [
-        9.68,
+        10.1625,
         22.2,
         8.2
       ],
@@ -2746,9 +3919,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.42803,
+        0.42803,
+        0.42803
       ]
     },
     "firstperson_lefthand": {
@@ -2763,9 +3936,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.42803,
+        0.42803,
+        0.42803
       ]
     },
     "gui": {
@@ -2780,9 +3953,9 @@
         0
       ],
       "scale": [
-        0.55,
-        0.55,
-        0.55
+        0.42803,
+        0.42803,
+        0.42803
       ]
     },
     "ground": {

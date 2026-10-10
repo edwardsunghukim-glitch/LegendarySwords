@@ -16,7 +16,7 @@
       ],
       "to": [
         8.65,
-        5,
+        5.45,
         8.65
       ],
       "faces": {
@@ -770,7 +770,7 @@
       "name": "Astral Edge guard wing -1",
       "from": [
         5.109999999999999,
-        6.4,
+        5.9,
         7.35
       ],
       "to": [
@@ -839,7 +839,7 @@
       "name": "Astral Edge guard wing 1",
       "from": [
         10.09,
-        6.4,
+        5.9,
         7.35
       ],
       "to": [
@@ -974,430 +974,16 @@
       }
     },
     {
-      "name": "Astral Edge forged blade facet 0",
-      "from": [
-        7.3,
-        7,
-        7.65
-      ],
-      "to": [
-        8.7,
-        13,
-        8.35
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Astral Edge cutting edge 0",
-      "from": [
-        7.1499999999999995,
-        7,
-        7.8
-      ],
-      "to": [
-        7.3,
-        13,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Astral Edge spine ridge 0",
-      "from": [
-        8.7,
-        7,
-        7.8
-      ],
-      "to": [
-        8.819999999999999,
-        13,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Astral Edge inlaid energy channel 0",
-      "from": [
-        7.86,
-        7.2,
-        7.56
-      ],
-      "to": [
-        8.14,
-        12.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Astral Edge forged blade facet 1",
-      "from": [
-        7.4,
-        13,
-        7.65
-      ],
-      "to": [
-        9.200000000000001,
-        20,
-        8.35
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Astral Edge cutting edge 1",
+      "name": "Astral Edge blade ferrule",
       "from": [
         7.25,
-        13,
-        7.8
+        6,
+        7.35
       ],
       "to": [
-        7.4,
-        20,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Astral Edge spine ridge 1",
-      "from": [
-        9.200000000000001,
-        13,
-        7.8
-      ],
-      "to": [
-        9.32,
-        20,
-        8.2
+        8.75,
+        7.15,
+        8.65
       ],
       "faces": {
         "north": {
@@ -1421,345 +1007,138 @@
         "east": {
           "uv": [
             4,
-            0,
+            4,
             8,
-            4
+            8
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
-            0,
+            4,
             8,
-            4
+            8
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
-            0,
+            4,
             8,
-            4
+            8
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
-            0,
+            4,
             8,
-            4
+            8
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Astral Edge inlaid energy channel 1",
+      "name": "Astral Edge continuous blade facet 0-0",
       "from": [
-        8.16,
-        13.2,
-        7.56
-      ],
-      "to": [
-        8.440000000000001,
-        19.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            12,
-            12,
-            16
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Astral Edge forged blade facet 2",
-      "from": [
-        7.2,
-        20,
+        7.3,
+        7.0,
         7.65
       ],
       "to": [
-        8.4,
-        26,
+        8.7,
+        8.5,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.2,
+            3.73913,
+            3.0,
+            4.0
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.2,
+            3.73913,
+            3.0,
+            4.0
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Astral Edge cutting edge 2",
+      "name": "Astral Edge flush energy inlay 0-0",
       "from": [
-        7.05,
-        20,
-        7.8
+        7.9,
+        7.0,
+        7.59
       ],
       "to": [
-        7.2,
-        26,
-        8.2
+        8.1,
+        8.5,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            4,
-            0,
-            8,
-            4
+            9.4,
+            3.73913,
+            10.6,
+            4.0
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Astral Edge spine ridge 2",
-      "from": [
-        8.4,
-        20,
-        7.8
-      ],
-      "to": [
-        8.52,
-        26,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Astral Edge inlaid energy channel 2",
-      "from": [
-        7.66,
-        20.2,
-        7.56
-      ],
-      "to": [
-        7.9399999999999995,
-        25.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            3.73913,
+            10.6,
+            4.0
           ],
           "texture": "#atlas"
         },
@@ -1802,171 +1181,33 @@
       }
     },
     {
-      "name": "Astral Edge forged blade facet 3",
+      "name": "Astral Edge continuous blade facet 0-1",
       "from": [
-        7.8,
-        26,
+        7.3,
+        8.5,
         7.65
       ],
       "to": [
-        8.2,
-        30,
+        8.7,
+        10.0,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.2,
+            3.47826,
+            3.0,
+            3.73913
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Astral Edge cutting edge 3",
-      "from": [
-        7.6499999999999995,
-        26,
-        7.8
-      ],
-      "to": [
-        7.8,
-        30,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Astral Edge spine ridge 3",
-      "from": [
-        8.2,
-        26,
-        7.8
-      ],
-      "to": [
-        8.319999999999999,
-        30,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
+            0.2,
+            3.47826,
+            3.0,
+            3.73913
           ],
           "texture": "#atlas"
         },
@@ -2009,33 +1250,1965 @@
       }
     },
     {
-      "name": "Astral Edge inlaid energy channel 3",
+      "name": "Astral Edge flush energy inlay 0-1",
       "from": [
-        7.86,
-        26.2,
-        7.56
+        7.9,
+        8.5,
+        7.59
       ],
       "to": [
-        8.14,
-        29.85,
-        8.44
+        8.1,
+        10.0,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            3.47826,
+            10.6,
+            3.73913
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
+            9.4,
+            3.47826,
+            10.6,
+            3.73913
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
             8,
-            0,
             12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge continuous blade facet 0-2",
+      "from": [
+        7.3,
+        10.0,
+        7.65
+      ],
+      "to": [
+        8.7,
+        11.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.2,
+            3.21739,
+            3.0,
+            3.47826
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.2,
+            3.21739,
+            3.0,
+            3.47826
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
             4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge flush energy inlay 0-2",
+      "from": [
+        7.9,
+        10.0,
+        7.59
+      ],
+      "to": [
+        8.1,
+        11.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            3.21739,
+            10.6,
+            3.47826
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            3.21739,
+            10.6,
+            3.47826
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge continuous blade facet 0-3",
+      "from": [
+        7.3,
+        11.5,
+        7.65
+      ],
+      "to": [
+        8.7,
+        13.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.2,
+            2.95652,
+            3.0,
+            3.21739
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.2,
+            2.95652,
+            3.0,
+            3.21739
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge flush energy inlay 0-3",
+      "from": [
+        7.9,
+        11.5,
+        7.59
+      ],
+      "to": [
+        8.1,
+        13.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.95652,
+            10.6,
+            3.21739
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.95652,
+            10.6,
+            3.21739
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge continuous blade facet 1-0",
+      "from": [
+        7.3125,
+        13.0,
+        7.65
+      ],
+      "to": [
+        8.7625,
+        14.75,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.225,
+            2.65217,
+            3.125,
+            2.95652
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.225,
+            2.65217,
+            3.125,
+            2.95652
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge flush energy inlay 1-0",
+      "from": [
+        7.9375,
+        13.0,
+        7.59
+      ],
+      "to": [
+        8.1375,
+        14.75,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.65217,
+            10.6,
+            2.95652
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.65217,
+            10.6,
+            2.95652
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge continuous blade facet 1-1",
+      "from": [
+        7.3375,
+        14.75,
+        7.65
+      ],
+      "to": [
+        8.887500000000001,
+        16.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.275,
+            2.34783,
+            3.375,
+            2.65217
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.275,
+            2.34783,
+            3.375,
+            2.65217
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge flush energy inlay 1-1",
+      "from": [
+        8.012500000000001,
+        14.75,
+        7.59
+      ],
+      "to": [
+        8.2125,
+        16.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.34783,
+            10.6,
+            2.65217
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.34783,
+            10.6,
+            2.65217
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge continuous blade facet 1-2",
+      "from": [
+        7.3625,
+        16.5,
+        7.65
+      ],
+      "to": [
+        9.0125,
+        18.25,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.325,
+            2.04348,
+            3.625,
+            2.34783
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.325,
+            2.04348,
+            3.625,
+            2.34783
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge flush energy inlay 1-2",
+      "from": [
+        8.0875,
+        16.5,
+        7.59
+      ],
+      "to": [
+        8.2875,
+        18.25,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.04348,
+            10.6,
+            2.34783
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.04348,
+            10.6,
+            2.34783
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge continuous blade facet 1-3",
+      "from": [
+        7.387499999999999,
+        18.25,
+        7.65
+      ],
+      "to": [
+        9.1375,
+        20.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.375,
+            1.73913,
+            3.875,
+            2.04348
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.375,
+            1.73913,
+            3.875,
+            2.04348
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge flush energy inlay 1-3",
+      "from": [
+        8.1625,
+        18.25,
+        7.59
+      ],
+      "to": [
+        8.362499999999999,
+        20.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.73913,
+            10.6,
+            2.04348
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.73913,
+            10.6,
+            2.04348
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge continuous blade facet 2-0",
+      "from": [
+        7.374999999999999,
+        20.0,
+        7.65
+      ],
+      "to": [
+        9.1,
+        21.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.35,
+            1.47826,
+            3.8,
+            1.73913
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.35,
+            1.47826,
+            3.8,
+            1.73913
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge flush energy inlay 2-0",
+      "from": [
+        8.1375,
+        20.0,
+        7.59
+      ],
+      "to": [
+        8.337499999999999,
+        21.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.47826,
+            10.6,
+            1.73913
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.47826,
+            10.6,
+            1.73913
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge continuous blade facet 2-1",
+      "from": [
+        7.325000000000001,
+        21.5,
+        7.65
+      ],
+      "to": [
+        8.9,
+        23.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.25,
+            1.21739,
+            3.4,
+            1.47826
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.25,
+            1.21739,
+            3.4,
+            1.47826
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge flush energy inlay 2-1",
+      "from": [
+        8.012500000000001,
+        21.5,
+        7.59
+      ],
+      "to": [
+        8.2125,
+        23.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.21739,
+            10.6,
+            1.47826
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.21739,
+            10.6,
+            1.47826
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge continuous blade facet 2-2",
+      "from": [
+        7.275,
+        23.0,
+        7.65
+      ],
+      "to": [
+        8.700000000000001,
+        24.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.15,
+            0.95652,
+            3.0,
+            1.21739
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.15,
+            0.95652,
+            3.0,
+            1.21739
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge flush energy inlay 2-2",
+      "from": [
+        7.887500000000001,
+        23.0,
+        7.59
+      ],
+      "to": [
+        8.0875,
+        24.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.95652,
+            10.6,
+            1.21739
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.95652,
+            10.6,
+            1.21739
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge continuous blade facet 2-3",
+      "from": [
+        7.225,
+        24.5,
+        7.65
+      ],
+      "to": [
+        8.5,
+        26.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.05,
+            0.69565,
+            2.6,
+            0.95652
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.05,
+            0.69565,
+            2.6,
+            0.95652
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge flush energy inlay 2-3",
+      "from": [
+        7.7625,
+        24.5,
+        7.59
+      ],
+      "to": [
+        7.9624999999999995,
+        26.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.69565,
+            10.6,
+            0.95652
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.69565,
+            10.6,
+            0.95652
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge continuous blade facet 3-0",
+      "from": [
+        7.275,
+        26.0,
+        7.65
+      ],
+      "to": [
+        8.375,
+        27.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.15,
+            0.52174,
+            2.35,
+            0.69565
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.15,
+            0.52174,
+            2.35,
+            0.69565
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge flush energy inlay 3-0",
+      "from": [
+        7.7250000000000005,
+        26.0,
+        7.59
+      ],
+      "to": [
+        7.925,
+        27.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.52174,
+            10.6,
+            0.69565
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.52174,
+            10.6,
+            0.69565
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge continuous blade facet 3-1",
+      "from": [
+        7.425,
+        27.0,
+        7.65
+      ],
+      "to": [
+        8.325,
+        28.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.45,
+            0.34783,
+            2.25,
+            0.52174
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.45,
+            0.34783,
+            2.25,
+            0.52174
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge flush energy inlay 3-1",
+      "from": [
+        7.775,
+        27.0,
+        7.59
+      ],
+      "to": [
+        7.975,
+        28.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.34783,
+            10.6,
+            0.52174
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.34783,
+            10.6,
+            0.52174
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge continuous blade facet 3-2",
+      "from": [
+        7.575,
+        28.0,
+        7.65
+      ],
+      "to": [
+        8.275,
+        29.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.75,
+            0.17391,
+            2.15,
+            0.34783
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.75,
+            0.17391,
+            2.15,
+            0.34783
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge flush energy inlay 3-2",
+      "from": [
+        7.825,
+        28.0,
+        7.59
+      ],
+      "to": [
+        8.025,
+        29.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.17391,
+            10.6,
+            0.34783
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.17391,
+            10.6,
+            0.34783
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge continuous blade facet 3-3",
+      "from": [
+        7.725,
+        29.0,
+        7.65
+      ],
+      "to": [
+        8.225,
+        30.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.05,
+            0.0,
+            2.05,
+            0.17391
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.05,
+            0.0,
+            2.05,
+            0.17391
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Astral Edge flush energy inlay 3-3",
+      "from": [
+        7.875,
+        29.0,
+        7.59
+      ],
+      "to": [
+        8.075,
+        30.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.0,
+            10.6,
+            0.17391
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.0,
+            10.6,
+            0.17391
           ],
           "texture": "#atlas"
         },
@@ -2080,14 +3253,14 @@
     {
       "name": "Astral Edge etched sigil 0",
       "from": [
-        7.65,
+        7.82,
         8.0,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        8.22,
-        7.65
+        8.18,
+        8.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2149,14 +3322,14 @@
     {
       "name": "Astral Edge etched sigil 1",
       "from": [
-        7.65,
+        7.82,
         10.25,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        10.47,
-        7.65
+        8.18,
+        10.41,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2218,14 +3391,14 @@
     {
       "name": "Astral Edge etched sigil 2",
       "from": [
-        7.950000000000001,
+        7.82,
         12.5,
-        7.51
+        7.59
       ],
       "to": [
-        8.65,
-        12.72,
-        7.65
+        8.18,
+        12.66,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2287,14 +3460,14 @@
     {
       "name": "Astral Edge etched sigil 3",
       "from": [
-        7.950000000000001,
+        7.8575,
         14.75,
-        7.51
+        7.59
       ],
       "to": [
-        8.65,
-        14.97,
-        7.65
+        8.2175,
+        14.91,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2356,14 +3529,14 @@
     {
       "name": "Astral Edge etched sigil 4",
       "from": [
-        7.45,
+        8.0075,
         17.0,
-        7.51
+        7.59
       ],
       "to": [
-        8.15,
-        17.22,
-        7.65
+        8.3675,
+        17.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2425,14 +3598,14 @@
     {
       "name": "Astral Edge etched sigil 5",
       "from": [
-        7.45,
+        8.0825,
         19.25,
-        7.51
+        7.59
       ],
       "to": [
-        8.15,
-        19.47,
-        7.65
+        8.442499999999999,
+        19.41,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2494,14 +3667,14 @@
     {
       "name": "Astral Edge etched sigil 6",
       "from": [
-        7.65,
+        8.0575,
         21.5,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        21.72,
-        7.65
+        8.417499999999999,
+        21.66,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2561,16 +3734,16 @@
       }
     },
     {
-      "name": "Astral Edge floating crystal 0",
+      "name": "Astral Edge embedded crystal 0",
       "from": [
-        6.58,
+        7.8,
         13,
-        7.7
+        7.59
       ],
       "to": [
-        7.02,
-        14,
-        8.3
+        8.2,
+        13.8,
+        7.73
       ],
       "faces": {
         "north": {
@@ -2630,16 +3803,16 @@
       }
     },
     {
-      "name": "Astral Edge floating crystal 1",
+      "name": "Astral Edge embedded crystal 1",
       "from": [
-        8.979999999999999,
+        7.9125000000000005,
         16,
-        7.7
+        7.59
       ],
       "to": [
-        9.42,
-        17,
-        8.3
+        8.3125,
+        16.8,
+        7.73
       ],
       "faces": {
         "north": {
@@ -2699,16 +3872,16 @@
       }
     },
     {
-      "name": "Astral Edge floating crystal 2",
+      "name": "Astral Edge embedded crystal 2",
       "from": [
-        6.58,
+        8.0625,
         19,
-        7.7
+        7.59
       ],
       "to": [
-        7.02,
-        20,
-        8.3
+        8.462499999999999,
+        19.8,
+        7.73
       ],
       "faces": {
         "north": {
@@ -2768,16 +3941,16 @@
       }
     },
     {
-      "name": "Astral Edge floating crystal 3",
+      "name": "Astral Edge embedded crystal 3",
       "from": [
-        8.979999999999999,
+        7.9125000000000005,
         22,
-        7.7
+        7.59
       ],
       "to": [
-        9.42,
-        23,
-        8.3
+        8.3125,
+        22.8,
+        7.73
       ],
       "faces": {
         "north": {
@@ -2884,9 +4057,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.41481,
+        0.41481,
+        0.41481
       ]
     },
     "firstperson_lefthand": {
@@ -2901,9 +4074,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.41481,
+        0.41481,
+        0.41481
       ]
     },
     "gui": {
@@ -2918,9 +4091,9 @@
         0
       ],
       "scale": [
-        0.55,
-        0.55,
-        0.55
+        0.41481,
+        0.41481,
+        0.41481
       ]
     },
     "ground": {

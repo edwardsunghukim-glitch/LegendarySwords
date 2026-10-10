@@ -515,6 +515,8 @@ def main():
                   thunderblade, royal_claymore, eightfold_blade, biggoron_sword)
     for name, geometry in zip(NAMES, geometries):
         texture(name)
+        from domain_weapon_art import texture as clean_texture
+        clean_texture({"id": name, "color": list(PALETTES[name][2]), "pattern_index": 42 + NAMES.index(name)}, NAMES.index(name))
         display = json.loads(json.dumps(DISPLAY))
         if name in ("royal_claymore", "biggoron_sword"):
             display["gui"]["scale"] = [0.47] * 3
@@ -536,6 +538,9 @@ def main():
                     "textures": {"atlas": "legendaryswords:item/" + name,
                                  "particle": "legendaryswords:item/" + name},
                     "elements": elements, "display": display}
+        from polish_weapon_pack import fit_display, continuous_uv
+        fit_display(model)
+        continuous_uv(model)
         write_json(ASSETS / "models" / "item" / (name + ".json"), model)
         # Keep the actual inventory item visible while BetterModel renders its
         # animated hand. Only vanilla third-person hands use the empty branch.

@@ -16,7 +16,7 @@
       ],
       "to": [
         8.65,
-        5,
+        5.45,
         8.65
       ],
       "faces": {
@@ -770,7 +770,7 @@
       "name": "Tidebreaker guard wing -1",
       "from": [
         4.89,
-        5.7,
+        5.9,
         7.35
       ],
       "to": [
@@ -839,7 +839,7 @@
       "name": "Tidebreaker guard wing 1",
       "from": [
         10.31,
-        5.7,
+        5.9,
         7.35
       ],
       "to": [
@@ -974,240 +974,171 @@
       }
     },
     {
-      "name": "Tidebreaker forged blade facet 0",
+      "name": "Tidebreaker blade ferrule",
       "from": [
-        7,
-        7,
+        7.25,
+        6,
+        7.35
+      ],
+      "to": [
+        8.75,
+        7.15,
+        8.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker continuous blade facet 0-0",
+      "from": [
+        7.0,
+        7.0,
         7.65
       ],
       "to": [
-        9,
-        12,
+        9.0,
+        8.25,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.12121,
+            3.7619,
+            2.54545,
+            4.0
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.12121,
+            3.7619,
+            2.54545,
+            4.0
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Tidebreaker cutting edge 0",
+      "name": "Tidebreaker flush energy inlay 0-0",
       "from": [
-        6.85,
-        7,
-        7.8
+        7.9,
+        7.0,
+        7.59
       ],
       "to": [
-        7,
-        12,
-        8.2
+        8.1,
+        8.25,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            4,
-            0,
-            8,
-            4
+            9.4,
+            3.7619,
+            10.6,
+            4.0
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Tidebreaker spine ridge 0",
-      "from": [
-        9,
-        7,
-        7.8
-      ],
-      "to": [
-        9.12,
-        12,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Tidebreaker inlaid energy channel 0",
-      "from": [
-        7.86,
-        7.2,
-        7.56
-      ],
-      "to": [
-        8.14,
-        11.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            3.7619,
+            10.6,
+            4.0
           ],
           "texture": "#atlas"
         },
@@ -1250,240 +1181,102 @@
       }
     },
     {
-      "name": "Tidebreaker forged blade facet 1",
+      "name": "Tidebreaker continuous blade facet 0-1",
       "from": [
-        6.9,
-        12,
+        7.0,
+        8.25,
         7.65
       ],
       "to": [
-        10.1,
-        17,
+        9.0,
+        9.5,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.12121,
+            3.52381,
+            2.54545,
+            3.7619
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.12121,
+            3.52381,
+            2.54545,
+            3.7619
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Tidebreaker cutting edge 1",
+      "name": "Tidebreaker flush energy inlay 0-1",
       "from": [
-        6.75,
-        12,
-        7.8
+        7.9,
+        8.25,
+        7.59
       ],
       "to": [
-        6.9,
-        17,
-        8.2
+        8.1,
+        9.5,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            4,
-            0,
-            8,
-            4
+            9.4,
+            3.52381,
+            10.6,
+            3.7619
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Tidebreaker spine ridge 1",
-      "from": [
-        10.1,
-        12,
-        7.8
-      ],
-      "to": [
-        10.219999999999999,
-        17,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Tidebreaker inlaid energy channel 1",
-      "from": [
-        8.36,
-        12.2,
-        7.56
-      ],
-      "to": [
-        8.64,
-        16.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            3.52381,
+            10.6,
+            3.7619
           ],
           "texture": "#atlas"
         },
@@ -1526,240 +1319,102 @@
       }
     },
     {
-      "name": "Tidebreaker forged blade facet 2",
+      "name": "Tidebreaker continuous blade facet 0-2",
       "from": [
-        7.8,
-        17,
+        7.0,
+        9.5,
         7.65
       ],
       "to": [
-        10.2,
-        22,
+        9.0,
+        10.75,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.12121,
+            3.28571,
+            2.54545,
+            3.52381
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.12121,
+            3.28571,
+            2.54545,
+            3.52381
           ],
           "texture": "#atlas"
         },
         "east": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "west": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "up": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         },
         "down": {
           "uv": [
             4,
+            0,
             8,
-            8,
-            12
+            4
           ],
           "texture": "#atlas"
         }
       }
     },
     {
-      "name": "Tidebreaker cutting edge 2",
+      "name": "Tidebreaker flush energy inlay 0-2",
       "from": [
-        7.6499999999999995,
-        17,
-        7.8
+        7.9,
+        9.5,
+        7.59
       ],
       "to": [
-        7.8,
-        22,
-        8.2
+        8.1,
+        10.75,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            4,
-            0,
-            8,
-            4
+            9.4,
+            3.28571,
+            10.6,
+            3.52381
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Tidebreaker spine ridge 2",
-      "from": [
-        10.2,
-        17,
-        7.8
-      ],
-      "to": [
-        10.319999999999999,
-        22,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Tidebreaker inlaid energy channel 2",
-      "from": [
-        8.86,
-        17.2,
-        7.56
-      ],
-      "to": [
-        9.14,
-        21.85,
-        8.44
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            3.28571,
+            10.6,
+            3.52381
           ],
           "texture": "#atlas"
         },
@@ -1802,171 +1457,33 @@
       }
     },
     {
-      "name": "Tidebreaker forged blade facet 3",
+      "name": "Tidebreaker continuous blade facet 0-3",
       "from": [
-        8.7,
-        22,
+        7.0,
+        10.75,
         7.65
       ],
       "to": [
-        9.7,
-        28,
+        9.0,
+        12.0,
         8.35
       ],
       "faces": {
         "north": {
           "uv": [
-            0,
-            0,
-            4,
-            4
+            0.12121,
+            3.04762,
+            2.54545,
+            3.28571
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
-            0,
-            0,
-            4,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Tidebreaker cutting edge 3",
-      "from": [
-        8.549999999999999,
-        22,
-        7.8
-      ],
-      "to": [
-        8.7,
-        28,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ],
-          "texture": "#atlas"
-        },
-        "east": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "west": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "up": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "down": {
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ],
-          "texture": "#atlas"
-        }
-      }
-    },
-    {
-      "name": "Tidebreaker spine ridge 3",
-      "from": [
-        9.7,
-        22,
-        7.8
-      ],
-      "to": [
-        9.819999999999999,
-        28,
-        8.2
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
-          ],
-          "texture": "#atlas"
-        },
-        "south": {
-          "uv": [
-            4,
-            8,
-            8,
-            12
+            0.12121,
+            3.04762,
+            2.54545,
+            3.28571
           ],
           "texture": "#atlas"
         },
@@ -2009,33 +1526,1689 @@
       }
     },
     {
-      "name": "Tidebreaker inlaid energy channel 3",
+      "name": "Tidebreaker flush energy inlay 0-3",
       "from": [
-        9.059999999999999,
-        22.2,
-        7.56
+        7.9,
+        10.75,
+        7.59
       ],
       "to": [
-        9.34,
-        27.85,
-        8.44
+        8.1,
+        12.0,
+        8.41
       ],
       "faces": {
         "north": {
           "uv": [
-            8,
-            0,
-            12,
-            4
+            9.4,
+            3.04762,
+            10.6,
+            3.28571
           ],
           "texture": "#atlas"
         },
         "south": {
           "uv": [
+            9.4,
+            3.04762,
+            10.6,
+            3.28571
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
             8,
-            0,
             12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker continuous blade facet 1-0",
+      "from": [
+        6.9875,
+        12.0,
+        7.65
+      ],
+      "to": [
+        9.1375,
+        13.25,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.10606,
+            2.80952,
+            2.71212,
+            3.04762
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.10606,
+            2.80952,
+            2.71212,
+            3.04762
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
             4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker flush energy inlay 1-0",
+      "from": [
+        7.9625,
+        12.0,
+        7.59
+      ],
+      "to": [
+        8.1625,
+        13.25,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.80952,
+            10.6,
+            3.04762
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.80952,
+            10.6,
+            3.04762
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker continuous blade facet 1-1",
+      "from": [
+        6.9625,
+        13.25,
+        7.65
+      ],
+      "to": [
+        9.4125,
+        14.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.07576,
+            2.57143,
+            3.04545,
+            2.80952
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.07576,
+            2.57143,
+            3.04545,
+            2.80952
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker flush energy inlay 1-1",
+      "from": [
+        8.0875,
+        13.25,
+        7.59
+      ],
+      "to": [
+        8.2875,
+        14.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.57143,
+            10.6,
+            2.80952
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.57143,
+            10.6,
+            2.80952
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker continuous blade facet 1-2",
+      "from": [
+        6.9375,
+        14.5,
+        7.65
+      ],
+      "to": [
+        9.6875,
+        15.75,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.04545,
+            2.33333,
+            3.37879,
+            2.57143
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.04545,
+            2.33333,
+            3.37879,
+            2.57143
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker flush energy inlay 1-2",
+      "from": [
+        8.2125,
+        14.5,
+        7.59
+      ],
+      "to": [
+        8.4125,
+        15.75,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.33333,
+            10.6,
+            2.57143
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.33333,
+            10.6,
+            2.57143
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker continuous blade facet 1-3",
+      "from": [
+        6.9125,
+        15.75,
+        7.65
+      ],
+      "to": [
+        9.9625,
+        17.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.01515,
+            2.09524,
+            3.71212,
+            2.33333
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.01515,
+            2.09524,
+            3.71212,
+            2.33333
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker flush energy inlay 1-3",
+      "from": [
+        8.3375,
+        15.75,
+        7.59
+      ],
+      "to": [
+        8.5375,
+        17.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            2.09524,
+            10.6,
+            2.33333
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            2.09524,
+            10.6,
+            2.33333
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker continuous blade facet 2-0",
+      "from": [
+        7.0125,
+        17.0,
+        7.65
+      ],
+      "to": [
+        10.1125,
+        18.25,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.13636,
+            1.85714,
+            3.89394,
+            2.09524
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.13636,
+            1.85714,
+            3.89394,
+            2.09524
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker flush energy inlay 2-0",
+      "from": [
+        8.4625,
+        17.0,
+        7.59
+      ],
+      "to": [
+        8.6625,
+        18.25,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.85714,
+            10.6,
+            2.09524
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.85714,
+            10.6,
+            2.09524
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker continuous blade facet 2-1",
+      "from": [
+        7.2375,
+        18.25,
+        7.65
+      ],
+      "to": [
+        10.1375,
+        19.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.40909,
+            1.61905,
+            3.92424,
+            1.85714
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.40909,
+            1.61905,
+            3.92424,
+            1.85714
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker flush energy inlay 2-1",
+      "from": [
+        8.5875,
+        18.25,
+        7.59
+      ],
+      "to": [
+        8.7875,
+        19.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.61905,
+            10.6,
+            1.85714
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.61905,
+            10.6,
+            1.85714
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker continuous blade facet 2-2",
+      "from": [
+        7.4625,
+        19.5,
+        7.65
+      ],
+      "to": [
+        10.1625,
+        20.75,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.68182,
+            1.38095,
+            3.95455,
+            1.61905
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.68182,
+            1.38095,
+            3.95455,
+            1.61905
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker flush energy inlay 2-2",
+      "from": [
+        8.7125,
+        19.5,
+        7.59
+      ],
+      "to": [
+        8.9125,
+        20.75,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.38095,
+            10.6,
+            1.61905
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.38095,
+            10.6,
+            1.61905
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker continuous blade facet 2-3",
+      "from": [
+        7.6875,
+        20.75,
+        7.65
+      ],
+      "to": [
+        10.1875,
+        22.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.95455,
+            1.14286,
+            3.98485,
+            1.38095
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0.95455,
+            1.14286,
+            3.98485,
+            1.38095
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker flush energy inlay 2-3",
+      "from": [
+        8.8375,
+        20.75,
+        7.59
+      ],
+      "to": [
+        9.0375,
+        22.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            1.14286,
+            10.6,
+            1.38095
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            1.14286,
+            10.6,
+            1.38095
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker continuous blade facet 3-0",
+      "from": [
+        7.9125000000000005,
+        22.0,
+        7.65
+      ],
+      "to": [
+        10.137500000000001,
+        23.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.22727,
+            0.85714,
+            3.92424,
+            1.14286
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.22727,
+            0.85714,
+            3.92424,
+            1.14286
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker flush energy inlay 3-0",
+      "from": [
+        8.925,
+        22.0,
+        7.59
+      ],
+      "to": [
+        9.125,
+        23.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.85714,
+            10.6,
+            1.14286
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.85714,
+            10.6,
+            1.14286
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker continuous blade facet 3-1",
+      "from": [
+        8.1375,
+        23.5,
+        7.65
+      ],
+      "to": [
+        10.0125,
+        25.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.5,
+            0.57143,
+            3.77273,
+            0.85714
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.5,
+            0.57143,
+            3.77273,
+            0.85714
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker flush energy inlay 3-1",
+      "from": [
+        8.975,
+        23.5,
+        7.59
+      ],
+      "to": [
+        9.174999999999999,
+        25.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.57143,
+            10.6,
+            0.85714
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.57143,
+            10.6,
+            0.85714
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker continuous blade facet 3-2",
+      "from": [
+        8.3625,
+        25.0,
+        7.65
+      ],
+      "to": [
+        9.8875,
+        26.5,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.77273,
+            0.28571,
+            3.62121,
+            0.57143
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            1.77273,
+            0.28571,
+            3.62121,
+            0.57143
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker flush energy inlay 3-2",
+      "from": [
+        9.025,
+        25.0,
+        7.59
+      ],
+      "to": [
+        9.225,
+        26.5,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.28571,
+            10.6,
+            0.57143
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.28571,
+            10.6,
+            0.57143
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker continuous blade facet 3-3",
+      "from": [
+        8.5875,
+        26.5,
+        7.65
+      ],
+      "to": [
+        9.762500000000001,
+        28.0,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.04545,
+            0.0,
+            3.4697,
+            0.28571
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            2.04545,
+            0.0,
+            3.4697,
+            0.28571
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Tidebreaker flush energy inlay 3-3",
+      "from": [
+        9.075000000000001,
+        26.5,
+        7.59
+      ],
+      "to": [
+        9.275,
+        28.0,
+        8.41
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            9.4,
+            0.0,
+            10.6,
+            0.28571
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            9.4,
+            0.0,
+            10.6,
+            0.28571
           ],
           "texture": "#atlas"
         },
@@ -2080,14 +3253,14 @@
     {
       "name": "Tidebreaker etched sigil 0",
       "from": [
-        7.65,
+        7.82,
         8.0,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        8.22,
-        7.65
+        8.18,
+        8.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2149,14 +3322,14 @@
     {
       "name": "Tidebreaker etched sigil 1",
       "from": [
-        7.65,
+        7.82,
         10.25,
-        7.51
+        7.59
       ],
       "to": [
-        8.35,
-        10.47,
-        7.65
+        8.18,
+        10.41,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2218,14 +3391,14 @@
     {
       "name": "Tidebreaker etched sigil 2",
       "from": [
-        8.15,
+        7.8825,
         12.5,
-        7.51
+        7.59
       ],
       "to": [
-        8.85,
-        12.72,
-        7.65
+        8.2425,
+        12.66,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2287,14 +3460,14 @@
     {
       "name": "Tidebreaker etched sigil 3",
       "from": [
-        8.15,
+        8.1325,
         14.75,
-        7.51
+        7.59
       ],
       "to": [
-        8.85,
-        14.97,
-        7.65
+        8.4925,
+        14.91,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2356,14 +3529,14 @@
     {
       "name": "Tidebreaker etched sigil 4",
       "from": [
-        8.65,
+        8.2575,
         17.0,
-        7.51
+        7.59
       ],
       "to": [
-        9.35,
-        17.22,
-        7.65
+        8.6175,
+        17.16,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2425,14 +3598,14 @@
     {
       "name": "Tidebreaker etched sigil 5",
       "from": [
-        8.65,
+        8.5075,
         19.25,
-        7.51
+        7.59
       ],
       "to": [
-        9.35,
-        19.47,
-        7.65
+        8.8675,
+        19.41,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2494,14 +3667,14 @@
     {
       "name": "Tidebreaker etched sigil 6",
       "from": [
-        8.85,
+        8.7575,
         21.5,
-        7.51
+        7.59
       ],
       "to": [
-        9.549999999999999,
-        21.72,
-        7.65
+        9.1175,
+        21.66,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2563,14 +3736,14 @@
     {
       "name": "Tidebreaker etched sigil 7",
       "from": [
-        8.85,
+        8.895,
         23.75,
-        7.51
+        7.59
       ],
       "to": [
-        9.549999999999999,
-        23.97,
-        7.65
+        9.254999999999999,
+        23.91,
+        7.67
       ],
       "faces": {
         "north": {
@@ -2633,7 +3806,7 @@
       "name": "Tidebreaker wing filigree -1",
       "from": [
         6.2,
-        7,
+        5.9,
         7.68
       ],
       "to": [
@@ -2702,7 +3875,7 @@
       "name": "Tidebreaker wing filigree 1",
       "from": [
         9.4,
-        7,
+        5.9,
         7.68
       ],
       "to": [
@@ -2815,9 +3988,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.44211,
+        0.44211,
+        0.44211
       ]
     },
     "firstperson_lefthand": {
@@ -2832,9 +4005,9 @@
         -2
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.44211,
+        0.44211,
+        0.44211
       ]
     },
     "gui": {
@@ -2849,9 +4022,9 @@
         0
       ],
       "scale": [
-        0.55,
-        0.55,
-        0.55
+        0.44211,
+        0.44211,
+        0.44211
       ]
     },
     "ground": {

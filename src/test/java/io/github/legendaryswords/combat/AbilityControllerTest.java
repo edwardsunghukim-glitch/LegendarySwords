@@ -213,6 +213,43 @@ class AbilityControllerTest {
         verify(combat, times(1)).damage(eq(player), eq(target), anyDouble(), any(Vector.class), anyInt());
     }
 
+    @Test void enlargedFireRimReachesSixBlocksAndBurnsTargets() {
+        when(target.getLocation()).thenAnswer(invocation -> new Location(world, 10, 70, 26));
+        controller.activate(player, SwordType.EMBER_HALO, false);
+        advanceTicks(110);
+        verify(combat, times(1)).damage(eq(player), eq(target), anyDouble(), any(Vector.class), eq(60));
+        verify(effects, atLeastOnce()).particle(any(Location.class), eq(org.bukkit.Particle.FLAME), anyInt(), anyDouble(), anyDouble());
+    }
+
+    @Test void voidRingActuallyPullsVictimsTowardItsCenter() {
+        when(target.getLocation()).thenAnswer(invocation -> new Location(world, 10, 70, 25));
+        controller.activate(player, SwordType.VOID_REAVER, false);
+        advanceTicks(100);
+        var push = org.mockito.ArgumentCaptor.forClass(Vector.class);
+        verify(combat).damage(eq(player), eq(target), anyDouble(), push.capture(), eq(0));
+        assertTrue(push.getValue().getZ() < 0, "Void contraction pulls toward the focus");
+        assertEquals(0, push.getValue().getY(), .001);
+    }
+
+    @org.junit.jupiter.params.ParameterizedTest
+    @org.junit.jupiter.params.provider.EnumSource(value = SwordType.class, names = {"STORM_CAGE", "CHRONO_SABER", "BLOODTHORN", "SERAPH_WING", "TIDEBREAKER", "GLACIAL_CROWN", "VERDANT_OATH", "WRAITH_SCYTHE"})
+    void signatureAccentsMatchEachWeaponTheme(SwordType sword) {
+        org.bukkit.Particle expected = switch (sword) {
+            case STORM_CAGE -> org.bukkit.Particle.ELECTRIC_SPARK;
+            case CHRONO_SABER -> org.bukkit.Particle.ENCHANT;
+            case BLOODTHORN -> org.bukkit.Particle.CRIMSON_SPORE;
+            case SERAPH_WING -> org.bukkit.Particle.END_ROD;
+            case TIDEBREAKER -> org.bukkit.Particle.SPLASH;
+            case GLACIAL_CROWN -> org.bukkit.Particle.SNOWFLAKE;
+            case VERDANT_OATH -> org.bukkit.Particle.HAPPY_VILLAGER;
+            case WRAITH_SCYTHE -> org.bukkit.Particle.SOUL;
+            default -> throw new AssertionError();
+        };
+        controller.activate(player, sword, false);
+        advanceTicks(12);
+        verify(effects, atLeastOnce()).particle(any(Location.class), eq(expected), anyInt(), anyDouble(), anyDouble());
+    }
+
     @Test
     void ultimateDeliversDamageEvenWhenCinematicNeverInvokesItsCallback() {
         // The mocked director accepts start() but deliberately never calls the completion callback.

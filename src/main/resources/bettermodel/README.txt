@@ -1,4 +1,9 @@
-LegendarySwords 0.2 animation assets
+LegendarySwords 0.2.1 animation assets
+
+0.2.1 corrects the Blockbench 5 X rotation direction and hip separation in
+player keyframes. Geometry, textures, model names and slash assets are unchanged.
+The combined pack made from build (12).zip remains compatible with this patch
+when the other BetterModel models and configuration have not changed.
 
 Eight players/*.bbmodel files contain original sword-specific idle, walk, run,
 pose, swing, ability, and ultimate animation keyframes. Their player limb/skin UV

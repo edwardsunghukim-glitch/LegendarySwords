@@ -4,6 +4,8 @@ The integration uses **BetterModel 3.1's API** on Paper 1.21.11. **BetterModel 3
 
 There are **sixteen `.bbmodel` files**: eight player-animation models and eight slash-effect models. Each player model has its own `idle`, `walk`, `run`, `pose`, `swing`, `ability`, and `ultimate` animations. Hold a sword to use its idle/walk/sprint clips; run `/ls pose` for its pose. Switching away from the sword clears the movement animation. Use F5 or another player's view to see body movement.
 
+The **0.2.1 animation fix** changes player keyframes and carry poses without changing model geometry or texture mappings. Replacing the JAR and restarting updates unedited bundled files automatically. Keep the combined pack made from `build (12).zip`: a new pack is unnecessary for this patch while your other BetterModel models/configuration stay unchanged. If the plugin reports edited files preserved, back up those files before manually replacing them with the updated bundled models.
+
 ## Install or upgrade the models
 
 1. Install the new LegendarySwords JAR and restart the server with BetterModel installed.

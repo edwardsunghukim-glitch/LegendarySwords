@@ -74,6 +74,13 @@ BetterModel 3.1 requires Java 25 on the SERVER. Core combat without BetterModel
 can run on Java 21. Uploading this compiled release needs no JDK on your computer.
 Building source yourself requires a Java 25+ JDK and Maven 3.9+.
 
+If upgrading from 0.2.0 to the 0.2.1 animation fix, keep the combined texture
+pack made from build (12).zip. This patch changes server animation keyframes
+and carry poses without changing the client geometry or texture mappings.
+Install the new JAR and restart; unedited bundled player files update automatically.
+The pack installation/merging steps below apply to first installation or other
+model changes, not solely to this animation patch under the same configuration.
+
 1. Stop the server. Remove the old LegendarySwords JAR from plugins, then upload
    {jar.name} directly into plugins and start the server. Keep only one version.
 2. Install {pack.name} in Minecraft's Resource Packs menu to see all {len(sword_ids)} swords.

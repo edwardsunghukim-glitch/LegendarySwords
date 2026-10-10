@@ -1,12 +1,12 @@
 # Install or update LegendarySwords
 
-Use the compiled JAR and ZIPs from the **0.2.0** release. You do not need Maven on your computer just to install them on Minehut.
+Use the compiled JAR and ZIPs from the **0.2.1** release. You do not need Maven on your computer just to install them on Minehut.
 
 ## Upload the plugin on Minehut
 
 1. Stop your server in the Minehut dashboard.
 2. Open **File Manager → plugins**. If `LegendarySwords-0.1.0.jar` is present, remove that old JAR. Keep the `LegendarySwords` configuration folder.
-3. Upload **`LegendarySwords-0.2.0.jar`** directly inside `plugins`. Do not put it inside the configuration folder, and keep only one LegendarySwords JAR.
+3. Upload **`LegendarySwords-0.2.1.jar`** directly inside `plugins`. Do not put it inside the configuration folder, and keep only one LegendarySwords JAR.
 4. Start the server. Check the console for a successful enable message. Use **Paper 1.21.11 and Java 25 with BetterModel 3.1**. Core combat without BetterModel can use Java 21. These are server requirements; uploading the compiled plugin does not require Java on your computer.
 5. Join as an operator and run `/ls status`, then `/ls give all`. Newly given swords include the updated item attributes and models.
 

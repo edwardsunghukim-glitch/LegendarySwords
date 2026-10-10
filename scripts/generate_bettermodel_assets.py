@@ -69,7 +69,7 @@ STYLES = {
     "thunderblade": dict(color=(255, 218, 42), accent=(255, 255, 220),
         idle=stance(ra=(-22, -34, -32), rf=(-23, 0, 0), la=(-16, 10, -9),
                     chest=(5, 0, -4), rl=(-4, 0, 5), ll=(4, 0, -5)),
-        run=stance(ra=(34, -17, -20), rf=(-36, 0, 0), la=(32, 12, 17),
+        run=stance(ra=(-34, -17, -20), rf=(-36, 0, 0), la=(-32, 12, 17),
                    lf=(-34, 0, 0), chest=(22, 0, 0)), lengths=(.55, 1.35, 2.90),
         pose=2.05, stride=(25, 45), cadence=(.90, .50), free_arm=8),
     "royal_claymore": dict(color=(204, 139, 255), accent=(255, 222, 122),
@@ -79,9 +79,9 @@ STYLES = {
                    lf=(-48, 0, 0), chest=(14, 9, 0)), lengths=(1.00, 1.70, 3.40),
         pose=2.60, stride=(17, 28), cadence=(1.25, .82), free_arm=2),
     "eightfold_blade": dict(color=(255, 93, 124), accent=(255, 216, 237),
-        idle=stance(ra=(24, -12, -32), rf=(-64, 0, 0), la=(-28, 12, 32),
+        idle=stance(ra=(-26, -12, -24), rf=(-44, 0, 0), la=(-28, 12, 32),
                     lf=(-44, 0, 0), chest=(2, -28, 0), rl=(-6, 10, 4), ll=(6, -10, -4)),
-        run=stance(ra=(38, -15, -24), rf=(-25, 0, 0), la=(40, 12, 22),
+        run=stance(ra=(-38, -15, -24), rf=(-25, 0, 0), la=(-40, 12, 22),
                    lf=(-24, 0, 0), chest=(20, -10, 0)), lengths=(.60, 1.45, 3.00),
         pose=2.45, stride=(21, 40), cadence=(1.00, .56), free_arm=4),
     "biggoron_sword": dict(color=(255, 165, 72), accent=(255, 240, 180),
@@ -109,8 +109,13 @@ def animation(sword, name, length, frames, groups, loop=False):
     """Frame positions are normalized; each motion owns all limb channels."""
     animators = {}
     for short, bone in BONES.items():
+        # Carry choreography uses negative X to raise a downward arm forward.
+        # Blockbench 5's player rotations invert X in BetterModel's loader;
+        # serialize the opposite X so wrists stay in front, knees bend back,
+        # and the running chest leans forward. VFX rotations are separate.
         keys = [keyframe(f"{sword}/{name}/{bone}", "rotation", phase * length,
-                         frame[short]) for phase, frame in frames]
+                         (-frame[short][0] if frame[short][0] else 0.0,
+                          frame[short][1], frame[short][2])) for phase, frame in frames]
         animators[groups[bone]] = {
             "name": bone, "type": "bone", "rotation_global": False,
             "quaternion_interpolation": False, "keyframes": keys,
@@ -135,8 +140,9 @@ def locomotion(sword, style, running):
         # Split shins bend only in the recovery half of the stride.
         frame["rk"] = (max(0, -wave) * stride * .70, 0, 0)
         frame["lk"] = (max(0, wave) * stride * .70, 0, 0)
-        frame["hip"] = (0, math.sin(phase * math.tau) * (3 if running else 2),
-                          wave * (2.5 if running else 1.5))
+        # The template's legs are siblings of the hip, not its children.
+        # Rotating this bone moves only the torso and opens the pelvis seam.
+        frame["hip"] = ZERO
         frame["chest"] = (base["chest"][0] + weight * (2 if running else .7),
                             base["chest"][1] - wave * (5 if running else 3),
                             base["chest"][2] - wave * 1.5)

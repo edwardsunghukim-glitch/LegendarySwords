@@ -4,7 +4,8 @@ Automated Java tests exercise mechanics, protection/event handling, and animatio
 
 ## Upgrade and assets
 
-- Stop the server and replace the old JAR with `LegendarySwords-0.2.0.jar`. Confirm only one LegendarySwords JAR exists.
+- Stop the server and replace the old JAR with `LegendarySwords-0.2.1.jar`. Confirm only one LegendarySwords JAR exists.
+- In F5, walk forward on level ground with each sword: the hands should carry the weapon in front, both legs should cycle continuously, knees should bend backward during recovery, and the pelvis should stay connected. Stop, sprint, and switch to an empty slot; check that the correct motion resumes or the vanilla body returns.
 - Preserve an old configuration and check that the original swords retain intended values and the five new swords receive distinct defaults. Also test a fresh configuration.
 - Test with BetterModel installed and absent. Combat and particle/display effects should work either way; `/ls status` should explain unavailable animation support.
 - Confirm all eight item models load with the new sword pack. Check first-person, third-person, inventory, dropped-item, and item-frame positions, textures, and animation.

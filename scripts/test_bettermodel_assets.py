@@ -5,6 +5,7 @@ from __future__ import annotations
 import base64
 import importlib.util
 import json
+import math
 from pathlib import Path
 import struct
 import tempfile
@@ -40,7 +41,44 @@ def motion_signature(animation):
                         for animator in animation["animators"].values()))
 
 
+def rotate_player_vector(vector, angles):
+    """BetterModel's Blockbench 5 conversion followed by its JOML ZYX rotation."""
+    x, y, z = vector
+    a, b, c = map(math.radians, (-angles[0], angles[1], -angles[2]))
+    y, z = y * math.cos(a) - z * math.sin(a), y * math.sin(a) + z * math.cos(a)
+    x, z = x * math.cos(b) + z * math.sin(b), -x * math.sin(b) + z * math.cos(b)
+    return (x * math.cos(c) - y * math.sin(c), x * math.sin(c) + y * math.cos(c), z)
+
+
 class BetterModelAssetsTest(unittest.TestCase):
+    def test_walking_hands_stay_forward_and_knees_bend_back(self):
+        for sword in SWORDS:
+            model = load("players", sword)
+            origins = {group["name"]: (-group["origin"][0], group["origin"][1], -group["origin"][2])
+                       for group in model["groups"]}
+            for name in ("idle", "walk", "run"):
+                by_name = {animator["name"]: frames(animator)
+                           for animator in clips(model)[name]["animators"].values()}
+                for index in range(len(by_name["pra_right_arm"])):
+                    # Follow the actual shoulder/elbow/torso pivots to the sword grip.
+                    # At entity yaw zero Minecraft forward is positive world Z.
+                    hand = origins["pri_right_item"]
+                    for bone in ("prfa_right_forearm", "pra_right_arm", "pc_chest",
+                                 "pw_waist", "phip_hip"):
+                        origin = origins[bone]
+                        relative = rotate_player_vector(tuple(a - b for a, b in zip(hand, origin)),
+                                                        values(by_name[bone][index]))
+                        hand = tuple(a + b for a, b in zip(relative, origin))
+                    self.assertGreater(hand[2], 0, f"{sword} {name}: sword grip behind body")
+            for name in ("walk", "run"):
+                by_name = {animator["name"]: frames(animator)
+                           for animator in clips(model)[name]["animators"].values()}
+                for key in by_name["phip_hip"]:
+                    self.assertEqual(values(key), (0, 0, 0), "hips must remain attached to thighs")
+                for shin in ("prfl_right_foreleg", "plfl_left_foreleg"):
+                    for key in by_name[shin]:
+                        self.assertLessEqual(values(key)[0], 0, "recovery knee bends forward")
+
     def test_all_eight_swords_have_complete_player_and_effect_clips(self):
         self.assertEqual(len(list(ROOT.rglob("*.bbmodel"))), 16)
         for sword in SWORDS:

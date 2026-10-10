@@ -1,14 +1,16 @@
 # LegendarySwords
 
-Paper **1.21.11** plugin with eight detailed Zelda sword designs, visible abilities, charged ultimates, and sword-specific BetterModel animations. **BetterModel 3.1 requires Java 25**; core combat without BetterModel can run on Java 21. Version **0.2.0** adds distinct laser, fire, lunar, ice, lightning, ground, wind, and heavy-blade effects. Ultimates start independently of the cosmetic presentation, which stays at the casting position without moving the player or changing game mode.
+Paper **1.21.11** plugin with eight detailed Zelda sword designs, visible abilities, charged ultimates, and sword-specific BetterModel animations. **BetterModel 3.1 requires Java 25**; core combat without BetterModel can run on Java 21. Includes distinct laser, fire, lunar, ice, lightning, ground, wind, and heavy-blade effects. Ultimates start independently of the cosmetic presentation, which stays at the casting position without moving the player or changing game mode.
 
 The artwork and animation keyframes are original fan-made assets inspired by the named swords. Server compilation and automated checks do not verify how Minecraft renders them; complete the [real-server checklist](docs/TESTING.md).
+
+Version **0.2.1** corrects backward arm/elbow rotations, knee recovery, and the separated hip motion in the Blockbench 5 player animation files. Known original server models update automatically. The sword item artwork and slash geometry are unchanged.
 
 ![Preview rendered from the supplied sword geometry](resource-pack/preview.png)
 
 ## Install or update
 
-1. Stop the server, remove the old LegendarySwords JAR from `plugins`, and upload **`LegendarySwords-0.2.0.jar`**. Keep only one version of the plugin.
+1. Stop the server, remove the old LegendarySwords JAR from `plugins`, and upload **`LegendarySwords-0.2.1.jar`**. Keep only one version of the plugin.
 2. Start the server. Install the **new** `LegendarySwords-resource-pack.zip` for the eight sword item models.
 3. If using BetterModel, let the plugin install/update its bundled models, run `/bm reload`, and download the newly generated `plugins/BetterModel/build.zip`.
 4. Combine that fresh BetterModel pack with the new sword pack if your server accepts one resource-pack URL. **An older combined pack does not contain the new models.** See [the BetterModel guide](docs/BETTERMODEL.md).
@@ -59,7 +61,7 @@ Install a **Java 25+ JDK** and **Maven 3.9+**, then open a terminal in the folde
 mvn --batch-mode verify
 ```
 
-This runs Java unit tests and creates `target/LegendarySwords-0.2.0.jar` and `target/LegendarySwords-resource-pack.zip`. Python 3's standard library can validate the pack and create the source, model, and complete download ZIPs:
+This runs Java unit tests and creates `target/LegendarySwords-0.2.1.jar` and `target/LegendarySwords-resource-pack.zip`. Python 3's standard library can validate the pack and create the source, model, and complete download ZIPs:
 
 ```sh
 python3 scripts/build_resource_pack.py --validate-only

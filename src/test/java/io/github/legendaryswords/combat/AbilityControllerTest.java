@@ -170,13 +170,47 @@ class AbilityControllerTest {
                 .anyMatch(call -> java.util.Arrays.asList(call.getArguments()).contains(sword)));
         verify(combat, atMost(1)).damage(eq(player), eq(target), anyDouble(), any(Vector.class), anyInt());
         clearInvocations(combat, effects);
+        // The thorn domain leaves its center safe; victims stand on its perimeter.
+        if (sword == SwordType.BLOODTHORN) when(target.getLocation()).thenAnswer(invocation -> new Location(world, 14.5, 70, 23));
         charge.set(100);
         controller.activate(player, sword, true);
         advanceTicks(200);
         verify(animations).playRelease(player, sword.id());
         verify(combat, atLeastOnce()).damage(eq(player), eq(target), anyDouble(), any(Vector.class), anyInt());
+        verify(combat, atMost(3)).damage(eq(player), eq(target), anyDouble(), any(Vector.class), anyInt());
         assertEquals(0, charge.value());
         verify(player, never()).teleport(any(Location.class));
+    }
+
+    @org.junit.jupiter.params.ParameterizedTest
+    @org.junit.jupiter.params.provider.EnumSource(value = SwordType.class, names = {"EMBER_HALO", "VOID_REAVER", "ASTRAL_EDGE", "TIDEBREAKER", "STORM_CAGE", "CHRONO_SABER", "ECLIPSE_FANG", "CRYSTAL_OATH", "BLOODTHORN", "SUNSPIRE", "MOONVEIL", "RUNIC_JUDGMENT", "NEBULA_BLADE", "OBSIDIAN_MAW", "SERAPH_WING", "ABYSSAL_TRIDENT", "MIRAGE_SABER", "METEOR_BRAND", "GLACIAL_CROWN", "TEMPEST_RAPIER", "GRAVITY_CLEAVER", "PRISM_SWORD", "THUNDER_DRUM", "WRAITH_SCYTHE", "VERDANT_OATH", "DRAGONHEART"})
+    void domainsCannotDamageThroughWallsOrAfterCasterDeath(SwordType sword) {
+        when(combat.visible(any(Location.class), eq(target))).thenReturn(false);
+        controller.activate(player, sword, false);
+        advanceTicks(20);
+        verify(combat, never()).damage(any(), any(), anyDouble(), any(), anyInt());
+        clearInvocations(effects);
+        when(player.isDead()).thenReturn(true);
+        advanceTicks(200);
+        verifyNoInteractions(effects);
+    }
+
+    @org.junit.jupiter.params.ParameterizedTest
+    @org.junit.jupiter.params.provider.ValueSource(doubles = {0, 12})
+    void fireRimLeavesCenterAndOutsideSafe(double distance) {
+        when(target.getLocation()).thenAnswer(invocation -> new Location(world, 10, 70, 20 + distance));
+        controller.activate(player, SwordType.EMBER_HALO, false);
+        advanceTicks(90);
+        verify(combat, never()).damage(any(), any(), anyDouble(), any(), anyInt());
+    }
+
+    @Test void crystalMinesWaitUntilArmedBeforeDamage() {
+        when(target.getLocation()).thenAnswer(invocation -> new Location(world, 10, 70, 23));
+        controller.activate(player, SwordType.CRYSTAL_OATH, false);
+        advanceTicks(10);
+        verify(combat, never()).damage(any(), any(), anyDouble(), any(), anyInt());
+        advanceTicks(90);
+        verify(combat, times(1)).damage(eq(player), eq(target), anyDouble(), any(Vector.class), anyInt());
     }
 
     @Test

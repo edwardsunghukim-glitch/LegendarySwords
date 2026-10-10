@@ -568,9 +568,10 @@ def main():
         target.write_text(json.dumps(model, indent=2) + "\n", encoding="utf-8")
         target = ROOT / "models" / f"legendaryswords_{sword}_slash.bbmodel"
         target.write_text(json.dumps(effect_model(sword, style), indent=2) + "\n", encoding="utf-8")
-    from expand_weapon_assets import generate_models
+    from expand_weapon_assets import generate_models, WEAPONS
     generate_models(ROOT)
-    print(f"Generated {len(STYLES) + 16} player motion sets and {len(STYLES) + 16} distinct signature effects.")
+    count = len(STYLES) + len(WEAPONS)
+    print(f"Generated {count} player motion sets and {count} distinct signature effects.")
 
 
 if __name__ == "__main__":

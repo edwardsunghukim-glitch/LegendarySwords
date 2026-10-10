@@ -131,8 +131,8 @@ class BetterModelAssetsTest(unittest.TestCase):
                     for key in by_name[shin]:
                         self.assertLessEqual(values(key)[0], 0, "recovery knee bends forward")
 
-    def test_all_twenty_four_swords_have_complete_player_and_effect_clips(self):
-        self.assertEqual(len(list(ROOT.rglob("*.bbmodel"))), 48)
+    def test_all_swords_have_complete_player_and_effect_clips(self):
+        self.assertEqual(len(list(ROOT.rglob("*.bbmodel"))), len(SWORDS) * 2)
         for sword in SWORDS:
             for kind, expected in (("players", {"idle", "walk", "run", "pose", "swing", "ability", "ultimate", "draw", "charge", "release", "recover"}),
                                    ("models", {"swing", "ability", "ultimate"})):

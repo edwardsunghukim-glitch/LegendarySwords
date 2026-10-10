@@ -24,12 +24,21 @@ public final class SwordCommand implements CommandExecutor, TabCompleter {
         sender.sendMessage(Component.text("You need legendaryswords.admin for that command.", NamedTextColor.RED)); return false;
     }
     @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (args.length == 0 || args[0].equalsIgnoreCase("help")) {
+        if (args.length == 0) {
+            if (sender instanceof Player player) plugin.browser().open(player, 0);
+            else say(sender, "Use /ls list in console or /swords in-game.");
+            return true;
+        }
+        if (args[0].equalsIgnoreCase("help")) {
             say(sender, "/ls list | /ls pose | /ls cinematics [on|off|status] | /ls pack | /ls status");
             if (sender.hasPermission("legendaryswords.admin")) say(sender, "/ls give [player] <sword|all> | /ls charge [player] <0-100> | /ls resetcooldowns [player] | /ls reload");
             return true;
         }
         switch (args[0].toLowerCase(Locale.ROOT)) {
+            case "menu" -> {
+                if (sender instanceof Player player) plugin.browser().open(player, 0);
+                else say(sender, "The sword browser is available in-game.");
+            }
             case "list" -> {
                 for (SwordType sword : SwordType.values()) sender.sendMessage(Component.text(sword.id() + ": " + sword.ability() + " / " + sword.ultimate(), sword.textColor()));
             }
@@ -128,7 +137,7 @@ public final class SwordCommand implements CommandExecutor, TabCompleter {
     @Override public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         List<String> candidates = new ArrayList<>();
         if (args.length == 1) {
-            candidates.addAll(List.of("help", "list", "pose", "cinematics", "pack", "status"));
+            candidates.addAll(List.of("help", "menu", "list", "pose", "cinematics", "pack", "status"));
             if (sender.hasPermission("legendaryswords.admin")) candidates.addAll(List.of("give", "charge", "resetcooldowns", "reload"));
         } else if (args.length == 2 && args[0].equalsIgnoreCase("cinematics")) {
             candidates.addAll(List.of("on", "off", "status"));

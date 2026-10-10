@@ -1,30 +1,21 @@
-[Download LegendaryAdmin 0.1.1](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendaryAdmin-0.1.1.jar): direct commands without `/la`, including `/heal`, `/fly`, `/vanish`, `/invsee`, and `/adminmenu`. Replace the old admin JAR and restart. 13 tests passed.
+# LegendarySwords 0.4.0 downloads
 
-## Laser aiming hotfix 0.3.1
+[Plugin JAR](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-0.4.0.jar) · [NEW combined resource pack](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-combined-resource-pack-0.4.0.zip) · [Full bundle](LegendarySwords-download.zip)
 
-[Download plugin 0.3.1](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-0.3.1.jar). Beams use full vertical aim from eye height; display rotation no longer applies player yaw/pitch twice. Ultimates aim at release. Keep the 0.3.0 combined pack. Replace the old JAR and restart.
+50 weapons, with 26 newly authored weapon/effect meshes, thematic engraved animated atlases and separate ring/domain/trap/projectile attack branches. The previous 16 additions also receive individual texture patterns. `/swords` and `/legendaryswords` open a two-page catalogue: everyone can browse, only admins can click to receive weapons. Normal movement remains vanilla; character animations play during casts. Laser aiming fixes from 0.3.1 are included.
 
-# LegendarySwords 0.3.0 — 24 weapons
+Stop the server, replace the old LegendarySwords JAR with 0.4.0, and restart. Models install automatically. Replace your old combined client pack with the new ZIP and keep it zipped. Preserve your configuration/data and the separate LegendaryAdmin plugin. [Installation](../docs/INSTALLATION.md).
 
-- [Plugin JAR](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-0.3.0.jar)
-- [NEW combined resource pack](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-combined-resource-pack-0.3.0.zip)
-- [Complete bundle](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-download.zip)
-- [Standalone 24-weapon sword pack](LegendarySwords-resource-pack.zip)
-- [All 48 BetterModel models](LegendarySwords-BetterModel-models.zip)
-- [Source ZIP](LegendarySwords-source.zip)
+The combined pack preserves the supplied BetterModel 3.1-SNAPSHOT-526 named-alias setup, adds all 50 sword items and 126 officially compiled expansion effect aliases, and updates the texture patterns. Different BetterModel export settings or changed unrelated server models require merging a fresh server build.zip. [Model setup](../docs/BETTERMODEL.md).
 
-Stop the server, replace the old LegendarySwords JAR, restart, then replace the old Minecraft pack with the new combined ZIP. Keep configuration/player data. Models auto-install and import with backups for known originals; edited files are preserved. `/ls give all` gives all 24 weapons. BetterModel requires server Java 25.
+[Standalone sword pack](LegendarySwords-resource-pack.zip) · [Model ZIP](LegendarySwords-BetterModel-models.zip) · [Source ZIP](LegendarySwords-source.zip) · [Front-view preview of the 26 additions](LegendarySwords-new-weapons-preview.png).
 
-The sixteen new weapons have additional attack patterns, models, colored animated atlases and cast animations. All 24 rigs include release follow-through plus draw/charge/recover authoring clips. Damage buffs and editable global/per-sword ultimate speed remain. Ordinary movement and the caster's view/inventory stay normal; observers see temporary animated bodies.
+Validation: 284 Java tests, 13 resource-pack checks, 10 model/animation checks and 3 geometry/texture-topology checks passed. Client rendering and live-server performance still need an in-game test.
 
-The combined pack preserves the previously supplied BetterModel 3.1-SNAPSHOT-526 assets, adding official-compiler geometry/textures for the new named `bettermodel:c/` slash aliases. For different namespace/export settings or changed unrelated models, download a fresh server `build.zip` and merge it with this release's standalone sword pack. This expansion needs new client assets; do not reuse the old eight-weapon pack.
+## LegendaryAdmin
 
-Validation: **165 Java tests passed**, zero failures/errors/skips; **13 pack checks and 10 model/animation checks passed**. These cover all 24 IDs, imports, distinct motions/shapes, inventory rendering, protected new attack damage, and ability/ultimate/release clearance for every weapon. No live-client test was performed.
+[LegendaryAdmin 0.1.1 JAR](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendaryAdmin-0.1.1.jar) remains the current admin plugin, with direct commands such as `/heal`, `/fly`, `/vanish`, `/invsee` and `/adminmenu`. [Commands](../admin-plugin/README.md) · [Admin source](LegendaryAdmin-source.zip). No resource pack required.
 
-## Separate admin plugin
+Plugin SHA-256: `d7a8cba267d3997c2240e4408854e143d320adfb18415e1d8cb386fd3fb64dd7`.
 
-[LegendaryAdmin 0.1.0 JAR](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendaryAdmin-0.1.0.jar) remains unchanged. Install alongside the swords plugin; `/la` opens its admin menu. It needs no resource pack. [Commands and permissions](../admin-plugin/README.md). [Admin source ZIP](LegendaryAdmin-source.zip).
-
-Plugin SHA-256: `2a7e18ccd7f5253b32224041d783d4743f8fad49d9ad9caf85fb09dfafc60e63`.
-
-Combined pack SHA-1: `30f1a7978e4f194a516d727a48788ad355bde7e1`.
+Combined pack SHA-1: `7e49e90ea42202e69baf7c0031d3bbde0277a60d`.

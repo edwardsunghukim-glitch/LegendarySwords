@@ -123,7 +123,7 @@ validated on a live client. If it recurs, set bettermodel.cast-body-animations
 false and restart; shared scenes and attack effects remain without disguises.
 
 Install LegendarySwords-combined-resource-pack-{version}.zip: this expansion
-adds 16 weapons, for 24 total, and requires NEW client assets and 48 models.
+adds 26 weapons, for 50 total, and requires NEW client assets and 100 models.
 {combined_note}
 The combined pack targets the supplied BetterModel 3.1-SNAPSHOT-526 named-alias
 setup, preserving its existing assets and adding officially compiled effects.

@@ -51,7 +51,7 @@ public final class PluginSettings {
             case SCIMITAR_OF_THE_SEVEN -> new SwordStats(9, 1.75, 11, 9, 14, 70);
             case FOREST_DWELLER_SWORD -> new SwordStats(10, 2.0, 12, 10, 15, 75);
             case DUSK_CLAYMORE -> new SwordStats(11, 1.0, 8, 6, 16, 80);
-
+            default -> new SwordStats(10 + sword.ordinal() % 5, 1.1 + (sword.ordinal() % 4) * .2, 9 + sword.ordinal() % 4, 9 + sword.ordinal() % 4, 13 + sword.ordinal() % 5, 80 + sword.ordinal() % 5 * 5);
         };
         return new SwordStats(number(path + "attack-damage", defaults.attackDamage(), 1, 100),
                 number(path + "attack-speed", defaults.attackSpeed(), 0.1, 4),

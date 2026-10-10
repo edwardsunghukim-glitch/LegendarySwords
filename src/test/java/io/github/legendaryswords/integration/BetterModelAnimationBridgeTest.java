@@ -282,7 +282,7 @@ class BetterModelAnimationBridgeTest {
             verify(f.tracker, never()).hideOption(any());
             assertTrue(f.bridge.status().contains("player body animations paused"));
             assertTrue(f.bridge.status().contains("slash effects available"));
-            assertTrue(f.bridge.status().contains("install the 0.3.0 pack and updated BetterModel build"));
+            assertTrue(f.bridge.status().contains("install the 0.4.0 pack and updated BetterModel build"));
         }
     }
 

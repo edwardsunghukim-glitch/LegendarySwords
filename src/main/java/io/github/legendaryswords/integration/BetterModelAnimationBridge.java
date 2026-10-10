@@ -208,10 +208,10 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
                 + (abilitiesOnly()
                 ? ": abilities/ultimates only; " + (playerBodyAnimationsEnabled()
                         ? "temporary cast body animations" : "attack effects only")
-                        + "; normal movement and swings; install the 0.3.0 pack and updated BetterModel build"
+                        + "; normal movement and swings; install the 0.4.0 pack and updated BetterModel build"
                 : playerBodyAnimationsEnabled()
-                ? ": 24 motion sets loaded (idle/walk/run/pose/swing/ability/ultimate); install regenerated client pack"
-                : ": player body animations paused (bettermodel.player-body-animations=false); slash effects available; install the 0.3.0 pack and updated BetterModel build")
+                ? ": 50 motion sets loaded (idle/walk/run/pose/swing/ability/ultimate); install regenerated client pack"
+                : ": player body animations paused (bettermodel.player-body-animations=false); slash effects available; install the 0.4.0 pack and updated BetterModel build")
                 + (preservedModels.isEmpty() ? "" : "; " + preservedModels.size() + " edited files preserved");
     }
 

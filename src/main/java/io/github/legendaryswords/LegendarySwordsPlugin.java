@@ -29,6 +29,7 @@ public final class LegendarySwordsPlugin extends JavaPlugin {
     private AnimatedSwordItems animatedSwordItems;
     private AbilityController abilities;
     private ResourcePackManager packs;
+    private SwordBrowser browser;
 
     @Override public void onEnable() {
         saveDefaultConfig();
@@ -45,6 +46,8 @@ public final class LegendarySwordsPlugin extends JavaPlugin {
         createAbilityController();
         packs = new ResourcePackManager(this);
         packs.initialize();
+        browser = new SwordBrowser(this);
+        getServer().getPluginManager().registerEvents(browser, this);
         SwordCommand commands = new SwordCommand(this);
         var command = Objects.requireNonNull(getCommand("legendaryswords"), "plugin.yml command is missing");
         command.setExecutor(commands); command.setTabCompleter(commands);
@@ -85,6 +88,7 @@ public final class LegendarySwordsPlugin extends JavaPlugin {
         }
     }
     @Override public void onDisable() {
+        if (browser != null) browser.close();
         if (abilities != null) abilities.close();
         if (cinematics != null) cinematics.close();
         if (movement != null) movement.close();
@@ -103,4 +107,5 @@ public final class LegendarySwordsPlugin extends JavaPlugin {
     public AnimatedSwordItems animatedSwordItems() { return animatedSwordItems; }
     public AbilityController abilities() { return abilities; }
     public ResourcePackManager packs() { return packs; }
+    public SwordBrowser browser() { return browser; }
 }

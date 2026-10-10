@@ -152,7 +152,10 @@ public final class AbilityController implements AutoCloseable {
                 if (ultimate) eruption(player, sword, origin, damage);
                 else goronSpin(player, sword, origin, damage);
             }
-            default -> relicAttack(player, sword, origin, direction, damage, ultimate);
+            default -> {
+                if (sword.ordinal() >= 24) domainAttack(player, sword, origin, direction, damage, ultimate);
+                else relicAttack(player, sword, origin, direction, damage, ultimate);
+            }
         }
     }
 
@@ -292,6 +295,378 @@ public final class AbilityController implements AutoCloseable {
             }
             return true;
         });
+    }
+
+    /** Second collection: spatial hazards with their own footprints, timings and hit rules. */
+    private void domainAttack(Player player, SwordType sword, Location origin, Vector direction, double damage, boolean ultimate) {
+        Vector forward = flat(direction), right = new Vector(-forward.getZ(), 0, forward.getX());
+        double distance = unobstructed(player.getEyeLocation(), forward, ultimate ? 7 : 5);
+        Location focus = origin.clone().add(forward.clone().multiply(Math.min(3, distance)));
+        Map<UUID, Integer> hits = new HashMap<>();
+        int duration = ultimate ? 80 : 40, limit = ultimate ? 3 : 1;
+        double radius = ultimate ? 6 : 3.5;
+        // Every mine has its own armed/triggered state, rather than an immediate area strike.
+        boolean[] triggered = new boolean[9];
+        repeat(player, origin, 0, 2, frame -> {
+            if (frame >= duration) return false;
+            double progress = frame / (double) (duration - 1), angle = frame * .14;
+            boolean impact = frame >= 4 && frame % 12 == 4;
+            boolean draw = frame % 4 == 0;
+            switch (sword) {
+                case EMBER_HALO -> {
+                    double wave = 1.2 + ((frame % 24) / 23D) * radius;
+                    effects.ring(origin.clone().add(0, .4, 0), wave, sword);
+                    if (draw) ringMesh(player, origin.clone().add(0, .4, 0), wave, 12, sword);
+                    // Only the visible rim burns, leaving a safe hole in its center.
+                    if (frame >= 4) ringHit(player, origin, wave, .8, damage, .35, 60, 0, hits, limit);
+                    if (ultimate && draw) dome(focus, radius, progress, sword);
+                }
+                case VOID_REAVER -> {
+                    double wave = radius * (1 - (frame % 30) / 30D);
+                    effects.ring(focus.clone().add(0, .5, 0), wave, sword);
+                    if (draw) ringMesh(player, focus.clone().add(0, .5, 0), wave, 10, sword);
+                    if (frame >= 4) ringHit(player, focus, wave, .85, damage, -.3, 0, 35, hits, limit);
+                    if (ultimate && draw) dome(focus, radius, -progress, sword);
+                }
+                case ASTRAL_EDGE -> {
+                    int satellites = ultimate ? 5 : 3;
+                    for (int i = 0; i < satellites; i++) {
+                        double theta = angle + i * Math.PI * 2 / satellites;
+                        Location star = focus.clone().add(Math.cos(theta) * radius * .6 * (1 - progress * .7), .8 + Math.sin(theta * 2) * .5, Math.sin(theta) * radius * .6 * (1 - progress * .7));
+                        effects.pulse(star, sword);
+                        if (draw) displays.box(player, star, Material.SEA_LANTERN, .25, .25, .25, sword.particleColor(), 8);
+                        if (impact) hitArea(player, star, 2.3, damage, .15, 0, 0, 0, hits, limit);
+                    }
+                    if (ultimate && draw) dome(focus, radius, progress, sword);
+                }
+                case TIDEBREAKER -> {
+                    Location wall = origin.clone().add(forward.clone().multiply(distance * progress));
+                    for (int height = 0; height < (ultimate ? 4 : 2); height++) {
+                        Location a = wall.clone().add(right.clone().multiply(-radius)).add(0, .6 + height, 0);
+                        Location b = wall.clone().add(right.clone().multiply(radius)).add(0, .6 + height, 0);
+                        segment(player, a, b, .8, damage, .65, 0, 25, sword, hits, limit, draw, frame >= 4);
+                    }
+                    if (ultimate && draw) effects.ring(focus.clone().add(0, .2, 0), radius, sword);
+                }
+                case STORM_CAGE -> {
+                    if (draw) {
+                        ringMesh(player, focus.clone().add(0, .2, 0), radius, 6, sword);
+                        for (int i = 0; i < 6; i++) {
+                            Location pole = focus.clone().add(Math.cos(i * Math.PI / 3) * radius, 0, Math.sin(i * Math.PI / 3) * radius);
+                            effects.line(pole, pole.clone().add(0, 4, 0), sword, .45);
+                        }
+                    }
+                    if (impact) {
+                        Location bolt = focus.clone().add(0, 6, 0);
+                        effects.line(bolt, focus, sword, .3); effects.pulse(focus, sword);
+                        hitArea(player, focus, radius, damage, .1, 0, 35, 1, hits, limit);
+                    }
+                }
+                case CHRONO_SABER -> {
+                    effects.ring(focus.clone().add(0, .2, 0), radius, sword);
+                    Location hand = focus.clone().add(Math.cos(angle) * radius, 1, Math.sin(angle) * radius);
+                    segment(player, focus.clone().add(0, 1, 0), hand, .85, damage, 0, 0, 70, sword, hits, limit, draw, impact);
+                    if (ultimate && draw) dome(focus, radius, progress, sword);
+                    if (frame == duration - 2) hitArea(player, focus, radius, damage, .25, 0, 50, 1, hits, limit);
+                }
+                case ECLIPSE_FANG -> {
+                    double separation = radius * (1 - (frame % 24) / 24D);
+                    for (int sign : new int[]{-1, 1}) {
+                        Location orb = focus.clone().add(right.clone().multiply(sign * separation)).add(0, .8, 0);
+                        effects.helix(orb, .65, 1.5, angle * sign, sword);
+                        if (draw) displays.box(player, orb, Material.PURPLE_STAINED_GLASS, .6, .6, .6, sword.particleColor(), 8);
+                        if (impact || (frame >= 4 && separation < 1)) hitArea(player, orb, 2, damage, -.15, 0, 0, 0, hits, limit);
+                    }
+                    if (ultimate && draw) dome(focus, radius, -progress, sword);
+                }
+                case CRYSTAL_OATH -> {
+                    int mines = ultimate ? 9 : 3;
+                    for (int i = 0; i < mines; i++) {
+                        Location mine = focus.clone().add((i % 3 - 1) * 2.2, .1, (i / 3 - (ultimate ? 1 : 0)) * 2.2);
+                        if (triggered[i]) continue;
+                        if (draw) { effects.ring(mine, .7, sword); displays.box(player, mine.clone().add(0, .5, 0), Material.LIGHT_BLUE_STAINED_GLASS, .25, 1, .25, sword.particleColor(), 8); }
+                        if (frame >= 6 && (hasTarget(player, mine, 1.9) || frame == duration - 2)) {
+                            triggered[i] = true; effects.helix(mine, 1.8, 3, angle, sword);
+                            hitArea(player, mine, 2.6, damage, .4, 0, 40, 0, hits, limit);
+                        }
+                    }
+                }
+                case BLOODTHORN -> {
+                    int thorns = ultimate ? 8 : 4;
+                    for (int i = 0; i < thorns; i++) {
+                        double theta = i * Math.PI * 2 / thorns;
+                        Location root = ultimate ? focus.clone().add(Math.cos(theta) * radius * .75, 0, Math.sin(theta) * radius * .75)
+                                : origin.clone().add(forward.clone().multiply((i + 1) * 1.2));
+                        if (draw) effects.helix(root, .35, .5 + (i + frame % 8) * .3, angle, sword);
+                        if (frame >= 4 && frame % 12 == i % 12) hitArea(player, root, 2.2, damage, .05, 0, 60, 1, hits, limit);
+                    }
+                    if (ultimate && draw) ringMesh(player, focus, radius, 8, sword);
+                }
+                case SUNSPIRE -> {
+                    int rays = ultimate ? 6 : 1;
+                    for (int i = 0; i < rays; i++) {
+                        Location mark = i == 0 ? focus : focus.clone().add(Math.cos(i * Math.PI / 3) * 3, 0, Math.sin(i * Math.PI / 3) * 3);
+                        effects.ring(mark.clone().add(0, .15, 0), 1.3, sword);
+                        if (frame % 16 == 8) {
+                            segment(player, mark.clone().add(0, 9, 0), mark, 1.4, damage, .3, 50, 0, sword, hits, limit, true, true);
+                            effects.pulse(mark, sword);
+                        }
+                    }
+                }
+                case MOONVEIL -> {
+                    double travel = Math.sin(progress * Math.PI) * distance;
+                    for (int i = 0; i < (ultimate ? 3 : 1); i++) {
+                        Vector heading = forward.clone().rotateAroundY((i - (ultimate ? 1 : 0)) * .45);
+                        Location blade = origin.clone().add(heading.clone().multiply(travel)).add(0, 1, 0);
+                        effects.arc(blade, heading, 1.4, 100, sword);
+                        if (draw) ringMesh(player, blade, 1.3, 7, sword);
+                        if (frame >= 4) hitArea(player, blade, 2.2, damage, .15, 0, 0, 0, hits, limit);
+                    }
+                }
+                case RUNIC_JUDGMENT -> {
+                    if (draw) effects.ring(focus, radius, sword);
+                    for (int i = -(ultimate ? 2 : 0); i <= (ultimate ? 2 : 0); i++) {
+                        Location row = focus.clone().add(right.clone().multiply(i * 2)).add(0, 1, 0);
+                        segment(player, row.clone().add(forward.clone().multiply(-radius)), row.clone().add(forward.clone().multiply(radius)), .65, damage, .2, 0, 30, sword, hits, limit, draw, frame % 16 == 8);
+                        Location column = focus.clone().add(forward.clone().multiply(i * 2)).add(0, 1, 0);
+                        segment(player, column.clone().add(right.clone().multiply(-radius)), column.clone().add(right.clone().multiply(radius)), .65, damage, .2, 0, 30, sword, hits, limit, draw, frame % 16 == 8);
+                    }
+                }
+                case NEBULA_BLADE -> {
+                    Vector aim = direction.clone().normalize();
+                    Vector tangent = aim.clone().crossProduct(new Vector(0, 1, 0));
+                    if (tangent.lengthSquared() < .001) tangent = new Vector(1, 0, 0); else tangent.normalize();
+                    Vector second = tangent.clone().crossProduct(aim).normalize();
+                    double reach = unobstructed(player.getEyeLocation(), aim, 12);
+                    Location head = player.getEyeLocation().clone().add(aim.clone().multiply(reach * progress));
+                    for (int i = 0; i < (ultimate ? 3 : 1); i++) {
+                        double theta = angle * 3 + i * Math.PI * 2 / 3;
+                        Location orb = head.clone().add(tangent.clone().multiply(Math.cos(theta))).add(second.clone().multiply(Math.sin(theta)));
+                        effects.pulse(orb, sword);
+                        if (draw) displays.box(player, orb, Material.PURPLE_STAINED_GLASS, .35, .35, .35, sword.particleColor(), 8);
+                        if (frame >= 4) hitArea(player, orb, 1.8, damage, .15, 0, 0, 0, hits, limit);
+                    }
+                    if (ultimate && draw) dome(focus, radius, progress, sword);
+                }
+                case OBSIDIAN_MAW -> {
+                    int tooth = frame / 6;
+                    Location vent = origin.clone().add(forward.clone().multiply(Math.min(distance, tooth * 1.3)));
+                    if (draw) effects.ring(vent, 1, sword);
+                    if (frame % 6 == 4) {
+                        effects.helix(vent, 1.2, 3, angle, sword);
+                        displays.box(player, vent.clone().add(0, 1, 0), Material.MAGMA_BLOCK, .8, 2, .8, sword.particleColor(), 6);
+                        hitArea(player, vent, 2.4, damage, .45, 50, 0, 0, hits, limit);
+                    }
+                    if (ultimate) { double rim = 1 + progress * radius; if (draw) ringMesh(player, focus, rim, 12, sword); if (impact) ringHit(player, focus, rim, 1, damage, .5, 60, 0, hits, limit); }
+                }
+                case SERAPH_WING -> {
+                    for (int sign : new int[]{-1, 1}) {
+                        Location tip = focus.clone().add(right.clone().multiply(sign * radius * progress)).add(forward.clone().multiply(-2 * progress)).add(0, 1 + progress * 2, 0);
+                        segment(player, focus.clone().add(0, 1, 0), tip, 1, damage, .35, 0, 0, sword, hits, limit, draw, frame >= 4);
+                    }
+                    if (ultimate && frame % 16 == 8) {
+                        segment(player, focus.clone().add(0, 7, 0), focus, 1.6, damage, .4, 0, 0, sword, hits, limit, true, true);
+                    }
+                }
+                case ABYSSAL_TRIDENT -> {
+                    if (!ultimate) {
+                        for (int i = -1; i <= 1; i++) {
+                            Location spear = origin.clone().add(forward.clone().multiply(distance * progress)).add(right.clone().multiply(i * 1.2)).add(0, 1, 0);
+                            segment(player, spear, spear.clone().add(forward), .8, damage, .4, 0, 25, sword, hits, limit, draw, frame >= 4);
+                        }
+                    } else {
+                        if (draw) { effects.helix(focus, radius * (1 - progress * .6), 4, -angle, sword); ringMesh(player, focus, radius, 12, sword); }
+                        if (impact) domainHit(player, focus, radius, damage, -.45, 0, 45, hits, limit);
+                    }
+                }
+                case MIRAGE_SABER -> {
+                    int echoes = ultimate ? 5 : 3;
+                    for (int i = 0; i < echoes; i++) {
+                        Location echo = focus.clone().add(Math.cos(i * 2.4) * i * .8, 0, Math.sin(i * 2.4) * i * .8);
+                        if (draw && frame < 8 + i * 5) { effects.ring(echo, 1, sword); effects.arc(echo.clone().add(0, 1, 0), forward, 1.5, 80, sword); }
+                        if (frame == 8 + i * 5) { effects.pulse(echo, sword); hitArea(player, echo, 2.5, damage, .2, 0, 25, 0, hits, limit); }
+                    }
+                }
+                case METEOR_BRAND -> {
+                    int count = ultimate ? 9 : 3;
+                    for (int i = 0; i < count; i++) {
+                        Location mark = i == 0 ? focus : focus.clone().add(Math.cos(i * 2.4) * 3, 0, Math.sin(i * 2.4) * 3);
+                        int landing = 10 + i * 5;
+                        if (frame <= landing && frame >= landing - 8) {
+                            effects.ring(mark, 1.4, sword);
+                            Location rock = mark.clone().add(0, (landing - frame) * .9 + .8, 0);
+                            effects.pulse(rock, sword);
+                            if (draw) displays.box(player, rock, Material.MAGMA_BLOCK, .7, .7, .7, sword.particleColor(), 4);
+                        }
+                        if (frame == landing) { effects.ring(mark, 2.8, sword); hitArea(player, mark, 2.8, damage, .5, 60, 0, 0, hits, limit); }
+                    }
+                }
+                case GLACIAL_CROWN -> {
+                    double rim = ultimate ? radius * (1 - progress) : .5 + progress * radius;
+                    if (draw) {
+                        ringMesh(player, focus, rim, 10, sword);
+                        for (int i = 0; i < 10; i++) {
+                            Location tooth = focus.clone().add(Math.cos(i * Math.PI / 5) * rim, 0, Math.sin(i * Math.PI / 5) * rim);
+                            effects.line(tooth, tooth.clone().add(0, 1.5, 0), sword, .4);
+                        }
+                    }
+                    if (frame >= 4) ringHit(player, focus, rim, .9, damage, .1, 0, 70, hits, limit);
+                }
+                case TEMPEST_RAPIER -> {
+                    Vector aim = direction.clone().normalize();
+                    double reach = unobstructed(player.getEyeLocation(), aim, ultimate ? 18 : 12);
+                    Location tip = player.getEyeLocation().clone().add(aim.clone().multiply(reach * progress));
+                    segment(player, tip, tip.clone().add(aim.clone().multiply(Math.min(2, reach * (1 - progress)))), 1, damage, .45, 0, 0, sword, hits, limit, draw, frame >= 4);
+                    if (ultimate && draw) { effects.ring(focus.clone().add(0, .4, 0), radius, sword); dome(focus, radius, progress, sword); }
+                    if (ultimate && impact) ringHit(player, focus, radius, 1.2, damage, .6, 0, 0, hits, limit);
+                }
+                case GRAVITY_CLEAVER -> {
+                    double shell = radius * (1 - progress * .75);
+                    if (draw) { dome(focus, shell, -progress, sword); effects.helix(focus, shell * .5, 3, -angle, sword); }
+                    if (impact && frame < duration - 12) domainHit(player, focus, radius, damage * .65, -.4, 0, 35, hits, limit - 1);
+                    if (frame == duration - 8) { effects.ring(focus, radius, sword); domainHit(player, focus, radius, damage, .7, 0, 0, hits, limit); }
+                }
+                case PRISM_SWORD -> {
+                    for (int level = 0; level < (ultimate ? 3 : 1); level++) {
+                        for (int i = 0; i < 3; i++) {
+                            double theta = angle + i * Math.PI * 2 / 3;
+                            double prismRadius = .4 + radius * (1 - progress);
+                            Location a = focus.clone().add(Math.cos(theta) * prismRadius, .6 + level * 1.2, Math.sin(theta) * prismRadius);
+                            Location b = focus.clone().add(Math.cos(theta + Math.PI * 2 / 3) * prismRadius, .6 + level * 1.2, Math.sin(theta + Math.PI * 2 / 3) * prismRadius);
+                            segment(player, a, b, 1.1, damage, .25, 0, 25, sword, hits, limit, draw, frame >= 4);
+                        }
+                    }
+                }
+                case THUNDER_DRUM -> {
+                    Location center = ultimate ? focus : origin.clone().add(forward.clone().multiply(progress * distance));
+                    double shell = .5 + (frame % 20) / 19D * radius;
+                    if (draw) { dome(center, shell, progress, sword); effects.ring(center.clone().add(0, .5, 0), shell, sword); }
+                    if (frame >= 4) ringHit(player, center, shell, 1, damage, .5, 0, 0, hits, limit);
+                }
+                case WRAITH_SCYTHE -> {
+                    Location center = ultimate ? focus : origin.clone().add(forward.clone().multiply(distance * progress));
+                    double theta = -Math.PI * .8 + progress * Math.PI * 1.6;
+                    for (int sign : ultimate ? new int[]{-1, 1} : new int[]{1}) {
+                        Location edge = center.clone().add(forward.clone().multiply(Math.cos(theta) * radius)).add(right.clone().multiply(Math.sin(theta) * radius * sign)).add(0, 1, 0);
+                        segment(player, center.clone().add(0, 1, 0), edge, .9, damage, .25, 0, 40, sword, hits, limit, draw, frame >= 4);
+                    }
+                }
+                case VERDANT_OATH -> {
+                    if (!ultimate) {
+                        for (int i = 0; i < 3; i++) {
+                            Location seed = focus.clone().add(right.clone().multiply((i - 1) * 1.8));
+                            if (draw) effects.ring(seed, .6 + progress, sword);
+                            if (frame == 8 + i * 6) { effects.helix(seed, 1.5, 2, angle, sword); hitArea(player, seed, 2.3, damage, .05, 0, 70, 1, hits, limit); }
+                        }
+                    } else {
+                        for (int i = 0; i < 5; i++) {
+                            Location a = focus.clone().add(-radius + i * radius * .4, .8, (i % 2 == 0 ? -1 : 1) * radius);
+                            Location b = focus.clone().add(-radius + (i + 1) * radius * .4, .8, (i % 2 == 0 ? 1 : -1) * radius);
+                            segment(player, a, b, 1.1, damage, .05, 0, 70, sword, hits, limit, draw, impact);
+                        }
+                    }
+                }
+                case DRAGONHEART -> {
+                    int breaths = ultimate ? 5 : 1;
+                    if (ultimate && impact) { effects.pulse(focus.clone().add(0, 1, 0), sword); hitArea(player, focus, 1.4, damage, .2, 80, 0, 0, hits, limit); }
+                    for (int i = 0; i < breaths; i++) {
+                        Vector heading = forward.clone().rotateAroundY(ultimate ? angle + i * Math.PI * 2 / breaths : 0);
+                        double reach = unobstructed(origin.clone().add(0, 1, 0), heading, radius);
+                        Location mouth = ultimate ? focus.clone().add(0, 1, 0) : origin.clone().add(0, 1, 0);
+                        if (draw) { effects.arc(mouth, heading, reach, 28, sword); effects.line(mouth, mouth.clone().add(heading.clone().multiply(reach)), sword, .45); }
+                        if (impact) for (LivingEntity target : nearby(player, mouth, reach + 1)) {
+                            if (hits.getOrDefault(target.getUniqueId(), 0) < limit
+                                    && Geometry.inCone(middle(target).toVector().subtract(mouth.toVector()), heading, reach, 32)
+                                    && combat.visible(player.getEyeLocation(), target)
+                                    && strike(player, target, mouth, damage, .25, 80, 0, 0)) hits.merge(target.getUniqueId(), 1, Integer::sum);
+                        }
+                    }
+                }
+                default -> throw new IllegalArgumentException("Unknown domain weapon: " + sword.id());
+            }
+            return true;
+        });
+    }
+
+    private boolean hasTarget(Player player, Location center, double radius) {
+        return nearby(player, center, radius + 1).stream().anyMatch(target ->
+                middle(target).distanceSquared(center.clone().add(0, .8, 0)) <= radius * radius);
+    }
+
+    /** Solid-looking outline uses short-lived displays; actual world blocks never change. */
+    private void ringMesh(Player player, Location center, double radius, int sides, SwordType sword) {
+        for (int i = 0; i < sides; i++) {
+            double a = i * Math.PI * 2 / sides, b = (i + 1) * Math.PI * 2 / sides;
+            displays.line(player, center.clone().add(Math.cos(a) * radius, 0, Math.sin(a) * radius),
+                    center.clone().add(Math.cos(b) * radius, 0, Math.sin(b) * radius), domainMaterial(sword),
+                    .09, sword.particleColor(), 8);
+        }
+    }
+
+    private Material domainMaterial(SwordType sword) {
+        return switch (sword) {
+            case EMBER_HALO, OBSIDIAN_MAW, DRAGONHEART -> Material.MAGMA_BLOCK;
+            case VOID_REAVER, ECLIPSE_FANG, GRAVITY_CLEAVER -> Material.PURPLE_STAINED_GLASS;
+            case ASTRAL_EDGE, SUNSPIRE, SERAPH_WING -> Material.SEA_LANTERN;
+            case TIDEBREAKER, ABYSSAL_TRIDENT -> Material.CYAN_STAINED_GLASS;
+            case GLACIAL_CROWN -> Material.BLUE_ICE;
+            case CRYSTAL_OATH, PRISM_SWORD -> Material.AMETHYST_BLOCK;
+            case BLOODTHORN -> Material.RED_STAINED_GLASS;
+            case VERDANT_OATH -> Material.MOSS_BLOCK;
+            case CHRONO_SABER, THUNDER_DRUM -> Material.YELLOW_STAINED_GLASS;
+            case MOONVEIL, WRAITH_SCYTHE -> Material.LIGHT_BLUE_STAINED_GLASS;
+            case MIRAGE_SABER, RUNIC_JUDGMENT, METEOR_BRAND -> Material.ORANGE_STAINED_GLASS;
+            case NEBULA_BLADE -> Material.MAGENTA_STAINED_GLASS;
+            case TEMPEST_RAPIER -> Material.LIME_STAINED_GLASS;
+            default -> Material.WHITE_STAINED_GLASS;
+        };
+    }
+
+    private void dome(Location center, double radius, double turn, SwordType sword) {
+        for (int rib = 0; rib < 4; rib++) {
+            double theta = rib * Math.PI / 4 + turn;
+            for (int step = 0; step < 16; step++) {
+                double arc = step * Math.PI / 16;
+                effects.dust(center.clone().add(Math.cos(theta) * Math.cos(arc) * radius,
+                        .2 + Math.sin(arc) * radius, Math.sin(theta) * Math.cos(arc) * radius), sword, 1, 0);
+            }
+        }
+        effects.ring(center.clone().add(0, .2, 0), radius, sword);
+    }
+
+    private void segment(Player player, Location from, Location to, double width, double damage, double push, int fire,
+                         int slow, SwordType sword, Map<UUID, Integer> hits, int limit, boolean draw, boolean impact) {
+        if (draw) { effects.line(from, to, sword, .4); displays.line(player, from, to, domainMaterial(sword), .12, sword.particleColor(), 8); }
+        if (!impact) return;
+        Location center = from.clone().add(to).multiply(.5);
+        double length = from.distance(to);
+        for (LivingEntity target : nearby(player, center, length / 2 + width + 1)) {
+            if (hits.getOrDefault(target.getUniqueId(), 0) < limit
+                    && Geometry.distanceSquaredToSegment(middle(target).toVector(), from.toVector(), to.toVector()) <= width * width
+                    && strike(player, target, player.getEyeLocation(), damage, push, fire, slow, 0)) hits.merge(target.getUniqueId(), 1, Integer::sum);
+        }
+    }
+
+    private void ringHit(Player player, Location center, double radius, double thickness, double damage, double push,
+                         int fire, int slow, Map<UUID, Integer> hits, int limit) {
+        for (LivingEntity target : nearby(player, center, radius + thickness + 1)) {
+            Vector offset = middle(target).toVector().subtract(center.toVector());
+            double horizontal = Math.hypot(offset.getX(), offset.getZ());
+            if (Math.abs(horizontal - radius) <= thickness && Math.abs(offset.getY() - .8) <= 2
+                    && hits.getOrDefault(target.getUniqueId(), 0) < limit
+                    && combat.visible(player.getEyeLocation(), target)
+                    && strike(player, target, center.clone().add(0, .8, 0), damage, push, fire, slow, 0)) hits.merge(target.getUniqueId(), 1, Integer::sum);
+        }
+    }
+
+    private void domainHit(Player player, Location center, double radius, double damage, double push,
+                           int fire, int slow, Map<UUID, Integer> hits, int limit) {
+        for (LivingEntity target : nearby(player, center, radius + 1)) {
+            if (middle(target).distanceSquared(center.clone().add(0, .8, 0)) <= radius * radius
+                    && hits.getOrDefault(target.getUniqueId(), 0) < limit
+                    && combat.visible(player.getEyeLocation(), target)
+                    && strike(player, target, center.clone().add(0, .8, 0), damage, push, fire, slow, 0)) hits.merge(target.getUniqueId(), 1, Integer::sum);
+        }
     }
 
     private boolean valid(Player player, Location origin) {

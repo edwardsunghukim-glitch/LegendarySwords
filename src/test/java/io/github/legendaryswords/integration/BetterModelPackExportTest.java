@@ -61,7 +61,7 @@ class BetterModelPackExportTest {
                     }
                 }
             }
-            assertEquals(48, aliases.get());
+            assertEquals((SwordType.values().length - 8) * 3, aliases.get());
         } finally { singleton.set(null, previous); }
     }
     private static void write(Path file, byte[] bytes) throws Exception {

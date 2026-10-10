@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Author the sixteen additional relics using the project's original art and rigs."""
+"""Author the additional relics and original second-collection weapons using the project's original art and rigs."""
 import base64
 import copy
 import json
@@ -53,12 +53,15 @@ def safe_casts(model, item, index):
             clip['uuid'] = str(uuid.uuid5(uuid.NAMESPACE_URL, model['model_identifier'] + '/' + name))
             for key, animator in clip['animators'].items():
                 frames = []
-                for frame, phase in enumerate([0, .2, .5, .8, 1]):
+                phases = [0, .2, .5, .8, 1] if index < 16 else [0, .12 + (index % 5) * .02, .48, .72 + (index % 4) * .04, 1]
+                for frame, phase in enumerate(phases):
                     pulse = math.sin(phase * math.pi)
                     point = {axis: float(value) for axis, value in baseline[key].items() if axis in 'xyz'}
                     bone = animator['name']
                     if bone == 'pra_right_arm': point['x'] += pulse * (14 + index * .3) * amplitude
-                    if bone == 'prfa_right_forearm': point['x'] -= pulse * 7 * amplitude
+                    if bone == 'prfa_right_forearm': point['x'] -= pulse * (7 if index < 16 else 5 + index % 7) * amplitude
+                    if index >= 16 and bone == 'pra_right_arm': point['z'] += pulse * (index % 5 - 2) * amplitude
+                    if index >= 16 and bone == 'pla_left_arm': point['z'] += pulse * (index % 7 - 3) * amplitude
                     if bone == 'pla_left_arm': point['x'] += pulse * 4 * amplitude
                     if bone in ('prl_right_leg', 'pll_left_leg'): point['x'] += pulse * (2 + index * .1) * (-1 if bone.startswith('pll') else 1)
                     if bone == 'h_ph_head': point['z'] += pulse * .25
@@ -101,6 +104,10 @@ def generate_models(root):
         for kind in ['players', 'models']:
             suffix = '_slash' if kind == 'models' else ''
             model = json.loads((root / kind / f'legendaryswords_{base}{suffix}.bbmodel').read_text())
+            if kind == 'models' and weapon.get('generation') == 2:
+                from domain_weapon_art import effect_model
+                write(root / kind / f'legendaryswords_{name}{suffix}.bbmodel', effect_model(weapon, index - 16))
+                continue
             model['name'] = weapon['title'] + (' signature effect' if suffix else ' cast choreography')
             model['model_identifier'] = f'legendaryswords_{name}{suffix}'
             if kind == 'players':
@@ -131,16 +138,24 @@ def generate_pack():
     for index, weapon in enumerate(WEAPONS):
         name, base = weapon['id'], weapon['base']
         palette = copy.deepcopy(art.PALETTES[base])
+        if weapon.get('generation') == 2:
+            from domain_weapon_art import palette as new_palette
+            palette = new_palette(weapon, index - 16)
         for tile in range(16):
             mix = .8 if tile in (2, 6, 8, 13, 14) else .25
             palette[tile] = tuple(round(c * (1 - mix) + weapon['color'][axis] * mix) for axis, c in enumerate(palette[tile]))
-        art.PALETTES[name] = palette; art.texture(name)
+        art.PALETTES[name] = palette
+        from domain_weapon_art import texture
+        texture(weapon, index)
         model = json.loads((art.ASSETS / 'models/item' / (base + '.json')).read_text())
-        for element in model['elements']:
+        if weapon.get('generation') == 2:
+            from domain_weapon_art import item_model
+            model = item_model(weapon, index - 16)
+        for element in (model['elements'] if weapon.get('generation') != 2 else []):
             for field in ['from', 'to']:
                 element[field][0] = round(8 + (element[field][0] - 8) * (1 - .005 * (index + 1)), 5)
                 if element[field][1] > 6: element[field][1] = round(6 + (element[field][1] - 6) * (1 - .004 * (index + 1)), 5)
-        for rune in range(3):
+        for rune in range(0 if weapon.get("generation") == 2 else 3):
             y = 9 + rune * 2
             art.box(model['elements'], weapon['title'] + ' luminous sigil ' + str(rune),
                     [7.6, y, 6.98], [8.4, y + .4, 7.15], 'rune', 'energy')
@@ -154,10 +169,10 @@ def generate_pack():
             'type': 'minecraft:select', 'property': 'minecraft:display_context',
             'cases': [{'when': ['thirdperson_lefthand', 'thirdperson_righthand'], 'model': {'type': 'minecraft:empty'}}],
             'fallback': {'type': 'minecraft:model', 'model': 'legendaryswords:item/' + name + '_animated'}}})
-    metadata = json.loads((art.ROOT / 'pack.mcmeta').read_text()); metadata['pack']['description'] = 'LegendarySwords — 24 detailed legendary weapons'; write(art.ROOT / 'pack.mcmeta', metadata)
+    metadata = json.loads((art.ROOT / 'pack.mcmeta').read_text()); metadata['pack']['description'] = 'LegendarySwords — 50 detailed legendary weapons'; write(art.ROOT / 'pack.mcmeta', metadata)
 
 
 if __name__ == '__main__':
     generate_pack()
     generate_models(ROOT / 'src/main/resources/bettermodel')
-    print('Generated sixteen new item models, atlases, player rigs and signature effects.')
+    print('Generated additional item models, atlases, player rigs and signature effects.')

@@ -1,18 +1,532 @@
 [
- {"id":"white_sword","title":"White Sword","ability":"Radiant Fan","ultimate":"Dawn Barrage","base":"master_sword","color":[230,245,255]},
- {"id":"goddess_sword","title":"Goddess Sword","ability":"Spiral Light","ultimate":"Sacred Helix","base":"frostblade","color":[140,170,255]},
- {"id":"goddess_longsword","title":"Goddess Longsword","ability":"Falling Star","ultimate":"Celestial Rain","base":"royal_claymore","color":[90,150,245]},
- {"id":"goddess_white_sword","title":"Goddess White Sword","ability":"Light Bloom","ultimate":"Heaven's Garden","base":"master_sword","color":[220,240,180]},
- {"id":"true_master_sword","title":"True Master Sword","ability":"Triad Beam","ultimate":"Golden Trinity","base":"master_sword","color":[100,240,225]},
- {"id":"phantom_sword","title":"Phantom Sword","ability":"Spirit Blades","ultimate":"Phantom Legion","base":"fierce_deity_sword","color":[185,120,250]},
- {"id":"lokomo_sword","title":"Lokomo Sword","ability":"Spirit Rail","ultimate":"Divine Tracks","base":"thunderblade","color":[110,220,245]},
- {"id":"razor_sword","title":"Razor Sword","ability":"Razor Wheel","ultimate":"Steel Cyclone","base":"eightfold_blade","color":[225,140,190]},
- {"id":"gilded_sword","title":"Gilded Sword","ability":"Gilded Petals","ultimate":"Golden Tempest","base":"royal_claymore","color":[250,195,65]},
- {"id":"great_fairy_sword","title":"Great Fairy Sword","ability":"Blossom Strike","ultimate":"Fairy's Awakening","base":"fierce_deity_sword","color":[255,125,205]},
- {"id":"sword_of_six_sages","title":"Sword of the Six Sages","ability":"Sage Pillars","ultimate":"Sixfold Seal","base":"biggoron_sword","color":[240,155,60]},
- {"id":"guardian_sword","title":"Guardian Sword","ability":"Pulse Burst","ultimate":"Guardian Overdrive","base":"thunderblade","color":[90,200,255]},
- {"id":"ancient_short_sword","title":"Ancient Short Sword","ability":"Hex Blades","ultimate":"Ancient Array","base":"frostblade","color":[90,245,235]},
- {"id":"scimitar_of_the_seven","title":"Scimitar of the Seven","ability":"Sand Spiral","ultimate":"Desert Sovereign","base":"eightfold_blade","color":[255,205,110]},
- {"id":"forest_dweller_sword","title":"Forest Dweller's Sword","ability":"Vine Snare","ultimate":"Forest Dominion","base":"flameblade","color":[100,220,80]},
- {"id":"dusk_claymore","title":"Dusk Claymore","ability":"Shadow Ridge","ultimate":"Twilight Rupture","base":"biggoron_sword","color":[170,90,225]}
+  {
+    "id": "white_sword",
+    "title": "White Sword",
+    "ability": "Radiant Fan",
+    "ultimate": "Dawn Barrage",
+    "base": "master_sword",
+    "color": [
+      230,
+      245,
+      255
+    ]
+  },
+  {
+    "id": "goddess_sword",
+    "title": "Goddess Sword",
+    "ability": "Spiral Light",
+    "ultimate": "Sacred Helix",
+    "base": "frostblade",
+    "color": [
+      140,
+      170,
+      255
+    ]
+  },
+  {
+    "id": "goddess_longsword",
+    "title": "Goddess Longsword",
+    "ability": "Falling Star",
+    "ultimate": "Celestial Rain",
+    "base": "royal_claymore",
+    "color": [
+      90,
+      150,
+      245
+    ]
+  },
+  {
+    "id": "goddess_white_sword",
+    "title": "Goddess White Sword",
+    "ability": "Light Bloom",
+    "ultimate": "Heaven's Garden",
+    "base": "master_sword",
+    "color": [
+      220,
+      240,
+      180
+    ]
+  },
+  {
+    "id": "true_master_sword",
+    "title": "True Master Sword",
+    "ability": "Triad Beam",
+    "ultimate": "Golden Trinity",
+    "base": "master_sword",
+    "color": [
+      100,
+      240,
+      225
+    ]
+  },
+  {
+    "id": "phantom_sword",
+    "title": "Phantom Sword",
+    "ability": "Spirit Blades",
+    "ultimate": "Phantom Legion",
+    "base": "fierce_deity_sword",
+    "color": [
+      185,
+      120,
+      250
+    ]
+  },
+  {
+    "id": "lokomo_sword",
+    "title": "Lokomo Sword",
+    "ability": "Spirit Rail",
+    "ultimate": "Divine Tracks",
+    "base": "thunderblade",
+    "color": [
+      110,
+      220,
+      245
+    ]
+  },
+  {
+    "id": "razor_sword",
+    "title": "Razor Sword",
+    "ability": "Razor Wheel",
+    "ultimate": "Steel Cyclone",
+    "base": "eightfold_blade",
+    "color": [
+      225,
+      140,
+      190
+    ]
+  },
+  {
+    "id": "gilded_sword",
+    "title": "Gilded Sword",
+    "ability": "Gilded Petals",
+    "ultimate": "Golden Tempest",
+    "base": "royal_claymore",
+    "color": [
+      250,
+      195,
+      65
+    ]
+  },
+  {
+    "id": "great_fairy_sword",
+    "title": "Great Fairy Sword",
+    "ability": "Blossom Strike",
+    "ultimate": "Fairy's Awakening",
+    "base": "fierce_deity_sword",
+    "color": [
+      255,
+      125,
+      205
+    ]
+  },
+  {
+    "id": "sword_of_six_sages",
+    "title": "Sword of the Six Sages",
+    "ability": "Sage Pillars",
+    "ultimate": "Sixfold Seal",
+    "base": "biggoron_sword",
+    "color": [
+      240,
+      155,
+      60
+    ]
+  },
+  {
+    "id": "guardian_sword",
+    "title": "Guardian Sword",
+    "ability": "Pulse Burst",
+    "ultimate": "Guardian Overdrive",
+    "base": "thunderblade",
+    "color": [
+      90,
+      200,
+      255
+    ]
+  },
+  {
+    "id": "ancient_short_sword",
+    "title": "Ancient Short Sword",
+    "ability": "Hex Blades",
+    "ultimate": "Ancient Array",
+    "base": "frostblade",
+    "color": [
+      90,
+      245,
+      235
+    ]
+  },
+  {
+    "id": "scimitar_of_the_seven",
+    "title": "Scimitar of the Seven",
+    "ability": "Sand Spiral",
+    "ultimate": "Desert Sovereign",
+    "base": "eightfold_blade",
+    "color": [
+      255,
+      205,
+      110
+    ]
+  },
+  {
+    "id": "forest_dweller_sword",
+    "title": "Forest Dweller's Sword",
+    "ability": "Vine Snare",
+    "ultimate": "Forest Dominion",
+    "base": "flameblade",
+    "color": [
+      100,
+      220,
+      80
+    ]
+  },
+  {
+    "id": "dusk_claymore",
+    "title": "Dusk Claymore",
+    "ability": "Shadow Ridge",
+    "ultimate": "Twilight Rupture",
+    "base": "biggoron_sword",
+    "color": [
+      170,
+      90,
+      225
+    ]
+  },
+  {
+    "id": "ember_halo",
+    "title": "Ember Halo",
+    "ability": "Burning Circlet",
+    "ultimate": "Domain: Furnace Crown",
+    "base": "flameblade",
+    "color": [
+      255,
+      85,
+      35
+    ],
+    "generation": 2
+  },
+  {
+    "id": "void_reaver",
+    "title": "Void Reaver",
+    "ability": "Collapsing Ring",
+    "ultimate": "Domain: Event Horizon",
+    "base": "fierce_deity_sword",
+    "color": [
+      105,
+      55,
+      220
+    ],
+    "generation": 2
+  },
+  {
+    "id": "astral_edge",
+    "title": "Astral Edge",
+    "ability": "Orbiting Stars",
+    "ultimate": "Domain: Astral Observatory",
+    "base": "master_sword",
+    "color": [
+      140,
+      195,
+      255
+    ],
+    "generation": 2
+  },
+  {
+    "id": "tidebreaker",
+    "title": "Tidebreaker",
+    "ability": "Tidal Wall",
+    "ultimate": "Domain: Drowned Court",
+    "base": "frostblade",
+    "color": [
+      35,
+      195,
+      230
+    ],
+    "generation": 2
+  },
+  {
+    "id": "storm_cage",
+    "title": "Storm Cage",
+    "ability": "Conductive Prison",
+    "ultimate": "Domain: Storm Tribunal",
+    "base": "thunderblade",
+    "color": [
+      200,
+      225,
+      255
+    ],
+    "generation": 2
+  },
+  {
+    "id": "chrono_saber",
+    "title": "Chrono Saber",
+    "ability": "Clockwork Seal",
+    "ultimate": "Domain: Broken Hourglass",
+    "base": "royal_claymore",
+    "color": [
+      245,
+      205,
+      125
+    ],
+    "generation": 2
+  },
+  {
+    "id": "eclipse_fang",
+    "title": "Eclipse Fang",
+    "ability": "Twin Eclipse",
+    "ultimate": "Domain: Black Sun",
+    "base": "fierce_deity_sword",
+    "color": [
+      200,
+      70,
+      165
+    ],
+    "generation": 2
+  },
+  {
+    "id": "crystal_oath",
+    "title": "Crystal Oath",
+    "ability": "Prism Mines",
+    "ultimate": "Domain: Shattered Cathedral",
+    "base": "frostblade",
+    "color": [
+      110,
+      255,
+      220
+    ],
+    "generation": 2
+  },
+  {
+    "id": "bloodthorn",
+    "title": "Bloodthorn",
+    "ability": "Thorn Procession",
+    "ultimate": "Domain: Crimson Garden",
+    "base": "flameblade",
+    "color": [
+      220,
+      40,
+      80
+    ],
+    "generation": 2
+  },
+  {
+    "id": "sunspire",
+    "title": "Sunspire",
+    "ability": "Solar Descent",
+    "ultimate": "Domain: Noonstar Sanctuary",
+    "base": "master_sword",
+    "color": [
+      255,
+      205,
+      65
+    ],
+    "generation": 2
+  },
+  {
+    "id": "moonveil",
+    "title": "Moonveil",
+    "ability": "Returning Crescent",
+    "ultimate": "Domain: Lunar Tides",
+    "base": "fierce_deity_sword",
+    "color": [
+      175,
+      185,
+      255
+    ],
+    "generation": 2
+  },
+  {
+    "id": "runic_judgment",
+    "title": "Runic Judgment",
+    "ability": "Cross Seal",
+    "ultimate": "Domain: Rune Labyrinth",
+    "base": "royal_claymore",
+    "color": [
+      245,
+      140,
+      80
+    ],
+    "generation": 2
+  },
+  {
+    "id": "nebula_blade",
+    "title": "Nebula Blade",
+    "ability": "Star Serpent",
+    "ultimate": "Domain: Nebula Vault",
+    "base": "master_sword",
+    "color": [
+      160,
+      105,
+      255
+    ],
+    "generation": 2
+  },
+  {
+    "id": "obsidian_maw",
+    "title": "Obsidian Maw",
+    "ability": "Magma Teeth",
+    "ultimate": "Domain: Volcanic Throne",
+    "base": "biggoron_sword",
+    "color": [
+      250,
+      80,
+      50
+    ],
+    "generation": 2
+  },
+  {
+    "id": "seraph_wing",
+    "title": "Seraph Wing",
+    "ability": "Wingbreak",
+    "ultimate": "Domain: Seraph Ascension",
+    "base": "master_sword",
+    "color": [
+      255,
+      240,
+      190
+    ],
+    "generation": 2
+  },
+  {
+    "id": "abyssal_trident",
+    "title": "Abyssal Trident",
+    "ability": "Depth Charge",
+    "ultimate": "Domain: Abyssal Whirlpool",
+    "base": "frostblade",
+    "color": [
+      40,
+      165,
+      180
+    ],
+    "generation": 2
+  },
+  {
+    "id": "mirage_saber",
+    "title": "Mirage Saber",
+    "ability": "Echo Traps",
+    "ultimate": "Domain: Hall of Mirages",
+    "base": "eightfold_blade",
+    "color": [
+      255,
+      165,
+      125
+    ],
+    "generation": 2
+  },
+  {
+    "id": "meteor_brand",
+    "title": "Meteor Brand",
+    "ability": "Meteor Mark",
+    "ultimate": "Domain: Falling Firmament",
+    "base": "biggoron_sword",
+    "color": [
+      255,
+      125,
+      65
+    ],
+    "generation": 2
+  },
+  {
+    "id": "glacial_crown",
+    "title": "Glacial Crown",
+    "ability": "Frost Coronation",
+    "ultimate": "Domain: Winter Palace",
+    "base": "frostblade",
+    "color": [
+      155,
+      235,
+      255
+    ],
+    "generation": 2
+  },
+  {
+    "id": "tempest_rapier",
+    "title": "Tempest Rapier",
+    "ability": "Storm Lance",
+    "ultimate": "Domain: Eye of the Tempest",
+    "base": "eightfold_blade",
+    "color": [
+      120,
+      255,
+      210
+    ],
+    "generation": 2
+  },
+  {
+    "id": "gravity_cleaver",
+    "title": "Gravity Cleaver",
+    "ability": "Graviton Well",
+    "ultimate": "Domain: Singularity",
+    "base": "biggoron_sword",
+    "color": [
+      165,
+      75,
+      245
+    ],
+    "generation": 2
+  },
+  {
+    "id": "prism_sword",
+    "title": "Prism Sword",
+    "ability": "Triangular Verdict",
+    "ultimate": "Domain: Crystal Prism",
+    "base": "master_sword",
+    "color": [
+      245,
+      115,
+      240
+    ],
+    "generation": 2
+  },
+  {
+    "id": "thunder_drum",
+    "title": "Thunder Drum",
+    "ability": "Resonance Wave",
+    "ultimate": "Domain: Thunder Chamber",
+    "base": "thunderblade",
+    "color": [
+      255,
+      225,
+      60
+    ],
+    "generation": 2
+  },
+  {
+    "id": "wraith_scythe",
+    "title": "Wraith Scythe",
+    "ability": "Reaping Arc",
+    "ultimate": "Domain: Soul Harvest",
+    "base": "fierce_deity_sword",
+    "color": [
+      130,
+      245,
+      185
+    ],
+    "generation": 2
+  },
+  {
+    "id": "verdant_oath",
+    "title": "Verdant Oath",
+    "ability": "Seedburst",
+    "ultimate": "Domain: Ancient Grove",
+    "base": "flameblade",
+    "color": [
+      90,
+      220,
+      110
+    ],
+    "generation": 2
+  },
+  {
+    "id": "dragonheart",
+    "title": "Dragonheart",
+    "ability": "Dragon Breath",
+    "ultimate": "Domain: Dragon Furnace",
+    "base": "flameblade",
+    "color": [
+      245,
+      65,
+      35
+    ],
+    "generation": 2
+  }
 ]

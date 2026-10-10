@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Combine the supplied snapshot pack, 24 sword items and official new effect exports.
+"""Combine the supplied snapshot pack, all sword items and official new effect exports.
 
-Run mvn verify first: BetterModelPackExportTest exports the sixteen new effects
+Run mvn verify first: BetterModelPackExportTest exports all expansion effects
 using the official model compiler. This preserves the prior named-alias snapshot
 pack; a different server exporter configuration needs a fresh build.zip instead.
 """
 import hashlib
 import json
+import xml.etree.ElementTree as ET
 from pathlib import Path
 from zipfile import ZipFile, ZipInfo, ZIP_DEFLATED
 
@@ -25,8 +26,10 @@ def main():
         assert archive.testzip() is None
         entries.update({name: archive.read(name) for name in archive.namelist() if not name.endswith('/')})
     aliases = list(exported.glob('assets/bettermodel/items/c/*.json'))
-    if len(aliases) != 48:
-        raise ValueError('Expected 48 named slash aliases; run mvn clean verify first.')
+    weapons = json.loads((ROOT / 'scripts/expanded_weapons.json').read_text())
+    expected = len(weapons) * 3
+    if len(aliases) != expected:
+        raise ValueError(f'Expected {expected} named slash aliases; run mvn clean verify first.')
     for path in exported.rglob('*'):
         if path.is_file():
             name, data = path.relative_to(exported).as_posix(), path.read_bytes()
@@ -49,7 +52,8 @@ def main():
         for value in model.get('textures', {}).values():
             if value.startswith('bettermodel:'):
                 assert 'assets/bettermodel/textures/' + value.split(':', 1)[1] + '.png' in entries, value
-    output = ROOT / 'target/LegendarySwords-combined-resource-pack-0.3.0.zip'
+    version = ET.parse(ROOT / 'pom.xml').findtext('{http://maven.apache.org/POM/4.0.0}version')
+    output = ROOT / f'target/LegendarySwords-combined-resource-pack-{version}.zip'
     with ZipFile(output, 'w', ZIP_DEFLATED, compresslevel=9) as archive:
         for name, data in sorted(entries.items()):
             info = ZipInfo(name, (2026, 1, 1, 0, 0, 0)); info.compress_type = ZIP_DEFLATED; info.external_attr = 0o644 << 16
@@ -57,7 +61,7 @@ def main():
     digest = hashlib.sha1(output.read_bytes()).hexdigest()
     output.with_suffix('.sha1').write_text(digest + '\n')
     print('Combined pack:', output)
-    print('24 sword items; 48 new named slash aliases; SHA-1:', digest)
+    print(f'{len(weapons)+8} sword items; {expected} named slash aliases; SHA-1:', digest)
 
 
 if __name__ == '__main__':

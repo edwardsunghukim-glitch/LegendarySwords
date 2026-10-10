@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.github.legendaryswords</groupId>
+  <artifactId>LegendarySwords</artifactId>
+  <version>0.1.0</version>
+  <name>LegendarySwords</name>
+  <description>Custom swords, cinematic ultimates, and BetterModel animations for Paper 1.21.11.</description>
+  <properties>
+    <maven.compiler.release>21</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.outputTimestamp>2026-01-01T00:00:00Z</project.build.outputTimestamp>
+  </properties>
+  <repositories>
+    <repository><id>paper</id><url>https://repo.papermc.io/repository/maven-public/</url></repository>
+  </repositories>
+  <dependencies>
+    <dependency><groupId>io.papermc.paper</groupId><artifactId>paper-api</artifactId><version>1.21.11-R0.1-SNAPSHOT</version><scope>provided</scope></dependency>
+    <dependency><groupId>io.github.toxicity188</groupId><artifactId>bettermodel</artifactId><version>1.15.2</version><scope>provided</scope></dependency>
+    <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><version>5.11.4</version><scope>test</scope></dependency>
+    <dependency><groupId>org.mockito</groupId><artifactId>mockito-core</artifactId><version>5.15.2</version><scope>test</scope></dependency>
+  </dependencies>
+  <build>
+    <resources>
+      <resource><directory>src/main/resources</directory></resource>
+      <resource><directory>${project.build.directory}/generated-resources</directory></resource>
+    </resources>
+    <plugins>
+      <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.14.1</version><configuration><release>21</release><proc>none</proc></configuration></plugin>
+      <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-surefire-plugin</artifactId><version>3.5.2</version><configuration><useModulePath>false</useModulePath></configuration></plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId><version>3.1.0</version>
+        <executions><execution><id>package-resource-pack</id><phase>generate-resources</phase><goals><goal>run</goal></goals><configuration><target>
+          <mkdir dir="${project.build.directory}/generated-resources"/>
+          <zip destfile="${project.build.directory}/LegendarySwords-resource-pack.zip" basedir="${project.basedir}/resource-pack" excludes="README.md,preview.png" modificationtime="2026-01-01T00:00:00Z"/>
+          <checksum file="${project.build.directory}/LegendarySwords-resource-pack.zip" algorithm="SHA-1" property="pack.sha1"/>
+          <echo file="${project.build.directory}/LegendarySwords-resource-pack.sha1" message="${pack.sha1}${line.separator}"/>
+          <copy file="${project.build.directory}/LegendarySwords-resource-pack.zip" tofile="${project.build.directory}/generated-resources/resource-pack.zip"/>
+        </target></configuration></execution></executions>
+      </plugin>
+      <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-jar-plugin</artifactId><version>3.4.2</version></plugin>
+    </plugins>
+  </build>
+</project>

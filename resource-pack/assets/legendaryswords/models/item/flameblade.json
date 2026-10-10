@@ -1,0 +1,3985 @@
+{
+  "credit": "Original LegendarySwords voxel art; authored procedurally, no ripped assets.",
+  "ambientocclusion": false,
+  "gui_light": "front",
+  "textures": {
+    "atlas": "legendaryswords:item/flameblade",
+    "particle": "legendaryswords:item/flameblade"
+  },
+  "elements": [
+    {
+      "name": "Faceted pommel",
+      "from": [
+        6.9,
+        -2.9,
+        6.9
+      ],
+      "to": [
+        9.1,
+        -1.5,
+        9.1
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Pommel jewel",
+      "from": [
+        7.35,
+        -3.35,
+        7.35
+      ],
+      "to": [
+        8.65,
+        -2.8,
+        8.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Wrapped handle",
+      "from": [
+        7.35,
+        -1.5,
+        7.35
+      ],
+      "to": [
+        8.65,
+        5,
+        8.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            4,
+            4,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            4,
+            4,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Raised grip wrap 0",
+      "from": [
+        7.25,
+        -1.2,
+        7.25
+      ],
+      "to": [
+        8.75,
+        -0.98,
+        8.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Raised grip wrap 1",
+      "from": [
+        7.25,
+        -0.41999999999999993,
+        7.25
+      ],
+      "to": [
+        8.75,
+        -0.19999999999999993,
+        8.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Raised grip wrap 2",
+      "from": [
+        7.25,
+        0.3600000000000001,
+        7.25
+      ],
+      "to": [
+        8.75,
+        0.5800000000000001,
+        8.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Raised grip wrap 3",
+      "from": [
+        7.25,
+        1.14,
+        7.25
+      ],
+      "to": [
+        8.75,
+        1.3599999999999999,
+        8.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Raised grip wrap 4",
+      "from": [
+        7.25,
+        1.9200000000000002,
+        7.25
+      ],
+      "to": [
+        8.75,
+        2.14,
+        8.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Raised grip wrap 5",
+      "from": [
+        7.25,
+        2.7,
+        7.25
+      ],
+      "to": [
+        8.75,
+        2.9200000000000004,
+        8.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Raised grip wrap 6",
+      "from": [
+        7.25,
+        3.4799999999999995,
+        7.25
+      ],
+      "to": [
+        8.75,
+        3.6999999999999997,
+        8.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Gold grip collar",
+      "from": [
+        7.05,
+        4.4,
+        7.05
+      ],
+      "to": [
+        8.95,
+        5,
+        8.95
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Dark iron crossguard",
+      "from": [
+        4.5,
+        5,
+        6.6
+      ],
+      "to": [
+        11.5,
+        6.4,
+        9.4
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Guard ember studs",
+      "from": [
+        4.1,
+        5.2,
+        6.3
+      ],
+      "to": [
+        5.3,
+        6.7,
+        9.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Guard ember studs",
+      "from": [
+        10.7,
+        5.2,
+        6.3
+      ],
+      "to": [
+        11.899999999999999,
+        6.7,
+        9.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Faceted guard rivet",
+      "from": [
+        5.8,
+        5.2,
+        6.42
+      ],
+      "to": [
+        6.35,
+        5.9,
+        6.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Faceted guard rivet",
+      "from": [
+        5.8,
+        5.2,
+        9.4
+      ],
+      "to": [
+        6.35,
+        5.9,
+        9.58
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Faceted guard rivet",
+      "from": [
+        7.75,
+        5.2,
+        6.42
+      ],
+      "to": [
+        8.3,
+        5.9,
+        6.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Faceted guard rivet",
+      "from": [
+        7.75,
+        5.2,
+        9.4
+      ],
+      "to": [
+        8.3,
+        5.9,
+        9.58
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Faceted guard rivet",
+      "from": [
+        9.6,
+        5.2,
+        6.42
+      ],
+      "to": [
+        10.15,
+        5.9,
+        6.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Faceted guard rivet",
+      "from": [
+        9.6,
+        5.2,
+        9.4
+      ],
+      "to": [
+        10.15,
+        5.9,
+        9.58
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Copper grip wire",
+      "from": [
+        7.2,
+        -1.3,
+        7.2
+      ],
+      "to": [
+        8.8,
+        -1.1400000000000001,
+        8.8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Copper grip wire",
+      "from": [
+        7.2,
+        0.85,
+        7.2
+      ],
+      "to": [
+        8.8,
+        1.01,
+        8.8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Copper grip wire",
+      "from": [
+        7.2,
+        3.7,
+        7.2
+      ],
+      "to": [
+        8.8,
+        3.8600000000000003,
+        8.8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Caged ember gem",
+      "from": [
+        7.1,
+        5.2,
+        6.25
+      ],
+      "to": [
+        8.9,
+        7.2,
+        9.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Heavy blade base",
+      "from": [
+        5.9,
+        7.2,
+        7.0
+      ],
+      "to": [
+        10.1,
+        11,
+        9.0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Molten great blade",
+      "from": [
+        6.0,
+        11,
+        7.15
+      ],
+      "to": [
+        10.0,
+        24.5,
+        8.85
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bright cutting edge",
+      "from": [
+        5.6,
+        11.2,
+        7.4
+      ],
+      "to": [
+        6.0,
+        24.5,
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Bright back edge",
+      "from": [
+        10.0,
+        11.2,
+        7.4
+      ],
+      "to": [
+        10.35,
+        24.0,
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Sculpted forge channel",
+      "from": [
+        6.2,
+        12.1,
+        7.02
+      ],
+      "to": [
+        6.48,
+        22.7,
+        8.98
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Sculpted forge channel",
+      "from": [
+        9.4,
+        12.1,
+        7.02
+      ],
+      "to": [
+        9.68,
+        22.7,
+        8.98
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Animated magma fissure 0",
+      "from": [
+        6.8,
+        9.0,
+        6.97
+      ],
+      "to": [
+        7.35,
+        11.3,
+        9.03
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          7.1,
+          10.0,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Branching molten crack",
+      "from": [
+        6.1499999999999995,
+        9.95,
+        6.93
+      ],
+      "to": [
+        7.1,
+        10.2,
+        9.07
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Animated magma fissure 1",
+      "from": [
+        7.8,
+        10.95,
+        6.97
+      ],
+      "to": [
+        8.35,
+        13.25,
+        9.03
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.1,
+          11.95,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Animated magma fissure 2",
+      "from": [
+        6.8,
+        12.9,
+        6.97
+      ],
+      "to": [
+        7.35,
+        15.2,
+        9.03
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          7.1,
+          13.9,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Branching molten crack",
+      "from": [
+        6.1499999999999995,
+        13.85,
+        6.93
+      ],
+      "to": [
+        7.1,
+        14.1,
+        9.07
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Animated magma fissure 3",
+      "from": [
+        7.8,
+        14.85,
+        6.97
+      ],
+      "to": [
+        8.35,
+        17.15,
+        9.03
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.1,
+          15.85,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Animated magma fissure 4",
+      "from": [
+        6.8,
+        16.8,
+        6.97
+      ],
+      "to": [
+        7.35,
+        19.1,
+        9.03
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          7.1,
+          17.8,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Branching molten crack",
+      "from": [
+        6.1499999999999995,
+        17.75,
+        6.93
+      ],
+      "to": [
+        7.1,
+        18.0,
+        9.07
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Animated magma fissure 5",
+      "from": [
+        7.8,
+        18.75,
+        6.97
+      ],
+      "to": [
+        8.35,
+        21.05,
+        9.03
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.1,
+          19.75,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Animated magma fissure 6",
+      "from": [
+        6.8,
+        20.7,
+        6.97
+      ],
+      "to": [
+        7.35,
+        23.0,
+        9.03
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          7.1,
+          21.7,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Branching molten crack",
+      "from": [
+        6.1499999999999995,
+        21.65,
+        6.93
+      ],
+      "to": [
+        7.1,
+        21.9,
+        9.07
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Animated magma fissure 7",
+      "from": [
+        7.8,
+        22.65,
+        6.97
+      ],
+      "to": [
+        8.35,
+        24.95,
+        9.03
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.1,
+          23.65,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Flame tip shoulder",
+      "from": [
+        6.4,
+        24.5,
+        7.2
+      ],
+      "to": [
+        9.65,
+        25.8,
+        8.8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Flame tip slope",
+      "from": [
+        6.9,
+        25.8,
+        7.3
+      ],
+      "to": [
+        9.2,
+        26.9,
+        8.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Flame tip point",
+      "from": [
+        7.4,
+        26.9,
+        7.55
+      ],
+      "to": [
+        8.6,
+        28.2,
+        8.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Jagged flame silhouette",
+      "from": [
+        5.5,
+        17,
+        7.4
+      ],
+      "to": [
+        6.2,
+        19.6,
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          5.85,
+          17,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Flame spur stepped middle",
+      "from": [
+        5.65,
+        18.9,
+        7.5
+      ],
+      "to": [
+        6.1,
+        20.0,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Flame spur point",
+      "from": [
+        5.8,
+        20.0,
+        7.6
+      ],
+      "to": [
+        6.0,
+        20.45,
+        8.4
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Jagged flame silhouette",
+      "from": [
+        10.0,
+        20,
+        7.4
+      ],
+      "to": [
+        10.7,
+        22.6,
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          10.35,
+          20,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Flame spur stepped middle",
+      "from": [
+        10.15,
+        21.9,
+        7.5
+      ],
+      "to": [
+        10.6,
+        23.0,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Flame spur point",
+      "from": [
+        10.3,
+        23.0,
+        7.6
+      ],
+      "to": [
+        10.5,
+        23.45,
+        8.4
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Jagged flame silhouette",
+      "from": [
+        5.7,
+        23,
+        7.4
+      ],
+      "to": [
+        6.4,
+        25.6,
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          6.05,
+          23,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Flame spur stepped middle",
+      "from": [
+        5.8500000000000005,
+        24.9,
+        7.5
+      ],
+      "to": [
+        6.3,
+        26.0,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Flame spur point",
+      "from": [
+        6.0,
+        26.0,
+        7.6
+      ],
+      "to": [
+        6.2,
+        26.45,
+        8.4
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        0
+      ],
+      "translation": [
+        0,
+        5.8,
+        0.5
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        0
+      ],
+      "translation": [
+        0,
+        5.8,
+        0.5
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.1,
+        4.0,
+        -2
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.1,
+        4.0,
+        -2
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        -35
+      ],
+      "translation": [
+        0,
+        -2.0,
+        0
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        4.5,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        -3.2,
+        0
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "head": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        10,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  }
+}

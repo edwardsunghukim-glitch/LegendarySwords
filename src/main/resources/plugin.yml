@@ -1,0 +1,19 @@
+name: LegendarySwords
+version: '0.1.0'
+main: io.github.legendaryswords.LegendarySwordsPlugin
+api-version: '1.21.11'
+description: Legendary blades with abilities, cinematic ultimates, and custom models.
+authors: [LegendarySwords]
+softdepend: [BetterModel]
+commands:
+  legendaryswords:
+    description: Get swords and manage LegendarySwords.
+    aliases: [ls, swords]
+    usage: /ls help
+permissions:
+  legendaryswords.use:
+    description: Use legendary sword abilities.
+    default: true
+  legendaryswords.admin:
+    description: Give swords, adjust charge, and reload configuration.
+    default: op

@@ -1,0 +1,13 @@
+{
+  "pack": {
+    "description": "LegendarySwords - three legendary blades with original voxel art",
+    "min_format": [
+      75,
+      0
+    ],
+    "max_format": [
+      75,
+      0
+    ]
+  }
+}

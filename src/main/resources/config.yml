@@ -1,0 +1,45 @@
+# Paper 1.21.11 / Java 21. Damage numbers are health points (2 points = 1 heart).
+pvp-enabled: false
+glow-particles: true
+bettermodel:
+  enabled: true
+  install-bundled-models: true
+charge:
+  per-melee-hit: 10
+  melee-kill-bonus: 20
+cinematics:
+  enabled: true
+  duration-ticks: 36
+  camera-radius: 4.0
+resource-pack:
+  # Host the exported resource-pack.zip at a direct HTTPS download URL.
+  # An empty URL leaves automatic pack delivery off. Players can also install it locally.
+  url: ''
+  # Optional 40-character SHA-1; blank uses the bundled pack's computed hash.
+  # Set this explicitly if you upload a merged or modified pack.
+  sha1: ''
+  required: false
+  send-on-join: true
+  join-delay-ticks: 60
+swords:
+  master_sword:
+    attack-damage: 9.0
+    attack-speed: 1.6
+    ability-damage: 8.0
+    ability-cooldown-seconds: 7.0
+    ultimate-damage: 6.0
+    ultimate-cooldown-seconds: 75.0
+  flameblade:
+    attack-damage: 10.0
+    attack-speed: 1.2
+    ability-damage: 7.0
+    ability-cooldown-seconds: 9.0
+    ultimate-damage: 5.0
+    ultimate-cooldown-seconds: 90.0
+  fierce_deity_sword:
+    attack-damage: 11.0
+    attack-speed: 1.2
+    ability-damage: 9.0
+    ability-cooldown-seconds: 8.0
+    ultimate-damage: 7.0
+    ultimate-cooldown-seconds: 90.0

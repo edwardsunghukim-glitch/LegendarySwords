@@ -1,0 +1,4471 @@
+{
+  "credit": "Original LegendarySwords voxel art; authored procedurally, no ripped assets.",
+  "ambientocclusion": false,
+  "gui_light": "front",
+  "textures": {
+    "atlas": "legendaryswords:item/fierce_deity_sword",
+    "particle": "legendaryswords:item/fierce_deity_sword"
+  },
+  "elements": [
+    {
+      "name": "Faceted pommel",
+      "from": [
+        6.9,
+        -2.9,
+        6.9
+      ],
+      "to": [
+        9.1,
+        -1.5,
+        9.1
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Pommel jewel",
+      "from": [
+        7.35,
+        -3.35,
+        7.35
+      ],
+      "to": [
+        8.65,
+        -2.8,
+        8.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Wrapped handle",
+      "from": [
+        7.35,
+        -1.5,
+        7.35
+      ],
+      "to": [
+        8.65,
+        5,
+        8.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            4,
+            4,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            4,
+            4,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Raised grip wrap 0",
+      "from": [
+        7.25,
+        -1.2,
+        7.25
+      ],
+      "to": [
+        8.75,
+        -0.98,
+        8.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Raised grip wrap 1",
+      "from": [
+        7.25,
+        -0.41999999999999993,
+        7.25
+      ],
+      "to": [
+        8.75,
+        -0.19999999999999993,
+        8.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Raised grip wrap 2",
+      "from": [
+        7.25,
+        0.3600000000000001,
+        7.25
+      ],
+      "to": [
+        8.75,
+        0.5800000000000001,
+        8.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Raised grip wrap 3",
+      "from": [
+        7.25,
+        1.14,
+        7.25
+      ],
+      "to": [
+        8.75,
+        1.3599999999999999,
+        8.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Raised grip wrap 4",
+      "from": [
+        7.25,
+        1.9200000000000002,
+        7.25
+      ],
+      "to": [
+        8.75,
+        2.14,
+        8.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Raised grip wrap 5",
+      "from": [
+        7.25,
+        2.7,
+        7.25
+      ],
+      "to": [
+        8.75,
+        2.9200000000000004,
+        8.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Raised grip wrap 6",
+      "from": [
+        7.25,
+        3.4799999999999995,
+        7.25
+      ],
+      "to": [
+        8.75,
+        3.6999999999999997,
+        8.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Gold grip collar",
+      "from": [
+        7.05,
+        4.4,
+        7.05
+      ],
+      "to": [
+        8.95,
+        5,
+        8.95
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Silver crossguard",
+      "from": [
+        4.4,
+        5,
+        7.0
+      ],
+      "to": [
+        11.6,
+        6.3,
+        9.0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Crescent guard end",
+      "from": [
+        4.1,
+        4.7,
+        7.2
+      ],
+      "to": [
+        5.6,
+        6.9,
+        8.8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          4.85,
+          5.5,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Crescent guard end",
+      "from": [
+        10.4,
+        4.7,
+        7.2
+      ],
+      "to": [
+        11.9,
+        6.9,
+        8.8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          11.15,
+          5.5,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Lunar guard jewel",
+      "from": [
+        7.25,
+        5.4,
+        6.55
+      ],
+      "to": [
+        8.75,
+        7.5,
+        9.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Silver lunar guard engraving",
+      "from": [
+        5.0,
+        5.25,
+        6.87
+      ],
+      "to": [
+        5.35,
+        6.05,
+        9.13
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Silver lunar guard engraving",
+      "from": [
+        6.15,
+        5.25,
+        6.87
+      ],
+      "to": [
+        6.5,
+        6.05,
+        9.13
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Silver lunar guard engraving",
+      "from": [
+        9.5,
+        5.25,
+        6.87
+      ],
+      "to": [
+        9.85,
+        6.05,
+        9.13
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Silver lunar guard engraving",
+      "from": [
+        10.65,
+        5.25,
+        6.87
+      ],
+      "to": [
+        11.0,
+        6.05,
+        9.13
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Jewel setting claw",
+      "from": [
+        7.05,
+        5.4,
+        6.4
+      ],
+      "to": [
+        7.35,
+        5.8500000000000005,
+        9.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Jewel setting claw",
+      "from": [
+        7.05,
+        6.9,
+        6.4
+      ],
+      "to": [
+        7.35,
+        7.3500000000000005,
+        9.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Jewel setting claw",
+      "from": [
+        8.65,
+        5.4,
+        6.4
+      ],
+      "to": [
+        8.950000000000001,
+        5.8500000000000005,
+        9.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Jewel setting claw",
+      "from": [
+        8.65,
+        6.9,
+        6.4
+      ],
+      "to": [
+        8.950000000000001,
+        7.3500000000000005,
+        9.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Lunar pommel engraving",
+      "from": [
+        7.25,
+        -2.7,
+        6.72
+      ],
+      "to": [
+        7.65,
+        -1.7,
+        9.28
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Lunar pommel engraving",
+      "from": [
+        8.3,
+        -2.7,
+        6.72
+      ],
+      "to": [
+        8.700000000000001,
+        -1.7,
+        9.28
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Helical blade 0 -1",
+      "from": [
+        6.0,
+        7.6,
+        7.4
+      ],
+      "to": [
+        7.3,
+        11.75,
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          6.65,
+          9.675,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Lunar blade inlay 0 -1",
+      "from": [
+        6.45,
+        7.8,
+        7.27
+      ],
+      "to": [
+        6.85,
+        11.55,
+        8.73
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          6.65,
+          9.675,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Helix bright raised edge 0 -1",
+      "from": [
+        6.02,
+        7.779999999999999,
+        7.31
+      ],
+      "to": [
+        6.2,
+        11.57,
+        8.69
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          6.65,
+          9.675,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Helical blade 0 1",
+      "from": [
+        8.7,
+        7.6,
+        7.4
+      ],
+      "to": [
+        10.0,
+        11.75,
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.35,
+          9.675,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Lunar blade inlay 0 1",
+      "from": [
+        9.149999999999999,
+        7.8,
+        7.27
+      ],
+      "to": [
+        9.549999999999999,
+        11.55,
+        8.73
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.35,
+          9.675,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Helix bright raised edge 0 1",
+      "from": [
+        8.719999999999999,
+        7.779999999999999,
+        7.31
+      ],
+      "to": [
+        8.899999999999999,
+        11.57,
+        8.69
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.35,
+          9.675,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Helical blade 1 -1",
+      "from": [
+        6.0,
+        11.25,
+        7.4
+      ],
+      "to": [
+        7.3,
+        15.4,
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          6.65,
+          13.325,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Lunar blade inlay 1 -1",
+      "from": [
+        6.45,
+        11.45,
+        7.27
+      ],
+      "to": [
+        6.85,
+        15.2,
+        8.73
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          6.65,
+          13.325,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Helix bright raised edge 1 -1",
+      "from": [
+        6.02,
+        11.43,
+        7.31
+      ],
+      "to": [
+        6.2,
+        15.22,
+        8.69
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          6.65,
+          13.325,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Helical blade 1 1",
+      "from": [
+        8.7,
+        11.25,
+        7.4
+      ],
+      "to": [
+        10.0,
+        15.4,
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.35,
+          13.325,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Lunar blade inlay 1 1",
+      "from": [
+        9.149999999999999,
+        11.45,
+        7.27
+      ],
+      "to": [
+        9.549999999999999,
+        15.2,
+        8.73
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.35,
+          13.325,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Helix bright raised edge 1 1",
+      "from": [
+        8.719999999999999,
+        11.43,
+        7.31
+      ],
+      "to": [
+        8.899999999999999,
+        15.22,
+        8.69
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.35,
+          13.325,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Helical blade 2 -1",
+      "from": [
+        6.0,
+        14.899999999999999,
+        7.4
+      ],
+      "to": [
+        7.3,
+        19.049999999999997,
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          6.65,
+          16.974999999999998,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Lunar blade inlay 2 -1",
+      "from": [
+        6.45,
+        15.099999999999998,
+        7.27
+      ],
+      "to": [
+        6.85,
+        18.849999999999998,
+        8.73
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          6.65,
+          16.974999999999998,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Helix bright raised edge 2 -1",
+      "from": [
+        6.02,
+        15.079999999999998,
+        7.31
+      ],
+      "to": [
+        6.2,
+        18.869999999999997,
+        8.69
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          6.65,
+          16.974999999999998,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Helical blade 2 1",
+      "from": [
+        8.7,
+        14.899999999999999,
+        7.4
+      ],
+      "to": [
+        10.0,
+        19.049999999999997,
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.35,
+          16.974999999999998,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Lunar blade inlay 2 1",
+      "from": [
+        9.149999999999999,
+        15.099999999999998,
+        7.27
+      ],
+      "to": [
+        9.549999999999999,
+        18.849999999999998,
+        8.73
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.35,
+          16.974999999999998,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Helix bright raised edge 2 1",
+      "from": [
+        8.719999999999999,
+        15.079999999999998,
+        7.31
+      ],
+      "to": [
+        8.899999999999999,
+        18.869999999999997,
+        8.69
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.35,
+          16.974999999999998,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Helical blade 3 -1",
+      "from": [
+        6.0,
+        18.549999999999997,
+        7.4
+      ],
+      "to": [
+        7.3,
+        22.699999999999996,
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          6.65,
+          20.624999999999996,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Lunar blade inlay 3 -1",
+      "from": [
+        6.45,
+        18.749999999999996,
+        7.27
+      ],
+      "to": [
+        6.85,
+        22.499999999999996,
+        8.73
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          6.65,
+          20.624999999999996,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Helix bright raised edge 3 -1",
+      "from": [
+        6.02,
+        18.729999999999997,
+        7.31
+      ],
+      "to": [
+        6.2,
+        22.519999999999996,
+        8.69
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          6.65,
+          20.624999999999996,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Helical blade 3 1",
+      "from": [
+        8.7,
+        18.549999999999997,
+        7.4
+      ],
+      "to": [
+        10.0,
+        22.699999999999996,
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.35,
+          20.624999999999996,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Lunar blade inlay 3 1",
+      "from": [
+        9.149999999999999,
+        18.749999999999996,
+        7.27
+      ],
+      "to": [
+        9.549999999999999,
+        22.499999999999996,
+        8.73
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.35,
+          20.624999999999996,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Helix bright raised edge 3 1",
+      "from": [
+        8.719999999999999,
+        18.729999999999997,
+        7.31
+      ],
+      "to": [
+        8.899999999999999,
+        22.519999999999996,
+        8.69
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.35,
+          20.624999999999996,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Helical blade 4 -1",
+      "from": [
+        6.0,
+        22.2,
+        7.4
+      ],
+      "to": [
+        7.3,
+        26.35,
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          6.65,
+          24.275,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Lunar blade inlay 4 -1",
+      "from": [
+        6.45,
+        22.4,
+        7.27
+      ],
+      "to": [
+        6.85,
+        26.15,
+        8.73
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          6.65,
+          24.275,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Helix bright raised edge 4 -1",
+      "from": [
+        6.02,
+        22.38,
+        7.31
+      ],
+      "to": [
+        6.2,
+        26.169999999999998,
+        8.69
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          6.65,
+          24.275,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Helical blade 4 1",
+      "from": [
+        8.7,
+        22.2,
+        7.4
+      ],
+      "to": [
+        10.0,
+        26.35,
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.35,
+          24.275,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Lunar blade inlay 4 1",
+      "from": [
+        9.149999999999999,
+        22.4,
+        7.27
+      ],
+      "to": [
+        9.549999999999999,
+        26.15,
+        8.73
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.35,
+          24.275,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Helix bright raised edge 4 1",
+      "from": [
+        8.719999999999999,
+        22.38,
+        7.31
+      ],
+      "to": [
+        8.899999999999999,
+        26.169999999999998,
+        8.69
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.35,
+          24.275,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5,
+        "rescale": false
+      }
+    },
+    {
+      "name": "Joining spear point",
+      "from": [
+        6.7,
+        25.7,
+        7.4
+      ],
+      "to": [
+        9.3,
+        26.7,
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Spear tip middle",
+      "from": [
+        7.1,
+        26.7,
+        7.5
+      ],
+      "to": [
+        8.9,
+        27.7,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#atlas"
+        }
+      }
+    },
+    {
+      "name": "Spear tip crown",
+      "from": [
+        7.6,
+        27.7,
+        7.65
+      ],
+      "to": [
+        8.4,
+        28.7,
+        8.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#atlas"
+        }
+      }
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        0
+      ],
+      "translation": [
+        0,
+        5.8,
+        0.5
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        0
+      ],
+      "translation": [
+        0,
+        5.8,
+        0.5
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.1,
+        4.0,
+        -2
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.1,
+        4.0,
+        -2
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        -35
+      ],
+      "translation": [
+        0,
+        -2.0,
+        0
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        4.5,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        -3.2,
+        0
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "head": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        10,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  }
+}

@@ -102,8 +102,10 @@ new temporary casts. Cast bodies restore after their clip/scene ends.
 Ultimates use a shared charge/reveal scene, then release the attack and damage
 once. The sword appears ahead of the caster; nearby visible players within
 40 blocks receive the same title and see world effects. The final caster pose
-holds until scene completion. There are no forced cameras, teleports or changes
-to game mode. Use F5 to inspect body animations; first-person arms stay vanilla.
+holds until scene completion. Windup defaults to 1.2 seconds; configure
+cinematics.windup-ticks (24 ticks). Damage respects normal Paper armor rules.
+There are no forced cameras, teleports or changes
+to game mode. Use another player to inspect body animations; the caster keeps normal rendering and inventory.
 A timed fallback releases a stalled visual scene once. Death, teleport, world
 change or shutdown disarms pending attacks.
 

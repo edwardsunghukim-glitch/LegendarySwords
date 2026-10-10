@@ -64,13 +64,14 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     private static final long SWING_THROTTLE_NANOS = TimeUnit.MILLISECONDS.toNanos(220L);
     private static final TrackerModifier BODY_MODIFIER = new TrackerModifier(false, false, true);
     // Equipment hiding also clears the owner's selected inventory slot in BetterModel 3.1.
+    private static final UUID NO_VIEWER = new UUID(0L, 0L);
     private static final EntityHideOption INVENTORY_SAFE_HIDE = new EntityHideOption(false, true, true, true);
     private static final AnimationModifier LOOP = AnimationModifier.builder().start(3).end(2).priority(10)
             .type(AnimationIterator.Type.LOOP).build();
     private static final AnimationModifier ACTION = AnimationModifier.builder().start(2).end(3).priority(30)
             .type(AnimationIterator.Type.PLAY_ONCE).override(true).build();
     private static final AnimationModifier ULTIMATE_CAST = AnimationModifier.builder().start(2).end(3).priority(30)
-            .type(AnimationIterator.Type.HOLD_ON_LAST).override(true).build();
+            .type(AnimationIterator.Type.HOLD_ON_LAST).speed(3F).override(true).build();
     private final JavaPlugin plugin;
     private final Plugin engine;
     private final AnimatedSwordItems swordItems;
@@ -221,7 +222,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
                 if (cast != null) {
                     if (!playerBodyAnimationsEnabled() || clock.getAsLong() - cast.actionDeadline >= 0L)
                         closeBody(player.getUniqueId());
-                    else prime(cast);
+                    else { markCastViewers(cast.tracker, player); prime(cast); }
                 }
                 return;
             }
@@ -282,7 +283,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
         UUID id = player.getUniqueId();
         BodySession previous = bodies.get(id);
         if (previous != null && !previous.tracker.isClosed() && previous.swordId.equals(swordId)) {
-            if (swordItems.begin(player, swordId)) {
+            if (abilitiesOnly() || swordItems.begin(player, swordId)) {
                 previous.cachedItem = swordItems.displayItem(player, swordId).clone();
                 return previous;
             }
@@ -292,13 +293,14 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
         if (previous != null) closePlayer(id);
         ModelRenderer renderer = BetterModel.limbOrNull(PREFIX + swordId);
         if (renderer == null || !abilitiesOnly() && LOOPS.stream().anyMatch(clip -> renderer.animation(clip).isEmpty())) return null;
-        if (!swordItems.begin(player, swordId)) return null;
+        if (!abilitiesOnly() && !swordItems.begin(player, swordId)) return null;
         EntityTracker tracker;
         BodySession body;
         try {
             body = new BodySession(id, swordId, renderer, swordItems.displayItem(player, swordId).clone());
             tracker = renderer.create(BukkitAdapter.adapt(player), BODY_MODIFIER, created -> {
-                created.hideOption(INVENTORY_SAFE_HIDE);
+                created.hideOption(abilitiesOnly() ? EntityHideOption.DEFAULT : INVENTORY_SAFE_HIDE);
+                if (abilitiesOnly()) markCastViewers(created, player);
                 configureSwordDisplay(created, body::displayItem);
             });
         } catch (LinkageError | RuntimeException error) {
@@ -314,6 +316,17 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
         });
         if (!abilitiesOnly()) setLoop(body);
         return body;
+    }
+
+    private static void markCastViewers(EntityTracker tracker, Player owner) {
+        // An empty whitelist means everybody in BetterModel, so keep a sentinel entry.
+        // Never send the cast body or empty-equipment packets to its owner.
+        java.util.Set<UUID> viewers = new java.util.HashSet<>();
+        viewers.add(NO_VIEWER);
+        for (Player viewer : owner.getLocation().getWorld().getPlayers())
+            if (!viewer.getUniqueId().equals(owner.getUniqueId()) && viewer.canSee(owner))
+                viewers.add(viewer.getUniqueId());
+        tracker.markPlayerForSpawn(viewers);
     }
 
     private void prime(BodySession body) {

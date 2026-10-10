@@ -14,7 +14,7 @@ public final class PluginSettings {
     public int chargePerHit() { return Math.clamp(config().getInt("charge.per-melee-hit", 10), 0, 100); }
     public int killBonus() { return Math.clamp(config().getInt("charge.melee-kill-bonus", 20), 0, 100); }
     public boolean cinematicsEnabled() { return config().getBoolean("cinematics.enabled", true); }
-    public int cinematicTicks() { return Math.clamp(config().getInt("cinematics.duration-ticks", 36), 12, 80); }
+    public int cinematicTicks() { return Math.clamp(config().getInt("cinematics.windup-ticks", 24), 12, 80); }
     public double cameraRadius() { return number("cinematics.camera-radius", 4, 2, 8); }
     public SwordStats stats(SwordType sword) {
         String path = "swords." + sword.id() + ".";

@@ -45,7 +45,7 @@ class CinematicDirectorTest {
         when(distant.canSee(player)).thenReturn(true);
         when(distant.getLocation()).thenReturn(origin.clone().add(50, 0, 0));
         when(world.getPlayers()).thenReturn(java.util.List.of(player, observer, distant, hidden));
-        when(animations.ultimateSceneTicks(SwordType.MASTER_SWORD.id())).thenReturn(64);
+
         startRitual();
         var sharedTitle = org.mockito.ArgumentCaptor.forClass(net.kyori.adventure.title.Title.class);
         verify(player).showTitle(sharedTitle.capture());
@@ -53,7 +53,7 @@ class CinematicDirectorTest {
         verify(distant, never()).showTitle(any(net.kyori.adventure.title.Title.class));
         verify(hidden, never()).showTitle(any(net.kyori.adventure.title.Title.class));
         verify(animations).holdCastAnimation(player);
-        for (int frameIndex = 0; frameIndex < 32; frameIndex++) frame.get().run();
+        for (int frameIndex = 0; frameIndex < 18; frameIndex++) frame.get().run();
         assertEquals(0, completions.get());
         verify(animations, never()).stopCastAnimation(player);
         frame.get().run();

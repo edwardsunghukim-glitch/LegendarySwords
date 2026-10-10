@@ -121,6 +121,31 @@ class BetterModelAnimationBridgeTest {
         }
     }
 
+    @Test void castBodyHidesObserverEquipmentButNeverSpawnsForOwnerOrChangesTheirSlot() {
+        try (Fixture f = new Fixture()) {
+            f.config.set("bettermodel.abilities-only", true);
+            Player observer = mock(Player.class), arriving = mock(Player.class);
+            when(observer.getUniqueId()).thenReturn(UUID.randomUUID());
+            when(arriving.getUniqueId()).thenReturn(UUID.randomUUID());
+            when(observer.canSee(f.player)).thenReturn(true);
+            when(arriving.canSee(f.player)).thenReturn(true);
+            World world = f.player.getLocation().getWorld();
+            Location observerLocation = f.player.getLocation().clone();
+            when(observer.getLocation()).thenReturn(observerLocation);
+            when(arriving.getLocation()).thenReturn(observerLocation);
+            when(world.getPlayers()).thenReturn(List.of(f.player, observer));
+            f.bridge.playAbility(f.player, "master_sword");
+            verify(f.tracker).hideOption(argThat(option -> option.equipment() && option.visibility()));
+            verify(f.tracker).markPlayerForSpawn(argThat((java.util.Set<UUID> viewers) ->
+                    !viewers.contains(f.player.getUniqueId()) && viewers.contains(observer.getUniqueId())));
+            verify(f.swordItems, never()).begin(any(), anyString());
+            when(world.getPlayers()).thenReturn(List.of(f.player, observer, arriving));
+            f.bridge.tickMovement(f.player, "master_sword", WALK);
+            verify(f.tracker).markPlayerForSpawn(argThat((java.util.Set<UUID> viewers) ->
+                    !viewers.contains(f.player.getUniqueId()) && viewers.contains(arriving.getUniqueId())));
+        }
+    }
+
     @Test void characterAnimationsExistOnlyDuringCastsAndRestoreWithoutStartingIdleOrWalkLoops() {
         try (Fixture f = new Fixture()) {
             f.config.set("bettermodel.abilities-only", null);

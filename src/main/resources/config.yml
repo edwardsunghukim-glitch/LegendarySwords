@@ -20,7 +20,8 @@ cinematics:
   # Shared charge/reveal scene, then ultimate impact. Players keep position/game mode.
   enabled: true
   # Scene is at least as long as the sword's ultimate clip.
-  duration-ticks: 64
+  # New key also shortens windups when updating an older configuration.
+  windup-ticks: 24
 resource-pack:
   # Host the exported resource-pack.zip at a direct HTTPS download URL.
   # An empty URL leaves automatic pack delivery off. Players can also install it locally.

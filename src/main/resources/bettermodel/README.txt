@@ -1,4 +1,4 @@
-LegendarySwords 0.2.4: character animations only during casts
+LegendarySwords 0.2.5: character animations only during casts
 
 BetterModel 3.1 requires Java 25 on the Paper 1.21.11 server.
 abilities-only and cast-body-animations default to true, including old configs.
@@ -11,7 +11,7 @@ Scenes charge and reveal the blade ahead of the caster, then release ultimate
 attack/damage once. Nearby visible players receive the shared scene title and
 see world effects. /ls cinematics on enables your scene without toggling it off;
 /ls cinematics status reports your preference. Server cinematics.enabled must
-also be true. Positions/game modes/cameras are unchanged. Use F5 for body clips.
+also be true. Positions/game modes/cameras are unchanged. Use another player to inspect body clips; the caster keeps normal rendering.
 
 The inventory-copy/server-thread snapshot hardening remains. Cast bodies still
 use the equipment/disguise path and require live-client testing for the earlier

@@ -8,6 +8,16 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class PluginSettingsTest {
+    @Test void upgradedConfigurationsGetFastWindupsWithoutDeletingTheirConfig() {
+        var config = new YamlConfiguration();
+        config.set("cinematics.duration-ticks", 64);
+        var plugin = mock(LegendarySwordsPlugin.class);
+        when(plugin.getConfig()).thenReturn(config);
+        var settings = new PluginSettings(plugin);
+        assertEquals(24, settings.cinematicTicks());
+        config.set("cinematics.windup-ticks", 30);
+        assertEquals(30, settings.cinematicTicks());
+    }
     @Test
     void oldConfigurationsGetDistinctDefaultsForTheFiveNewSwords() {
         var config = new YamlConfiguration();

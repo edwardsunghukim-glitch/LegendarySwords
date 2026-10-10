@@ -1,18 +1,18 @@
 # Minehut and Windows installation
 
-Use **LegendarySwords-0.2.4.jar** with your existing **0.2.2 combined resource pack**. The new version changes server animation/scene behavior, without new client assets. You do not need Java or Maven on your computer to upload the compiled plugin.
+Use **LegendarySwords-0.2.5.jar** with your existing **0.2.2 combined resource pack**. The new version changes server animation/scene behavior, without new client assets. You do not need Java or Maven on your computer to upload the compiled plugin.
 
 ## Install on Minehut
 
 1. Stop the server.
 2. Open **File Manager → plugins**. Remove the previous LegendarySwords JAR, keeping the LegendarySwords configuration folder and player data.
-3. Upload **LegendarySwords-0.2.4.jar** directly into `plugins`. Keep only one LegendarySwords JAR.
+3. Upload **LegendarySwords-0.2.5.jar** directly into `plugins`. Keep only one LegendarySwords JAR.
 4. Start the server. BetterModel 3.1 requires Java 25 on the server. Its player-animation and model modules must be enabled for cast bodies and slash models.
 5. In game, run `/ls status`, `/ls cinematics on`, `/ls cinematics status`, `/ls give all` and `/ls charge 100`. Sneak + right-click casts an ultimate; right-click casts an ability. `/ls resetcooldowns` lets you test again.
 
 Old configurations automatically use true for the new `bettermodel.abilities-only` and `bettermodel.cast-body-animations` keys. The old `player-body-animations: false` does not disable the new temporary cast bodies. Outside casts, movement and swings remain normal. Character animations end with their clip or ultimate scene; no idle/walking disguise stays attached.
 
-The cinematic is a shared world scene in front of the caster, followed by the attack and damage. It does not move the player's camera or change game mode. Nearby players see its world effects and shared title. Use F5 to see your character's body animation. The first-person vanilla arm remains standard.
+The cinematic is a shared world scene in front of the caster, followed by the attack and damage. It does not move the player's camera or change game mode. Nearby players see its world effects and shared title. Other players see your character animation; your own view keeps the normal player and inventory to prevent camera obstruction. The first-person vanilla arm remains standard.
 
 Server `cinematics.enabled` and your `/ls cinematics` preference both control scenes. `/ls cinematics on` is idempotent; the command without an argument still toggles. Player-target damage needs `pvp-enabled: true` and permission from protection plugins. Do not enable it if players should not take ability damage.
 
@@ -22,7 +22,7 @@ Temporary casts still use BetterModel's equipment path, despite the retained ite
 
 Keep the previously installed **LegendarySwords-combined-resource-pack-0.2.2.zip** zipped. If it is already enabled in Minecraft, no replacement is needed. For first installation, open Minecraft **Options → Resource Packs → Open Pack Folder**, copy the ZIP there and enable it. Disable older combined packs. The standalone sword pack lacks BetterModel's generated model/shader assets.
 
-If other BetterModel models/configuration changed, run `/bm reload`, download the fresh server `plugins/BetterModel/build.zip`, and merge it with the sword pack using [the BetterModel guide](BETTERMODEL.md). The 0.2.4 server code update itself needs no new `build.zip`.
+If other BetterModel models/configuration changed, run `/bm reload`, download the fresh server `plugins/BetterModel/build.zip`, and merge it with the sword pack using [the BetterModel guide](BETTERMODEL.md). The 0.2.5 server code update itself needs no new `build.zip`.
 
 If hosting one pack URL, use the combined ZIP and its SHA-1 `04f9980f0cb83a6da16bea5f33c3a509fbf31548`:
 
@@ -44,4 +44,6 @@ To build source yourself, install JDK 25+ and Maven 3.9+, open the folder contai
 mvn --batch-mode verify
 ```
 
-Upload `target/LegendarySwords-0.2.4.jar` after removing the old server JAR. See [the testing checklist](TESTING.md) before public use.
+Upload `target/LegendarySwords-0.2.5.jar` after removing the old server JAR. See [the testing checklist](TESTING.md) before public use.
+
+In 0.2.5, cast-body viewers exclude the caster. Observers see the animated body with vanilla equipment hidden; the caster sees their normal character and inventory, plus all world effects. Ultimate windup defaults to `cinematics.windup-ticks: 24` (1.2 seconds), regardless of the old `duration-ticks` value. Ability damage uses Paper armor, toughness, protection and resistance rules.

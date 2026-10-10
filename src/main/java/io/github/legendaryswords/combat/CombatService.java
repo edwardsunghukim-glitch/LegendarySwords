@@ -63,6 +63,8 @@ public final class CombatService {
         if (!owner.isOnline() || owner.isDead() || amount <= 0 || !eligible(owner, target)) return false;
         Attempt attempt = new Attempt(owner, target);
         attempts.push(attempt);
+        // Paper applies armor, armor toughness, enchantments and resistance here.
+        // Do not pre-reduce the amount: that would apply armor twice.
         try { target.damage(amount, owner); }
         finally { attempts.pop(); }
         if (!attempt.accepted || target.isDead()) return attempt.accepted;

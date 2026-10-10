@@ -65,7 +65,7 @@ public final class CinematicDirector implements AutoCloseable {
     public boolean active(Player player) { return sessions.containsKey(player.getUniqueId()); }
 
     public int durationTicks(SwordType sword) {
-        return Math.clamp(settings.cinematicTicks(), 12, 80);
+        return settings.ultimateWindupTicks(sword);
     }
 
     public boolean canRun(Player player) {

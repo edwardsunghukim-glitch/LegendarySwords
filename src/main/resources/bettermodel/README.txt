@@ -1,4 +1,4 @@
-LegendarySwords 0.2.5: character animations only during casts
+LegendarySwords 0.2.6: character animations only during casts
 
 BetterModel 3.1 requires Java 25 on the Paper 1.21.11 server.
 abilities-only and cast-body-animations default to true, including old configs.

@@ -139,7 +139,7 @@ class CinematicDirectorTest {
         when(player.teleport(any(Location.class))).thenReturn(true);
         when(player.getPersistentDataContainer()).thenReturn(data);
         when(settings.cinematicsEnabled()).thenReturn(true);
-        when(settings.cinematicTicks()).thenReturn(36);
+        when(settings.ultimateWindupTicks(any(SwordType.class))).thenReturn(36);
         when(states.cinematics(playerId)).thenReturn(true);
         when(blade.isValid()).thenReturn(true);
 

@@ -1,6 +1,7 @@
 package io.github.legendaryswords.integration;
 
 import io.github.legendaryswords.LegendarySwordsPlugin;
+import io.github.legendaryswords.PluginSettings;
 import kr.toxicity.model.api.BetterModel;
 import kr.toxicity.model.api.BetterModelPlatform;
 import kr.toxicity.model.api.bukkit.platform.BukkitAdapter;
@@ -393,7 +394,8 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
             body.lastActionStart = now;
             double length = body.renderer.animation(animation).orElseThrow().length();
             body.actionDeadline = now + (long) ((Math.min(8D, length) + 0.3D) * TimeUnit.SECONDS.toNanos(1L));
-            AnimationModifier modifier = abilitiesOnly() && animation.equals("ultimate") ? ULTIMATE_CAST : ACTION;
+            AnimationModifier modifier = abilitiesOnly() && animation.equals("ultimate") ? ULTIMATE_CAST.toBuilder().speed((float) (length * 20D
+                    / PluginSettings.ultimateWindupTicks(plugin.getConfig(), swordId))).build() : ACTION;
             if (!body.tracker.animate(animation, modifier)) { finishAction(body); return; }
             if (!animation.equals("pose")) playSlashAt(player, swordId, animation, player.getLocation());
         } catch (LinkageError | RuntimeException error) {

@@ -13,13 +13,22 @@ bettermodel:
   # Legacy full-body locomotion mode only (used when abilities-only is false).
   # Keep false for normal walking/running and poses outside casts.
   player-body-animations: false
+# Multipliers apply to each sword's configured damage, including existing configs.
+# Armor, protection enchantments and resistance still reduce the final damage.
+damage:
+  ability-multiplier: 1.5
+  ultimate-multiplier: 2.0
+ultimates:
+  # 1 = normal windup; 2 = twice as fast; 0.5 = half speed.
+  # Optional swords.<sword_id>.ultimate-speed overrides this for one sword.
+  speed: 1.0
 charge:
   per-melee-hit: 10
   melee-kill-bonus: 20
 cinematics:
   # Shared charge/reveal scene, then ultimate impact. Players keep position/game mode.
   enabled: true
-  # Scene is at least as long as the sword's ultimate clip.
+  # Base windup before the ultimate speed multiplier is applied.
   # New key also shortens windups when updating an older configuration.
   windup-ticks: 24
 resource-pack:

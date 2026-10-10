@@ -103,7 +103,10 @@ Ultimates use a shared charge/reveal scene, then release the attack and damage
 once. The sword appears ahead of the caster; nearby visible players within
 40 blocks receive the same title and see world effects. The final caster pose
 holds until scene completion. Windup defaults to 1.2 seconds; configure
-cinematics.windup-ticks (24 ticks). Damage respects normal Paper armor rules.
+cinematics.windup-ticks (24 ticks). ultimates.speed: 2.0 makes the windup twice
+as fast; swords.<id>.ultimate-speed optionally overrides one sword. Damage
+defaults to damage.ability-multiplier: 1.5 and damage.ultimate-multiplier: 2.0,
+including old configs. Run /ls reload after edits. Armor rules still apply.
 There are no forced cameras, teleports or changes
 to game mode. Use another player to inspect body animations; the caster keeps normal rendering and inventory.
 A timed fallback releases a stalled visual scene once. Death, teleport, world

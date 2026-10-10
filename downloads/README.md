@@ -21,3 +21,11 @@ SHA-1: `f820ff8990a7df10534e72e489836c2a8c76fe57`
 SHA-256: `e3ed142750429542a9b1a11f3b8cf3e80bb79403333f52cbc1f8aec474a2d2f0`
 
 Validation: both input ZIPs and the combined ZIP passed CRC checks; all JSON/metadata files parsed; all copied assets were verified byte-for-byte; all three custom sword item definitions resolve to their models. Live Minecraft rendering and server animation playback remain to be checked.
+
+## BetterModel source models for manual installation
+
+[Download the six BetterModel models](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-BetterModel-models.zip)
+
+LegendarySwords normally installs these files automatically when it starts with a compatible enabled BetterModel. For manual installation, extract the ZIP and upload the three `.bbmodel` files in `players/` to `plugins/BetterModel/players/`, and the three in `models/` to `plugins/BetterModel/models/`. Keep filenames unchanged and preserve existing edited copies. The player-template license and detailed `INSTALL-MODELS.txt` instructions are included.
+
+Restart/reload BetterModel and check `/ls status`. If adding these models regenerates `build.zip`, merge that new ZIP with the sword pack again so client assets match the server. The previously published combined pack is a snapshot of the earlier uploaded BetterModel build.

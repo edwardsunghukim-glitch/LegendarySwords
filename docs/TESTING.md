@@ -1,4 +1,4 @@
-# Testing 0.5.1
+# Testing 0.5.2
 
 Asset checks include separate engraving topology for all 55 weapons and connected geometry for the 26 additions. Combat tests also check enlarged reach, actual inward pull and weapon-specific elemental accents.
 
@@ -16,4 +16,6 @@ The combined pack targets the previously supplied BetterModel 3.1-SNAPSHOT-526 n
 
 Boss checks cover all five models and attacks, owner exclusion and inventory safety, preexisting flight, expiry/cancellation, creative/adventure mode changes, primary/secondary cooldowns and repeated attacks and dragon breath direction. In-game, also verify wing/fin movement, leviathan jaws, dragon breath, hammer/fist impacts, duration overrides and safe landings after flight ends.
 
-0.5.1 validation: all 326 Java tests passed, including official export of 180 named expansion aliases. The boss contract verifies 128×128 independent atlases, valid positive geometry and UV bounds, animated jaws/spines, and root-only transform scaling. The full generator reproduced all 115 committed models without the uploaded reference file. Five boss poses were rendered in Blender for art review.
+0.5.2 validation: all 326 Java tests passed, including official export of 180 named expansion aliases. The boss contract verifies 128×128 independent atlases, valid positive geometry and UV bounds, animated jaws/spines, and root-only transform scaling. The full generator reproduced all 115 committed models without the uploaded reference file. Five boss poses were rendered in Blender for art review.
+
+Giant-form asset checks require at least eight blocks of humanoid height and sixteen blocks of serpent length, with a 32-block upper extent limit. All sizes are visual model extents; the vanilla player collision box and existing combat balance remain unchanged.

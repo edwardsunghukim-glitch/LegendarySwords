@@ -1,10 +1,10 @@
 # Installing the 50-weapon expansion
 
-Stop the server, remove the old LegendarySwords JAR, upload `LegendarySwords-0.5.1.jar`, and restart. Keep only one LegendarySwords JAR; keep LegendaryAdmin if installed. Preserve your configuration and player data.
+Stop the server, remove the old LegendarySwords JAR, upload `LegendarySwords-0.5.2.jar`, and restart. Keep only one LegendarySwords JAR; keep LegendaryAdmin if installed. Preserve your configuration and player data.
 
 The plugin auto-installs 55 player models into `plugins/BetterModel/players` and 55 attack models and five boss models into `plugins/BetterModel/models`. Known bundled originals are backed up and updated; edited models are preserved. Check `/ls status` after imports. If installing manually, extract `LegendarySwords-BetterModel-models.zip` and copy its `players` and `models` contents to the corresponding BetterModel folders, then `/bm reload`.
 
-Replace your old client pack with `LegendarySwords-combined-resource-pack-0.5.1.zip` in Minecraft Options → Resource Packs → Open Pack Folder. Keep the ZIP compressed and enable it. This combined pack targets the supplied BetterModel 3.1-SNAPSHOT-526 pack with namespace `bettermodel` and named `c/` item aliases; it includes all 55 weapons and the new compiled signature effects.
+Replace your old client pack with `LegendarySwords-combined-resource-pack-0.5.2.zip` in Minecraft Options → Resource Packs → Open Pack Folder. Keep the ZIP compressed and enable it. This combined pack targets the supplied BetterModel 3.1-SNAPSHOT-526 pack with namespace `bettermodel` and named `c/` item aliases; it includes all 55 weapons and the new compiled signature effects.
 
 If your generated BetterModel client assets/settings changed, run `/bm reload`, download `plugins/BetterModel/build.zip`, then combine that fresh build with `LegendarySwords-resource-pack.zip`:
 

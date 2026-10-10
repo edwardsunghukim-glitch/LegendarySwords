@@ -213,6 +213,14 @@ class BetterModelAssetsTest(unittest.TestCase):
         for sword in ['angel_sovereign','granite_colossus','sky_leviathan','infernal_dragon','frost_titan']:
             model=json.loads((ROOT/'models'/f'legendaryswords_{sword}_boss.bbmodel').read_text())
             self.assertGreater(len(model['elements']),200)
+            low=[min(e['from'][axis] for e in model['elements']) for axis in range(3)]
+            high=[max(e['to'][axis] for e in model['elements']) for axis in range(3)]
+            if sword in ('sky_leviathan','infernal_dragon'):
+                self.assertGreaterEqual(high[2]-low[2],256, sword+' should be at least 16 blocks long')
+            else:
+                self.assertGreaterEqual(high[1]-low[1],128, sword+' should be at least eight blocks tall')
+            self.assertLess(max(b-a for a,b in zip(low,high)),512, 'boss size exceeds the intended 32-block cap')
+
             self.assertEqual(model['resolution'],{'width':128,'height':128})
             data=base64.b64decode(model['textures'][0]['source'].split(',',1)[1])
             self.assertEqual(struct.unpack('>II',data[16:24]),(128,128))

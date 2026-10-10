@@ -1,5 +1,5 @@
 """Render an actual textured BetterModel boss pose with Blender (optional art review).
-Usage: blender -b -t 4 --python scripts/render_boss_form.py -- input.bbmodel output.png
+Usage: blender -b -t 4 --python scripts/render_boss_form.py -- input.bbmodel output.png [--player-scale]
 The image uses authored geometry, embedded textures and the idle clip.
 """
 import bpy,json,math,base64,sys
@@ -44,8 +44,25 @@ for e in d['elements']:
  for poly,(name,face) in zip(mesh.polygons,selected):
   idx=int(face.get('texture',0));poly.material_index=idx;texture=d['textures'][idx];w=texture.get('uv_width',d['resolution']['width']);h=texture.get('uv_height',d['resolution']['height']);u0,v0,u1,v1=face['uv'];coords=[(u0/w,1-v1/h),(u1/w,1-v1/h),(u1/w,1-v0/h),(u0/w,1-v0/h)]
   for loop,coord in zip(poly.loop_indices,coords):uv.data[loop].uv=coord
+if '--player-scale' in args:
+ # Neutral reference mannequin, 1.8 blocks = 28.8 Blockbench units tall.
+ refx=max(p[0] for p in allpoints)+13;refy=min(p[1] for p in allpoints)
+ reference=bpy.data.materials.new('player size reference');reference.diffuse_color=(.95,.73,.24,1)
+ for center,dimensions in [((0,0,25.2),(7.2,7.2,7.2)),((0,0,16.2),(7.2,3.6,10.8)),
+   ((-5.4,0,16.2),(3.6,3.6,10.8)),((5.4,0,16.2),(3.6,3.6,10.8)),
+   ((-1.8,0,5.4),(3.6,3.6,10.8)),((1.8,0,5.4),(3.6,3.6,10.8))]:
+  location=(refx+center[0],refy+center[1],center[2])
+  bpy.ops.mesh.primitive_cube_add(size=1,location=location);obj=bpy.context.object;obj.name='1.8-block player scale';obj.dimensions=dimensions;obj.data.materials.append(reference)
+  allpoints.extend([(location[0]+sx*dimensions[0]/2,location[1]+sy*dimensions[1]/2,location[2]+sz*dimensions[2]/2) for sx in (-1,1) for sy in (-1,1) for sz in (-1,1)])
 lo=Vector([min(p[i] for p in allpoints) for i in range(3)]);hi=Vector([max(p[i] for p in allpoints) for i in range(3)]);center=(lo+hi)/2;size=(hi-lo).length
 bpy.ops.object.camera_add(location=center+Vector((size*.75,-size*1.05,size*.55)));cam=bpy.context.object;cam.rotation_euler=(center-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.type='ORTHO';cam.data.ortho_scale=max(hi.x-lo.x,hi.y-lo.y,hi.z-lo.z)*1.4;bpy.context.scene.camera=cam
+bpy.context.view_layer.update()
+# Fit projected bounds, including the scale mannequin, to the output aspect ratio.
+view=cam.matrix_world.inverted();projected=[view@Vector(p) for p in allpoints]
+px=[p.x for p in projected];py=[p.y for p in projected]
+cam.location+=cam.rotation_euler.to_matrix()@Vector(((min(px)+max(px))/2,(min(py)+max(py))/2,0))
+cam.data.ortho_scale=max(max(px)-min(px),(max(py)-min(py))*1000/700)*1.12
+cam.data.clip_end=10000
 for loc,power in [((.2,-.8,1),12000),((-.7,.2,.5),8000)]:
  bpy.ops.object.light_add(type='AREA',location=center+Vector(loc)*size);light=bpy.context.object;light.data.energy=power*(size/30)**2;light.data.shape='DISK';light.data.size=size*.8;light.rotation_euler=(center-light.location).to_track_quat('-Z','Y').to_euler()
 scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=24;scene.cycles.use_denoising=False;scene.render.resolution_x=1000;scene.render.resolution_y=700;scene.render.resolution_percentage=100;scene.world.color=(.12,.12,.12);scene.render.image_settings.file_format='PNG';scene.render.filepath=output;scene.view_settings.view_transform='Standard';bpy.ops.render.render(write_still=True)

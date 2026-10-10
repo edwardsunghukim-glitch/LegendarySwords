@@ -105,3 +105,7 @@ damage:
 Speed controls the charge/reveal delay before the attack starts and scales the character clip to fit it. It does not change cooldowns, beam travel speed or repeated-hit intervals. The base delay is `cinematics.windup-ticks: 24` (1.2 seconds); speed 2.0 makes it 0.6 seconds. Set `swords.master_sword.ultimate-speed: 0.5` for an optional per-sword override. Speed is bounded to 0.25–4.0, with a final delay of 4–160 ticks.
 
 Ability damage now defaults to 1.5 times each sword's configured `ability-damage`; ultimate damage defaults to 2 times its configured `ultimate-damage`. These multipliers also apply when the keys are missing in an older configuration. Set either multiplier to 1.0 to restore previous damage. Melee damage is unchanged. Armor, toughness, protection and resistance remain handled by Paper.
+
+## Separate admin plugin
+
+[LegendaryAdmin](admin-plugin/README.md) adds `/la` moderation commands, a player-selection admin menu, vanish and read-only inventory viewing. Download [LegendaryAdmin-0.1.0.jar](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendaryAdmin-0.1.0.jar) and install it alongside the swords plugin. No resource pack is needed. Build it separately with `mvn -f admin-plugin/pom.xml verify`.

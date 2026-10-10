@@ -32,3 +32,9 @@ Complete download SHA-256: `f8ed05c2a74e727785b09e0f13aec93b194bf1f25c7f7ab62b92
 0.2.6: observers see one animated body with vanilla armor hidden; the caster keeps their normal view and inventory. Ultimate windup is 1.2 seconds by default (`cinematics.windup-ticks: 24`). Ability damage goes through standard Paper armor calculations.
 
 0.2.6 adds editable global/per-sword ultimate speed with matching character clip speed. Ability damage is increased by 50% and ultimate damage by 100%, including existing configs; both multipliers are configurable. See the installation guide for config examples.
+
+## Separate admin plugin
+
+[Download LegendaryAdmin 0.1.0](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendaryAdmin-0.1.0.jar). Install alongside LegendarySwords, then use `/la` to choose a player and open admin tools. Includes moderation, heal/feed/fly, game modes, teleports, vanish and read-only inventory viewing. No resource pack or other plugin dependency. Features default to operators. [Commands and permissions](../admin-plugin/README.md). [Source ZIP](LegendaryAdmin-source.zip).
+
+LegendaryAdmin validation: 12 tests passed, zero failures/errors/skips. No live-client test. JAR SHA-256: `882883f8e113f6414123f1b5e297fc45b0a624025f00ce3347a8d7fa32fa06ef`.

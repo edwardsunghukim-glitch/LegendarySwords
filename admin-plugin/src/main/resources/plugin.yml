@@ -1,0 +1,42 @@
+name: LegendaryAdmin
+version: '0.1.0'
+main: io.github.legendaryadmin.LegendaryAdmin
+api-version: '1.21.11'
+description: Moderation commands, vanish, read-only inventory viewer and admin menu.
+commands:
+  legendaryadmin:
+    aliases: [la, ladmin]
+    description: Admin tools and menu
+    usage: /la help
+permissions:
+  legendaryadmin.admin:
+    default: op
+    children:
+      legendaryadmin.menu: true
+      legendaryadmin.kick: true
+      legendaryadmin.ban: true
+      legendaryadmin.unban: true
+      legendaryadmin.mute: true
+      legendaryadmin.freeze: true
+      legendaryadmin.heal: true
+      legendaryadmin.feed: true
+      legendaryadmin.fly: true
+      legendaryadmin.gamemode: true
+      legendaryadmin.teleport: true
+      legendaryadmin.vanish: true
+      legendaryadmin.invsee: true
+      legendaryadmin.see-vanished: true
+  legendaryadmin.menu: {default: op}
+  legendaryadmin.kick: {default: op}
+  legendaryadmin.ban: {default: op}
+  legendaryadmin.unban: {default: op}
+  legendaryadmin.mute: {default: op}
+  legendaryadmin.freeze: {default: op}
+  legendaryadmin.heal: {default: op}
+  legendaryadmin.feed: {default: op}
+  legendaryadmin.fly: {default: op}
+  legendaryadmin.gamemode: {default: op}
+  legendaryadmin.teleport: {default: op}
+  legendaryadmin.vanish: {default: op}
+  legendaryadmin.invsee: {default: op}
+  legendaryadmin.see-vanished: {default: op}

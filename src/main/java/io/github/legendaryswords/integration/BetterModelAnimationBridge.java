@@ -60,6 +60,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     private static final List<String> ACTIONS = List.of("pose", "swing", "ability", "ultimate");
     private static final String PREFIX = "legendaryswords_";
     private static final long VIEW_DISTANCE_SQUARED = 1600L;
+    private static final long SWING_THROTTLE_NANOS = TimeUnit.MILLISECONDS.toNanos(220L);
     private static final TrackerModifier BODY_MODIFIER = new TrackerModifier(false, false, true);
     // Equipment hiding also clears the owner's selected inventory slot in BetterModel 3.1.
     private static final EntityHideOption INVENTORY_SAFE_HIDE = new EntityHideOption(false, true, true, true);
@@ -73,6 +74,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     private final Map<UUID, BodySession> bodies = new ConcurrentHashMap<>();
     private final Map<Tracker, Playback> effects = new ConcurrentHashMap<>();
     private final Map<UUID, DummyTracker> cinematicBodies = new ConcurrentHashMap<>();
+    private final Map<UUID, Long> lastSlashSwings = new ConcurrentHashMap<>();
     private final AtomicBoolean reloading = new AtomicBoolean();
     private final BukkitTask watchdog;
     private final BukkitTask startupCheck;
@@ -189,13 +191,19 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
 
     private String readyStatus() {
         return "BetterModel " + engine.getPluginMeta().getVersion()
-                + ": 8 motion sets loaded (idle/walk/run/pose/swing/ability/ultimate); install regenerated client pack"
+                + (playerBodyAnimationsEnabled()
+                ? ": 8 motion sets loaded (idle/walk/run/pose/swing/ability/ultimate); install regenerated client pack"
+                : ": player body animations paused (bettermodel.player-body-animations=false); slash effects available; existing 0.2.2 combined pack works")
                 + (preservedModels.isEmpty() ? "" : "; " + preservedModels.size() + " edited files preserved");
     }
 
     @Override public void tickMovement(Player player, String swordId, Locomotion movement) {
         if (!usable(player, swordId)) return;
         try {
+            if (!playerBodyAnimationsEnabled()) {
+                closeBody(player.getUniqueId());
+                return;
+            }
             BodySession body = body(player, swordId);
             if (body == null) return;
             body.desiredLoop = movement.name().toLowerCase(Locale.ROOT);
@@ -226,11 +234,21 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
                 && player.isOnline() && !player.isDead() && SWORDS.contains(swordId);
     }
 
+    private boolean playerBodyAnimationsEnabled() {
+        return plugin.getConfig().getBoolean("bettermodel.player-body-animations", false);
+    }
+
     private BodySession body(Player player, String swordId) {
+        // Player-attached trackers use BetterModel's native equipment/hide packet path.
+        // Keep that path opt-in, and only inspect inventory on the server thread.
+        if (!playerBodyAnimationsEnabled() || !plugin.getServer().isPrimaryThread()) return null;
         UUID id = player.getUniqueId();
         BodySession previous = bodies.get(id);
         if (previous != null && !previous.tracker.isClosed() && previous.swordId.equals(swordId)) {
-            if (swordItems.begin(player, swordId)) return previous;
+            if (swordItems.begin(player, swordId)) {
+                previous.cachedItem = swordItems.displayItem(player, swordId).clone();
+                return previous;
+            }
             closePlayer(id);
             return null;
         }
@@ -239,10 +257,12 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
         if (renderer == null || LOOPS.stream().anyMatch(clip -> renderer.animation(clip).isEmpty())) return null;
         if (!swordItems.begin(player, swordId)) return null;
         EntityTracker tracker;
+        BodySession body;
         try {
+            body = new BodySession(swordId, renderer, swordItems.displayItem(player, swordId).clone());
             tracker = renderer.create(BukkitAdapter.adapt(player), BODY_MODIFIER, created -> {
                 created.hideOption(INVENTORY_SAFE_HIDE);
-                configureSwordDisplay(created, () -> swordItems.displayItem(player, swordId));
+                configureSwordDisplay(created, body::displayItem);
             });
         } catch (LinkageError | RuntimeException error) {
             swordItems.restorePlayerSoon(id);
@@ -250,7 +270,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
         }
         // Stop the engine's automatic movement predicates; our held-sword state owns these clips.
         for (String clip : List.of("idle", "walk", "idle_fly", "walk_fly", "spawn")) tracker.stopAnimation(clip);
-        BodySession body = new BodySession(swordId, renderer, tracker);
+        body.tracker = tracker;
         bodies.put(id, body);
         tracker.handleCloseEvent((closedTracker, reason) -> {
             if (bodies.remove(id, body)) swordItems.restorePlayerSoon(id);
@@ -282,12 +302,24 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     private void play(Player player, String swordId, String animation, int priority) {
         if (!usable(player, swordId)) return;
         try {
+            if (!playerBodyAnimationsEnabled()) {
+                UUID owner = player.getUniqueId();
+                closeBody(owner);
+                if (animation.equals("swing")) {
+                    long now = System.nanoTime();
+                    Long previous = lastSlashSwings.get(owner);
+                    if (previous != null && now - previous < SWING_THROTTLE_NANOS) return;
+                    lastSlashSwings.put(owner, now);
+                }
+                if (!animation.equals("pose")) playSlashAt(player, swordId, animation, player.getLocation());
+                return;
+            }
             BodySession body = body(player, swordId);
             if (body == null || body.renderer.animation(animation).isEmpty()) return;
             long now = System.nanoTime();
             if (body.action != null && now - body.actionDeadline >= 0L) finishAction(body);
             if (body.action != null && (priority < body.actionPriority
-                    || animation.equals("swing") && now - body.lastActionStart < TimeUnit.MILLISECONDS.toNanos(220L))) return;
+                    || animation.equals("swing") && now - body.lastActionStart < SWING_THROTTLE_NANOS)) return;
             for (String clip : ACTIONS) body.tracker.stopAnimation(clip);
             body.action = animation;
             body.actionPriority = priority;
@@ -310,7 +342,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     }
 
     @Override public boolean playCinematic(Player player, String swordId, Location origin) {
-        if (!usable(player, swordId)) return false;
+        if (!plugin.getServer().isPrimaryThread() || !usable(player, swordId)) return false;
         try {
             ModelRenderer renderer = BetterModel.limbOrNull(PREFIX + swordId);
             if (renderer == null || renderer.animation("ultimate").isEmpty()) return false;
@@ -381,12 +413,17 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
         if (!reloading.get()) checkModels();
     }
 
-    private void closePlayer(UUID owner) {
+    private void closeBody(UUID owner) {
         BodySession body = bodies.remove(owner);
         if (body != null) {
             body.tracker.close(); // Engine restores vanilla body/equipment visibility.
             swordItems.restorePlayerSoon(owner);
         }
+    }
+
+    private void closePlayer(UUID owner) {
+        lastSlashSwings.remove(owner);
+        closeBody(owner);
         effects.forEach((tracker, playback) -> {
             if (playback.owner().equals(owner)) { effects.remove(tracker); tracker.close(); }
         });
@@ -405,6 +442,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
         effects.keySet().forEach(Tracker::close);
         effects.clear();
         cinematicBodies.clear();
+        lastSlashSwings.clear();
     }
 
     @Override public String status() {
@@ -412,6 +450,8 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
             try {
                 if (!BetterModel.config().module().playerAnimation())
                     return "Enable module.player-animation in BetterModel/config.yml, then restart";
+                if (!BetterModel.config().module().model())
+                    return "Enable module.model in BetterModel/config.yml for animated slash models";
                 List<String> missing = missingModels();
                 return missing.isEmpty() ? readyStatus() : "BetterModel missing assets: " + String.join(", ", missing);
             } catch (LinkageError | RuntimeException error) { disableAnimation(error); }
@@ -451,6 +491,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
         effects.keySet().forEach(Tracker::close);
         effects.clear();
         cinematicBodies.clear();
+        lastSlashSwings.clear();
         diagnostic = "BetterModel animations stopped";
     }
 
@@ -458,13 +499,17 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
     private static final class BodySession {
         final String swordId;
         final ModelRenderer renderer;
-        final EntityTracker tracker;
+        // Initialized before the session is published to bodies.
+        EntityTracker tracker;
+        // Owned snapshots are replaced on the server thread and never exposed to the mapper.
+        private volatile ItemStack cachedItem;
         String desiredLoop = "idle", runningLoop, action;
         int actionPriority;
         boolean primed;
         long actionDeadline, lastActionStart;
-        BodySession(String swordId, ModelRenderer renderer, EntityTracker tracker) {
-            this.swordId = swordId; this.renderer = renderer; this.tracker = tracker;
+        BodySession(String swordId, ModelRenderer renderer, ItemStack cachedItem) {
+            this.swordId = swordId; this.renderer = renderer; this.cachedItem = cachedItem;
         }
+        ItemStack displayItem() { return cachedItem.clone(); }
     }
 }

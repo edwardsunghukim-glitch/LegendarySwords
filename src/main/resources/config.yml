@@ -4,6 +4,10 @@ glow-particles: true
 bettermodel:
   enabled: true
   install-bundled-models: true
+  # Temporary 0.2.3 mitigation for a reported 1.21.11 equipment-packet disconnect.
+  # Keep false until player body animations pass a controlled real-server test.
+  # Slash models and ultimate presentation remain enabled with this false.
+  player-body-animations: false
 charge:
   per-melee-hit: 10
   melee-kill-bonus: 20

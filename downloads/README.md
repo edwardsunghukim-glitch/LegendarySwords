@@ -1,32 +1,32 @@
-# LegendarySwords 0.2.2 downloads
+# LegendarySwords 0.2.3 downloads
 
-- [Updated plugin JAR](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-0.2.2.jar)
+- [0.2.3 hotfix plugin JAR](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-0.2.3.jar)
 - [All-in-one download](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-download.zip)
 - [Eight-sword resource pack](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-resource-pack.zip)
-- [Updated 0.2.2 combined eight-sword + BetterModel resource pack](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-combined-resource-pack-0.2.2.zip)
+- [Existing 0.2.2 combined eight-sword + BetterModel resource pack](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-combined-resource-pack-0.2.2.zip)
 - [Sixteen BetterModel model files](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-BetterModel-models.zip)
 - [Source code ZIP](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-source.zip)
 
-Stop the server, replace the old LegendarySwords plugin JAR with version 0.2.2, and restart. Keep your config and player data. BetterModel integration targets the 3.1 API; BetterModel 3.1 requires Java 25 on the server. The core plugin can run on Java 21 without BetterModel. Building source requires JDK 25+.
+Stop the server, replace the old LegendarySwords JAR with **0.2.3**, and restart. Keep your configuration and player data. Leave `bettermodel.enabled: true` and `bettermodel.player-body-animations: false`. Existing configurations without the new body-animation key use false; if yours explicitly sets true, change it to false before restarting.
 
-The 0.2.2 patch adjusts all eight swords' idle, walk, run, and pose keyframes to reduce arm/blade clipping, with forward braces for heavy swords. It also updates swing, ability, and ultimate clips for Master Sword, Fierce Deity Sword, Thunderblade, Eightfold Blade, and Biggoron Sword. Original 0.2.0/0.2.1 player files update automatically with backups when the server starts. If edited files are preserved, back them up before manually replacing them from the updated sixteen-model ZIP.
+This hotfix responds to a reported Minecraft 1.21.11 `clientbound/minecraft:set_equipment` decoder disconnect with 557 unread bytes on Paper 1.21.11 and BetterModel `3.1-SNAPSHOT-526`. It copies item metadata before replacing inventory items and supplies BetterModel with cached item snapshots captured on the server thread. The exact packet cause has not been proven, and no live-client test has been performed.
 
-The all-in-one bundle includes the matching combined pack and checksum.
+**Custom player body animations are temporarily paused by default.** Standing, walking, running, pose, and player action body clips are disabled to avoid player-attached BetterModel trackers and their equipment/disguise path. Sword textures, all eight swords, combat effects, abilities, BetterModel slash models, and ultimate presentation remain available. `/ls status` reports the pause. Only re-enable `bettermodel.player-body-animations: true` for a controlled test after collecting equipment-packet evidence; restart after changing it and use [the real-server checklist](../docs/TESTING.md).
 
-**Install both the new JAR and updated combined pack.** The new item selector keeps the selected hotbar sword and first-person item visible while only the animated grip renders in third person. Ending the tracker restores the base item model. Earlier combined packs lack this selector.
+**Keep the 0.2.2 combined pack if you already use it.** Version 0.2.3 changes no resource-pack assets, model geometry, textures, or slash assets. The 0.2.2 carry/pose/action clips remain bundled unchanged. A combined pack included in the 0.2.3 bundle under a 0.2.3 filename is a byte-identical alias of the existing 0.2.2 ZIP, not a new pack. No client pack replacement or hash change is required for a 0.2.2 setup.
 
-This version has eight distinct swords, sustained lasers and fire rings, ice/lightning/earth/wind/lunar effects, in-place ultimate presentation, and sword-specific idle, walk, run, pose, swing, ability, and ultimate clips. The plugin upgrades only known original model files and backs them up; edited server models are preserved.
+If upgrading from 0.2.0 or 0.2.1, install the 0.2.2 combined pack linked above because earlier packs lack its item selectors. Known original old player models update automatically with backups when the server starts; edited files are preserved. Back up your edits before manually replacing files from `LegendarySwords-BetterModel-models.zip`.
 
-Run `/ls status` to check the animation integration. Test with `/ls give all`, `/ls charge 100`, `/ls resetcooldowns`, and `/ls pose`. Right click uses an ability; sneak + right click uses an ultimate. Use F5 for third-person body animations. Vanilla first-person arm swings remain standard.
+BetterModel integration targets the 3.1 API and requires **Java 25 on the server**. Core combat without BetterModel can run on Java 21. Building source requires JDK 25+. The combined pack contains compatible BetterModel assets reused from `build (12).zip` plus the eight-sword resource pack. Keep it zipped in Minecraft, or use it as the single hosted server pack.
 
-The combined pack above includes the updated eight-sword resource pack and compatible BetterModel assets reused from `build (12).zip`; body geometry, textures, slash effects, names, and model IDs are unchanged. Replace the previous combined pack with this ZIP and keep it zipped when installing it in Minecraft. Use it as the single server resource pack if your host accepts only one pack. The generic combined-pack URL also points to this updated ZIP.
+Test with `/ls give all`, `/ls status`, `/ls charge 100`, and `/ls resetcooldowns`. Right-click uses an ability; sneak + right-click uses an ultimate. With the default mitigation, `/ls pose` and custom player body movement/action animations remain paused. Vanilla first-person arm swings stay standard.
 
-After future changes to generated client assets, run `/bm reload` and download the NEW `plugins/BetterModel/build.zip`. Merge that regenerated pack with the eight-sword resource pack using `scripts/merge_resource_packs.py` in the source ZIP, or send the freshly generated ZIP in the chat. Installing the item pack alone does not supply BetterModel's generated animation assets.
+Regenerate `plugins/BetterModel/build.zip` and merge it with the sword pack only if other BetterModel models or generated-client configuration changed. The 0.2.3 hotfix itself requires no new `build.zip`; see [the BetterModel guide](../docs/BETTERMODEL.md).
 
-Validation: `mvn verify` passed 86 Java tests; resource-pack checks passed 13 tests; BetterModel asset checks passed 9 tests, including 47 carry/pose/action clearance combinations. The combined pack passed CRC, 5,855 JSON files and 6,074 custom reference checks, preserving 6,149 BetterModel assets unchanged. No live-client test has been performed. Client rendering, installed-snapshot behavior, and remaining transition clipping require the checks in docs/TESTING.md.
+Validation: `mvn verify` passed **101 Java tests** for 0.2.3, with no failures, errors, or skipped tests. The unchanged 0.2.2 assets previously passed **13 resource-pack tests** and **9 BetterModel asset tests**, including 47 carry/pose/action clearance combinations; those earlier results are not a new 0.2.3 runtime test. The release archives passed CRC checks; all sixteen `.bbmodel` files and the embedded sword pack match 0.2.2 byte for byte. The bundled combined-pack alias is also byte-identical to 0.2.2.. No live-client test has been performed. The reported equipment-packet disconnect, installed-snapshot behavior, and client rendering still need validation on the actual server.
 
 Standalone eight-sword resource-pack SHA-1: `fccfab27dd8b69005de2ec7eb0d6123363f4dadb`.
 
 Combined eight-sword + BetterModel resource-pack SHA-1: `04f9980f0cb83a6da16bea5f33c3a509fbf31548`.
 
-All-in-one bundle SHA-256: `5dc956cfff7f91b80243c0b896122cfe1ff49a3146b6f6d86c330b056f0d65a9`.
+All-in-one bundle SHA-256: `c39145124319ce022d39d6a16d307525b4dfb60d49d475a770ba9a14c85ea35e`.

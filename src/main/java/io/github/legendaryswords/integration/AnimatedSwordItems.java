@@ -48,6 +48,10 @@ public final class AnimatedSwordItems implements Listener, AutoCloseable {
         var meta = item.getItemMeta();
         NamespacedKey animated = animated(swordId);
         if (!animated.equals(meta.getItemModel())) {
+            // A Craft inventory stack can share its native handle with queued equipment packets.
+            // Finish all component changes on a detached copy before replacing the inventory slot.
+            item = item.clone();
+            meta = item.getItemMeta();
             meta.setItemModel(animated);
             item.setItemMeta(meta);
             player.getInventory().setItemInMainHand(item);
@@ -55,7 +59,7 @@ public final class AnimatedSwordItems implements Listener, AutoCloseable {
         return true;
     }
 
-    /** The animated display gets its own clone; inventory event cleanup cannot hide it. */
+    /** Main-thread capture of a detached display; inventory cleanup cannot change this snapshot. */
     public ItemStack displayItem(Player player, String swordId) {
         ItemStack held = player.getInventory().getItemInMainHand();
         if (!owned(held, swordId)) return new ItemStack(Material.AIR);
@@ -72,25 +76,42 @@ public final class AnimatedSwordItems implements Listener, AutoCloseable {
                 || animated(swordId).equals(item.getItemMeta().getItemModel()));
     }
 
-    /** Restores only our temporary model identifier, leaving the item's other metadata intact. */
+    /** Restores a detached visual clone in place. Inventory and event stacks must use restoredCopy. */
     public boolean restoreItem(ItemStack item) {
-        var sword = swords.identify(item);
-        if (sword.isEmpty() || !item.hasItemMeta()) return false;
-        String id = sword.orElseThrow().id();
+        NamespacedKey model = restorationModel(item);
+        if (model == null) return false;
         var meta = item.getItemMeta();
-        if (!animated(id).equals(meta.getItemModel())) return false;
-        meta.setItemModel(base(id));
+        meta.setItemModel(model);
         item.setItemMeta(meta);
         return true;
+    }
+
+    private NamespacedKey restorationModel(ItemStack item) {
+        var sword = swords.identify(item);
+        if (sword.isEmpty() || !item.hasItemMeta()) return null;
+        String id = sword.orElseThrow().id();
+        return animated(id).equals(item.getItemMeta().getItemModel()) ? base(id) : null;
+    }
+
+    private ItemStack restoredCopy(ItemStack item) {
+        NamespacedKey model = restorationModel(item);
+        if (model == null) return null;
+        ItemStack copy = item.clone();
+        var meta = copy.getItemMeta();
+        meta.setItemModel(model);
+        copy.setItemMeta(meta);
+        return copy;
     }
 
     public void restorePlayer(Player player) {
         var inventory = player.getInventory();
         ItemStack[] contents = inventory.getContents();
-        for (int slot = 0; slot < contents.length; slot++)
-            if (restoreItem(contents[slot])) inventory.setItem(slot, contents[slot]);
-        ItemStack cursor = player.getItemOnCursor();
-        if (restoreItem(cursor)) player.setItemOnCursor(cursor);
+        for (int slot = 0; slot < contents.length; slot++) {
+            ItemStack restored = restoredCopy(contents[slot]);
+            if (restored != null) inventory.setItem(slot, restored);
+        }
+        ItemStack cursor = restoredCopy(player.getItemOnCursor());
+        if (cursor != null) player.setItemOnCursor(cursor);
     }
 
     /** BetterModel close callbacks can arrive on its worker threads. */
@@ -126,8 +147,8 @@ public final class AnimatedSwordItems implements Listener, AutoCloseable {
             // Paper applies drag destinations after the event; modifying event snapshots is insufficient.
             for (int slot : rawSlots) {
                 if (slot < 0 || slot >= view.countSlots()) continue;
-                ItemStack item = view.getItem(slot);
-                if (restoreItem(item)) view.setItem(slot, item);
+                ItemStack item = restoredCopy(view.getItem(slot));
+                if (item != null) view.setItem(slot, item);
             }
             restorePlayer(player);
         });
@@ -141,41 +162,45 @@ public final class AnimatedSwordItems implements Listener, AutoCloseable {
     @EventHandler public void held(PlayerItemHeldEvent event) { restorePlayer(event.getPlayer()); }
     @EventHandler public void swapped(PlayerSwapHandItemsEvent event) {
         restorePlayer(event.getPlayer());
-        ItemStack main = event.getMainHandItem(), off = event.getOffHandItem();
-        if (restoreItem(main)) event.setMainHandItem(main);
-        if (restoreItem(off)) event.setOffHandItem(off);
+        ItemStack main = restoredCopy(event.getMainHandItem()), off = restoredCopy(event.getOffHandItem());
+        if (main != null) event.setMainHandItem(main);
+        if (off != null) event.setOffHandItem(off);
     }
     @EventHandler public void dropped(PlayerDropItemEvent event) {
-        ItemStack item = event.getItemDrop().getItemStack();
-        if (restoreItem(item)) event.getItemDrop().setItemStack(item);
+        ItemStack item = restoredCopy(event.getItemDrop().getItemStack());
+        if (item != null) event.getItemDrop().setItemStack(item);
         restorePlayer(event.getPlayer());
     }
     @EventHandler public void pickedUp(EntityPickupItemEvent event) {
         if (event.getEntity() instanceof Player) {
-            ItemStack item = event.getItem().getItemStack();
-            if (restoreItem(item)) event.getItem().setItemStack(item);
+            ItemStack item = restoredCopy(event.getItem().getItemStack());
+            if (item != null) event.getItem().setItemStack(item);
         }
     }
     @EventHandler public void died(PlayerDeathEvent event) {
-        event.getDrops().forEach(this::restoreItem);
+        var drops = event.getDrops().listIterator();
+        while (drops.hasNext()) {
+            ItemStack item = restoredCopy(drops.next());
+            if (item != null) drops.set(item);
+        }
         restorePlayer(event.getEntity());
     }
     @EventHandler public void clicked(InventoryClickEvent event) {
         if (event.getWhoClicked() instanceof Player player) {
             if (event instanceof InventoryCreativeEvent creative) {
-                ItemStack cursor = creative.getCursor();
-                if (restoreItem(cursor)) creative.setCursor(cursor);
+                ItemStack cursor = restoredCopy(creative.getCursor());
+                if (cursor != null) creative.setCursor(cursor);
             }
-            ItemStack item = event.getCurrentItem();
-            if (restoreItem(item)) event.setCurrentItem(item);
+            ItemStack item = restoredCopy(event.getCurrentItem());
+            if (item != null) event.setCurrentItem(item);
             restorePlayer(player);
             afterInventoryUpdate(player, event.getView(), List.of(event.getRawSlot()));
         }
     }
     @EventHandler public void dragged(InventoryDragEvent event) {
         if (event.getWhoClicked() instanceof Player player) {
-            ItemStack cursor = event.getCursor();
-            if (restoreItem(cursor)) event.setCursor(cursor);
+            ItemStack cursor = restoredCopy(event.getCursor());
+            if (cursor != null) event.setCursor(cursor);
             restorePlayer(player);
             afterInventoryUpdate(player, event.getView(), Set.copyOf(event.getRawSlots()));
         }

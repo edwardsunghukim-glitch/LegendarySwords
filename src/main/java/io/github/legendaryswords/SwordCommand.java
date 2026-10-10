@@ -63,6 +63,10 @@ public final class SwordCommand implements CommandExecutor, TabCompleter {
             case "pose" -> {
                 if (!(sender instanceof Player player)) { say(sender, "Use /ls pose in-game while holding a legendary sword."); return true; }
                 if (!player.hasPermission("legendaryswords.use")) { say(sender, "You need legendaryswords.use to pose."); return true; }
+                if (!plugin.getConfig().getBoolean("bettermodel.player-body-animations", false)) {
+                    say(sender, "Custom sword poses are temporarily paused in this version.");
+                    return true;
+                }
                 var held = plugin.swords().identify(player.getInventory().getItemInMainHand());
                 if (held.isEmpty()) { say(sender, "Hold a legendary sword, then use /ls pose."); return true; }
                 if (!plugin.cooldowns().tryUse(player.getUniqueId(), "pose", Duration.ofSeconds(2))) return true;

@@ -49,9 +49,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
+import org.mockito.ArgumentCaptor;
 import org.mockito.MockedStatic;
 
-/** Exercises real sword identification and Paper's copy-on-read item metadata contract. */
+/** Exercises sword identification, copy-on-read metadata, and detached inventory replacements. */
 class AnimatedSwordItemsTest {
     private static final NamespacedKey SWORD_KEY = new NamespacedKey("legendaryswords", "sword_id");
     private static MockedStatic<RegistryAccess> registryApi;
@@ -78,19 +79,32 @@ class AnimatedSwordItemsTest {
             Map<String, Object> originalMetadata = f.metadata(held);
 
             assertTrue(f.items.begin(f.player, sword.id()));
-            assertEquals(animated(sword), f.model(held));
+            ItemStack animatedHeld = f.contents[0];
+            assertNotSame(held, animatedHeld);
+            assertEquals(base(sword), f.model(held), "Queued readers of the original live stack must retain its base model");
+            assertEquals(originalMetadata, f.metadata(held));
+            verify(held, never()).setItemMeta(any());
+            assertEquals(animated(sword), f.model(animatedHeld));
             assertTrue(f.items.begin(f.player, sword.id()));
-            verify(held, times(1)).setItemMeta(any());
-            verify(f.inventory, times(1)).setItemInMainHand(held);
+            assertSame(animatedHeld, f.contents[0], "Beginning an already animated sword must not replace it again");
+            verify(animatedHeld, times(1)).setItemMeta(any());
+            verify(f.inventory, times(1)).setItemInMainHand(animatedHeld);
             ItemStack display = f.items.displayItem(f.player, sword.id());
             assertNotSame(held, display);
+            assertNotSame(animatedHeld, display);
             assertEquals(animated(sword), f.model(display));
 
             f.items.restorePlayer(f.player);
 
-            assertEquals(base(sword), f.model(f.contents[0]));
+            ItemStack restoredHeld = f.contents[0];
+            assertNotSame(animatedHeld, restoredHeld);
+            assertEquals(base(sword), f.model(restoredHeld));
+            assertEquals(animated(sword), f.model(animatedHeld), "Queued readers must retain the original animated stack");
+            verify(animatedHeld, times(1)).setItemMeta(any());
             assertEquals(animated(sword), f.model(display), "The body display must keep its independent animated copy");
             assertEquals(originalMetadata, f.metadata(held));
+            assertEquals(originalMetadata, f.metadata(animatedHeld));
+            assertEquals(originalMetadata, f.metadata(restoredHeld));
             assertEquals(originalMetadata, f.metadata(display));
             assertEquals(sword.material(), display.getType());
             assertEquals(held.getAmount(), display.getAmount());
@@ -98,21 +112,50 @@ class AnimatedSwordItemsTest {
         }
     }
 
+    @ParameterizedTest
+    @EnumSource(SwordType.class)
+    void aDetachedDisplayCanBeRestoredWithoutChangingTheHeldSword(SwordType sword) {
+        try (Fixture f = new Fixture()) {
+            f.start();
+            ItemStack original = f.sword(sword, false);
+            f.contents[0] = original;
+            assertTrue(f.items.begin(f.player, sword.id()));
+            ItemStack held = f.contents[0];
+            ItemStack display = f.items.displayItem(f.player, sword.id());
+
+            assertTrue(f.items.restoreItem(display));
+
+            assertSame(held, f.contents[0]);
+            assertEquals(animated(sword), f.model(held));
+            assertEquals(base(sword), f.model(original));
+            assertEquals(base(sword), f.model(display));
+            assertEquals(f.metadata(original), f.metadata(display));
+            verify(original, never()).setItemMeta(any());
+            verify(held, times(1)).setItemMeta(any());
+            verify(display, times(2)).setItemMeta(any());
+            f.assertOnlyModelWasWritten();
+        }
+    }
+
     @Test void recoveryWorksAtStartupAndJoinWithoutBetterModel() {
         try (Fixture f = new Fixture()) {
-            f.contents[0] = f.sword(SwordType.MASTER_SWORD, true);
-            f.contents[40] = f.sword(SwordType.FLAMEBLADE, true);
-            f.cursor = f.sword(SwordType.FROSTBLADE, true);
+            ItemStack held = f.sword(SwordType.MASTER_SWORD, true);
+            ItemStack offHand = f.sword(SwordType.FLAMEBLADE, true);
+            ItemStack cursor = f.sword(SwordType.FROSTBLADE, true);
+            f.contents[0] = held;
+            f.contents[40] = offHand;
+            f.cursor = cursor;
             f.start(); // No BetterModel plugin is installed in this fixture.
-            assertEquals(base(SwordType.MASTER_SWORD), f.model(f.contents[0]));
-            assertEquals(base(SwordType.FLAMEBLADE), f.model(f.contents[40]));
-            assertEquals(base(SwordType.FROSTBLADE), f.model(f.cursor));
+            f.assertRestoredCopy(held, f.contents[0], SwordType.MASTER_SWORD);
+            f.assertRestoredCopy(offHand, f.contents[40], SwordType.FLAMEBLADE);
+            f.assertRestoredCopy(cursor, f.cursor, SwordType.FROSTBLADE);
 
-            f.contents[7] = f.sword(SwordType.EIGHTFOLD_BLADE, true);
+            ItemStack joined = f.sword(SwordType.EIGHTFOLD_BLADE, true);
+            f.contents[7] = joined;
             PlayerJoinEvent join = mock(PlayerJoinEvent.class);
             when(join.getPlayer()).thenReturn(f.player);
             f.items.join(join);
-            assertEquals(base(SwordType.EIGHTFOLD_BLADE), f.model(f.contents[7]));
+            f.assertRestoredCopy(joined, f.contents[7], SwordType.EIGHTFOLD_BLADE);
             verify(f.manager).registerEvents(f.items, f.plugin);
             verify(f.manager, never()).getPlugin(anyString());
         }
@@ -135,9 +178,13 @@ class AnimatedSwordItemsTest {
                 f.contents[0] = item;
                 assertFalse(f.items.begin(f.player, "master_sword"));
                 assertFalse(f.items.restoreItem(item));
+                f.items.restorePlayer(f.player);
+                assertSame(item, f.contents[0]);
                 assertEquals(before, f.model(item));
                 verify(item, never()).setItemMeta(any());
             }
+            verify(f.inventory, never()).setItem(anyInt(), any());
+            verify(f.inventory, never()).setItemInMainHand(any());
             f.contents[0] = f.sword(SwordType.FLAMEBLADE, false);
             assertFalse(f.items.begin(f.player, "master_sword"), "An actual different sword cannot borrow this body's model");
             assertFalse(f.items.restoreItem(null));
@@ -147,23 +194,28 @@ class AnimatedSwordItemsTest {
     @Test void selectionAndQuitRestoreEveryInventorySlotAndCursor() {
         try (Fixture f = new Fixture()) {
             f.start();
-            f.contents[0] = f.sword(SwordType.MASTER_SWORD, true);
-            f.contents[8] = f.sword(SwordType.ROYAL_CLAYMORE, true);
-            f.contents[40] = f.sword(SwordType.FLAMEBLADE, true);
-            f.cursor = f.sword(SwordType.FROSTBLADE, true);
+            ItemStack heldSword = f.sword(SwordType.MASTER_SWORD, true);
+            ItemStack stored = f.sword(SwordType.ROYAL_CLAYMORE, true);
+            ItemStack offHand = f.sword(SwordType.FLAMEBLADE, true);
+            ItemStack cursor = f.sword(SwordType.FROSTBLADE, true);
+            f.contents[0] = heldSword;
+            f.contents[8] = stored;
+            f.contents[40] = offHand;
+            f.cursor = cursor;
             PlayerItemHeldEvent held = mock(PlayerItemHeldEvent.class);
             when(held.getPlayer()).thenReturn(f.player);
             f.items.held(held);
-            assertEquals(base(SwordType.MASTER_SWORD), f.model(f.contents[0]));
-            assertEquals(base(SwordType.ROYAL_CLAYMORE), f.model(f.contents[8]));
-            assertEquals(base(SwordType.FLAMEBLADE), f.model(f.contents[40]));
-            assertEquals(base(SwordType.FROSTBLADE), f.model(f.cursor));
+            f.assertRestoredCopy(heldSword, f.contents[0], SwordType.MASTER_SWORD);
+            f.assertRestoredCopy(stored, f.contents[8], SwordType.ROYAL_CLAYMORE);
+            f.assertRestoredCopy(offHand, f.contents[40], SwordType.FLAMEBLADE);
+            f.assertRestoredCopy(cursor, f.cursor, SwordType.FROSTBLADE);
 
-            f.contents[0] = f.sword(SwordType.THUNDERBLADE, true);
+            ItemStack quitting = f.sword(SwordType.THUNDERBLADE, true);
+            f.contents[0] = quitting;
             PlayerQuitEvent quit = mock(PlayerQuitEvent.class);
             when(quit.getPlayer()).thenReturn(f.player);
             f.items.quit(quit);
-            assertEquals(base(SwordType.THUNDERBLADE), f.model(f.contents[0]));
+            f.assertRestoredCopy(quitting, f.contents[0], SwordType.THUNDERBLADE);
         }
     }
 
@@ -177,10 +229,12 @@ class AnimatedSwordItemsTest {
             when(event.getMainHandItem()).thenReturn(main);
             when(event.getOffHandItem()).thenReturn(off);
             f.items.swapped(event);
-            assertEquals(base(SwordType.FIERCE_DEITY_SWORD), f.model(main));
-            assertEquals(base(SwordType.BIGGORON_SWORD), f.model(off));
-            verify(event).setMainHandItem(main);
-            verify(event).setOffHandItem(off);
+            ArgumentCaptor<ItemStack> mainReplacement = ArgumentCaptor.forClass(ItemStack.class);
+            ArgumentCaptor<ItemStack> offReplacement = ArgumentCaptor.forClass(ItemStack.class);
+            verify(event).setMainHandItem(mainReplacement.capture());
+            verify(event).setOffHandItem(offReplacement.capture());
+            f.assertRestoredCopy(main, mainReplacement.getValue(), SwordType.FIERCE_DEITY_SWORD);
+            f.assertRestoredCopy(off, offReplacement.getValue(), SwordType.BIGGORON_SWORD);
         }
     }
 
@@ -194,8 +248,9 @@ class AnimatedSwordItemsTest {
             when(drop.getPlayer()).thenReturn(f.player);
             when(drop.getItemDrop()).thenReturn(entity);
             f.items.dropped(drop);
-            assertEquals(base(SwordType.THUNDERBLADE), f.model(dropped));
-            verify(entity).setItemStack(dropped);
+            ArgumentCaptor<ItemStack> replacement = ArgumentCaptor.forClass(ItemStack.class);
+            verify(entity).setItemStack(replacement.capture());
+            f.assertRestoredCopy(dropped, replacement.getValue(), SwordType.THUNDERBLADE);
 
             ItemStack picked = f.sword(SwordType.FROSTBLADE, true);
             when(entity.getItemStack()).thenReturn(picked);
@@ -203,8 +258,8 @@ class AnimatedSwordItemsTest {
             when(pickup.getEntity()).thenReturn(f.player);
             when(pickup.getItem()).thenReturn(entity);
             f.items.pickedUp(pickup);
-            assertEquals(base(SwordType.FROSTBLADE), f.model(picked));
-            verify(entity).setItemStack(picked);
+            verify(entity, times(2)).setItemStack(replacement.capture());
+            f.assertRestoredCopy(picked, replacement.getValue(), SwordType.FROSTBLADE);
         }
     }
 
@@ -212,20 +267,24 @@ class AnimatedSwordItemsTest {
         try (Fixture f = new Fixture()) {
             f.start();
             ItemStack drop = f.sword(SwordType.BIGGORON_SWORD, true);
-            f.contents[0] = f.sword(SwordType.MASTER_SWORD, true);
+            ItemStack retained = f.sword(SwordType.MASTER_SWORD, true);
+            f.contents[0] = retained;
             PlayerDeathEvent death = mock(PlayerDeathEvent.class);
+            List<ItemStack> drops = new ArrayList<>(List.of(drop));
             when(death.getEntity()).thenReturn(f.player);
-            when(death.getDrops()).thenReturn(new ArrayList<>(List.of(drop)));
+            when(death.getDrops()).thenReturn(drops);
             f.items.died(death);
-            assertEquals(base(SwordType.BIGGORON_SWORD), f.model(drop));
-            assertEquals(base(SwordType.MASTER_SWORD), f.model(f.contents[0]));
+            f.assertRestoredCopy(drop, drops.get(0), SwordType.BIGGORON_SWORD);
+            f.assertRestoredCopy(retained, f.contents[0], SwordType.MASTER_SWORD);
 
-            f.contents[40] = f.sword(SwordType.EIGHTFOLD_BLADE, true);
-            f.cursor = f.sword(SwordType.FIERCE_DEITY_SWORD, true);
+            ItemStack offHand = f.sword(SwordType.EIGHTFOLD_BLADE, true);
+            ItemStack cursor = f.sword(SwordType.FIERCE_DEITY_SWORD, true);
+            f.contents[40] = offHand;
+            f.cursor = cursor;
             f.enabled.set(false);
             f.items.close();
-            assertEquals(base(SwordType.EIGHTFOLD_BLADE), f.model(f.contents[40]));
-            assertEquals(base(SwordType.FIERCE_DEITY_SWORD), f.model(f.cursor));
+            f.assertRestoredCopy(offHand, f.contents[40], SwordType.EIGHTFOLD_BLADE);
+            f.assertRestoredCopy(cursor, f.cursor, SwordType.FIERCE_DEITY_SWORD);
         }
     }
 
@@ -240,16 +299,18 @@ class AnimatedSwordItemsTest {
             when(click.getRawSlot()).thenReturn(4);
             when(click.getCurrentItem()).thenReturn(outgoing);
             f.items.clicked(click);
-            assertEquals(base(SwordType.MASTER_SWORD), f.model(outgoing));
-            verify(click).setCurrentItem(outgoing);
+            ArgumentCaptor<ItemStack> replacement = ArgumentCaptor.forClass(ItemStack.class);
+            verify(click).setCurrentItem(replacement.capture());
+            f.assertRestoredCopy(outgoing, replacement.getValue(), SwordType.MASTER_SWORD);
 
             // Paper applies the actual destination stack after returning from the event.
             ItemStack landed = f.sword(SwordType.FLAMEBLADE, true);
             destination.slots.put(4, landed);
             verify(destination.view, never()).setItem(anyInt(), any());
             f.nextTick();
-            assertEquals(base(SwordType.FLAMEBLADE), f.model(destination.slots.get(4)));
-            verify(destination.view).setItem(4, landed);
+            f.assertRestoredCopy(landed, destination.slots.get(4), SwordType.FLAMEBLADE);
+            verify(destination.view).setItem(4, destination.slots.get(4));
+            assertEquals(animated(SwordType.MASTER_SWORD), f.model(outgoing));
         }
     }
 
@@ -264,14 +325,16 @@ class AnimatedSwordItemsTest {
             when(creative.getView()).thenReturn(destination.view);
             when(creative.getRawSlot()).thenReturn(9);
             f.items.clicked(creative);
-            assertEquals(base(SwordType.ROYAL_CLAYMORE), f.model(transfer));
-            verify(creative).setCursor(transfer);
+            ArgumentCaptor<ItemStack> replacement = ArgumentCaptor.forClass(ItemStack.class);
+            verify(creative).setCursor(replacement.capture());
+            f.assertRestoredCopy(transfer, replacement.getValue(), SwordType.ROYAL_CLAYMORE);
 
             ItemStack landed = f.sword(SwordType.ROYAL_CLAYMORE, true);
             destination.slots.put(9, landed);
             f.nextTick();
-            assertEquals(base(SwordType.ROYAL_CLAYMORE), f.model(landed));
-            verify(destination.view).setItem(9, landed);
+            f.assertRestoredCopy(landed, destination.slots.get(9), SwordType.ROYAL_CLAYMORE);
+            verify(destination.view).setItem(9, destination.slots.get(9));
+            assertEquals(animated(SwordType.ROYAL_CLAYMORE), f.model(transfer));
         }
     }
 
@@ -288,8 +351,9 @@ class AnimatedSwordItemsTest {
             when(drag.getNewItems()).thenReturn(Map.of(3, snapshot));
             when(drag.getCursor()).thenReturn(cursor);
             f.items.dragged(drag);
-            assertEquals(base(SwordType.EIGHTFOLD_BLADE), f.model(cursor));
-            verify(drag).setCursor(cursor);
+            ArgumentCaptor<ItemStack> replacement = ArgumentCaptor.forClass(ItemStack.class);
+            verify(drag).setCursor(replacement.capture());
+            f.assertRestoredCopy(cursor, replacement.getValue(), SwordType.EIGHTFOLD_BLADE);
             assertEquals(animated(SwordType.FROSTBLADE), f.model(snapshot), "A snapshot does not represent the server's eventual destination");
             verify(destination.view, never()).setItem(anyInt(), any());
 
@@ -297,13 +361,15 @@ class AnimatedSwordItemsTest {
             ItemStack second = f.sword(SwordType.THUNDERBLADE, true);
             destination.slots.put(3, first);
             destination.slots.put(7, second);
-            f.contents[0] = f.sword(SwordType.FLAMEBLADE, true);
+            ItemStack held = f.sword(SwordType.FLAMEBLADE, true);
+            f.contents[0] = held;
             f.nextTick();
-            assertEquals(base(SwordType.FROSTBLADE), f.model(first));
-            assertEquals(base(SwordType.THUNDERBLADE), f.model(second));
-            assertEquals(base(SwordType.FLAMEBLADE), f.model(f.contents[0]));
-            verify(destination.view).setItem(3, first);
-            verify(destination.view).setItem(7, second);
+            f.assertRestoredCopy(first, destination.slots.get(3), SwordType.FROSTBLADE);
+            f.assertRestoredCopy(second, destination.slots.get(7), SwordType.THUNDERBLADE);
+            f.assertRestoredCopy(held, f.contents[0], SwordType.FLAMEBLADE);
+            verify(destination.view).setItem(3, destination.slots.get(3));
+            verify(destination.view).setItem(7, destination.slots.get(7));
+            assertEquals(animated(SwordType.FROSTBLADE), f.model(snapshot));
             verify(destination.view, never()).getItem(-1);
             verify(destination.view, never()).getItem(99);
         }
@@ -312,7 +378,8 @@ class AnimatedSwordItemsTest {
     @Test void workerCloseQueuesRestorationBeforeLookingUpOrTouchingAPlayer() {
         try (Fixture f = new Fixture()) {
             f.start();
-            f.contents[0] = f.sword(SwordType.MASTER_SWORD, true);
+            ItemStack held = f.sword(SwordType.MASTER_SWORD, true);
+            f.contents[0] = held;
             f.primaryThread.set(false);
             f.items.restorePlayerSoon(f.id);
             assertEquals(animated(SwordType.MASTER_SWORD), f.model(f.contents[0]));
@@ -322,7 +389,7 @@ class AnimatedSwordItemsTest {
 
             f.primaryThread.set(true);
             f.nextTick();
-            assertEquals(base(SwordType.MASTER_SWORD), f.model(f.contents[0]));
+            f.assertRestoredCopy(held, f.contents[0], SwordType.MASTER_SWORD);
             verify(f.server).getPlayer(f.id);
             assertTrue(f.items.begin(f.player, "master_sword"));
         }
@@ -331,8 +398,11 @@ class AnimatedSwordItemsTest {
     @Test void everyQueuedInventoryUpdateMustFinishBeforeTheHeldSwordCanAnimateAgain() {
         try (Fixture f = new Fixture()) {
             f.start();
-            f.contents[0] = f.sword(SwordType.MASTER_SWORD, false);
+            ItemStack original = f.sword(SwordType.MASTER_SWORD, false);
+            f.contents[0] = original;
             assertTrue(f.items.begin(f.player, "master_sword"));
+            ItemStack animatedHeld = f.contents[0];
+            ItemStack display = f.items.displayItem(f.player, "master_sword");
             View destination = f.view(54);
             InventoryClickEvent click = mock(InventoryClickEvent.class);
             when(click.getWhoClicked()).thenReturn(f.player);
@@ -346,24 +416,35 @@ class AnimatedSwordItemsTest {
             f.items.clicked(click);
             f.items.dragged(drag);
             assertEquals(2, f.deferred.size());
-            assertEquals(base(SwordType.MASTER_SWORD), f.model(f.contents[0]));
+            ItemStack restoredHeld = f.contents[0];
+            assertNotSame(animatedHeld, restoredHeld);
+            assertEquals(base(SwordType.MASTER_SWORD), f.model(restoredHeld));
+            assertEquals(base(SwordType.MASTER_SWORD), f.model(original));
+            assertEquals(animated(SwordType.MASTER_SWORD), f.model(animatedHeld));
+            assertEquals(animated(SwordType.MASTER_SWORD), f.model(display));
             assertFalse(f.items.begin(f.player, "master_sword"));
 
             f.deferred.remove(0).run();
             assertFalse(f.items.begin(f.player, "master_sword"), "One completed event must not release a second event's cleanup gate");
-            assertEquals(base(SwordType.MASTER_SWORD), f.model(f.contents[0]));
+            assertSame(restoredHeld, f.contents[0]);
             f.deferred.remove(0).run();
             assertTrue(f.items.begin(f.player, "master_sword"));
             assertEquals(animated(SwordType.MASTER_SWORD), f.model(f.contents[0]));
+            assertNotSame(restoredHeld, f.contents[0]);
+            assertEquals(base(SwordType.MASTER_SWORD), f.model(restoredHeld));
+            assertEquals(base(SwordType.MASTER_SWORD), f.model(original));
+            assertEquals(animated(SwordType.MASTER_SWORD), f.model(animatedHeld));
+            assertEquals(animated(SwordType.MASTER_SWORD), f.model(display));
         }
     }
 
     @Test void releaseOnMainThreadRestoresImmediatelyAndDisabledWorkerDoesNotSchedule() {
         try (Fixture f = new Fixture()) {
             f.start();
-            f.contents[0] = f.sword(SwordType.FLAMEBLADE, true);
+            ItemStack held = f.sword(SwordType.FLAMEBLADE, true);
+            f.contents[0] = held;
             f.items.restorePlayerSoon(f.id);
-            assertEquals(base(SwordType.FLAMEBLADE), f.model(f.contents[0]));
+            f.assertRestoredCopy(held, f.contents[0], SwordType.FLAMEBLADE);
             assertTrue(f.deferred.isEmpty());
 
             f.primaryThread.set(false);
@@ -488,6 +569,16 @@ class AnimatedSwordItemsTest {
             ItemState state = states.get(item);
             return Map.of("pdc", Map.copyOf(state.pdc), "name", state.displayName, "lore", state.lore,
                     "damage", state.damage, "customModelData", state.customModelData, "unbreakable", state.unbreakable);
+        }
+
+        void assertRestoredCopy(ItemStack source, ItemStack replacement, SwordType sword) {
+            assertNotSame(source, replacement, "Restoration must replace the live stack with a detached copy");
+            assertEquals(animated(sword), model(source), "A queued source reference must retain its animated model");
+            assertEquals(base(sword), model(replacement));
+            assertEquals(metadata(source), metadata(replacement));
+            assertEquals(source.getType(), replacement.getType());
+            assertEquals(source.getAmount(), replacement.getAmount());
+            verify(source, never()).setItemMeta(any());
         }
 
         void assertOnlyModelWasWritten() {

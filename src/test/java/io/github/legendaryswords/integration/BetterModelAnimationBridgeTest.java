@@ -7,12 +7,16 @@ import static org.mockito.Mockito.*;
 
 import java.util.Optional;
 import java.util.UUID;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 import java.util.function.BiConsumer;
 import java.util.logging.Logger;
 import io.papermc.paper.plugin.configuration.PluginMeta;
 import kr.toxicity.model.api.BetterModel;
 import kr.toxicity.model.api.BetterModelPlatform;
+import kr.toxicity.model.api.BetterModelConfig;
 import kr.toxicity.model.api.animation.AnimationIterator;
 import kr.toxicity.model.api.animation.AnimationModifier;
 import kr.toxicity.model.api.bone.BoneItemMapper;
@@ -20,16 +24,26 @@ import kr.toxicity.model.api.bone.RenderedBone;
 import kr.toxicity.model.api.bukkit.platform.BukkitItemStack;
 import kr.toxicity.model.api.data.blueprint.BlueprintAnimation;
 import kr.toxicity.model.api.data.renderer.ModelRenderer;
+import kr.toxicity.model.api.config.ModuleConfig;
+import kr.toxicity.model.api.manager.PlayerManager;
 import kr.toxicity.model.api.platform.PlatformEntity;
 import kr.toxicity.model.api.platform.PlatformAdapter;
 import kr.toxicity.model.api.platform.PlatformItemStack;
 import kr.toxicity.model.api.platform.PlatformItemTransform;
+import kr.toxicity.model.api.platform.PlatformLocation;
+import kr.toxicity.model.api.platform.PlatformPlayer;
+import kr.toxicity.model.api.profile.ModelProfile;
 import kr.toxicity.model.api.nms.ModelDisplay;
+import kr.toxicity.model.api.nms.NMS;
 import kr.toxicity.model.api.tracker.Tracker;
 import kr.toxicity.model.api.tracker.EntityTracker;
+import kr.toxicity.model.api.tracker.DummyTracker;
 import kr.toxicity.model.api.tracker.TrackerModifier;
 import org.bukkit.Server;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
@@ -100,8 +114,139 @@ class BetterModelAnimationBridgeTest {
             assertEquals(PlatformItemTransform.FIXED, mapper.getValue().transform());
             verify(f.handDisplay).display(PlatformItemTransform.FIXED);
             var displayed = mapper.getValue().apply(null, null);
-            assertSame(f.displayItem, ((BukkitItemStack) displayed.itemStack()).source());
+            assertNotSame(f.displayItem, ((BukkitItemStack) displayed.itemStack()).source());
+            assertNotSame(f.cachedItem, ((BukkitItemStack) displayed.itemStack()).source());
+            verify(f.displayItem).clone();
+            verify(f.cachedItem).clone();
             verify(f.swordItems).displayItem(f.player, "master_sword");
+        }
+    }
+
+    @Test void playerBodyAnimationsDefaultToPausedBeforeInventoryOrEntityTrackerCreation() {
+        try (Fixture f = new Fixture(false)) {
+            f.bridge.tickMovement(f.player, "master_sword", WALK);
+            f.bridge.playPose(f.player, "master_sword");
+            f.bridge.playSwing(f.player, "master_sword");
+            f.bridge.playAbility(f.player, "master_sword");
+            f.bridge.playUltimate(f.player, "master_sword");
+            verifyNoInteractions(f.swordItems);
+            verify(f.player, never()).getInventory();
+            verify(f.renderer, never()).create(any(PlatformEntity.class), any(TrackerModifier.class), any());
+            verify(f.tracker, never()).hideOption(any());
+            assertTrue(f.bridge.status().contains("player body animations paused"));
+            assertTrue(f.bridge.status().contains("slash effects available"));
+            assertTrue(f.bridge.status().contains("existing 0.2.2 combined pack works"));
+        }
+    }
+
+    @Test void pausedPlayerBodiesStillCreateCinematicActorsAndSlashEffects() {
+        try (Fixture f = new Fixture(false)) {
+            Location origin = f.player.getLocation();
+            DummyTracker actor = mock(DummyTracker.class);
+            when(actor.bone("right_item")).thenReturn(f.hand);
+            when(actor.animate(eq("ultimate"), any(AnimationModifier.class), any(Runnable.class))).thenReturn(true);
+            when(f.renderer.create(any(PlatformLocation.class), any(ModelProfile.class),
+                    any(TrackerModifier.class), any())).thenAnswer(call -> {
+                Consumer<DummyTracker> preUpdate = call.getArgument(3);
+                preUpdate.accept(actor);
+                return actor;
+            });
+            assertTrue(f.bridge.playCinematic(f.player, "master_sword", origin));
+            f.bridge.tickMovement(f.player, "master_sword", WALK);
+            f.bridge.playSwing(f.player, "master_sword");
+            f.bridge.playAbility(f.player, "master_sword");
+            f.bridge.playUltimate(f.player, "master_sword");
+            verify(f.renderer).create(any(PlatformLocation.class), any(ModelProfile.class),
+                    any(TrackerModifier.class), any());
+            verify(f.slashRenderer, times(3)).create(any(PlatformLocation.class), any(TrackerModifier.class), any());
+            verify(actor).animate(eq("ultimate"), any(AnimationModifier.class), any(Runnable.class));
+            for (String clip : List.of("swing", "ability", "ultimate"))
+                verify(f.slash).animate(eq(clip), any(AnimationModifier.class), any(Runnable.class));
+            verify(f.renderer, never()).create(any(PlatformEntity.class), any(TrackerModifier.class), any());
+            verify(f.swordItems, never()).begin(any(), anyString());
+            f.bridge.close();
+            verify(actor).close();
+            verify(f.slash).close();
+        }
+    }
+
+    @Test void pausedBodySlashSwingsThrottleRapidClicksUntilThePlayerSessionCloses() {
+        try (Fixture f = new Fixture(false)) {
+            f.bridge.playSwing(f.player, "master_sword");
+            for (int click = 0; click < 4; click++) f.bridge.playSwing(f.player, "master_sword");
+            verify(f.slashRenderer, times(1)).create(any(PlatformLocation.class), any(TrackerModifier.class), any());
+            verify(f.slash).animate(eq("swing"), any(AnimationModifier.class), any(Runnable.class));
+            verifyNoInteractions(f.swordItems);
+
+            f.bridge.stopMovement(f.player);
+            verify(f.slash).close();
+            f.bridge.playSwing(f.player, "master_sword");
+            verify(f.slashRenderer, times(2)).create(any(PlatformLocation.class), any(TrackerModifier.class), any());
+            verify(f.slash, times(2)).animate(eq("swing"), any(AnimationModifier.class), any(Runnable.class));
+            verify(f.renderer, never()).create(any(PlatformEntity.class), any(TrackerModifier.class), any());
+        }
+    }
+
+    @Test void workerMapperClonesTheLatestServerThreadSnapshotWithoutTouchingInventory() throws Exception {
+        try (Fixture f = new Fixture()) {
+            f.bridge.tickMovement(f.player, "master_sword", WALK);
+            var mapper = ArgumentCaptor.forClass(BoneItemMapper.class);
+            verify(f.hand).setItemMapper(mapper.capture());
+            var first = ((BukkitItemStack) mapper.getValue().apply(null, null).itemStack()).source();
+
+            ItemStack refreshedDisplay = mock(ItemStack.class);
+            ItemStack refreshedCache = mock(ItemStack.class);
+            when(refreshedDisplay.clone()).thenReturn(refreshedCache);
+            when(refreshedCache.clone()).thenAnswer(call -> mock(ItemStack.class));
+            when(f.swordItems.displayItem(f.player, "master_sword")).thenReturn(refreshedDisplay);
+            f.bridge.tickMovement(f.player, "master_sword", WALK);
+            verify(refreshedDisplay).clone();
+            clearInvocations(f.swordItems, f.player, f.cachedItem, refreshedCache);
+
+            var displayed = CompletableFuture.supplyAsync(() -> mapper.getValue().apply(null, null))
+                    .get(5L, TimeUnit.SECONDS);
+            ItemStack copy = ((BukkitItemStack) displayed.itemStack()).source();
+            copy.setAmount(1);
+            ItemStack nextCopy = ((BukkitItemStack) mapper.getValue().apply(null, null).itemStack()).source();
+            assertNotSame(first, copy);
+            assertNotSame(refreshedDisplay, copy);
+            assertNotSame(refreshedCache, copy);
+            assertNotSame(copy, nextCopy);
+            verifyNoInteractions(f.swordItems, f.player, f.cachedItem);
+            verify(refreshedCache, times(2)).clone();
+            verifyNoMoreInteractions(refreshedCache);
+            verify(f.renderer, times(1)).create(any(PlatformEntity.class), any(TrackerModifier.class), any());
+        }
+    }
+
+    @Test void pausingAnExistingBodyRestoresInventoryAndKeepsItsSlashEffects() {
+        try (Fixture f = new Fixture()) {
+            f.bridge.tickMovement(f.player, "master_sword", WALK);
+            f.bridge.playSwing(f.player, "master_sword");
+            f.config.set("bettermodel.player-body-animations", false);
+            f.bridge.tickMovement(f.player, "master_sword", WALK);
+            verify(f.tracker).close();
+            verify(f.swordItems).restorePlayerSoon(f.player.getUniqueId());
+            verify(f.slash, never()).close();
+            clearInvocations(f.swordItems, f.renderer);
+
+            f.bridge.playAbility(f.player, "master_sword");
+            verifyNoInteractions(f.swordItems);
+            verify(f.renderer, never()).create(any(PlatformEntity.class), any(TrackerModifier.class), any());
+            verify(f.slashRenderer, times(2)).create(any(PlatformLocation.class), any(TrackerModifier.class), any());
+        }
+    }
+
+    @Test void bodyAndCinematicInventorySnapshotsAreNeverCapturedOffTheServerThread() {
+        try (Fixture f = new Fixture()) {
+            when(f.server.isPrimaryThread()).thenReturn(false);
+            f.bridge.tickMovement(f.player, "master_sword", WALK);
+            f.bridge.playSwing(f.player, "master_sword");
+            assertFalse(f.bridge.playCinematic(f.player, "master_sword", f.player.getLocation()));
+            verifyNoInteractions(f.swordItems);
+            verify(f.renderer, never()).create(any(PlatformEntity.class), any(TrackerModifier.class), any());
+            verify(f.renderer, never()).create(any(PlatformLocation.class), any(ModelProfile.class),
+                    any(TrackerModifier.class), any());
         }
     }
 
@@ -120,6 +265,17 @@ class BetterModelAnimationBridgeTest {
                     .thenThrow(new NoSuchMethodError("snapshot API mismatch"));
             f.bridge.tickMovement(f.player, "master_sword", WALK);
             verify(f.swordItems).restorePlayerSoon(f.player.getUniqueId());
+            assertTrue(f.bridge.status().contains("API failed"));
+        }
+    }
+
+    @Test void failedInitialDisplaySnapshotRestoresTheRealSwordModelBeforeTrackerCreation() {
+        try (Fixture f = new Fixture()) {
+            when(f.swordItems.displayItem(f.player, "master_sword"))
+                    .thenThrow(new IllegalStateException("display snapshot unavailable"));
+            f.bridge.tickMovement(f.player, "master_sword", WALK);
+            verify(f.swordItems).restorePlayerSoon(f.player.getUniqueId());
+            verify(f.renderer, never()).create(any(PlatformEntity.class), any(TrackerModifier.class), any());
             assertTrue(f.bridge.status().contains("API failed"));
         }
     }
@@ -155,37 +311,56 @@ class BetterModelAnimationBridgeTest {
         final Player player = mock(Player.class);
         final MockedStatic<BetterModel> engineApi = mockStatic(BetterModel.class);
         final ModelRenderer renderer;
+        final ModelRenderer slashRenderer;
         final EntityTracker tracker;
+        final DummyTracker slash;
         final RenderedBone hand;
         final ModelDisplay handDisplay;
         final ItemStack displayItem = mock(ItemStack.class);
+        final ItemStack cachedItem = mock(ItemStack.class);
         final AnimatedSwordItems swordItems = mock(AnimatedSwordItems.class);
+        final Server server = mock(Server.class);
+        final FileConfiguration config = new YamlConfiguration();
         final BetterModelAnimationBridge bridge;
 
         Fixture() {
+            this(true);
+        }
+
+        Fixture(boolean playerBodyAnimations) {
             // BoneTags initialize their air item through the platform singleton.
             BetterModelPlatform platform = mock(BetterModelPlatform.class);
             PlatformAdapter adapter = mock(PlatformAdapter.class);
             when(platform.adapter()).thenReturn(adapter);
             when(adapter.air()).thenReturn(mock(PlatformItemStack.class));
             engineApi.when(BetterModel::platform).thenReturn(platform);
+            BetterModelConfig engineConfig = mock(BetterModelConfig.class);
+            when(engineConfig.module()).thenReturn(ModuleConfig.DEFAULT);
+            engineApi.when(BetterModel::config).thenReturn(engineConfig);
+            when(platform.playerManager()).thenReturn(mock(PlayerManager.class));
+            NMS nms = mock(NMS.class);
+            when(nms.profile(any(PlatformPlayer.class))).thenReturn(mock(ModelProfile.class));
+            engineApi.when(BetterModel::nms).thenReturn(nms);
             renderer = mock(ModelRenderer.class);
+            slashRenderer = mock(ModelRenderer.class);
             tracker = mock(EntityTracker.class);
+            slash = mock(DummyTracker.class);
             hand = mock(RenderedBone.class);
             handDisplay = mock(ModelDisplay.class);
             when(tracker.bone("right_item")).thenReturn(hand);
             when(hand.getDisplay()).thenReturn(handDisplay);
             JavaPlugin plugin = mock(JavaPlugin.class);
-            Server server = mock(Server.class);
             PluginManager pluginManager = mock(PluginManager.class);
             Plugin engine = mock(Plugin.class);
             BukkitScheduler scheduler = mock(BukkitScheduler.class);
-            FileConfiguration config = mock(FileConfiguration.class);
             when(plugin.getServer()).thenReturn(server);
             when(plugin.getConfig()).thenReturn(config);
+            config.set("bettermodel.install-bundled-models", false);
+            if (playerBodyAnimations) config.set("bettermodel.player-body-animations", true);
             when(plugin.getLogger()).thenReturn(Logger.getLogger("LegendarySwords-animation-tests"));
             when(server.getPluginManager()).thenReturn(pluginManager);
             when(server.getScheduler()).thenReturn(scheduler);
+            when(server.isPrimaryThread()).thenReturn(true);
             when(pluginManager.getPlugin("BetterModel")).thenReturn(engine);
             when(engine.isEnabled()).thenReturn(true);
             PluginMeta engineMeta = mock(PluginMeta.class);
@@ -197,9 +372,22 @@ class BetterModelAnimationBridgeTest {
                     .thenReturn(mock(BukkitTask.class));
             when(player.getUniqueId()).thenReturn(UUID.randomUUID());
             when(player.isOnline()).thenReturn(true);
+            World world = mock(World.class);
+            when(world.getPlayers()).thenReturn(List.of());
+            when(player.getLocation()).thenReturn(new Location(world, 0D, 64D, 0D));
             when(swordItems.begin(player, "master_sword")).thenReturn(true);
             when(swordItems.displayItem(player, "master_sword")).thenReturn(displayItem);
+            when(displayItem.clone()).thenReturn(cachedItem);
+            when(cachedItem.clone()).thenAnswer(call -> mock(ItemStack.class));
             when(renderer.animation(anyString())).thenReturn(Optional.of(mock(BlueprintAnimation.class)));
+            when(slashRenderer.animation(anyString())).thenReturn(Optional.of(mock(BlueprintAnimation.class)));
+            when(slashRenderer.create(any(PlatformLocation.class), any(TrackerModifier.class), any()))
+                    .thenAnswer(call -> {
+                        Consumer<DummyTracker> preUpdate = call.getArgument(2);
+                        preUpdate.accept(slash);
+                        return slash;
+                    });
+            when(slash.animate(anyString(), any(AnimationModifier.class), any(Runnable.class))).thenReturn(true);
             when(renderer.create(any(PlatformEntity.class), any(TrackerModifier.class), any())).thenAnswer(call -> {
                 Consumer<EntityTracker> preUpdate = call.getArgument(2);
                 preUpdate.accept(tracker);
@@ -207,6 +395,12 @@ class BetterModelAnimationBridgeTest {
             });
             when(tracker.animate(anyString(), any(AnimationModifier.class))).thenReturn(true);
             engineApi.when(() -> BetterModel.limbOrNull("legendaryswords_master_sword")).thenReturn(renderer);
+            for (String sword : List.of("master_sword", "flameblade", "fierce_deity_sword", "frostblade",
+                    "thunderblade", "royal_claymore", "eightfold_blade", "biggoron_sword")) {
+                engineApi.when(() -> BetterModel.limbOrNull("legendaryswords_" + sword)).thenReturn(renderer);
+                engineApi.when(() -> BetterModel.modelOrNull("legendaryswords_" + sword + "_slash"))
+                        .thenReturn(slashRenderer);
+            }
             bridge = new BetterModelAnimationBridge(plugin, swordItems);
         }
 

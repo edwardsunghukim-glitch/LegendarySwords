@@ -116,3 +116,12 @@ The converted model was parsed and loaded in strict mode using BetterModel's
 actual 3.1 model loader. Five Java checks passed including triangle preservation,
 all six clips, rig count, map connectivity and autocomplete. The preview is an
 offline render of the converted geometry, not a Minecraft screenshot.
+
+A combined 1.21.11 pack was produced from the user's new BetterModel build
+and LegendaryArmor-Swords 1.2.0 pack: LegendaryArmor-Swords-Backrooms-combined-
+resource-pack.zip. It includes all 22 Bacteria asset files and required mesh
+triangle templates/textures. All 586 armor/sword namespace assets are unchanged.
+Keep the pack zipped and use it instead of the previous combined pack. If the
+server hosts the resource pack, update the hosted ZIP and its SHA-1, then rejoin.
+The matching .sha1 file accompanies the download. Future BetterModel rebuilds
+should be merged again, not installed as a second conflicting combined pack.

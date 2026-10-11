@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "legendaryarmor:frost"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "legendaryarmor:frost"
+      }
+    ]
+  }
+}

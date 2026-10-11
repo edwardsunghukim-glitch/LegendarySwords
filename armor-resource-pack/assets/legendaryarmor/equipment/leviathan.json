@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "legendaryarmor:leviathan"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "legendaryarmor:leviathan"
+      }
+    ]
+  }
+}

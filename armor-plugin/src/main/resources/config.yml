@@ -1,0 +1,32 @@
+# Wear all four matching pieces to unlock passives and sneak + F abilities.
+abilities-enabled: true
+pvp: true
+friendly-fire: false
+accessories-enabled: true
+# Turn off if a cosmetic obstructs your view with a particular client/camera mod.
+accessories-visible-to-owner: true
+# Default armor protection uses real netherite stats and normal armor damage reduction.
+unbreakable: true
+sets:
+  angel:
+    cooldown-seconds: 28
+    damage: 8
+    healing: 6
+    passive-healing: 1
+  dragon:
+    cooldown-seconds: 24
+    damage: 4
+    fire-seconds: 4
+  leviathan:
+    cooldown-seconds: 25
+    damage: 14
+    speed-bonus: 0.08
+  stone:
+    cooldown-seconds: 30
+    damage: 20
+    damage-reduction: 0.12
+    knockback-resistance: 0.35
+  frost:
+    cooldown-seconds: 28
+    damage: 5
+    slow-seconds: 4

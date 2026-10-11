@@ -1,0 +1,14 @@
+name: LegendaryArmor
+version: '1.0.0'
+main: io.github.legendaryarmor.LegendaryArmor
+api-version: '1.21.11'
+commands:
+  legendaryarmor:
+    aliases: [armor, armors, larmor]
+    description: Browse armor, use abilities and manage sets
+    usage: /armor [ability|give <player> <set>|reload]
+permissions:
+  legendaryarmor.use:
+    default: true
+  legendaryarmor.admin:
+    default: op

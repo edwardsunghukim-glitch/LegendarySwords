@@ -1,5 +1,7 @@
 # Health is in hearts: 100 hearts = 200 health points.
 health-hearts: 100
+# Stronger attacks; applies on top of each boss damage value.
+outgoing-damage-multiplier: 1.5
 # 0.35 means bosses take 35% of incoming damage; 1.0 restores full damage.
 incoming-damage-multiplier: 0.35
 # Cap each incoming hit AFTER the multiplier, BEFORE native armor reduction.
@@ -46,3 +48,13 @@ bosses:
     flying: false
     damage: 12
     attack-cooldown-seconds: 4
+
+spawn-protection:
+  enabled: true
+  # WorldGuard region names; polygon and cuboid regions are supported.
+  regions: [spawn]
+  # Also protect this radius around each world's native spawn (0 disables fallback).
+  world-spawn-radius: 16
+
+# Native BetterModel hitboxes follow the animated body, wings and tail.
+model-hitboxes: true

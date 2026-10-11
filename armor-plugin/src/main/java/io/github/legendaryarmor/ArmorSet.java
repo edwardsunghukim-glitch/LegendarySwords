@@ -2,9 +2,9 @@ package io.github.legendaryarmor;
 import org.bukkit.Material;
 import java.util.*;
 enum ArmorSet {
-    ANGEL("angel","Seraph Ascendant","Flight and gentle regeneration","Radiant Sanctuary",0xffda75),
-    DRAGON("dragon","Dreadfire Wyrm","Flight and fire/lava immunity","Wyrmfire Breath",0xff713b),
-    LEVIATHAN("leviathan","Abyssal Sovereign","Flight, water breathing and swift movement","Tidal Dominion",0x46dce3),
+    ANGEL("angel","Seraph Ascendant","Temporary wings and gentle regeneration","Radiant Sanctuary",0xffda75),
+    DRAGON("dragon","Dreadfire Wyrm","Temporary wings and fire/lava immunity","Wyrmfire Breath",0xff713b),
+    LEVIATHAN("leviathan","Abyssal Sovereign","Temporary wings, water breathing and speed","Tidal Dominion",0x46dce3),
     STONE("stone","Runebound Colossus","Damage reduction and knockback resistance","Earthshatter",0xcab68e),
     FROST("frost","Winter Revenant","Melee attackers are chilled","Glacial Domain",0x9fddff);
     final String id,title,passive,ability;final int color;

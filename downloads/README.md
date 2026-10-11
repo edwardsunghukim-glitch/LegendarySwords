@@ -1,3 +1,5 @@
+[Boss-inspired armor + temporary wings 1.2.0](LegendaryArmor-download.zip) · [Wing preview](LegendaryArmor-wing-preview.png) · [Configuration](../armor-plugin/README.md)
+
 [Dragon boss + Angel/Dragon/Leviathan armor flight update](SwordFo-flight-update.zip) · [Flight configuration](../docs/FLIGHT-UPDATE.md)
 
 [Stable armor rendering plugin 1.1.2](LegendaryArmor-1.1.2.jar): disables floating accessory displays; existing pack remains compatible.

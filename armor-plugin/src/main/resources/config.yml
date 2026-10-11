@@ -2,11 +2,11 @@
 abilities-enabled: true
 pvp: true
 friendly-fire: false
-# Separate display attachments can trail under latency. Disabled for stable native armor.
-rendering-version: 2
-accessories-enabled: false
-# Turn off if a cosmetic obstructs your view with a particular client/camera mod.
-accessories-visible-to-owner: true
+# Fitted observer-only armor models. Turn off for texture-only rendering.
+rendering-version: 3
+accessories-enabled: true
+# Extra cosmetic parts are always hidden from the wearer in this version.
+accessories-visible-to-owner: false
 # Default armor protection uses real netherite stats and normal armor damage reduction.
 unbreakable: true
 sets:
@@ -35,3 +35,8 @@ sets:
     cooldown-seconds: 28
     damage: 5
     slow-seconds: 4
+
+# Double-jump wing power: cooldown starts when the wing duration ends.
+wings:
+  duration-seconds: 45
+  cooldown-seconds: 90

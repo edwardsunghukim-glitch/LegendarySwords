@@ -18,7 +18,7 @@ class ArmorPackTest(unittest.TestCase):
   digests={hashlib.sha256((ASSETS/'textures/entity/equipment/humanoid'/f'{name}.png').read_bytes()).digest() for name in SETS}
   self.assertEqual(len(digests),5)
  def test_item_definitions_resolve_models_and_textures(self):
-  items=list((ASSETS/'items').glob('*.json'));self.assertEqual(len(items),40)
+  items=list((ASSETS/'items').glob('*.json'));self.assertEqual(len(items),43)
   for item in items:
    ref=json.loads(item.read_text())['model']['model'].split(':')[1];model=json.loads((ASSETS/'models'/(ref+'.json')).read_text())
    for texture in model['textures'].values():

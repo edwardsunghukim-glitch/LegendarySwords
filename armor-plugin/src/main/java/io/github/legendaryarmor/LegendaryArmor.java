@@ -13,18 +13,18 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.*;
 
 public final class LegendaryArmor extends JavaPlugin implements Listener {
-    private ArmorFlight flight;
+    private ArmorFlight flight;private WingPower wings;
     private ArmorCatalog catalog;private ArmorCosmetics cosmetics;private ArmorAbilities abilities;private int ticks;
     private static final NamespacedKey SPEED=new NamespacedKey("legendaryarmor","set_speed"),RESIST=new NamespacedKey("legendaryarmor","set_resist");
     @Override public void onEnable(){saveDefaultConfig();
-        // Upgrade to stable equipment rendering: separate cosmetic entities can trail behind.
-        if(getConfig().getInt("rendering-version",0)<2){getConfig().set("accessories-enabled",false);getConfig().set("rendering-version",2);saveConfig();}
-        flight=new ArmorFlight(this);catalog=new ArmorCatalog(this);cosmetics=new ArmorCosmetics(this);abilities=new ArmorAbilities(this,catalog);
+        // Upgrade the fitted observer-only models and save the editable wing timer settings.
+        if(getConfig().getInt("rendering-version",0)<3){getConfig().set("accessories-enabled",true);getConfig().set("accessories-visible-to-owner",false);getConfig().set("rendering-version",3);getConfig().set("wings.duration-seconds",getConfig().getLong("wings.duration-seconds",45));getConfig().set("wings.cooldown-seconds",getConfig().getLong("wings.cooldown-seconds",90));saveConfig();}
+        flight=new ArmorFlight(this);wings=new WingPower(this);catalog=new ArmorCatalog(this);cosmetics=new ArmorCosmetics(this);abilities=new ArmorAbilities(this,catalog);
         getServer().getPluginManager().registerEvents(this,this);getServer().getOnlinePlayers().forEach(this::clean);
         getServer().getScheduler().runTaskTimer(this,this::tick,1,1);
     }
     @Override public void onDisable(){if(abilities!=null)abilities.close();if(cosmetics!=null)cosmetics.close();getServer().getOnlinePlayers().forEach(this::clean);}
-    private void clean(Player player){if(flight!=null)flight.clear(player);modifier(player,Attribute.MOVEMENT_SPEED,SPEED,0,AttributeModifier.Operation.ADD_SCALAR);modifier(player,Attribute.KNOCKBACK_RESISTANCE,RESIST,0,AttributeModifier.Operation.ADD_NUMBER);}
+    private void clean(Player player){if(flight!=null)flight.clear(player);if(wings!=null)wings.interrupt(player.getUniqueId());modifier(player,Attribute.MOVEMENT_SPEED,SPEED,0,AttributeModifier.Operation.ADD_SCALAR);modifier(player,Attribute.KNOCKBACK_RESISTANCE,RESIST,0,AttributeModifier.Operation.ADD_NUMBER);}
     private void modifier(Player player,Attribute attribute,NamespacedKey key,double amount,AttributeModifier.Operation operation) {
         updateModifier(player.getAttribute(attribute),key,amount,operation);
     }
@@ -37,8 +37,15 @@ public final class LegendaryArmor extends JavaPlugin implements Listener {
     private double setting(ArmorSet set,String name,double fallback){double value=getConfig().getDouble("sets."+set.id+"."+name,fallback);return Double.isFinite(value)?Math.clamp(value,0,100):fallback;}
     private ArmorSet worn(Player player){return player.isDead()||player.getGameMode()==GameMode.SPECTATOR?null:catalog.fullSet(player.getInventory().getArmorContents());}
     private void tick(){ticks++;for(Player player:getServer().getOnlinePlayers()) {
-        ArmorSet set=worn(player);cosmetics.update(player,set);
-        flight.update(player,(set==ArmorSet.ANGEL||set==ArmorSet.DRAGON||set==ArmorSet.LEVIATHAN)&&getConfig().getBoolean("sets."+set.id+".flight-enabled",true));
+        ArmorSet set=worn(player);wings.validateSet(player.getUniqueId(),set);
+        boolean flyingForm=wings.active(player.getUniqueId(),set);
+        cosmetics.update(player,set,flyingForm);
+        if(!wings.enabled(set))wings.interrupt(player.getUniqueId());
+        // Arm double-jump input on the ground; grant actual sustained flight only in the window.
+        if(wings.enabled(set)&&(flyingForm||player.isOnGround()))flight.update(player,true);
+        else if(!flyingForm&&player.isFlying()&&!player.hasMetadata("legendaryswords_boss_flight"))flight.clear(player);
+        else if(!wings.enabled(set))flight.clear(player);
+        if(flyingForm&&ticks%20==0)player.sendActionBar(ArmorCatalog.text("Wings: "+wings.remaining(player.getUniqueId(),set)+"s",set.color));
         modifier(player,Attribute.MOVEMENT_SPEED,SPEED,set==ArmorSet.LEVIATHAN?Math.min(.5,setting(set,"speed-bonus",.08)):0,AttributeModifier.Operation.ADD_SCALAR);
         modifier(player,Attribute.KNOCKBACK_RESISTANCE,RESIST,set==ArmorSet.STONE?Math.min(1,setting(set,"knockback-resistance",.35)):0,AttributeModifier.Operation.ADD_NUMBER);
         if(set==ArmorSet.ANGEL&&ticks%80==0)ArmorAbilities.heal(player,setting(set,"passive-healing",1));
@@ -58,6 +65,16 @@ public final class LegendaryArmor extends JavaPlugin implements Listener {
     @EventHandler(priority=EventPriority.MONITOR,ignoreCancelled=true) public void retaliate(EntityDamageByEntityEvent event) {
         if(event.getFinalDamage()>0&&event.getEntity() instanceof Player player&&worn(player)==ArmorSet.FROST&&event.getDamager() instanceof LivingEntity attacker&&abilities.eligible(player,attacker))
             attacker.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS,40,0));
+    }
+    @EventHandler(priority=EventPriority.HIGHEST,ignoreCancelled=true) public void toggleFlight(PlayerToggleFlightEvent event) {
+        Player player=event.getPlayer();ArmorSet set=worn(player);
+        if(!event.isFlying())return;
+        if(player.getGameMode()==GameMode.CREATIVE||player.getGameMode()==GameMode.SPECTATOR||player.hasMetadata("legendaryswords_boss_flight")||!wings.enabled(set))return;
+        if(wings.active(player.getUniqueId(),set))return;
+        event.setCancelled(true);
+        if(!player.hasPermission("legendaryarmor.use"))return;
+        if(!wings.start(player.getUniqueId(),set)){player.sendActionBar(ArmorCatalog.text("Wings are cooling down",set.color));return;}
+        flight.update(player,true);player.setFlying(true);cosmetics.update(player,set,true);
     }
     @EventHandler(priority=EventPriority.HIGHEST,ignoreCancelled=true) public void swap(PlayerSwapHandItemsEvent event) {
         ArmorSet set=worn(event.getPlayer());if(set!=null&&event.getPlayer().isSneaking()&&event.getPlayer().hasPermission("legendaryarmor.use")) {event.setCancelled(true);abilities.activate(event.getPlayer(),set);}
@@ -86,7 +103,7 @@ public final class LegendaryArmor extends JavaPlugin implements Listener {
     @Override public boolean onCommand(CommandSender sender,Command command,String label,String[] args) {
         if(args.length==1&&args[0].equalsIgnoreCase("reload")) {
             if(!sender.hasPermission("legendaryarmor.admin")){sender.sendMessage("No permission.");return true;}
-            reloadConfig();abilities.close();cosmetics.close();getServer().getOnlinePlayers().forEach(this::clean);sender.sendMessage("Armor config reloaded.");return true;
+            reloadConfig();wings.clear();abilities.close();cosmetics.close();getServer().getOnlinePlayers().forEach(this::clean);sender.sendMessage("Armor config reloaded.");return true;
         }
         if(args.length==3&&args[0].equalsIgnoreCase("give")) {
             if(!sender.hasPermission("legendaryarmor.admin")){sender.sendMessage("No permission.");return true;}

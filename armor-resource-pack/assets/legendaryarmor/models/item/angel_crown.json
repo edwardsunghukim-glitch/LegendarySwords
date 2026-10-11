@@ -1,9 +1,9 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "base": "legendaryarmor:material/angel_base",
-    "trim": "legendaryarmor:material/angel_trim",
-    "glow": "legendaryarmor:material/angel_glow"
+    "base": "legendaryarmor:item/material/angel_base",
+    "trim": "legendaryarmor:item/material/angel_trim",
+    "glow": "legendaryarmor:item/material/angel_glow"
   },
   "elements": [
     {

@@ -23,6 +23,7 @@ class ArmorPackTest(unittest.TestCase):
    ref=json.loads(item.read_text())['model']['model'].split(':')[1];model=json.loads((ASSETS/'models'/(ref+'.json')).read_text())
    for texture in model['textures'].values():
     self.assertTrue((ASSETS/'textures'/(texture.split(':')[1]+'.png')).is_file(),texture)
+    self.assertTrue(texture.split(':')[1].startswith(('item/','block/')), 'Item model texture must be stitched into the item/block atlas: '+texture)
    for element in model.get('elements',[]):
     self.assertTrue(all(-16<=v<=32 for v in element['from']+element['to']))
     self.assertTrue(all(a<b for a,b in zip(element['from'],element['to'])))

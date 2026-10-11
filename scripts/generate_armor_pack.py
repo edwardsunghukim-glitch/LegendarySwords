@@ -113,7 +113,7 @@ MODELS={}
 KNIGHTPARTS={}
 def model(name,theme,elements):
  MODELS[name]=elements
- savejson(A/'models/item'/f'{name}.json',{'ambientocclusion':False,'textures':{key:f'legendaryarmor:material/{theme}_{key}' for key in ['base','trim','glow']},'elements':elements,'display':{'fixed':{'rotation':[0,0,0],'translation':[0,0,0],'scale':[1,1,1]}}})
+ savejson(A/'models/item'/f'{name}.json',{'ambientocclusion':False,'textures':{key:f'legendaryarmor:item/material/{theme}_{key}' for key in ['base','trim','glow']},'elements':elements,'display':{'fixed':{'rotation':[0,0,0],'translation':[0,0,0],'scale':[1,1,1]}}})
  savejson(A/'items'/f'{name}.json',{'model':{'type':'minecraft:model','model':f'legendaryarmor:item/{name}'}})
 def accessories(theme):
  back=[];crown=[]
@@ -272,7 +272,7 @@ def main():
   for key,color in zip(['base','trim','glow'],THEMES[theme][1:]):
    image=Image.new('RGBA',(32,32),color+(255,));draw=ImageDraw.Draw(image)
    for i in range(0,32,4):draw.line((0,i,31,i),fill=mix(color,.8)+(255,));draw.line((i,0,i,31),fill=mix(color,1.1)+(255,))
-   savepng(A/'textures/material'/f'{theme}_{key}.png',image)
+   savepng(A/'textures/item/material'/f'{theme}_{key}.png',image)
   icons(theme);accessories(theme)
  effects();preview()
  output=ROOT/'downloads/LegendaryArmor-resource-pack.zip'

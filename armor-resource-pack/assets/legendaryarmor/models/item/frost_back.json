@@ -1,9 +1,9 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "base": "legendaryarmor:material/frost_base",
-    "trim": "legendaryarmor:material/frost_trim",
-    "glow": "legendaryarmor:material/frost_glow"
+    "base": "legendaryarmor:item/material/frost_base",
+    "trim": "legendaryarmor:item/material/frost_trim",
+    "glow": "legendaryarmor:item/material/frost_glow"
   },
   "elements": [
     {

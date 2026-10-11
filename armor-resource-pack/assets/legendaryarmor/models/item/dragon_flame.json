@@ -1,9 +1,9 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "base": "legendaryarmor:material/dragon_base",
-    "trim": "legendaryarmor:material/dragon_trim",
-    "glow": "legendaryarmor:material/dragon_glow"
+    "base": "legendaryarmor:item/material/dragon_base",
+    "trim": "legendaryarmor:item/material/dragon_trim",
+    "glow": "legendaryarmor:item/material/dragon_glow"
   },
   "elements": [
     {

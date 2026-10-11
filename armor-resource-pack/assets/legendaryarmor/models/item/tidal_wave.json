@@ -1,9 +1,9 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "base": "legendaryarmor:material/leviathan_base",
-    "trim": "legendaryarmor:material/leviathan_trim",
-    "glow": "legendaryarmor:material/leviathan_glow"
+    "base": "legendaryarmor:item/material/leviathan_base",
+    "trim": "legendaryarmor:item/material/leviathan_trim",
+    "glow": "legendaryarmor:item/material/leviathan_glow"
   },
   "elements": [
     {

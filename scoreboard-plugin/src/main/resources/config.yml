@@ -1,0 +1,16 @@
+ip: swordfo.minehut.gg
+title: '&6&lSWORDFO'
+refresh-ticks: 20
+lines:
+  - '&8&m────────────────'
+  - '&7Player &f{player}'
+  - ''
+  - '&6Wallet &f{wallet}'
+  - '&7Kills &f{kills} &8| &7Deaths &f{deaths}'
+  - ''
+  - '&7Combat &f{combat}'
+  - '&7KoTH &f{koth}'
+  - ''
+  - '&7Online &f{online}/{maxplayers}'
+  - '&8&m────────────────'
+  - '&6{ip}'

@@ -1,0 +1,12 @@
+name: SwordFoScoreboard
+version: '1.0.0'
+main: io.github.swordfoscoreboard.SwordFoScoreboard
+api-version: '1.21.11'
+softdepend: [KillTokens, LegendaryKoTH]
+commands:
+  swordboard:
+    description: Display settings
+    usage: /swordboard [reload]
+permissions:
+  swordfoscoreboard.admin:
+    default: op

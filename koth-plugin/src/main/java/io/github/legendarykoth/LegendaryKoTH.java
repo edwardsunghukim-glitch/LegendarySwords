@@ -16,6 +16,11 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 
 public final class LegendaryKoTH extends JavaPlugin implements Listener {
+    public String getDisplayStatus(){
+        if(!active)return "Inactive";
+        if(capture.contested)return "Contested ("+capture.seconds+"/"+required()+"s)";
+        return capture.holder==null?"Waiting":capture.seconds+"/"+required()+"s";
+    }
     private final CaptureState capture=new CaptureState();
     private WorldGuardRegion regions;
     private BossBar bar;

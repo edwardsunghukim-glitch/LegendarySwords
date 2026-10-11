@@ -1,7 +1,7 @@
-# KillTokens 1.0.0
+# KillTokens 1.0.1
 
 Standalone Paper 1.21.11 plugin, Java 21+. No Vault or economy plugin required.
-Stop server, upload KillTokens-1.0.0.jar to plugins, restart.
+Stop server, upload KillTokens-1.0.1.jar to plugins, restart.
 
 ## Tokens and kills
 Each player kill drops one gold-named sunflower KillToken at the defeated player by default. It is a normal collectible ground drop, not automatically banked. Projectile kills count when Bukkit credits the killer. KillTokens are identified by a persistent plugin marker, not just the display name; renamed ordinary sunflowers do not count. KillTokens cannot be placed or crafted into dye, including automatic crafters.
@@ -53,3 +53,5 @@ Kill drops = floor(base reward × baseline multiplier × active admin multiplier
 Wallets and admin multiplier persist in plugins/KillTokens/balances.yml via temporary-file replacement. Failed writes roll back the balance and leave inventory unchanged. Invalid wallet YAML disables the plugin instead of overwriting balances with empty accounts. Orderly restarts preserve banked tokens; physical player inventories are managed by Minecraft. A process crash between bank persistence and inventory update is not a distributed transaction across Minecraft player data.
 Build: mvn verify in this directory. 16 tests verify inventory-wide deposits, insufficient deposits, overflow accounting, safe full-inventory reward planning, balance persistence/limits/write failure, multiplier expiry, permissions, namespaced commands, reward factors, and token placement protection.
 No live Paper/client test performed.
+
+Version 1.0.1 adds read-only display API methods for the SwordFo scoreboard/tab plugins. Existing gameplay and config remain compatible. Replace old JAR, keep data folder.

@@ -20,6 +20,8 @@ import java.io.IOException;
 import java.util.*;
 
 public final class KillTokens extends JavaPlugin implements Listener {
+    public long getWalletBalance(UUID player){return bank==null?0:bank.balance(player);}
+    public long getCombatSeconds(UUID player){return Math.max(0,(combat.getOrDefault(player,0L)-System.currentTimeMillis()+999)/1000);}
     private NamespacedKey marker;
     private TokenBank bank;
     private final Map<UUID,Long> combat=new HashMap<>();

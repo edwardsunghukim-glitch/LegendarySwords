@@ -1,5 +1,5 @@
 name: LegendaryKoTH
-version: '1.0.0'
+version: '1.0.1'
 main: io.github.legendarykoth.LegendaryKoTH
 api-version: '1.21.11'
 depend: [WorldGuard]

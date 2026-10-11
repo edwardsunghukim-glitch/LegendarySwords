@@ -1,7 +1,7 @@
-# LegendaryKoTH 1.0.0
+# LegendaryKoTH 1.0.1
 
 Standalone Paper 1.21.11 plugin, Java 21+. Requires WorldGuard 7 and its WorldEdit dependency already installed. Uses the public WorldGuard region API via reflection so no extra libraries are bundled.
-Stop server, upload LegendaryKoTH-1.0.0.jar to plugins, restart.
+Stop server, upload LegendaryKoTH-1.0.1.jar to plugins, restart.
 
 ## Existing region
 Defaults to the WorldGuard region kothwin. If it exists in exactly one loaded world, the plugin finds it automatically. /koth setregion kothwin <world> explicitly chooses a world. Polygon and cuboid regions both use WorldGuard's actual contains check, including vertical boundaries; the plugin does not replace the polygon with a bounding rectangle.
@@ -45,3 +45,5 @@ messages.started/stopped/captured/won: configurable & color messages; %player% a
 Use /koth reload after file edits. Event state is not retained over restarts. The timer uses server ticks, so heavy server lag can extend real elapsed time.
 
 Build: mvn verify. Nine tests verify exact 100-second win, contested pause/reset, changing/absent holders, stopped state, immediate death/disconnect reset, reward substitution and management permission checks. WorldGuard API signatures were checked against official WorldGuard 7/WorldEdit 7 sources. No live Paper/WorldGuard test performed.
+
+Version 1.0.1 adds read-only display API methods for the SwordFo scoreboard/tab plugins. Existing gameplay and config remain compatible. Replace old JAR, keep data folder.

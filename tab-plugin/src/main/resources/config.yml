@@ -1,0 +1,15 @@
+ip: swordfo.minehut.gg
+refresh-ticks: 40
+header:
+  - ''
+  - '&6&lSWORDFO'
+  - '&7Legendary battles'
+  - '&8&m────────────────────────'
+  - '&7Online &f{online}/{maxplayers}'
+  - ''
+footer:
+  - ''
+  - '&7Wallet &6{wallet} &8• &7Ping &f{ping}ms'
+  - '&8&m────────────────────────'
+  - '&6{ip}'
+  - ''

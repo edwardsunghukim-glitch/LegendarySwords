@@ -1,0 +1,12 @@
+name: SwordFoTab
+version: '1.0.0'
+main: io.github.swordfotab.SwordFoTab
+api-version: '1.21.11'
+softdepend: [KillTokens, LegendaryKoTH]
+commands:
+  swordtab:
+    description: Display settings
+    usage: /swordtab [reload]
+permissions:
+  swordfotab.admin:
+    default: op

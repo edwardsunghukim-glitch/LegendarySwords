@@ -1,5 +1,5 @@
 name: LegendaryBosses
-version: '1.0.3'
+version: '1.0.4'
 main: io.github.legendarybosses.LegendaryBosses
 api-version: '1.21.11'
 depend: [BetterModel, LegendaryArmor]

@@ -58,3 +58,6 @@ spawn-protection:
 
 # Native BetterModel hitboxes follow the animated body, wings and tail.
 model-hitboxes: true
+
+# Small model-local margin around each full body-part bound; scales with model.
+hitbox-padding: 0.08

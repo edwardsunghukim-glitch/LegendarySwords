@@ -1,0 +1,13 @@
+name: TemporaryBlocks
+version: '1.0.0'
+main: io.github.tempblocks.TemporaryBlocks
+api-version: '1.21.11'
+commands:
+  tempblocks:
+    description: Toggle permanent block placement
+    usage: /tempblocks bypass
+    aliases: [tb]
+permissions:
+  tempblocks.bypass:
+    description: Allows toggling permanent placement
+    default: op

@@ -1,12 +1,12 @@
 name: LegendaryKits
-version: '1.1.0'
+version: '1.2.0'
 main: io.github.legendarykits.LegendaryKits
 api-version: '1.21.11'
 commands:
   kits:
     description: Browse and edit kits
     aliases: [kit, legendarykits]
-    usage: /kits [create <name> | <name> | cooldown <name> <seconds> | permission <name> <node|none> | default <name|none>]
+    usage: /kits [create <name> | <name> | cooldown <name> <seconds> | permission <name> <node|none> | default <name|none> | slot <name> <1-27>]
 permissions:
   legendarykits.use:
     default: true

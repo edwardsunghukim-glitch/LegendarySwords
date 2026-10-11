@@ -23,7 +23,7 @@ public final class LegendaryKits extends JavaPlugin implements Listener {
     private String defaultKit="";
     static final int MENU_SIZE=27;
     private static final class Kit {
-        String id, permission=""; long cooldown=3600; ItemStack icon=new ItemStack(Material.CHEST);
+        String id, permission=""; int slot=-1; long cooldown=3600; ItemStack icon=new ItemStack(Material.CHEST);
         ItemStack[] items=new ItemStack[41];
         Kit(String id) { this.id=id; }
     }
@@ -43,6 +43,7 @@ public final class LegendaryKits extends JavaPlugin implements Listener {
             k.cooldown=Math.min(31536000,Math.max(0,yaml.getLong(path+".cooldown",3600))); k.permission=yaml.getString(path+".permission","");
             ItemStack icon=yaml.getItemStack(path+".icon"); if (!KitItems.empty(icon)) k.icon=icon;
             for (int i=0;i<41;i++) k.items[i]=yaml.getItemStack(path+".items."+i);
+            k.slot=yaml.getInt(path+".slot",-1);
             kits.put(id,k);
         }
         var times=yaml.getConfigurationSection("claims");
@@ -51,13 +52,14 @@ public final class LegendaryKits extends JavaPlugin implements Listener {
             Kit starter=new Kit("starter"); starter.items[0]=new ItemStack(Material.IRON_SWORD);
             starter.items[1]=new ItemStack(Material.COOKED_BEEF,16); starter.icon=new ItemStack(Material.IRON_SWORD); kits.put(starter.id,starter); save();
         }
+        applySlots(KitSlots.normalize(slotMap(),MENU_SIZE));
         getServer().getPluginManager().registerEvents(this,this);
     }
     private boolean save() {
         YamlConfiguration out=new YamlConfiguration();
         out.set("default-kit",defaultKit);
         for(Kit k:kits.values()) {
-            String path="kits."+k.id; out.set(path+".cooldown",k.cooldown);out.set(path+".permission",k.permission);out.set(path+".icon",k.icon);
+            String path="kits."+k.id; out.set(path+".slot",k.slot);out.set(path+".cooldown",k.cooldown);out.set(path+".permission",k.permission);out.set(path+".icon",k.icon);
             for(int i=0;i<41;i++) out.set(path+".items."+i,k.items[i]);
         }
         claims.forEach((key,value)->out.set("claims."+key,value));
@@ -70,18 +72,21 @@ public final class LegendaryKits extends JavaPlugin implements Listener {
     private static ItemStack button(Material material,String name,String... lore) {
         ItemStack item=new ItemStack(material);ItemMeta meta=item.getItemMeta(); meta.setDisplayName(name);meta.setLore(List.of(lore)); item.setItemMeta(meta);return item;
     }
+    private Map<String,Integer> slotMap() {
+        Map<String,Integer> slots=new LinkedHashMap<>();kits.forEach((id,k)->slots.put(id,k.slot));return slots;
+    }
+    private void applySlots(Map<String,Integer> slots) {slots.forEach((id,slot)->kits.get(id).slot=slot);}
     private void browse(Player p) {
         Menu m=new Menu(p.getUniqueId(),null);m.inventory=Bukkit.createInventory(m,MENU_SIZE,Component.text("Kits",NamedTextColor.GOLD));
-        int slot=0;
         for(Kit k:kits.values()) {
-            if(slot>=MENU_SIZE) break;
+            int slot=k.slot;if(slot<0||slot>=MENU_SIZE)continue;
             ItemStack icon=k.icon.clone();ItemMeta meta=icon.getItemMeta();
             meta.displayName(Component.text(k.id,NamedTextColor.GOLD));
             List<String> lore=new ArrayList<>(List.of("Left-click: claim","Cooldown: "+k.cooldown+" seconds"));
             if(!k.permission.isEmpty()) lore.add("Permission: "+k.permission);
             if(k.id.equals(defaultKit)) lore.add("Default spawn kit");
             if(p.hasPermission("legendarykits.admin")) lore.add("Right-click: edit");
-            meta.setLore(lore);icon.setItemMeta(meta);m.inventory.setItem(slot,icon);m.slots.put(slot,k.id);slot++;
+            meta.setLore(lore);icon.setItemMeta(meta);m.inventory.setItem(slot,icon);m.slots.put(slot,k.id);
         }
         p.openInventory(m.inventory);
     }
@@ -96,6 +101,7 @@ public final class LegendaryKits extends JavaPlugin implements Listener {
         m.inventory.setItem(49,button(Material.ITEM_FRAME,"Set icon","Put the desired icon on your cursor","Then click here"));
         m.inventory.setItem(50,button(Material.BARRIER,"Delete kit","Click twice to confirm"));
         m.inventory.setItem(51,button(Material.NETHER_STAR,"Set default spawn kit", "Automatically equip on join and respawn"));
+        m.inventory.setItem(52,button(Material.COMPASS,"Menu slot: "+(k.slot+1),"Use /kits slot "+k.id+" <1–27>"));
         p.openInventory(m.inventory);
     }
     @EventHandler public void click(InventoryClickEvent e) {
@@ -129,6 +135,8 @@ public final class LegendaryKits extends JavaPlugin implements Listener {
             m.inventory.setItem(47,button(Material.CLOCK,"Cooldown: "+k.cooldown+"s","Left: +60; right: -60; shift: zero"));
         } else if(slot==49 && !KitItems.empty(e.getCursor())) {
             ItemStack old=k.icon;k.icon=e.getCursor().clone();k.icon.setAmount(1);if(!save())k.icon=old;p.sendMessage("Icon updated.");
+        } else if(slot==52) {
+            p.sendMessage("Use /kits slot "+k.id+" <1–27> to move this kit.");
         } else if(slot==51) {
             String old=defaultKit;defaultKit=k.id;
             if(!save()){defaultKit=old;p.sendMessage("Save failed.");}else p.sendMessage("Default spawn kit: "+k.id);
@@ -172,7 +180,7 @@ public final class LegendaryKits extends JavaPlugin implements Listener {
         if(!(sender instanceof Player p)){sender.sendMessage("Use this command in game.");return true;}
         if(args.length==0){if(p.hasPermission("legendarykits.use"))browse(p);else p.sendMessage("No permission.");return true;}
         String action=args[0].toLowerCase(Locale.ROOT);
-        if(Set.of("create","cooldown","permission","default").contains(action)) {
+        if(Set.of("create","cooldown","permission","default","slot").contains(action)) {
             if(!p.hasPermission("legendarykits.admin")){p.sendMessage("No permission to edit kits.");return true;}
             if(args.length<2)return false;
             if(action.equals("default")) {
@@ -190,9 +198,18 @@ public final class LegendaryKits extends JavaPlugin implements Listener {
                 if(kits.size()>=MENU_SIZE){p.sendMessage("The single-page menu holds 27 kits. Delete a kit before creating another.");return true;}
                 Kit k=new Kit(id);k.items=KitItems.copy(p.getInventory().getContents());
                 if(!KitItems.empty(p.getInventory().getItemInMainHand())){k.icon=p.getInventory().getItemInMainHand().clone();k.icon.setAmount(1);}
-                kits.put(id,k);if(!save()){kits.remove(id);p.sendMessage("Save failed.");return true;}edit(p,k);return true;
+                kits.put(id,k);applySlots(KitSlots.normalize(slotMap(),MENU_SIZE));if(!save()){kits.remove(id);p.sendMessage("Save failed.");return true;}edit(p,k);return true;
             }
             Kit k=kits.get(id);if(k==null){p.sendMessage("Unknown kit.");return true;}if(args.length!=3)return false;
+            if(action.equals("slot")) {
+                try {
+                    int target=Integer.parseInt(args[2])-1;
+                    Map<String,Integer> previous=slotMap();applySlots(KitSlots.move(previous,id,target,MENU_SIZE));
+                    if(!save()){applySlots(previous);p.sendMessage("Save failed.");return true;}
+                    p.sendMessage("Moved kit "+id+" to menu slot "+(target+1)+". Occupied slots swap kits.");
+                } catch(IllegalArgumentException ex){p.sendMessage("Slot must be a number from 1 to 27.");}
+                return true;
+            }
             if(action.equals("cooldown")) {
                 try {long value=Long.parseLong(args[2]);if(value<0||value>31536000)throw new NumberFormatException();long old=k.cooldown;k.cooldown=value;if(!save())k.cooldown=old;}
                 catch(NumberFormatException ex){p.sendMessage("Cooldown must be 0–31536000 seconds.");return true;}

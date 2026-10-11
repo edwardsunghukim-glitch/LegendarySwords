@@ -35,9 +35,9 @@ class KitItemsTest {
     }
     @Test void adminCommandsRejectPlayersWithoutPermissionBeforeAccessingKits() {
         LegendaryKits plugin=mock(LegendaryKits.class,CALLS_REAL_METHODS);Player p=mock(Player.class);
-        for(String action:List.of("create","cooldown","permission","default"))
+        for(String action:List.of("create","cooldown","permission","default","slot"))
             assertTrue(plugin.onCommand(p,mock(Command.class),"kits",new String[]{action,"starter","0"}));
-        verify(p,times(4)).sendMessage("No permission to edit kits.");verify(plugin,never()).getServer();
+        verify(p,times(5)).sendMessage("No permission to edit kits.");verify(plugin,never()).getServer();
     }
     @Test void repeatedSpawnDoesNotMultiplyKitItems() {
         ItemStack[] kit=new ItemStack[41];kit[0]=item(16);

@@ -1,9 +1,9 @@
-# LegendaryKits 1.1.0
+# LegendaryKits 1.2.0
 
 Standalone Paper 1.21.11 plugin, Java 21+. No dependency on PlayerKits2.
 
 ## Install
-Stop the server, place LegendaryKits-1.1.0.jar in plugins, restart.
+Stop the server, place LegendaryKits-1.2.0.jar in plugins, restart.
 If another plugin owns /kits, use /legendarykits or /legendarykits:kits.
 A sample starter kit is created on first launch (one-hour cooldown).
 
@@ -32,7 +32,7 @@ Cooldown/icon changes save immediately, independently of the contents Save/Cance
 Custom item metadata, enchantments and persistent data are preserved using Bukkit item serialization.
 Kits and claim times live in plugins/LegendaryKits/kits.yml. No resource pack is included.
 
-Build: mvn verify in this directory. Eight tests verify inventory insertion/failure isolation, spawn top-ups/equipment preservation, command permissions, and menu capacity.
+Build: mvn verify in this directory. Twelve tests verify inventory insertion/failure isolation, spawn top-ups/equipment preservation, command permissions, and menu capacity.
 A live Paper server/client GUI test has not been performed. This implements kit menus/editing, not every PlayerKits2 feature.
 
 ## Default spawn kit
@@ -46,4 +46,11 @@ Armor/offhand equip into empty slots; existing gear and unrelated items are pres
 Identical gear already in storage is moved to an empty equipment slot. If storage cannot fit the full grant, nothing changes.
 The contents editor remains six rows to support all 41 player inventory/equipment slots and its controls.
 
-Upgrade: stop server, replace LegendaryKits-1.0.0.jar with LegendaryKits-1.1.0.jar, keep the LegendaryKits data folder, restart.
+Upgrade: stop server, replace LegendaryKits-1.0.0.jar with LegendaryKits-1.2.0.jar, keep the LegendaryKits data folder, restart.
+
+## Kit menu positions
+/kits slot <name> <1–27> requires legendarykits.admin and persists the position.
+Slots are counted left to right: first row 1–9, second 10–18, third 19–27. Example: /kits slot starter 14 centers the starter kit.
+Moving to an occupied position swaps the two kits, preserving both icons. Empty positions stay blank.
+The editor includes a Menu slot button showing its current position and the command.
+Existing kits automatically receive available slots when upgraded. kits.yml stores zero-based slot numbers (0–26); the command uses 1–27.

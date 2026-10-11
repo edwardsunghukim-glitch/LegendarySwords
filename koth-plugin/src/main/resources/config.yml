@@ -1,0 +1,22 @@
+region:
+  name: kothwin
+  # Empty = find kothwin among loaded worlds; specify a world if duplicated.
+  world: ''
+capture:
+  seconds: 100
+  # A challenger pauses the holder's progress. False resets it instead.
+  pause-when-contested: true
+  # A holder who leaves/dies loses all progress.
+  allow-creative: false
+  # Optional permissions to exclude staff players from capturing.
+  excluded-permissions: []
+# /koth start begins an event; no automatic start by default.
+start-on-server-start: false
+rewards:
+  # Commands execute as console. Use %player% or {player} for winner.
+  commands: []
+messages:
+  started: '&6KoTH started! Hold the hill for %seconds% seconds.'
+  stopped: '&cKoTH stopped.'
+  captured: '&e%player% is capturing KoTH!'
+  won: '&6%player% won KoTH!'

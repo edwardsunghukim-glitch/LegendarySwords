@@ -1,0 +1,12 @@
+name: LegendaryKoTH
+version: '1.0.0'
+main: io.github.legendarykoth.LegendaryKoTH
+api-version: '1.21.11'
+depend: [WorldGuard]
+commands:
+  koth:
+    description: King of the Hill event
+    usage: /koth [start|stop|setregion <region> [world]|setreward <command>|reward add <command>|reward clear|reload]
+permissions:
+  legendarykoth.admin:
+    default: op

@@ -2,6 +2,9 @@
 health-hearts: 100
 # 0.35 means bosses take 35% of incoming damage; 1.0 restores full damage.
 incoming-damage-multiplier: 0.35
+# Cap each incoming hit AFTER the multiplier, BEFORE native armor reduction.
+# 10 health points = at most 5 hearts before armor. Applies to the actual mob.
+max-damage-per-hit: 10
 max-active-bosses: 5
 target-range: 40
 leash-range: 64

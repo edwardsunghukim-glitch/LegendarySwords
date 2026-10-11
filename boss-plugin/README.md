@@ -1,8 +1,8 @@
-# LegendaryBosses 1.0.1
+# LegendaryBosses 1.0.2
 
 Paper 1.21.11, Java 21+, BetterModel 3.1, LegendaryArmor 1.2.0+.
 
-Install LegendaryBosses-1.0.1.jar in plugins and restart. Use the existing
+Install LegendaryBosses-1.0.2.jar in plugins and restart. Use the existing
 LegendaryArmor/Swords combined resource pack. This plugin does not replace
 LegendarySwords or LegendaryArmor.
 
@@ -56,7 +56,7 @@ scale 1.5 means another 50% larger. Default: at most five encounters.
 Validation: Maven verify runs health/reward/config/autocomplete and matching armor
 metadata checks. Live Paper/BetterModel rendering and flight are not tested here.
 
-1.0.1 fix: boss abilities cannot self-hit or damage the casting boss through
+1.0.2 fix: boss abilities cannot self-hit or damage the casting boss through
 reflected Thorns. Dragon bosses are immune to fire/lava damage. Player attacks
 still work. Incoming damage defaults to 35% (100 hearts remain unchanged); edit
 incoming-damage-multiplier and use /boss reload to adjust existing encounters.
@@ -64,3 +64,10 @@ Existing configs without the new option also default to 0.35.
 
 Boss loot now has the same colored name and full passive/ability lore as /armor.
 Previously dropped trophy items keep their old display text; their powers are the same.
+
+1.0.2: incoming hits on the actual zombie are capped at 10 health points after
+the damage multiplier (5 hearts before native armor). max-damage-per-hit is
+configurable and works with existing config files that lack the new setting.
+BetterModel forwards model hitbox damage to this same mob health pool.
+The underlying entity also has the colored boss name for vanilla death messages;
+other plugins that replace death messages may apply their own formatting.

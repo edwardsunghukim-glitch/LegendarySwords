@@ -10,9 +10,11 @@ import org.bukkit.event.entity.*;
 final class BossDamageGuard implements Listener {
     private final Function<UUID,BossType> types;
     private final java.util.function.DoubleSupplier multiplier;
+    private final java.util.function.DoubleSupplier hitLimit;
     private final Set<UUID> attacking=new HashSet<>();
     BossDamageGuard(Function<UUID,BossType> types){this(types,()->1);}
-    BossDamageGuard(Function<UUID,BossType> types,java.util.function.DoubleSupplier multiplier){this.types=types;this.multiplier=multiplier;}
+    BossDamageGuard(Function<UUID,BossType> types,java.util.function.DoubleSupplier multiplier){this(types,multiplier,()->1000);}
+    BossDamageGuard(Function<UUID,BossType> types,java.util.function.DoubleSupplier multiplier,java.util.function.DoubleSupplier hitLimit){this.types=types;this.multiplier=multiplier;this.hitLimit=hitLimit;}
     void attack(Entity boss,Runnable damage){
         UUID id=boss.getUniqueId();boolean added=attacking.add(id);
         try{damage.run();}finally{if(added)attacking.remove(id);}
@@ -35,6 +37,6 @@ final class BossDamageGuard implements Listener {
             ||cause==EntityDamageEvent.DamageCause.LAVA
             ||cause==EntityDamageEvent.DamageCause.HOT_FLOOR;
         if(blocked)event.setCancelled(true);
-        else event.setDamage(event.getDamage()*BossRules.bounded(multiplier.getAsDouble(),.35,.01,1));
+        else event.setDamage(Math.min(BossRules.bounded(hitLimit.getAsDouble(),10,.1,1000),event.getDamage()*BossRules.bounded(multiplier.getAsDouble(),.35,.01,1)));
     }
 }

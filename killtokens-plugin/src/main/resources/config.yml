@@ -1,0 +1,25 @@
+# Rewards drop at the defeated player as part of their death drops.
+rewards:
+  tokens-per-kill: 1
+  # Prevent repeated kills of the same person earning tokens within this time.
+  same-victim-cooldown-seconds: 0
+  excluded-worlds: []
+  # Global baseline multiplier; admin timed multiplier multiplies this value.
+  base-multiplier: 1.0
+  # Optional permission multipliers. Highest matching factor is used (not added).
+  permission-multipliers: {}
+  max-tokens-per-kill: 2304
+token:
+  name: '&6&lKillToken'
+  lore:
+    - '&7Earned by defeating another player.'
+    - '&e/deposit &7to bank your tokens.'
+banking:
+  max-per-transaction: 2304
+combat:
+  enabled: true
+  duration-seconds: 20
+  action-bar: true
+  # Optional combat-log punishment; off by default.
+  kill-on-logout: false
+  blocked-commands: [spawn, home, homes, tpa, tpaccept, warp, warps, fly]

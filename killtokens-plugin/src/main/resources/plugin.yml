@@ -1,0 +1,33 @@
+name: KillTokens
+version: '1.0.0'
+main: io.github.killtokens.KillTokens
+api-version: '1.21.11'
+commands:
+  killtokens:
+    aliases: [kt, tokens, killtoken]
+    description: Balance and token administration
+    usage: /killtokens [balance|give <player> <amount>|set <player> <amount>|reload|multiplier <factor|off> [minutes]]
+  deposit:
+    description: Bank physical KillTokens
+    usage: /deposit [amount|all]
+  withdraw:
+    description: Withdraw physical KillTokens
+    usage: /withdraw [amount|all]
+  wallet:
+    aliases: [tokenbalance, killtokenbalance]
+    description: Show your banked KillTokens
+  killtokengive:
+    description: Add to a player's banked wallet
+    usage: /killtokengive <player> <amount>
+  killtokenset:
+    description: Set a player's banked wallet
+    usage: /killtokenset <player> <amount>
+  combat:
+    description: Show remaining combat tag
+permissions:
+  killtokens.use:
+    default: true
+  killtokens.admin:
+    default: op
+  killtokens.combat-bypass:
+    default: false

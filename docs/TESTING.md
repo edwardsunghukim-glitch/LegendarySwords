@@ -19,3 +19,5 @@ Boss checks cover all five models and attacks, owner exclusion and inventory saf
 0.5.2 validation: all 326 Java tests passed, including official export of 180 named expansion aliases. The boss contract verifies 128×128 independent atlases, valid positive geometry and UV bounds, animated jaws/spines, and root-only transform scaling. The full generator reproduced all 115 committed models without the uploaded reference file. Five boss poses were rendered in Blender for art review.
 
 Giant-form asset checks require at least eight blocks of humanoid height and sixteen blocks of serpent length, with a 32-block upper extent limit. All sizes are visual model extents; the vanilla player collision box and existing combat balance remain unchanged.
+
+0.5.3 adds real-archive regression checks for all five manually uploaded boss files from 0.5.0, 0.5.1 and 0.5.2, their byte-exact backups, edited-file preservation and incorrect-name rejection. It also updates the status assertion to refer to the matching pack rather than the obsolete 0.5.0 pack.

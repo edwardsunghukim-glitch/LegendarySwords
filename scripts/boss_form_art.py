@@ -359,6 +359,8 @@ def rebuild(model,index):
     for element in model['elements']:
         for key in ('from','to','origin'):element[key]=[round(v*scale,5) for v in element[key]]
     for group in model['groups']:group['origin']=[round(v*scale,5) for v in group['origin']]
+    # Keep inline pivots/names for snapshot readers that do not use the BB5 group table.
+    for group in model['groups']:nodes[group['uuid']].update(group)
     model['resolution']={'width':128,'height':128}
     model['textures']=[{'name':name+'_painted.png','id':'0','width':128,'height':128,'uv_width':128,'uv_height':128,'source':'data:image/png;base64,'+atlas(index)}]
     model['credit']='Original LegendarySwords sculpted boss forms and painted material textures'

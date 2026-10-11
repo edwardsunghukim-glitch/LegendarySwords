@@ -1,10 +1,10 @@
 # Installing the 50-weapon expansion
 
-Stop the server, remove the old LegendarySwords JAR, upload `LegendarySwords-0.5.2.jar`, and restart. Keep only one LegendarySwords JAR; keep LegendaryAdmin if installed. Preserve your configuration and player data.
+Stop the server, remove the old LegendarySwords JAR, upload `LegendarySwords-0.5.3.jar`, and restart. Keep only one LegendarySwords JAR; keep LegendaryAdmin if installed. Preserve your configuration and player data.
 
 The plugin auto-installs 55 player models into `plugins/BetterModel/players` and 55 attack models and five boss models into `plugins/BetterModel/models`. Known bundled originals are backed up and updated; edited models are preserved. Check `/ls status` after imports. If installing manually, extract `LegendarySwords-BetterModel-models.zip` and copy its `players` and `models` contents to the corresponding BetterModel folders, then `/bm reload`.
 
-Replace your old client pack with `LegendarySwords-combined-resource-pack-0.5.2.zip` in Minecraft Options → Resource Packs → Open Pack Folder. Keep the ZIP compressed and enable it. This combined pack targets the supplied BetterModel 3.1-SNAPSHOT-526 pack with namespace `bettermodel` and named `c/` item aliases; it includes all 55 weapons and the new compiled signature effects.
+Replace your old client pack with `LegendarySwords-combined-resource-pack-0.5.3.zip` in Minecraft Options → Resource Packs → Open Pack Folder. Keep the ZIP compressed and enable it. This combined pack targets the supplied BetterModel 3.1-SNAPSHOT-526 pack with namespace `bettermodel` and named `c/` item aliases; it includes all 55 weapons and the new compiled signature effects.
 
 If your generated BetterModel client assets/settings changed, run `/bm reload`, download `plugins/BetterModel/build.zip`, then combine that fresh build with `LegendarySwords-resource-pack.zip`:
 
@@ -19,3 +19,9 @@ Open `/swords` or `/legendaryswords` to browse all 55 weapons. Normal players ca
 Speed/damage tuning and the weapon list are in [README](../README.md). New weapon defaults work with old configurations; add a per-sword section only when you want to override its defaults. `/ls reload` applies damage/cooldown/speed changes; give fresh items for changed base melee attributes.
 
 The five boss weapons appear on the second `/swords` page. Ultimates transform for five minutes; left/right click triggers the primary attack; sneak + right-click triggers the secondary. Each has its own cooldown. Angel and leviathan grant temporary flight; dragon uses aimed fire breath. Edit `bosses.duration-seconds`, `bosses.flight-enabled` `bosses.smash-interval-ticks` and `bosses.special-interval-ticks`. Observers see the custom boss, while owners keep normal first-person/F5 rendering and see world attacks. Flight is restored and forms are removed on expiry/interruption.
+
+## Small or compressed boss disguises
+
+Use the same release of the server models and client pack. The JAR version alone does not prove the server loaded current geometry: manually uploaded files without an installer manifest or edited files can be preserved. Version 0.5.3 recognizes the exact boss originals shipped in 0.5.0–0.5.2 and backs them up before upgrading. Other edits remain protected and are reported by `/ls status`.
+
+For a direct refresh, stop the server, back up the five `legendaryswords_*_boss.bbmodel` files, extract `LegendarySwords-boss-models-0.5.3.zip`, and copy its five files from `models/` into `plugins/BetterModel/models/`. Restart with the 0.5.3 JAR, enable the matching combined client pack, and recreate the disguise: `/bm undisguise`, then `/bm disguise legendaryswords_sky_leviathan_boss false` (or `legendaryswords_infernal_dragon_boss false`). The final `false` uses the authored size instead of the player entity scale attribute. If refreshing files while the server is running, also run `/bm reload` before creating a new disguise.

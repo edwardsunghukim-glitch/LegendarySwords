@@ -62,4 +62,58 @@ class BundledModelInstallerTest {
                         BundledModelInstaller.hash(bytes("custom")), folder.resolve("backup")));
         assertEquals("custom", Files.readString(target));
     }
+
+    @Test void manuallyInstalledPublishedBossesAreUpgradedWithoutAManifest() throws Exception {
+        for (String version : new String[]{"0.5.0", "0.5.1", "0.5.2"}) {
+            {
+                var archive = publishedBosses(version);
+                for (String boss : new String[]{"angel_sovereign", "granite_colossus", "sky_leviathan", "infernal_dragon", "frost_titan"}) {
+                    String relative = "models/legendaryswords_" + boss + "_boss.bbmodel";
+                    byte[] original = archive.get(relative);
+                    assertNotNull(original);
+                    Path destination = folder.resolve(version + "/" + relative);
+                    Files.createDirectories(destination.getParent()); Files.write(destination, original);
+                    Path backup = folder.resolve("backups/" + version + "/" + relative);
+                    String trusted = BundledModelInstaller.legacyHash(relative, original);
+                    assertEquals(BundledModelInstaller.hash(original), trusted);
+                    assertEquals(BundledModelInstaller.Result.UPDATED,
+                            BundledModelInstaller.install(destination, bytes("current"), null, trusted, backup));
+                    assertArrayEquals(original, Files.readAllBytes(backup.resolveSibling(backup.getFileName() + "." + trusted + ".bak")));
+                }
+            }
+        }
+    }
+
+    @Test void editedOrMisnamedBossFilesRemainProtected() throws Exception {
+        String relative = "models/legendaryswords_sky_leviathan_boss.bbmodel";
+        {
+            var archive = publishedBosses("0.5.1");
+            byte[] original = archive.get(relative);
+            assertNotNull(original);
+            byte[] edited = java.util.Arrays.copyOf(original, original.length + 1);
+            edited[edited.length - 1] = '\n';
+            assertNull(BundledModelInstaller.legacyHash(relative, edited));
+            assertNull(BundledModelInstaller.legacyHash("models/legendaryswords_infernal_dragon_boss.bbmodel", original));
+            Path destination = folder.resolve("edited-boss.bbmodel"); Files.write(destination, edited);
+            assertEquals(BundledModelInstaller.Result.PRESERVED, BundledModelInstaller.install(destination,
+                    bytes("current"), null, BundledModelInstaller.legacyHash(relative, edited), folder.resolve("backup")));
+            assertArrayEquals(edited, Files.readAllBytes(destination));
+        }
+    }
+
+
+    private java.util.Map<String, byte[]> publishedBosses(String version) throws Exception {
+        var result = new java.util.HashMap<String, byte[]>();
+        try (var input = getClass().getResourceAsStream("/bettermodel-legacy/" + version + ".zip")) {
+            assertNotNull(input);
+            try (var zip = new java.util.zip.ZipInputStream(input)) {
+                for (var entry = zip.getNextEntry(); entry != null; entry = zip.getNextEntry()) {
+                    result.put(entry.getName(), zip.readAllBytes());
+                }
+            }
+        }
+        assertEquals(5, result.size());
+        return result;
+    }
+
 }

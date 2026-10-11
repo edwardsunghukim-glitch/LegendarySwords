@@ -66230,9 +66230,33 @@
                 "f8102d59-94ce-5a99-854a-47f7099dd6be",
                 "ab1f43f3-244a-5296-9949-629fe6e18fe5",
                 "bbf5c131-12d0-5cc0-b094-2c5cd8392bbf"
-              ]
+              ],
+              "name": "jaw",
+              "origin": [
+                0.0,
+                75.4,
+                -46.8
+              ],
+              "rotation": [
+                0,
+                0,
+                0
+              ],
+              "visibility": true
             }
-          ]
+          ],
+          "name": "head",
+          "origin": [
+            0.0,
+            83.2,
+            -31.2
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "visibility": true
         },
         {
           "uuid": "ef0693c0-a684-5a00-9cff-fb313461f76a",
@@ -66290,7 +66314,19 @@
             "0a286432-1795-5908-9436-a2606393df6d",
             "75a04a39-66d2-5279-a194-356d9e9f5de4",
             "abd6b489-90ee-5c92-a4f8-ea9b70582ce3"
-          ]
+          ],
+          "name": "left",
+          "origin": [
+            -20.8,
+            78.0,
+            2.6
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "visibility": true
         },
         {
           "uuid": "2a846a37-eee8-515c-b152-e5f46d67daee",
@@ -66348,7 +66384,19 @@
             "18355576-cd50-535f-885a-d2bcf837f92d",
             "adbc0526-f42e-5e7c-9877-9dd046c66a53",
             "02bcfd0a-1f3c-5ec3-887e-9bd67a1e10c8"
-          ]
+          ],
+          "name": "right",
+          "origin": [
+            20.8,
+            78.0,
+            2.6
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "visibility": true
         },
         {
           "uuid": "7647cfa9-16d2-5f12-8581-32e9a844b2f8",
@@ -66754,21 +66802,117 @@
                                     "2f2dba2c-399b-5f1d-9c2a-3e89e4d94012",
                                     "5b73743b-4de0-5cde-b475-444f0a36bfc7",
                                     "cd892d16-a87f-5fd7-a97b-1b8dcdeb38c2"
-                                  ]
+                                  ],
+                                  "name": "tail",
+                                  "origin": [
+                                    -38.39293,
+                                    15.67751,
+                                    195.08387
+                                  ],
+                                  "rotation": [
+                                    0,
+                                    0,
+                                    0
+                                  ],
+                                  "visibility": true
                                 }
-                              ]
+                              ],
+                              "name": "spine_6",
+                              "origin": [
+                                -39.29529,
+                                23.08948,
+                                170.92903
+                              ],
+                              "rotation": [
+                                0,
+                                0,
+                                0
+                              ],
+                              "visibility": true
                             }
-                          ]
+                          ],
+                          "name": "spine_5",
+                          "origin": [
+                            -20.18856,
+                            40.44237,
+                            146.77419
+                          ],
+                          "rotation": [
+                            0,
+                            0,
+                            0
+                          ],
+                          "visibility": true
                         }
-                      ]
+                      ],
+                      "name": "spine_4",
+                      "origin": [
+                        9.19815,
+                        61.34756,
+                        122.61935
+                      ],
+                      "rotation": [
+                        0,
+                        0,
+                        0
+                      ],
+                      "visibility": true
                     }
-                  ]
+                  ],
+                  "name": "spine_3",
+                  "origin": [
+                    33.90117,
+                    77.7952,
+                    98.46452
+                  ],
+                  "rotation": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "visibility": true
                 }
-              ]
+              ],
+              "name": "spine_2",
+              "origin": [
+                41.34179,
+                83.80983,
+                74.30968
+              ],
+              "rotation": [
+                0,
+                0,
+                0
+              ],
+              "visibility": true
             }
-          ]
+          ],
+          "name": "spine_1",
+          "origin": [
+            27.73124,
+            78.17755,
+            50.15484
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "visibility": true
         }
-      ]
+      ],
+      "name": "body",
+      "origin": [
+        0.0,
+        36.4,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "visibility": true
     }
   ],
   "textures": [

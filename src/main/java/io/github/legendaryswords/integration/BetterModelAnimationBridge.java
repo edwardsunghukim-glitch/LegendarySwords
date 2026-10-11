@@ -125,6 +125,7 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
             for (var sword : io.github.legendaryswords.sword.SwordType.values()) if (sword.boss()) {
                 var result = installer.install("models/" + PREFIX + sword.id() + "_boss.bbmodel");
                 if (result == BundledModelInstaller.Result.NEW || result == BundledModelInstaller.Result.UPDATED) changed++;
+                if (result == BundledModelInstaller.Result.PRESERVED) preservedModels.add("models/" + PREFIX + sword.id() + "_boss.bbmodel");
             }
             installer.install("LICENSE-BetterModel.txt");
             installer.save();
@@ -214,10 +215,10 @@ final class BetterModelAnimationBridge implements AnimationBridge, Listener {
                 + (abilitiesOnly()
                 ? ": abilities/ultimates only; " + (playerBodyAnimationsEnabled()
                         ? "temporary cast body animations" : "attack effects only")
-                        + "; normal movement and swings; install the 0.5.0 pack and updated BetterModel build"
+                        + "; normal movement and swings; install the matching combined pack and updated BetterModel build"
                 : playerBodyAnimationsEnabled()
                 ? ": 55 motion sets loaded (idle/walk/run/pose/swing/ability/ultimate); install regenerated client pack"
-                : ": player body animations paused (bettermodel.player-body-animations=false); slash effects available; install the 0.5.0 pack and updated BetterModel build")
+                : ": player body animations paused (bettermodel.player-body-animations=false); slash effects available; install the matching combined pack and updated BetterModel build")
                 + (preservedModels.isEmpty() ? "" : "; " + preservedModels.size() + " edited files preserved");
     }
 

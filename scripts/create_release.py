@@ -63,6 +63,8 @@ def main():
             raise SystemExit("Plugin JAR checksum validation failed.")
     models_zip = TARGET / "LegendarySwords-BetterModel-models.zip"
     write_zip(models_zip, model_entries)
+    boss_entries = [(name, data) for name, data in model_entries if name.startswith("models/") and name.endswith("_boss.bbmodel")]
+    write_zip(TARGET / f"LegendarySwords-boss-models-{version}.zip", boss_entries)
     sha1 = hashlib.sha1(pack.read_bytes()).hexdigest()
     digest = TARGET / "LegendarySwords-resource-pack.sha1"
     digest.write_text(sha1 + "\n", encoding="ascii")

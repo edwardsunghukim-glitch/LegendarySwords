@@ -38,10 +38,29 @@ class BetterModelPackExportTest {
                 String name = "legendaryswords_" + sword.id() + suffix;
                 try (var input = getClass().getResourceAsStream("/bettermodel/models/" + name + ".bbmodel")) {
                     assertNotNull(input);
-                    ModelData raw = ModelData.GSON.fromJson(new InputStreamReader(input, StandardCharsets.UTF_8), ModelData.class);
+                    JsonObject document = JsonParser.parseString(new String(input.readAllBytes(), StandardCharsets.UTF_8)).getAsJsonObject();
+                    ModelData raw = ModelData.GSON.fromJson(document, ModelData.class);
                     var loaded = raw.loadBlueprint(name, false);
                     assertTrue(loaded.errors().isEmpty(), loaded.errors().toString());
                     var blueprint = loaded.blueprint(); var context = blueprint.context();
+                    if (suffix.equals("_boss")) {
+                        // Snapshot-style readers can load inline bone data without the BB5 group table.
+                        JsonObject inline = document.deepCopy(); inline.remove("groups");
+                        var fallback = ModelData.GSON.fromJson(inline, ModelData.class).loadBlueprint(name, false);
+                        assertTrue(fallback.errors().isEmpty(), fallback.errors().toString());
+                        var expected = flatten(blueprint.elements()).stream().filter(BlueprintElement.Group.class::isInstance)
+                                .map(BlueprintElement.Group.class::cast).toList();
+                        var actual = flatten(fallback.blueprint().elements()).stream().filter(BlueprintElement.Group.class::isInstance)
+                                .map(BlueprintElement.Group.class::cast).toList();
+                        assertEquals(expected.size(), actual.size());
+                        for (int i = 0; i < expected.size(); i++) {
+                            assertEquals(expected.get(i).name(), actual.get(i).name());
+                            assertEquals(expected.get(i).origin(), actual.get(i).origin());
+                            assertEquals(expected.get(i).rotation(), actual.get(i).rotation());
+                            assertEquals(expected.get(i).scale(), actual.get(i).scale());
+                        }
+                    }
+
                     for (BlueprintElement element : flatten(blueprint.elements())) {
                         if (!(element instanceof BlueprintElement.Group group)) continue;
                         var models = group.buildModernJson(PackObfuscator.pair(PackObfuscator.NONE, PackObfuscator.NONE), context);

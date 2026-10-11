@@ -31668,7 +31668,19 @@
             "c9438d46-8eaf-531e-94c0-881ecc04c62c",
             "45d7553c-767b-56c8-aabb-0acd36dc39d5",
             "7e4de439-343f-5e50-a8ce-f6ff58ad3f72"
-          ]
+          ],
+          "name": "head",
+          "origin": [
+            0.0,
+            101.5,
+            0.0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "visibility": true
         },
         {
           "uuid": "d9c6bfe2-2543-56f1-a694-420e984d1690",
@@ -31758,7 +31770,19 @@
             "8e6956fc-1406-5756-af44-f3f2127e4795",
             "40d59785-0e15-523a-b170-c8c67a50bf07",
             "1022c905-6da7-56b0-b533-ea4176d72bd5"
-          ]
+          ],
+          "name": "left",
+          "origin": [
+            -31.5,
+            80.5,
+            0.0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "visibility": true
         },
         {
           "uuid": "82c7d706-51c6-5448-a32e-7fa95fc42b81",
@@ -31882,7 +31906,19 @@
             "ba378713-9e2e-580b-8d2d-e29aeee19133",
             "d9a38659-f8a4-5976-a732-8a53b205fb21",
             "d3dcf5b5-ef6e-5a41-9bbd-7a9f45129c99"
-          ]
+          ],
+          "name": "right",
+          "origin": [
+            31.5,
+            80.5,
+            0.0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "visibility": true
         },
         {
           "uuid": "35e24b14-76e7-51a3-bc5f-ea0fe7c29598",
@@ -31933,9 +31969,33 @@
             "24a600ac-70f1-5149-ba2c-ff93bd59f2aa",
             "c0cd225e-131d-5c40-9888-3c98159cc690",
             "f1df60fd-6b33-5382-bfc2-1872754b046c"
-          ]
+          ],
+          "name": "tail",
+          "origin": [
+            0.0,
+            38.5,
+            17.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "visibility": true
         }
-      ]
+      ],
+      "name": "body",
+      "origin": [
+        0.0,
+        49.0,
+        0.0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "visibility": true
     }
   ],
   "textures": [

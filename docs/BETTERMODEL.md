@@ -21,3 +21,7 @@ Optional visual review with Blender: `blender -b -t 4 --python scripts/render_bo
 All five bundled boss meshes use larger authored geometry and joint origins. The angel is roughly nine blocks tall; the colossus and frost titan roughly ten. The winged serpentine dragon is about nineteen blocks long and the aquatic leviathan about twenty-four. Extents vary with animation. The dragon has a curved spine, horned snout, whiskers, fangs, wing membranes and small claw limbs; the leviathan has a broad jaw, gill frills, pectoral fins, a ribbon sail and crescent tail. The owner still keeps normal first-person rendering; observers see the giant form. The normal player collision box and combat rules remain unchanged.
 
 Use the updated JAR and matching 0.5.2 combined pack together. Automatically installed unedited models update using the saved installer hashes; edited server models remain preserved. Add `--player-scale` to the Blender render command for a neutral 1.8-block mannequin beside the real model.
+
+## Boss import compatibility in 0.5.3
+
+Boss outliner nodes now carry complete names, pivots, rotations and visibility as well as the Blockbench 5 group table. Official compiler checks load every boss both normally and with the group table removed, comparing every bone name, origin, rotation and geometry scale. This validates the inline fallback; it does not claim testing the reported snapshot on a live client.

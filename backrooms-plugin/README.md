@@ -41,9 +41,16 @@ These are original connected room grids with different materials/lighting, not
 maps exported from the mod. World size defaults to 256 x 256; chunks generate on
 demand. Generation creates new world folders, not modifications to your main world.
 Save generated world folders if you want to move the maps to another server.
-Standalone 96 x 96 WorldEdit schematics are also supplied in the map ZIP for use
-in an area you build. Schematics are decorative copies; the level-travel logic
-only runs in the plugin's generated worlds.
+Actual prebuilt Minecraft world ZIPs are supplied for all three levels, each
+256 x 256 blocks with 256 pregenerated chunks, level.dat and region files.
+Extract each ZIP into its own server-root folder named backrooms_horror_0,
+backrooms_horror_1 or backrooms_horror_2, alongside the normal world folder.
+Back up existing same-name folders first; do not overwrite a live world.
+Restart and run /br map 0, 1 or 2 to load it. No WorldEdit is needed. World
+data uses Minecraft Java 1.21 format and can be upgraded by Paper 1.21.11.
+Standalone singleplayer use is supported; plugin-specific entities and escape
+logic require BackroomsHorror on a server. Minecraft rendering/server loading
+still need an in-game check.
 
 /br enter <0|1|2> lets a player enter a generated level; /br leave returns them.
 The gold pressure plate on the emerald floor block at x=52,z=52 advances 0 -> 1

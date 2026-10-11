@@ -68,6 +68,16 @@ def atlas(theme,leggings=False):
   for yy in [y0+4,y1-5]:draw.line((x0+2,yy,x1-2,yy),fill=mix(base,1.4)+(255,),width=2)
  draw.rectangle((19,97,28,105),fill=mix(base,.8)+(255,),outline=trim+(255,),width=2)
  draw.rectangle((177,106,190,123),outline=mix(trim,1.3)+(255,),width=2)
+ # Inset low-contrast green scale panels, surrounded by dark plate frames.
+ greens={'angel':(41,65,44),'dragon':(29,58,39),'leviathan':(25,69,51),'stone':(48,61,35),'frost':(32,61,56)}
+ green=greens[theme]
+ for panel in [(85,84,106,114),(179,85,188,101),(20,84,28,95)]:
+  x0,y0,x1,y1=panel;draw.rectangle(panel,fill=green+(255,))
+  for yy in range(y0+2,y1-1,4):
+   for xx in range(x0+2,x1-1,4):
+    x=xx+(2 if ((yy-y0)//4)%2 else 0)
+    draw.line((x-2,yy,x,yy+2,min(x1,x+2),yy),fill=mix(green,.65)+(255,),width=1)
+  draw.rectangle(panel,outline=mix(base,.5)+(255,),width=1)
  # Visor slits and a chest core; these differ in outline and placement by set.
  hx,hy=32,32
  draw.rectangle((hx+4,hy+13,hx+27,hy+19),fill=(11,17,24,255))
@@ -159,6 +169,8 @@ def accessories(theme):
  for side in [-1,1]:
   for row in range(3):bulky.append(cube(8+side*3-1.6,-3+row*1.2,12,3.2,1.1,1,'base',22.5*side))
  for row in range(4):bulky.append(cube(4.2+row*1.5,3+row*.8,14,1.9,.5,.35,'leather',22.5))
+ # Green scale insets sit inside dark breastplate edges.
+ bulky += [cube(4.2,3,14,2.7,4.2,.25,'cloth'),cube(9.1,3,14,2.7,4.2,.25,'cloth')]
  # Scarred knight silhouettes gain heavy shoulder spikes and smaller tip pieces.
  for side in [-1,1]:
   for index in range(3):
@@ -178,9 +190,9 @@ def accessories(theme):
  elif theme=='stone':
   bulky += [cube(3,3,13.6,1,4.5,.5,'trim'),cube(12,3,13.6,1,4.5,.5,'trim')]
  KNIGHTPARTS[theme]=bulky
- back+=bulky
+ back=bulky
  # Reinforced brow and temple guards remain above the first-person eye line.
- crown += [cube(2.7,4.8,3.5,10.6,1.4,1.7,'base'),cube(2.7,4.4,3.3,10.6,.5,1.9,'trim'),
+ crown = [cube(2.7,4.8,3.5,10.6,1.4,1.7,'base'),cube(2.7,4.4,3.3,10.6,.5,1.9,'trim'),
            cube(2.5,4.8,5,1.8,2.1,6,'base'),cube(11.7,4.8,5,1.8,2.1,6,'base')]
  # Closed greathelm with separate cheek guards, visor slot and reinforced crest.
  helmet=[cube(2.5,3,3,1.5,10,10,'base'),cube(12,3,3,1.5,10,10,'base'),
@@ -190,9 +202,9 @@ def accessories(theme):
          cube(7.3,12.5,3,1.4,1.5,10,'trim')]
  for side in [-1,1]:
   for row in range(3):helmet.append(cube(8+side*2.2-.15,4+row*.8,13.3,.3,.3,.2,'leather'))
- if theme in ['dragon','leviathan']:
+ if theme in THEMES:
   for side in [-1,1]:
-   for i in range(5):helmet.append(cube(8+side*(4.5+i*.65)-.6,12+i*1.5,6-i*.2,1.3-i*.13,2,1.4-i*.15,'trim',22.5*side))
+   for i in range(5):helmet.append(cube(8+side*(4.5+i*.65)-.6,12+i*1.5,6-i*.2,1.3-i*.13,2,1.4-i*.15,'base',22.5*side))
  elif theme=='stone':helmet.append(cube(6,13,5,4,3,4,'base'))
  elif theme=='frost':
   for side in [-1,1]:helmet.append(cube(8+side*4-.5,12,6,1,5,1,'trim',22.5*side))
@@ -224,6 +236,10 @@ def icons(theme):
   elif theme=='stone':d.rectangle((13,18,19,24),outline=glow+(255,),width=1)
   else:
    d.line((16,17,16,25),fill=glow+(255,));d.line((12,19,20,23),fill=glow+(255,));d.line((12,23,20,19),fill=glow+(255,))
+  if name=='helmet':
+   d.rectangle((0,0,31,6),fill=(0,0,0,0));d.rectangle((5,6,26,8),fill=base+(255,),outline=trim+(255,))
+   d.polygon([(4,8),(2,1),(8,7)],fill=base+(255,),outline=trim+(255,))
+   d.polygon([(24,7),(29,1),(27,8)],fill=base+(255,),outline=trim+(255,))
   savepng(A/'textures/item'/f'{theme}_{name}.png',image)
   savejson(A/'models/item'/f'{theme}_{name}.json',{'parent':'minecraft:item/generated','textures':{'layer0':f'legendaryarmor:item/{theme}_{name}'}})
   savejson(A/'items'/f'{theme}_{name}.json',{'model':{'type':'minecraft:model','model':f'legendaryarmor:item/{theme}_{name}'}})
@@ -243,7 +259,7 @@ def preview():
  canvas=Image.new('RGB',(1600,760),(17,22,32));d=ImageDraw.Draw(canvas)
  try:font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',19);small=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',14)
  except OSError:font=small=ImageFont.load_default()
- d.text((35,25),'LegendaryArmor — scarred dark fantasy knights',font=font,fill=(243,225,174))
+ d.text((35,25),'LegendaryArmor — horned knights with green scale panels',font=font,fill=(243,225,174))
  d.text((35,57),'Front-view authoring preview. In-game lighting, player skin and movement are not simulated.',font=small,fill=(169,182,201))
  # Draw front-facing boxes from real accessory geometry, then actual mapped texture faces.
  for index,theme in enumerate(THEMES):
@@ -254,7 +270,7 @@ def preview():
   def accessory(name,anchor,bulky_only=False):
    elements=KNIGHTPARTS[theme] if bulky_only else MODELS[name]
    for element in elements:
-    x,y,z=element['from'];xx,yy,zz=element['to'];material=element['faces']['north']['texture'][1:];color={'base':base,'trim':trim,'glow':glow,'cloth':{'angel':(80,28,32),'dragon':(96,26,23),'leviathan':(26,77,59),'stone':(77,54,28),'frost':(40,48,83)}[theme],'leather':(67,42,30)}[material]
+    x,y,z=element['from'];xx,yy,zz=element['to'];material=element['faces']['north']['texture'][1:];color={'base':base,'trim':trim,'glow':glow,'cloth':{'angel':(41,65,44),'dragon':(29,58,39),'leviathan':(25,69,51),'stone':(48,61,35),'frost':(32,61,56)}[theme],'leather':(67,42,30)}[material]
     # Apply element rotation in front projection; side-axis rotations only modestly alter depth.
     corners=[(x,y),(xx,y),(xx,yy),(x,yy)];rotation=element.get('rotation')
     if rotation and rotation['axis']=='z':
@@ -271,7 +287,7 @@ def preview():
   accessory(theme+'_crown',33)
   accessory(theme+'_helmet_shell',27)
   d.text((cx-140,530),title,font=font,fill=glow)
-  descriptions={'angel':'Blackened plate + worn gold wings','dragon':'Scarred iron + horns and spikes','leviathan':'Weathered abyssal steel + fins','stone':'Battered slabs + heavy spikes','frost':'Frost-dark steel + crystal crest'}
+  descriptions={'angel':'Dark plate + olive scale panels','dragon':'Black iron + emerald scale panels','leviathan':'Abyssal steel + green scale panels','stone':'Heavy plate + moss scale panels','frost':'Cold steel + jade scale panels'}
   d.text((cx-140,562),descriptions[theme],font=small,fill=(180,195,214))
   for j,piece in enumerate(['helmet','chestplate','leggings','boots']):
    icon=Image.open(A/'textures/item'/f'{theme}_{piece}.png').resize((56,56),Image.Resampling.NEAREST);canvas.paste(icon,(cx-130+j*64,615),icon)
@@ -283,7 +299,7 @@ def main():
   savepng(A/'textures/entity/equipment/humanoid'/f'{theme}.png',atlas(theme))
   savepng(A/'textures/entity/equipment/humanoid_leggings'/f'{theme}.png',atlas(theme,True))
   savejson(A/'equipment'/f'{theme}.json',{'layers':{layer:[{'texture':f'legendaryarmor:{theme}'}] for layer in ['humanoid','humanoid_leggings']}})
-  for key,color in zip(['base','trim','glow','cloth','leather'],[*THEMES[theme][1:],{'angel':(80,28,32),'dragon':(96,26,23),'leviathan':(26,77,59),'stone':(77,54,28),'frost':(40,48,83)}[theme],(67,42,30)]):
+  for key,color in zip(['base','trim','glow','cloth','leather'],[*THEMES[theme][1:],{'angel':(41,65,44),'dragon':(29,58,39),'leviathan':(25,69,51),'stone':(48,61,35),'frost':(32,61,56)}[theme],(67,42,30)]):
    image=Image.new('RGBA',(32,32),color+(255,));draw=ImageDraw.Draw(image)
    for x in range(32):
     shade=.72+.42*math.exp(-((x-9)/8)**2)
@@ -293,6 +309,11 @@ def main():
    for _ in range(12):
     x=rng.randint(3,25);y=rng.randint(3,27)
     draw.line((x,y,x+rng.randint(2,5),y+1),fill=mix(color,.45)+(255,));draw.point((x,y-1),fill=mix(color,1.5)+(255,))
+   if key=='cloth':
+    for row in range(2,31,4):
+     for col in range(2,31,4):
+      x=col+(2 if row//4%2 else 0)
+      draw.line((x-2,row,x,row+2,x+2,row),fill=mix(color,.6)+(255,),width=1)
    savepng(A/'textures/item/material'/f'{theme}_{key}.png',image)
   icons(theme);accessories(theme)
  effects();preview()

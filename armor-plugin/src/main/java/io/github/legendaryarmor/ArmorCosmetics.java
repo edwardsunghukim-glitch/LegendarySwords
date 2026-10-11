@@ -12,7 +12,7 @@ final class ArmorCosmetics implements AutoCloseable {
     private ItemDisplay spawn(Player player,String model) {
         ItemDisplay display=player.getWorld().spawn(player.getLocation(),ItemDisplay.class,d->{
             d.setItemStack(model(model));d.setItemDisplayTransform(ItemDisplay.ItemDisplayTransform.FIXED);
-            d.setPersistent(false);d.setGravity(false);d.setViewRange(1);d.setTeleportDuration(2);
+            d.setPersistent(false);d.setGravity(false);d.setViewRange(1);d.setTeleportDuration(0);d.setInterpolationDuration(0);
             // Worn metal uses normal world lighting rather than full-bright illumination.
         });
         if(!plugin.getConfig().getBoolean("accessories-visible-to-owner",true))player.hideEntity(plugin,display);return display;

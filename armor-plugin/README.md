@@ -1,16 +1,18 @@
+1.1.1 redesign follows the horned green knight reference: no wings/halos/fins, dark plates, green scale insets and curved horns on each greathelm. The plugin removes accessory interpolation and updates every tick, reducing trailing. This does not eliminate network latency or make rigid pauldrons follow vanilla arm animations. Install the new JAR and matching combined pack.
+
 Dark fantasy knight redesign: scarred metal, enclosed greathelms, horned variants, shoulder spikes, leather straps and cloth panels. Install the 1.1.0 JAR and the latest combined pack together. A third cosmetic display follows head position and pitch; it is hidden from its wearer to prevent first-person obstruction, while other players see it. The wearer still sees wearable helmet textures and existing crests. Accessories now use normal world lighting.
 
 # LegendaryArmor 1.1.0
 
-Five original fantasy armor sets for Paper **1.21.11**, Java **21+**. The plugin is independent of LegendarySwords and BetterModel. Each set has four real netherite armor pieces with separate custom item icons, painted 256×128 wearable textures, two cosmetic 3D accessories and an active ability. Protection uses native netherite armor, armor toughness and knockback resistance. No player disguise is used.
+Five original fantasy armor sets for Paper **1.21.11**, Java **21+**. The plugin is independent of LegendarySwords and BetterModel. Each set has four real netherite armor pieces with separate custom item icons, painted 256×128 wearable textures, three cosmetic 3D attachments and an active ability. Protection uses native netherite armor, armor toughness and knockback resistance. No player disguise is used.
 
 | Set ID | Full-set passive | Sneak + F ability | Accessories |
 | --- | --- | --- | --- |
-| `angel` | Restores 1 HP every 4 seconds | Radiant Sanctuary: heals 6 HP and strikes enemies in a golden circle | Feather wings and halo |
-| `dragon` | Immune to fire, lava and hot-floor damage | Wyrmfire Breath: a fire cone follows your aim, including vertical aim | Scale mantle and curved horns |
-| `leviathan` | Water breathing underwater and 8% movement-speed bonus | Tidal Dominion: a traveling wave damages and pushes enemies | Ribbed fins and crest |
-| `stone` | 12% extra damage reduction and added knockback resistance | Earthshatter: an expanding shockwave with stone spikes | Stone pauldrons, rune backplate and crest |
-| `frost` | Successful melee attackers receive a brief slow | Glacial Domain: ice crystals and a snow ring repeatedly damage and slow enemies | Crystal mantle and crown |
+| `angel` | Restores 1 HP every 4 seconds | Radiant Sanctuary: heals 6 HP and strikes enemies in a golden circle | Horned helmet and spiked plates |
+| `dragon` | Immune to fire, lava and hot-floor damage | Wyrmfire Breath: a fire cone follows your aim, including vertical aim | Green scale panels and curved horns |
+| `leviathan` | Water breathing underwater and 8% movement-speed bonus | Tidal Dominion: a traveling wave damages and pushes enemies | Abyssal plates and horned helmet |
+| `stone` | 12% extra damage reduction and added knockback resistance | Earthshatter: an expanding shockwave with stone spikes | Heavy pauldrons and horned helmet |
+| `frost` | Successful melee attackers receive a brief slow | Glacial Domain: ice crystals and a snow ring repeatedly damage and slow enemies | Cold steel plates and horned helmet |
 
 Wear **all four matching pieces** to activate passives, accessories and abilities. Sneak + swap-hand key (default **F**) activates the ability; `/armor ability` also works. Ordinary swap-hand behavior remains when you are not sneaking or not wearing a full set. Each player has one shared armor-ability cooldown, so switching sets does not bypass it. Taking armor off, dying, disconnecting or changing worlds ends an active scene; all scene entities are removed after two seconds. Accessories follow the player and respect invisibility and Bukkit player visibility. These are cosmetic attachments, not a new player hitbox or limb animation.
 

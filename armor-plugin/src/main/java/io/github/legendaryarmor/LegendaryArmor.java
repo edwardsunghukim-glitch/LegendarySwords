@@ -17,7 +17,7 @@ public final class LegendaryArmor extends JavaPlugin implements Listener {
     private static final NamespacedKey SPEED=new NamespacedKey("legendaryarmor","set_speed"),RESIST=new NamespacedKey("legendaryarmor","set_resist");
     @Override public void onEnable(){saveDefaultConfig();catalog=new ArmorCatalog(this);cosmetics=new ArmorCosmetics(this);abilities=new ArmorAbilities(this,catalog);
         getServer().getPluginManager().registerEvents(this,this);getServer().getOnlinePlayers().forEach(this::clean);
-        getServer().getScheduler().runTaskTimer(this,this::tick,2,2);
+        getServer().getScheduler().runTaskTimer(this,this::tick,1,1);
     }
     @Override public void onDisable(){if(abilities!=null)abilities.close();if(cosmetics!=null)cosmetics.close();getServer().getOnlinePlayers().forEach(this::clean);}
     private void clean(Player player){modifier(player,Attribute.MOVEMENT_SPEED,SPEED,0,AttributeModifier.Operation.ADD_SCALAR);modifier(player,Attribute.KNOCKBACK_RESISTANCE,RESIST,0,AttributeModifier.Operation.ADD_NUMBER);}
@@ -32,7 +32,7 @@ public final class LegendaryArmor extends JavaPlugin implements Listener {
     }
     private double setting(ArmorSet set,String name,double fallback){double value=getConfig().getDouble("sets."+set.id+"."+name,fallback);return Double.isFinite(value)?Math.clamp(value,0,100):fallback;}
     private ArmorSet worn(Player player){return player.isDead()||player.getGameMode()==GameMode.SPECTATOR?null:catalog.fullSet(player.getInventory().getArmorContents());}
-    private void tick(){ticks+=2;for(Player player:getServer().getOnlinePlayers()) {
+    private void tick(){ticks++;for(Player player:getServer().getOnlinePlayers()) {
         ArmorSet set=worn(player);cosmetics.update(player,set);
         modifier(player,Attribute.MOVEMENT_SPEED,SPEED,set==ArmorSet.LEVIATHAN?Math.min(.5,setting(set,"speed-bonus",.08)):0,AttributeModifier.Operation.ADD_SCALAR);
         modifier(player,Attribute.KNOCKBACK_RESISTANCE,RESIST,set==ArmorSet.STONE?Math.min(1,setting(set,"knockback-resistance",.35)):0,AttributeModifier.Operation.ADD_NUMBER);

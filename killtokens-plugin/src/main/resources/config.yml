@@ -20,6 +20,12 @@ combat:
   enabled: true
   duration-seconds: 20
   action-bar: true
-  # Optional combat-log punishment; off by default.
-  kill-on-logout: false
+  rules-version: 2
+  # Quit/disconnect/kick during an active tag kills the player.
+  kill-on-logout: true
+  pearl-tag: true
+  spawn:
+    enabled: true
+    region: spawn
+    wall: true
   blocked-commands: [spawn, home, homes, tpa, tpaccept, warp, warps, fly]

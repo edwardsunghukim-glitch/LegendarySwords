@@ -1,0 +1,13 @@
+name: TotemLimit
+version: '1.0.0'
+main: io.github.totemlimit.TotemLimit
+api-version: '1.21.11'
+commands:
+  totemlimit:
+    description: Reload inventory limits
+    usage: /totemlimit reload
+permissions:
+  totemlimit.admin:
+    default: op
+  totemlimit.bypass:
+    default: false

@@ -22,18 +22,29 @@ import java.util.*;
 public final class KillTokens extends JavaPlugin implements Listener {
     public long getWalletBalance(UUID player){return bank==null?0:bank.balance(player);}
     public long getCombatSeconds(UUID player){return Math.max(0,(combat.getOrDefault(player,0L)-System.currentTimeMillis()+999)/1000);}
+    private SpawnBarrier barrier;
     private NamespacedKey marker;
     private TokenBank bank;
     private final Map<UUID,Long> combat=new HashMap<>();
     private final Map<String,Long> lastRewards=new HashMap<>();
     private final Map<UUID,UUID> opponents=new HashMap<>();
     @Override public void onEnable() {
-        saveDefaultConfig();marker=new NamespacedKey(this,"killtoken");
+        saveDefaultConfig();
+        // One-time upgrade enables the combat rules explicitly requested for this release.
+        if(getConfig().getInt("combat.rules-version",0)<2) {
+            getConfig().set("combat.kill-on-logout",true);getConfig().set("combat.pearl-tag",true);
+            getConfig().set("combat.spawn.enabled",true);getConfig().set("combat.spawn.region","spawn");
+            getConfig().set("combat.spawn.wall",true);getConfig().set("combat.rules-version",2);saveConfig();
+        }
+        marker=new NamespacedKey(this,"killtoken");
         try{bank=new TokenBank(getDataFolder().toPath().resolve("balances.yml"));}
         catch(IOException|org.bukkit.configuration.InvalidConfigurationException ex){getLogger().severe("Cannot load token balances: "+ex.getMessage());getServer().getPluginManager().disablePlugin(this);return;}
         getServer().getPluginManager().registerEvents(this,this);
         getServer().getScheduler().runTaskTimer(this,this::tick,20,20);
+        barrier=new SpawnBarrier(this,this::tagged);
+        getServer().getScheduler().runTaskTimer(this,barrier::tick,5,5);
     }
+    @Override public void onDisable(){if(barrier!=null)barrier.close();}
     private void tick() {
         long now=System.currentTimeMillis();
         for(var entry:new HashMap<>(combat).entrySet()) {
@@ -64,14 +75,34 @@ public final class KillTokens extends JavaPlugin implements Listener {
         if(e.getBlock().getState() instanceof Crafter crafter)
             for(ItemStack item:crafter.getInventory().getContents())if(isToken(item)){e.setCancelled(true);return;}
     }
+    private void tag(Player player) {
+        if(getConfig().getBoolean("combat.enabled",true)&&!player.hasPermission("killtokens.combat-bypass"))
+            combat.put(player.getUniqueId(),System.currentTimeMillis()+Math.min(3600,Math.max(1,getConfig().getLong("combat.duration-seconds",20)))*1000L);
+    }
     private boolean tagged(Player p){return combat.getOrDefault(p.getUniqueId(),0L)>System.currentTimeMillis();}
     @EventHandler(priority=EventPriority.MONITOR,ignoreCancelled=true) public void hit(EntityDamageByEntityEvent e) {
         if(!getConfig().getBoolean("combat.enabled",true)||e.getFinalDamage()<=0||!(e.getEntity() instanceof Player victim))return;
         Player attacker=e.getDamager() instanceof Player p?p:e.getDamager() instanceof Projectile projectile&&projectile.getShooter() instanceof Player p?p:null;
         if(attacker==null||attacker.getUniqueId().equals(victim.getUniqueId()))return;
-        long until=System.currentTimeMillis()+Math.min(3600,Math.max(1,getConfig().getLong("combat.duration-seconds",20)))*1000L;
-        for(Player p:List.of(attacker,victim))if(!p.hasPermission("killtokens.combat-bypass"))combat.put(p.getUniqueId(),until);
+        tag(attacker);tag(victim);
         opponents.put(attacker.getUniqueId(),victim.getUniqueId());opponents.put(victim.getUniqueId(),attacker.getUniqueId());
+    }
+    @EventHandler(priority=EventPriority.MONITOR,ignoreCancelled=true) public void pearl(ProjectileLaunchEvent event) {
+        if(getConfig().getBoolean("combat.pearl-tag",true)&&event.getEntity() instanceof EnderPearl pearl&&pearl.getShooter() instanceof Player player)tag(player);
+    }
+    @EventHandler(priority=EventPriority.HIGHEST,ignoreCancelled=true) public void move(PlayerMoveEvent event) {
+        if(barrier!=null&&barrier.blocked(event.getPlayer(),event.getFrom(),event.getTo())) {
+            event.setTo(event.getFrom());event.getPlayer().sendActionBar(Component.text("You cannot enter spawn during combat",NamedTextColor.RED));
+        }
+    }
+    @EventHandler(priority=EventPriority.HIGHEST,ignoreCancelled=true) public void teleport(PlayerTeleportEvent event) {
+        if(barrier!=null&&barrier.blocked(event.getPlayer(),event.getFrom(),event.getTo())) {
+            event.setCancelled(true);event.getPlayer().sendMessage("You cannot teleport into spawn during combat.");
+        }
+    }
+    @EventHandler(priority=EventPriority.MONITOR,ignoreCancelled=true) public void kicked(PlayerKickEvent event) { punishLogout(event.getPlayer()); }
+    private void punishLogout(Player player) {
+        if(tagged(player)&&getConfig().getBoolean("combat.kill-on-logout",true)&&!player.isDead())player.setHealth(0);
     }
     static String commandRoot(String message) {
         String root=message.toLowerCase(Locale.ROOT).split("\\s+",2)[0];if(root.startsWith("/"))root=root.substring(1);
@@ -85,7 +116,7 @@ public final class KillTokens extends JavaPlugin implements Listener {
     }
     @EventHandler public void quit(PlayerQuitEvent e) {
         Player p=e.getPlayer();
-        if(tagged(p)&&getConfig().getBoolean("combat.kill-on-logout",false)&&!p.isDead())p.setHealth(0);
+        punishLogout(p);if(barrier!=null)barrier.clear(p);
         combat.remove(p.getUniqueId());opponents.remove(p.getUniqueId());
     }
     @EventHandler(priority=EventPriority.MONITOR) public void died(PlayerDeathEvent e) {

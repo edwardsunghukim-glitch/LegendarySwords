@@ -1,3 +1,11 @@
+# Combat update 1.1.0
+
+Successful player melee/projectile hits tag both attacker and victim. Throwing an ender pearl also starts/refreshes the configured combat timer (20 seconds by default). Quitting, disconnecting or being kicked while tagged kills the player. Canceled hits and zero damage do not tag. `killtokens.combat-bypass` bypasses tagging and defaults to nobody.
+
+With WorldGuard 7 + WorldEdit installed, combat-tagged players cannot enter region `spawn` by movement or teleport, including pearl teleports. Players tagged while already inside may leave. A nearby red glass outline is sent only to the tagged player's client; real blocks stay unchanged. Both polygon and cuboid regions are supported. The barrier only covers the region's configured height. Missing WorldGuard disables the barrier with a startup warning; other combat rules continue working.
+
+Config: `combat.kill-on-logout`, `combat.pearl-tag`, `combat.duration-seconds`, `combat.spawn.enabled`, `combat.spawn.region`, `combat.spawn.wall`. `/killtokens reload` applies changes. On the first upgrade to 1.1.0, combat logout death, pearl tagging and spawn protection are enabled automatically, region set to `spawn`, and `combat.rules-version: 2` saved; later config edits are preserved. Ordinary server shutdown/plugin disable is not treated as a combat logout.
+
 # KillTokens 1.0.2
 
 Standalone Paper 1.21.11 plugin, Java 21+. No Vault or economy plugin required.

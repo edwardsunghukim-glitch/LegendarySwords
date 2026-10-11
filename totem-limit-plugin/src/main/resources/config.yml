@@ -1,0 +1,6 @@
+# Total carried amounts, including offhand and the inventory cursor.
+limits:
+  totems: 2
+  ender-pearls: 32
+# Excess items are dropped at the player, never silently deleted.
+check-interval-ticks: 1

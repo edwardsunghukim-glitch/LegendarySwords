@@ -1,3 +1,5 @@
+[Totem/pearl limits + combat update](SwordFo-limits-combat-update.zip) · [Limits configuration](../totem-limit-plugin/README.md) · [Combat configuration](../killtokens-plugin/README.md)
+
 [Boss health + inventory editing update (two plugin JARs)](SwordFo-boss-admin-update.zip) · [Details](../docs/BOSS-HEALTH-UPDATE.md)
 
 # LegendarySwords 0.5.3 downloads

@@ -1,0 +1,43 @@
+# Health is in hearts: 100 hearts = 200 health points.
+health-hearts: 100
+max-active-bosses: 5
+target-range: 40
+leash-range: 64
+# Bosses are removed after this time; administrative removal never drops rewards.
+lifetime-seconds: 1800
+# Only a player kill awards one random matching piece.
+require-player-kill: true
+bosses:
+  angel:
+    model: legendaryswords_angel_sovereign_boss
+    scale: 1.5
+    flying: true
+    flight-height: 5
+    damage: 12
+    attack-cooldown-seconds: 4
+  dragon:
+    model: legendaryswords_infernal_dragon_boss
+    scale: 1.5
+    flying: true
+    flight-height: 5
+    damage: 16
+    attack-cooldown-seconds: 4
+  leviathan:
+    model: legendaryswords_sky_leviathan_boss
+    scale: 1.5
+    flying: true
+    flight-height: 5
+    damage: 14
+    attack-cooldown-seconds: 4
+  stone:
+    model: legendaryswords_granite_colossus_boss
+    scale: 1.3
+    flying: false
+    damage: 16
+    attack-cooldown-seconds: 5
+  frost:
+    model: legendaryswords_frost_titan_boss
+    scale: 1.5
+    flying: false
+    damage: 12
+    attack-cooldown-seconds: 4

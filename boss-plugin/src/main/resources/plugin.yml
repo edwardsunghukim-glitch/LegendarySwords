@@ -1,0 +1,15 @@
+name: LegendaryBosses
+version: '1.0.0'
+main: io.github.legendarybosses.LegendaryBosses
+api-version: '1.21.11'
+depend: [BetterModel, LegendaryArmor]
+softdepend: [LegendarySwords, WorldGuard]
+commands:
+  boss:
+    aliases: [legendarybosses, lboss]
+    description: Summon and manage the five legendary bosses
+    usage: /boss summon <angel|dragon|leviathan|stone|frost> [player]
+    permission: legendarybosses.admin
+permissions:
+  legendarybosses.admin:
+    default: op

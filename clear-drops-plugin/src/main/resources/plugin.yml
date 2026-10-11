@@ -1,0 +1,11 @@
+name: ClearDrops
+version: '1.0.0'
+main: io.github.cleardrops.ClearDrops
+api-version: '1.21.11'
+commands:
+  cleardrops:
+    description: Check or manually run dropped-item cleanup
+    usage: /cleardrops [now|reload]
+permissions:
+  cleardrops.admin:
+    default: op

@@ -1,0 +1,6 @@
+# Ten minutes between automatic cleanups.
+interval-seconds: 600
+# Set to 0 to disable the warning.
+warning-seconds: 30
+# World names to skip.
+excluded-worlds: []

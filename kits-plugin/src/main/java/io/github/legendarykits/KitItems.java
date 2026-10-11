@@ -5,31 +5,22 @@ import java.util.*;
 
 final class KitItems {
     static ItemStack[] spawnLoadout(ItemStack[] current, ItemStack[] kit) {
-        ItemStack[] planned=copy(current);
-        // Preserve existing gear; equip kit armor/offhand into empty slots.
-        for(int i=36;i<41;i++) if(empty(planned[i])&&!empty(kit[i])) {
-            int needed=kit[i].getAmount();
-            for(int j=0;j<36 && needed>0;j++) if(!empty(planned[j])&&planned[j].isSimilar(kit[i])) {
-                int moved=Math.min(needed,planned[j].getAmount());needed-=moved;
-                planned[j].setAmount(planned[j].getAmount()-moved);
-                if(empty(planned[j]))planned[j]=null;
-            }
-            planned[i]=kit[i].clone();
+        ItemStack[] planned=copy(kit);
+        List<ItemStack> displaced=new ArrayList<>();
+        for(int i=0;i<current.length;i++) {
+            ItemStack item=current[i];if(empty(item))continue;
+            boolean managed=false;
+            for(ItemStack saved:kit) if(!empty(saved)&&item.isSimilar(saved)){managed=true;break;}
+            // Replace kit-owned item types with the exact saved stacks, not extra copies.
+            if(managed)continue;
+            if(empty(planned[i]))planned[i]=item.clone();else displaced.add(item);
         }
-        List<ItemStack> wanted=new ArrayList<>();
-        for(ItemStack item:kit) {
-            if(empty(item))continue;
-            ItemStack group=wanted.stream().filter(i->i.isSimilar(item)).findFirst().orElse(null);
-            if(group==null)wanted.add(item.clone());else group.setAmount(group.getAmount()+item.getAmount());
-        }
-        List<ItemStack> missing=new ArrayList<>();
-        for(ItemStack target:wanted) {
-            int owned=0;for(ItemStack item:planned) if(!empty(item)&&item.isSimilar(target))owned+=item.getAmount();
-            if(owned<target.getAmount()){ItemStack extra=target.clone();extra.setAmount(target.getAmount()-owned);missing.add(extra);}
-        }
-        ItemStack[] storage=insert(Arrays.copyOf(planned,36),missing);
-        if(storage==null)return null;
-        System.arraycopy(storage,0,planned,0,36);return planned;
+        List<Integer> free=new ArrayList<>();
+        for(int i=0;i<36;i++)if(empty(planned[i]))free.add(i);
+        ItemStack[] moved=insert(new ItemStack[free.size()],displaced);
+        if(moved==null)return null;
+        for(int i=0;i<free.size();i++)planned[free.get(i)]=moved[i];
+        return planned;
     }
     static boolean empty(ItemStack item) { return item == null || (item.getType() == Material.AIR || item.getType() == Material.CAVE_AIR || item.getType() == Material.VOID_AIR) || item.getAmount() <= 0; }
     static ItemStack[] copy(ItemStack[] items) {

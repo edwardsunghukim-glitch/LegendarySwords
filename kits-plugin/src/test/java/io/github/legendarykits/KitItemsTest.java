@@ -10,12 +10,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class KitItemsTest {
-    private static ItemStack item(int amount) {
+    private static ItemStack item(int amount) { return item(Material.STONE, amount, 64); }
+    private static ItemStack item(Material type, int amount, int max) {
         ItemStack item=mock(ItemStack.class);AtomicInteger count=new AtomicInteger(amount);
-        when(item.getType()).thenReturn(Material.STONE);when(item.getAmount()).thenAnswer(a->count.get());
+        when(item.getType()).thenReturn(type);when(item.getAmount()).thenAnswer(a->count.get());
         doAnswer(a->{count.set(a.getArgument(0));return null;}).when(item).setAmount(anyInt());
-        when(item.getMaxStackSize()).thenReturn(64);when(item.isSimilar(any())).thenReturn(true);
-        when(item.clone()).thenAnswer(a->item(count.get()));return item;
+        when(item.getMaxStackSize()).thenReturn(max);when(item.isSimilar(any())).thenAnswer(a->a.getArgument(0) instanceof ItemStack other && other.getType()==type);
+        when(item.clone()).thenAnswer(a->item(type,count.get(),max));return item;
     }
     @Test void fullInventoryFailureDoesNotConsumeOrMutateAnything() {
         ItemStack original=item(64), reward=item(2);
@@ -60,4 +61,20 @@ class KitItemsTest {
         assertNull(KitItems.spawnLoadout(current,kit));assertSame(other,current[36]);assertEquals(64,current[0].getAmount());
     }
     @Test void menuIsExactlyThreeRows() { assertEquals(27,LegendaryKits.MENU_SIZE); }
+    @Test void spawnPreservesSparseSavedOrderAndOversizedPearlStack() {
+        ItemStack[] kit=new ItemStack[41];ItemStack pearls=item(Material.ENDER_PEARL,64,16);
+        // Saved stack is intentionally oversized: copying must not repack it.
+        kit[7]=pearls;kit[22]=item(2);
+        ItemStack[] result=KitItems.spawnLoadout(new ItemStack[41],kit);
+        assertEquals(64,result[7].getAmount());assertEquals(2,result[22].getAmount());
+        for(int i=0;i<7;i++)assertNull(result[i]);assertNull(result[8]);
+    }
+    @Test void oldSplitKitStacksAreReplacedBySingleSavedStack() {
+        ItemStack[] current=new ItemStack[41],kit=new ItemStack[41];
+        for(int i=0;i<4;i++)current[i]=item(16);
+        kit[5]=item(16);
+        ItemStack[] result=KitItems.spawnLoadout(current,kit);
+        assertEquals(16,result[5].getAmount());for(int i=0;i<5;i++)assertNull(result[i]);
+        assertEquals(16,current[0].getAmount());
+    }
 }

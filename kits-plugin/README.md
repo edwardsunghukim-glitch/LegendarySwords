@@ -1,9 +1,9 @@
-# LegendaryKits 1.2.0
+# LegendaryKits 1.2.1
 
 Standalone Paper 1.21.11 plugin, Java 21+. No dependency on PlayerKits2.
 
 ## Install
-Stop the server, place LegendaryKits-1.2.0.jar in plugins, restart.
+Stop the server, place LegendaryKits-1.2.1.jar in plugins, restart.
 If another plugin owns /kits, use /legendarykits or /legendarykits:kits.
 A sample starter kit is created on first launch (one-hour cooldown).
 
@@ -32,7 +32,7 @@ Cooldown/icon changes save immediately, independently of the contents Save/Cance
 Custom item metadata, enchantments and persistent data are preserved using Bukkit item serialization.
 Kits and claim times live in plugins/LegendaryKits/kits.yml. No resource pack is included.
 
-Build: mvn verify in this directory. Twelve tests verify inventory insertion/failure isolation, spawn top-ups/equipment preservation, command permissions, and menu capacity.
+Build: mvn verify in this directory. Fourteen tests verify inventory insertion/failure isolation, spawn top-ups/equipment preservation, command permissions, and menu capacity.
 A live Paper server/client GUI test has not been performed. This implements kit menus/editing, not every PlayerKits2 feature.
 
 ## Default spawn kit
@@ -41,12 +41,12 @@ Both require legendarykits.admin. The editor also has a Set default spawn kit bu
 Save edited contents first; setting a default uses the saved kit.
 The default selection persists in kits.yml. No automatic kit is selected on upgrade.
 Spawn grants intentionally bypass claim cooldowns and kit permissions, since an admin selects the server-wide default.
-Missing kit items are replenished, rather than multiplying the kit on each login or keep-inventory respawn.
-Armor/offhand equip into empty slots; existing gear and unrelated items are preserved.
-Identical gear already in storage is moved to an empty equipment slot. If storage cannot fit the full grant, nothing changes.
+Default spawn grants reset kit items to the exact saved slot layout and amounts, including separate stacks and deliberately oversized saved stacks. Existing items matching the kit by material and metadata are replaced, including extra copies, rather than accumulating on each join or keep-inventory respawn.
+Saved kit armor/offhand equip into their exact slots. Unrelated inventory items or equipment are preserved in their existing slots when free, otherwise moved to unused storage slots.
+Saved kit slots are never used to pack displaced items. If there is insufficient room to preserve unrelated items, the grant is skipped without changing the inventory. Normal manual kit claims retain their additive, stack-size-aware behavior.
 The contents editor remains six rows to support all 41 player inventory/equipment slots and its controls.
 
-Upgrade: stop server, replace LegendaryKits-1.0.0.jar with LegendaryKits-1.2.0.jar, keep the LegendaryKits data folder, restart.
+Upgrade: stop server, replace LegendaryKits-1.0.0.jar with LegendaryKits-1.2.1.jar, keep the LegendaryKits data folder, restart.
 
 ## Kit menu positions
 /kits slot <name> <1–27> requires legendarykits.admin and persists the position.

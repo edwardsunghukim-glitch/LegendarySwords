@@ -1,4 +1,4 @@
-# BackroomsHorror 1.0.0
+# BackroomsHorror 1.0.1
 
 Original Paper 1.21.11 plugin inspired by Backrooms horror. This is not the
 Backrooms: Found Footage mod or a reproduction of its proprietary entity assets.
@@ -7,7 +7,7 @@ entities/levels could not be verified. No client mod/resource pack is required.
 
 ## Install and summon
 
-Put BackroomsHorror-1.0.0.jar in plugins and restart. Admin permission:
+Put BackroomsHorror-1.0.1.jar in plugins and restart. Admin permission:
 backrooms.admin (operators by default). Regular players have backrooms.use.
 
 - /br summon stalker — zombie-based charger, darkness pulse, temporary invisibility.
@@ -77,3 +77,10 @@ saved chunks; /br map does not regenerate them.
 Maven verify checks doorway connectivity, a reachable escape route, watcher view
 angles and admin autocomplete. Rendering, NPC AI, actual world generation and
 WorldGuard integration still need a test on your live Paper server.
+
+1.0.1 adds /br summon bacteria. Bacteria has 45 hearts, a rushing charge,
+a darkness/scream pulse and a slowing close-range grapple (with native damage).
+An original spindly black creature is rendered with ten vanilla block displays
+and swinging limbs; no extra pack or BetterModel import is needed. It is not
+the mod's actual mesh. Its underlying wither-skeleton hitbox is enlarged to 1.25x,
+not individual limb hitboxes. NPC display alignment needs an in-game check.

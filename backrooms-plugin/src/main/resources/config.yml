@@ -10,6 +10,11 @@ safe-entry-radius: 10
 allow-building: false
 # Player armor applies to all attack damage, measured in health points.
 npcs:
+  bacteria:
+    hearts: 45
+    damage: 10
+    speed: 0.31
+    cooldown-seconds: 6
   stalker:
     hearts: 30
     damage: 8

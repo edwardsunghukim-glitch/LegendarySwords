@@ -57,12 +57,15 @@ public final class AbilityController implements AutoCloseable {
         BukkitTask timer; int age, duration, lastSmash = -1000, lastSpecial = -10000; boolean granted;
         BossSession(Player player, SwordType sword, double damage) {
             this.player = player; this.sword = sword; this.damage = damage;
-            flight = player.getAllowFlight(); flying = player.isFlying(); mode = player.getGameMode();
+            var armorFlight = player.getMetadata("legendaryarmor_flight").stream().map(org.bukkit.metadata.MetadataValue::value).filter(v->v instanceof Map<?,?>).map(v->(Map<?,?>)v).findFirst().orElse(Map.of());
+            flight = armorFlight.get("allowed") instanceof Boolean b ? b : player.getAllowFlight();
+            flying = armorFlight.get("flying") instanceof Boolean b ? b : player.isFlying(); mode = player.getGameMode();
             origin = player.getLocation().clone();
         }
         void finish() {
             if (timer != null) timer.cancel();
             bosses.remove(player.getUniqueId(), this);
+            player.removeMetadata("legendaryswords_boss_flight",plugin);
             bossSupport.stop(player);
             Set<BukkitRunnable> owned = tasks.remove(player.getUniqueId());
             if (owned != null) owned.forEach(BukkitRunnable::cancel);
@@ -72,7 +75,8 @@ public final class AbilityController implements AutoCloseable {
                         && mode != GameMode.CREATIVE && mode != GameMode.SPECTATOR) {
                     if (!flight && !player.isDead() && player.isOnline() && !player.isOnGround())
                         player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_FALLING, 100, 0));
-                    player.setFlying(flight && flying); player.setAllowFlight(flight);
+                    if(player.hasMetadata("legendaryarmor_flight"))player.setAllowFlight(true);
+                    else {player.setFlying(flight && flying); player.setAllowFlight(flight);}
                 }
             }
         }
@@ -208,6 +212,7 @@ public final class AbilityController implements AutoCloseable {
             bossSupport.start(player,sword);
             if (sword.bossFlight() && plugin.getConfig().getBoolean("bosses.flight-enabled", true)) {
             session.granted = true;
+            player.setMetadata("legendaryswords_boss_flight",new org.bukkit.metadata.FixedMetadataValue(plugin,Map.of("allowed",session.flight,"flying",session.flying)));
             player.setAllowFlight(true);
             player.setFlying(true);
         }

@@ -134,7 +134,7 @@ public enum SwordType {
         };
     }
     public boolean boss() { return ordinal() >= ANGEL_SOVEREIGN.ordinal(); }
-    public boolean bossFlight() { return this == ANGEL_SOVEREIGN || this == SKY_LEVIATHAN; }
+    public boolean bossFlight() { return this == ANGEL_SOVEREIGN || this == SKY_LEVIATHAN || this == INFERNAL_DRAGON; }
     public String identity() {
         return switch (this) {
             case MASTER_SWORD -> "A sacred blade that channels piercing light.";

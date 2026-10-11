@@ -171,6 +171,27 @@ class AbilityControllerTest {
         verify(animations).stopBoss(player);
         assertFalse(controller.bossSwing(player));
     }
+    @Test void dragonTransformationGrantsAndRestoresFlight() {
+        controller.activate(player,SwordType.INFERNAL_DRAGON,true);advanceTicks(120);
+        verify(player).setAllowFlight(true);verify(player).setFlying(true);
+        advanceTicks(180);verify(player).setAllowFlight(false);verify(player).setFlying(false);
+    }
+
+    @Test void endingBossKeepsFlightWhenFlyingArmorIsStillEquipped() {
+        when(player.getAllowFlight()).thenReturn(true);when(player.hasMetadata("legendaryarmor_flight")).thenReturn(true);
+        var baseline=mock(org.bukkit.metadata.MetadataValue.class);when(baseline.value()).thenReturn(java.util.Map.of("allowed",false,"flying",false));
+        when(player.getMetadata("legendaryarmor_flight")).thenReturn(java.util.List.of(baseline));
+        controller.activate(player,SwordType.INFERNAL_DRAGON,true);advanceTicks(300);
+        verify(player,never()).setAllowFlight(false);
+    }
+    @Test void armorRemovedDuringBossRestoresPreArmorFlightAtExpiry() {
+        when(player.getAllowFlight()).thenReturn(true);
+        var baseline=mock(org.bukkit.metadata.MetadataValue.class);when(baseline.value()).thenReturn(java.util.Map.of("allowed",false,"flying",false));
+        when(player.getMetadata("legendaryarmor_flight")).thenReturn(java.util.List.of(baseline));
+        controller.activate(player,SwordType.INFERNAL_DRAGON,true);advanceTicks(300);
+        verify(player).setAllowFlight(false);verify(player).setFlying(false);
+    }
+
     @Test void bossCancellationRestoresFlightAndStopsFurtherDamage() {
         controller.activate(player, SwordType.SKY_LEVIATHAN, true);
         advanceTicks(80);

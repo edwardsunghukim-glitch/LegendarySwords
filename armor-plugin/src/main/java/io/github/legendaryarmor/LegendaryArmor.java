@@ -13,17 +13,18 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.*;
 
 public final class LegendaryArmor extends JavaPlugin implements Listener {
+    private ArmorFlight flight;
     private ArmorCatalog catalog;private ArmorCosmetics cosmetics;private ArmorAbilities abilities;private int ticks;
     private static final NamespacedKey SPEED=new NamespacedKey("legendaryarmor","set_speed"),RESIST=new NamespacedKey("legendaryarmor","set_resist");
     @Override public void onEnable(){saveDefaultConfig();
         // Upgrade to stable equipment rendering: separate cosmetic entities can trail behind.
         if(getConfig().getInt("rendering-version",0)<2){getConfig().set("accessories-enabled",false);getConfig().set("rendering-version",2);saveConfig();}
-        catalog=new ArmorCatalog(this);cosmetics=new ArmorCosmetics(this);abilities=new ArmorAbilities(this,catalog);
+        flight=new ArmorFlight(this);catalog=new ArmorCatalog(this);cosmetics=new ArmorCosmetics(this);abilities=new ArmorAbilities(this,catalog);
         getServer().getPluginManager().registerEvents(this,this);getServer().getOnlinePlayers().forEach(this::clean);
         getServer().getScheduler().runTaskTimer(this,this::tick,1,1);
     }
     @Override public void onDisable(){if(abilities!=null)abilities.close();if(cosmetics!=null)cosmetics.close();getServer().getOnlinePlayers().forEach(this::clean);}
-    private void clean(Player player){modifier(player,Attribute.MOVEMENT_SPEED,SPEED,0,AttributeModifier.Operation.ADD_SCALAR);modifier(player,Attribute.KNOCKBACK_RESISTANCE,RESIST,0,AttributeModifier.Operation.ADD_NUMBER);}
+    private void clean(Player player){if(flight!=null)flight.clear(player);modifier(player,Attribute.MOVEMENT_SPEED,SPEED,0,AttributeModifier.Operation.ADD_SCALAR);modifier(player,Attribute.KNOCKBACK_RESISTANCE,RESIST,0,AttributeModifier.Operation.ADD_NUMBER);}
     private void modifier(Player player,Attribute attribute,NamespacedKey key,double amount,AttributeModifier.Operation operation) {
         updateModifier(player.getAttribute(attribute),key,amount,operation);
     }
@@ -37,6 +38,7 @@ public final class LegendaryArmor extends JavaPlugin implements Listener {
     private ArmorSet worn(Player player){return player.isDead()||player.getGameMode()==GameMode.SPECTATOR?null:catalog.fullSet(player.getInventory().getArmorContents());}
     private void tick(){ticks++;for(Player player:getServer().getOnlinePlayers()) {
         ArmorSet set=worn(player);cosmetics.update(player,set);
+        flight.update(player,(set==ArmorSet.ANGEL||set==ArmorSet.DRAGON||set==ArmorSet.LEVIATHAN)&&getConfig().getBoolean("sets."+set.id+".flight-enabled",true));
         modifier(player,Attribute.MOVEMENT_SPEED,SPEED,set==ArmorSet.LEVIATHAN?Math.min(.5,setting(set,"speed-bonus",.08)):0,AttributeModifier.Operation.ADD_SCALAR);
         modifier(player,Attribute.KNOCKBACK_RESISTANCE,RESIST,set==ArmorSet.STONE?Math.min(1,setting(set,"knockback-resistance",.35)):0,AttributeModifier.Operation.ADD_NUMBER);
         if(set==ArmorSet.ANGEL&&ticks%80==0)ArmorAbilities.heal(player,setting(set,"passive-healing",1));

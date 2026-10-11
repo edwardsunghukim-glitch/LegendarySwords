@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.legendaryswords</groupId>
   <artifactId>LegendarySwords</artifactId>
-  <version>0.5.4</version>
+  <version>0.5.5</version>
   <name>LegendarySwords</name>
   <description>Custom swords, cinematic ultimates, and BetterModel animations for Paper 1.21.11.</description>
   <properties>

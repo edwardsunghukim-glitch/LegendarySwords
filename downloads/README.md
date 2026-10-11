@@ -1,3 +1,5 @@
+[Dragon boss + Angel/Dragon/Leviathan armor flight update](SwordFo-flight-update.zip) · [Flight configuration](../docs/FLIGHT-UPDATE.md)
+
 [Stable armor rendering plugin 1.1.2](LegendaryArmor-1.1.2.jar): disables floating accessory displays; existing pack remains compatible.
 
 [Dark fantasy knight armor 1.1.0: plugin](LegendaryArmor-1.1.0.jar) · [Combined pack](LegendaryArmor-Swords-combined-resource-pack-1.1.0.zip) · [Preview](LegendaryArmor-preview.png)

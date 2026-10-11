@@ -11,15 +11,18 @@ accessories-visible-to-owner: true
 unbreakable: true
 sets:
   angel:
+    flight-enabled: true
     cooldown-seconds: 28
     damage: 8
     healing: 6
     passive-healing: 1
   dragon:
+    flight-enabled: true
     cooldown-seconds: 24
     damage: 4
     fire-seconds: 4
   leviathan:
+    flight-enabled: true
     cooldown-seconds: 25
     damage: 14
     speed-bonus: 0.08

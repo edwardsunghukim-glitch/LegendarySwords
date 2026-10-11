@@ -1,0 +1,15 @@
+name: BackroomsHorror
+version: '1.0.0'
+main: io.github.backroomshorror.BackroomsHorror
+api-version: '1.21.11'
+softdepend: [KillTokens, WorldGuard]
+commands:
+  backrooms:
+    aliases: [br]
+    description: Enter, escape and manage the Backrooms
+    usage: /backrooms [enter <0|1|2>|leave|status|summon <stalker|smiler|hound|watcher>|setportal|remove|reload]
+permissions:
+  backrooms.use:
+    default: true
+  backrooms.admin:
+    default: op

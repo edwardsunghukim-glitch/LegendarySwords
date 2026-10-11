@@ -1,0 +1,37 @@
+# Original Paper implementation inspired by Backrooms horror; not the CurseForge mod.
+world-prefix: backrooms_horror
+world-size: 256
+npc-limit-per-world: 8
+auto-spawn: false
+spawn-interval-seconds: 30
+spawn-distance: 22
+npc-lifetime-seconds: 300
+safe-entry-radius: 10
+allow-building: false
+# Player armor applies to all attack damage, measured in health points.
+npcs:
+  stalker:
+    hearts: 30
+    damage: 8
+    speed: 0.27
+    cooldown-seconds: 7
+  smiler:
+    hearts: 25
+    damage: 6
+    speed: 0.30
+    cooldown-seconds: 9
+  hound:
+    hearts: 20
+    damage: 7
+    speed: 0.34
+    cooldown-seconds: 6
+  watcher:
+    hearts: 40
+    damage: 9
+    speed: 0.23
+    cooldown-seconds: 10
+
+spawn-protection:
+  enabled: true
+  regions: [spawn]
+  world-spawn-radius: 16

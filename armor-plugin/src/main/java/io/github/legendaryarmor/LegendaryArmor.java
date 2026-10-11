@@ -15,7 +15,10 @@ import java.util.*;
 public final class LegendaryArmor extends JavaPlugin implements Listener {
     private ArmorCatalog catalog;private ArmorCosmetics cosmetics;private ArmorAbilities abilities;private int ticks;
     private static final NamespacedKey SPEED=new NamespacedKey("legendaryarmor","set_speed"),RESIST=new NamespacedKey("legendaryarmor","set_resist");
-    @Override public void onEnable(){saveDefaultConfig();catalog=new ArmorCatalog(this);cosmetics=new ArmorCosmetics(this);abilities=new ArmorAbilities(this,catalog);
+    @Override public void onEnable(){saveDefaultConfig();
+        // Upgrade to stable equipment rendering: separate cosmetic entities can trail behind.
+        if(getConfig().getInt("rendering-version",0)<2){getConfig().set("accessories-enabled",false);getConfig().set("rendering-version",2);saveConfig();}
+        catalog=new ArmorCatalog(this);cosmetics=new ArmorCosmetics(this);abilities=new ArmorAbilities(this,catalog);
         getServer().getPluginManager().registerEvents(this,this);getServer().getOnlinePlayers().forEach(this::clean);
         getServer().getScheduler().runTaskTimer(this,this::tick,1,1);
     }

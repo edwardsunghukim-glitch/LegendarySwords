@@ -18,7 +18,7 @@ final class ArmorCosmetics implements AutoCloseable {
         if(!plugin.getConfig().getBoolean("accessories-visible-to-owner",true))player.hideEntity(plugin,display);return display;
     }
     void update(Player player,ArmorSet set) {
-        if(set==null||player.isDead()||!player.isOnline()||!plugin.getConfig().getBoolean("accessories-enabled",true)){clear(player.getUniqueId());return;}
+        if(set==null||player.isDead()||!player.isOnline()||!plugin.getConfig().getBoolean("accessories-enabled",false)){clear(player.getUniqueId());return;}
         Worn current=worn.get(player.getUniqueId());
         if(current==null||current.set!=set||!current.back.isValid()||!current.helmet.isValid()||!current.back.getWorld().equals(player.getWorld())) {
             clear(player.getUniqueId());current=new Worn(set,spawn(player,set.id+"_back"),spawn(player,set.id+"_crown"),spawn(player,set.id+"_helmet_shell"));worn.put(player.getUniqueId(),current);

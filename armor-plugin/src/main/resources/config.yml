@@ -2,7 +2,9 @@
 abilities-enabled: true
 pvp: true
 friendly-fire: false
-accessories-enabled: true
+# Separate display attachments can trail under latency. Disabled for stable native armor.
+rendering-version: 2
+accessories-enabled: false
 # Turn off if a cosmetic obstructs your view with a particular client/camera mod.
 accessories-visible-to-owner: true
 # Default armor protection uses real netherite stats and normal armor damage reduction.

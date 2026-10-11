@@ -9,11 +9,11 @@ ROOT=Path(__file__).resolve().parents[1]
 PACK=ROOT/'armor-resource-pack'
 A=PACK/'assets/legendaryarmor'
 THEMES={
- 'angel':('Seraph Ascendant',(231,226,202),(162,118,43),(255,231,142)),
- 'dragon':('Dreadfire Wyrm',(40,30,38),(118,40,34),(255,112,51)),
- 'leviathan':('Abyssal Sovereign',(18,73,94),(37,134,145),(99,239,220)),
- 'stone':('Runebound Colossus',(88,89,78),(132,117,80),(246,198,89)),
- 'frost':('Winter Revenant',(62,91,133),(133,181,209),(215,246,255)),
+ 'angel':('Seraph Ascendant',(58,57,63),(139,116,71),(231,197,119)),
+ 'dragon':('Dreadfire Wyrm',(41,35,39),(105,63,53),(232,105,46)),
+ 'leviathan':('Abyssal Sovereign',(31,48,56),(65,111,116),(99,198,190)),
+ 'stone':('Runebound Colossus',(58,56,48),(117,99,69),(207,161,72)),
+ 'frost':('Winter Revenant',(43,49,65),(94,120,145),(162,206,233)),
 }
 def savejson(path,data):
  path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(data,indent=2)+'\n')
@@ -22,50 +22,36 @@ def mix(c,f):return tuple(max(0,min(255,int(v*f))) for v in c)
 def face(image,rect,theme,kind):
  name,base,trim,glow=THEMES[theme];x0,y0,x1,y1=[int(v*4) for v in rect];draw=ImageDraw.Draw(image);w,h=x1-x0,y1-y0
  rng=random.Random(theme+str(rect)+kind)
+ # Broad forged plates with a restrained brushed-metal highlight.
  for y in range(y0,y1):
   for x in range(x0,x1):
-   shade=.78+.24*math.sin((x-x0+.5)/max(1,w)*math.pi)+.07*math.cos((y-y0)*.7)+rng.uniform(-.025,.025)
+   u=(x-x0+.5)/w;v=(y-y0+.5)/h
+   shade=.72+.48*math.exp(-((u-.28)/.25)**2)-.12*v+rng.uniform(-.035,.035)
    image.putpixel((x,y),mix(base,shade)+(255,))
- draw.rectangle((x0,y0,x1-1,y1-1),outline=trim+(255,),width=2)
- draw.line((x0+3,y0+2,x1-4,y0+2),fill=mix(trim,1.35)+(255,),width=1)
- cx=(x0+x1)//2
- if theme=='angel':
-  # Overlapping ivory plumes with engraved gold spines.
-  for row in range(y0+6,y1-3,9):
-   for side in [-1,1]:
-    points=[(cx,row-2),(cx+side*(w//2-4),row+2),(cx+side*(w//3),row+7),(cx,row+4)]
-    draw.polygon(points,fill=mix(base,1.08)+(255,));draw.line(points[:3],fill=trim+(255,),width=1)
-  draw.line((cx,y0+3,cx,y1-4),fill=glow+(255,),width=2)
- elif theme=='dragon':
-  # Separate overlapping scale plates, ember seams and an angular central crest.
-  for row in range(y0+4,y1,7):
-   for col in range(x0-3,x1,8):
-    xx=col+(4 if (row-y0)//7%2 else 0)
-    pts=[(xx,row),(xx+7,row),(xx+5,row+5),(xx+2,row+6)]
-    draw.polygon(pts,fill=mix(base,1.35)+(255,));draw.line(pts[1:],fill=trim+(255,),width=1)
-  draw.line((cx,y0+4,cx-3,y0+h//3,cx+2,y0+2*h//3,cx,y1-4),fill=glow+(255,),width=2)
- elif theme=='leviathan':
-  # Flowing turquoise wave engraving, pearl rivets and ribbed fins.
-  for row in range(y0+5,y1-2,8):
-   pts=[(x,round(row+2*math.sin((x-x0)*.28))) for x in range(x0+3,x1-3)]
-   draw.line(pts,fill=trim+(255,),width=2);draw.line([(x,y+2) for x,y in pts],fill=glow+(255,),width=1)
-  for yy in [y0+4,y1-5]:draw.ellipse((cx-2,yy-2,cx+2,yy+2),fill=glow+(255,))
- elif theme=='stone':
-  # Broad stone slabs, chiseled cracks and geometric rune glyphs.
-  for yy in range(y0+6,y1-2,12):draw.line((x0+2,yy,x1-3,yy),fill=mix(base,.5)+(255,),width=2)
-  draw.line((x0+w//3,y0+3,x0+w//2,y0+h//3,x0+w//3,y0+h//2,x0+w//2,y1-3),fill=mix(base,.45)+(255,),width=1)
-  if w>10:
-   cy=(y0+y1)//2;draw.line((cx,cy-5,cx-4,cy,cx,cy+5,cx+4,cy,cx,cy-5),fill=glow+(255,),width=2)
- elif theme=='frost':
-  # Interlocking icy facets and snow-star etching.
-  for row in range(y0+4,y1,10):
-   for xx in range(x0+3,x1-2,8):draw.polygon([(xx,row),(xx+4,row+5),(xx,row+9),(xx-4,row+5)],outline=trim+(255,))
-  cy=(y0+y1)//2
-  for angle in range(0,360,60):
-   a=math.radians(angle);draw.line((cx,cy,cx+math.cos(a)*min(w,h)*.3,cy+math.sin(a)*min(w,h)*.3),fill=glow+(255,),width=1)
- # Edge fasteners.
- for x in [x0+3,x1-4]:
-  for y in [y0+3,y1-4]:draw.point((x,y),fill=glow+(255,))
+ draw.rectangle((x0,y0,x1-1,y1-1),outline=mix(base,.45)+(255,),width=2)
+ draw.line((x0+2,y1-3,x0+2,y0+2,x1-3,y0+2),fill=mix(base,1.65)+(255,),width=1)
+ draw.line((x0+3,y1-3,x1-3,y1-3,x1-3,y0+3),fill=mix(base,.6)+(255,),width=1)
+ if h>w:
+  # Articulated plates use asymmetrical seams rather than wallpaper patterns.
+  yy=y0+int(h*.68);draw.line((x0+3,yy,x1-4,yy-2),fill=mix(base,.4)+(255,),width=2)
+  draw.line((x0+3,yy+2,x1-4,yy),fill=mix(base,1.35)+(255,),width=1)
+ # Chipped corners, scoring and a few rusty rivets.
+ for x,y in [(x0+3,y0+3),(x1-4,y0+3),(x0+3,y1-4),(x1-4,y1-4)]:
+  draw.rectangle((x,y,x+1,y+1),fill=trim+(255,))
+ for _ in range(max(1,w*h//180)):
+  x=rng.randint(x0+3,x1-4);y=rng.randint(y0+3,y1-4);length=rng.randint(2,5)
+  draw.line((x,y,min(x1-3,x+length),min(y1-3,y+2)),fill=mix(base,.38)+(255,),width=1)
+  draw.point((x,y-1),fill=mix(base,1.6)+(255,))
+ # Small set-specific emblems, not full-surface glowing patterns.
+ if w>=20 and h>=24:
+  cx=(x0+x1)//2;cy=y0+h//3
+  if theme=='angel':
+   draw.line((cx-4,cy-3,cx,cy,cx+4,cy-3),fill=trim+(255,),width=2);draw.line((cx,cy-2,cx,cy+5),fill=trim+(255,),width=1)
+  elif theme=='dragon':draw.line((cx-3,cy-4,cx+1,cy-1,cx-1,cy+2,cx+3,cy+5),fill=trim+(255,),width=2)
+  elif theme=='leviathan':draw.arc((cx-5,cy-4,cx+5,cy+4),10,160,fill=trim+(255,),width=2)
+  elif theme=='stone':draw.rectangle((cx-3,cy-3,cx+3,cy+3),outline=trim+(255,),width=1)
+  else:draw.line((cx-3,cy-3,cx+3,cy+3),fill=trim+(255,),width=1);draw.line((cx+3,cy-3,cx-3,cy+3),fill=trim+(255,),width=1)
+
 def atlas(theme,leggings=False):
  image=Image.new('RGBA',(256,128))
  # All six cube faces for helmet/body/arm/leg, matching vanilla armor UVs.
@@ -97,9 +83,9 @@ def atlas(theme,leggings=False):
   draw.rectangle((80,81,111,88),fill=trim+(255,));draw.rectangle((93,81,98,88),outline=glow+(255,),width=1)
  else:
   cx,cy=96,93
-  if theme=='angel':draw.polygon([(cx,cy-7),(cx+5,cy),(cx,cy+7),(cx-5,cy)],fill=glow+(255,),outline=trim+(255,))
+  if theme=='angel':draw.polygon([(cx,cy-7),(cx+5,cy),(cx,cy+7),(cx-5,cy)],fill=trim+(255,),outline=mix(base,.5)+(255,))
   elif theme=='dragon':draw.polygon([(cx,cy-7),(cx+6,cy+4),(cx,cy+7),(cx-6,cy+4)],fill=glow+(255,))
-  elif theme=='leviathan':draw.ellipse((cx-5,cy-5,cx+5,cy+5),fill=glow+(255,),outline=trim+(255,),width=2)
+  elif theme=='leviathan':draw.ellipse((cx-5,cy-5,cx+5,cy+5),fill=trim+(255,),outline=mix(base,.5)+(255,),width=2)
   elif theme=='stone':draw.rectangle((cx-5,cy-5,cx+5,cy+5),outline=glow+(255,),width=2)
   else:
    for angle in range(0,360,60):a=math.radians(angle);draw.line((cx,cy,cx+math.cos(a)*7,cy+math.sin(a)*7),fill=glow+(255,),width=2)
@@ -113,7 +99,7 @@ MODELS={}
 KNIGHTPARTS={}
 def model(name,theme,elements):
  MODELS[name]=elements
- savejson(A/'models/item'/f'{name}.json',{'ambientocclusion':False,'textures':{key:f'legendaryarmor:item/material/{theme}_{key}' for key in ['base','trim','glow']},'elements':elements,'display':{'fixed':{'rotation':[0,0,0],'translation':[0,0,0],'scale':[1,1,1]}}})
+ savejson(A/'models/item'/f'{name}.json',{'ambientocclusion':False,'textures':{key:f'legendaryarmor:item/material/{theme}_{key}' for key in ['base','trim','glow','cloth','leather']},'elements':elements,'display':{'fixed':{'rotation':[0,0,0],'translation':[0,0,0],'scale':[1,1,1]}}})
  savejson(A/'items'/f'{name}.json',{'model':{'type':'minecraft:model','model':f'legendaryarmor:item/{name}'}})
 def accessories(theme):
  back=[];crown=[]
@@ -168,6 +154,17 @@ def accessories(theme):
  elif theme=='stone':bulky += [cube(2,1.5,10.5,12,7,3,'base'),cube(6.5,4,13.6,3,3,.4,'glow')]
  else:
   for side in [-1,1]:bulky.append(cube(8+side*9-.5,8,7,1,3.5,1,'glow',22.5*side))
+ # Cloth panels, strapped belt and overlapping armored tassets.
+ bulky += [cube(5,-6,11,6,6.5,.6,'cloth'),cube(2.6,.3,11.5,10.8,1.2,2.3,'leather'),cube(7,.3,14,2,1.2,.4,'trim')]
+ for side in [-1,1]:
+  for row in range(3):bulky.append(cube(8+side*3-1.6,-3+row*1.2,12,3.2,1.1,1,'base',22.5*side))
+ for row in range(4):bulky.append(cube(4.2+row*1.5,3+row*.8,14,1.9,.5,.35,'leather',22.5))
+ # Scarred knight silhouettes gain heavy shoulder spikes and smaller tip pieces.
+ for side in [-1,1]:
+  for index in range(3):
+   x=8+side*(6.3+index*1.7)-.45
+   bulky += [cube(x,8.8-index*.45,7,.9,2.8-index*.25,1,'base',22.5*side),
+             cube(x+.2,11.1-index*.6,7.2,.5,1,.5,'trim',22.5*side)]
  # Inset rivets, raised filigree and distinct front plates.
  for side in [-1,1]:
   for row in range(3):bulky.append(cube(8+side*3.8-.15,3+row*1.4,13.6,.3,.3,.35,'trim'))
@@ -175,9 +172,9 @@ def accessories(theme):
   for side in [-1,1]:
    for row in range(3):bulky.append(cube(8+side*2.3-1,3+row*1.3,13.7,2,.6,.5,'trim',22.5*side))
  elif theme=='leviathan':
-  for row in range(4):bulky.append(cube(4.4,3+row*1.1,13.7,7.2,.25,.4,'glow' if row==2 else 'trim'))
+  for row in range(4):bulky.append(cube(4.4,3+row*1.1,13.7,7.2,.25,.4,'trim'))
  elif theme=='frost':
-  for side in [-1,1]:bulky.append(cube(8+side*2.4-.3,3.2,13.7,.6,3.7,.4,'glow',22.5*side))
+  for side in [-1,1]:bulky.append(cube(8+side*2.4-.3,3.2,13.7,.6,3.7,.4,'trim',22.5*side))
  elif theme=='stone':
   bulky += [cube(3,3,13.6,1,4.5,.5,'trim'),cube(12,3,13.6,1,4.5,.5,'trim')]
  KNIGHTPARTS[theme]=bulky
@@ -185,6 +182,22 @@ def accessories(theme):
  # Reinforced brow and temple guards remain above the first-person eye line.
  crown += [cube(2.7,4.8,3.5,10.6,1.4,1.7,'base'),cube(2.7,4.4,3.3,10.6,.5,1.9,'trim'),
            cube(2.5,4.8,5,1.8,2.1,6,'base'),cube(11.7,4.8,5,1.8,2.1,6,'base')]
+ # Closed greathelm with separate cheek guards, visor slot and reinforced crest.
+ helmet=[cube(2.5,3,3,1.5,10,10,'base'),cube(12,3,3,1.5,10,10,'base'),
+         cube(4,3,3,8,10,1.2,'base'),cube(4,12,4,8,1.5,8,'base'),
+         cube(4,3,11.8,8,4.6,1.4,'base'),cube(4,8.6,11.8,8,3.4,1.4,'base'),
+         cube(7.5,7.2,12,.9,2,1.6,'trim'),cube(3.8,7.5,13,8.4,.3,.35,'trim'),
+         cube(7.3,12.5,3,1.4,1.5,10,'trim')]
+ for side in [-1,1]:
+  for row in range(3):helmet.append(cube(8+side*2.2-.15,4+row*.8,13.3,.3,.3,.2,'leather'))
+ if theme in ['dragon','leviathan']:
+  for side in [-1,1]:
+   for i in range(5):helmet.append(cube(8+side*(4.5+i*.65)-.6,12+i*1.5,6-i*.2,1.3-i*.13,2,1.4-i*.15,'trim',22.5*side))
+ elif theme=='stone':helmet.append(cube(6,13,5,4,3,4,'base'))
+ elif theme=='frost':
+  for side in [-1,1]:helmet.append(cube(8+side*4-.5,12,6,1,5,1,'trim',22.5*side))
+ else:helmet.append(cube(7.4,13,5,1.2,4,5,'cloth'))
+ model(theme+'_helmet_shell',theme,helmet)
  model(theme+'_back',theme,back);model(theme+'_crown',theme,crown)
 def icons(theme):
  _,base,trim,glow=THEMES[theme]
@@ -230,7 +243,7 @@ def preview():
  canvas=Image.new('RGB',(1600,760),(17,22,32));d=ImageDraw.Draw(canvas)
  try:font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',19);small=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',14)
  except OSError:font=small=ImageFont.load_default()
- d.text((35,25),'LegendaryArmor — bulky knight armor + original fantasy details',font=font,fill=(243,225,174))
+ d.text((35,25),'LegendaryArmor — scarred dark fantasy knights',font=font,fill=(243,225,174))
  d.text((35,57),'Front-view authoring preview. In-game lighting, player skin and movement are not simulated.',font=small,fill=(169,182,201))
  # Draw front-facing boxes from real accessory geometry, then actual mapped texture faces.
  for index,theme in enumerate(THEMES):
@@ -241,7 +254,7 @@ def preview():
   def accessory(name,anchor,bulky_only=False):
    elements=KNIGHTPARTS[theme] if bulky_only else MODELS[name]
    for element in elements:
-    x,y,z=element['from'];xx,yy,zz=element['to'];material=element['faces']['north']['texture'][1:];color={'base':base,'trim':trim,'glow':glow}[material]
+    x,y,z=element['from'];xx,yy,zz=element['to'];material=element['faces']['north']['texture'][1:];color={'base':base,'trim':trim,'glow':glow,'cloth':{'angel':(80,28,32),'dragon':(96,26,23),'leviathan':(26,77,59),'stone':(77,54,28),'frost':(40,48,83)}[theme],'leather':(67,42,30)}[material]
     # Apply element rotation in front projection; side-axis rotations only modestly alter depth.
     corners=[(x,y),(xx,y),(xx,yy),(x,yy)];rotation=element.get('rotation')
     if rotation and rotation['axis']=='z':
@@ -256,8 +269,9 @@ def preview():
   box(-4,0,0,4,4,4,tex,(4,28,8,32));box(0,0,0,4,4,4,tex,(4,28,8,32))
   accessory(theme+'_back',22,True)
   accessory(theme+'_crown',33)
+  accessory(theme+'_helmet_shell',27)
   d.text((cx-140,530),title,font=font,fill=glow)
-  descriptions={'angel':'Feather wings + gold halo','dragon':'Ember scales + curved horns','leviathan':'Wave engraving + ribbed fins','stone':'Chiseled slabs + rune crest','frost':'Ice facets + crystal crown'}
+  descriptions={'angel':'Blackened plate + worn gold wings','dragon':'Scarred iron + horns and spikes','leviathan':'Weathered abyssal steel + fins','stone':'Battered slabs + heavy spikes','frost':'Frost-dark steel + crystal crest'}
   d.text((cx-140,562),descriptions[theme],font=small,fill=(180,195,214))
   for j,piece in enumerate(['helmet','chestplate','leggings','boots']):
    icon=Image.open(A/'textures/item'/f'{theme}_{piece}.png').resize((56,56),Image.Resampling.NEAREST);canvas.paste(icon,(cx-130+j*64,615),icon)
@@ -269,9 +283,16 @@ def main():
   savepng(A/'textures/entity/equipment/humanoid'/f'{theme}.png',atlas(theme))
   savepng(A/'textures/entity/equipment/humanoid_leggings'/f'{theme}.png',atlas(theme,True))
   savejson(A/'equipment'/f'{theme}.json',{'layers':{layer:[{'texture':f'legendaryarmor:{theme}'}] for layer in ['humanoid','humanoid_leggings']}})
-  for key,color in zip(['base','trim','glow'],THEMES[theme][1:]):
+  for key,color in zip(['base','trim','glow','cloth','leather'],[*THEMES[theme][1:],{'angel':(80,28,32),'dragon':(96,26,23),'leviathan':(26,77,59),'stone':(77,54,28),'frost':(40,48,83)}[theme],(67,42,30)]):
    image=Image.new('RGBA',(32,32),color+(255,));draw=ImageDraw.Draw(image)
-   for i in range(0,32,4):draw.line((0,i,31,i),fill=mix(color,.8)+(255,));draw.line((i,0,i,31),fill=mix(color,1.1)+(255,))
+   for x in range(32):
+    shade=.72+.42*math.exp(-((x-9)/8)**2)
+    draw.line((x,0,x,31),fill=mix(color,shade)+(255,))
+   draw.rectangle((0,0,31,31),outline=mix(color,.45)+(255,),width=2)
+   rng=random.Random(theme+key)
+   for _ in range(12):
+    x=rng.randint(3,25);y=rng.randint(3,27)
+    draw.line((x,y,x+rng.randint(2,5),y+1),fill=mix(color,.45)+(255,));draw.point((x,y-1),fill=mix(color,1.5)+(255,))
    savepng(A/'textures/item/material'/f'{theme}_{key}.png',image)
   icons(theme);accessories(theme)
  effects();preview()
@@ -292,5 +313,5 @@ def main():
   meta=json.loads(entries['pack.mcmeta']);meta['pack']['description']='LegendarySwords + BetterModel + LegendaryArmor';entries['pack.mcmeta']=json.dumps(meta,indent=2).encode()
   for name,data in sorted(entries.items()):merged.writestr(name,data)
  combined.with_suffix('.sha1').write_text(hashlib.sha1(combined.read_bytes()).hexdigest()+'\n')
- print('Generated five armor atlases, twenty item icons, ten accessories, five ability meshes and combined pack.')
+ print('Generated five armor atlases, twenty item icons, fifteen accessories, five ability meshes and combined pack.')
 if __name__=='__main__':main()

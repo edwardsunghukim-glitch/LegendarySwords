@@ -3,7 +3,9 @@
   "textures": {
     "base": "legendaryarmor:item/material/frost_base",
     "trim": "legendaryarmor:item/material/frost_trim",
-    "glow": "legendaryarmor:item/material/frost_glow"
+    "glow": "legendaryarmor:item/material/frost_glow",
+    "cloth": "legendaryarmor:item/material/frost_cloth",
+    "leather": "legendaryarmor:item/material/frost_leather"
   },
   "elements": [
     {

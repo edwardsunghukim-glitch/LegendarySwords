@@ -1,6 +1,6 @@
-Bulky knight artwork update: the latest resource pack adds raised shoulder shells, breastplates, armored collars, waist lames and helmet guards to all five sets. Replace only the combined resource pack; existing JARs and armor items remain compatible. The extra geometry appears with a full set and accessories enabled.
+Dark fantasy knight redesign: scarred metal, enclosed greathelms, horned variants, shoulder spikes, leather straps and cloth panels. Install the 1.1.0 JAR and the latest combined pack together. A third cosmetic display follows head position and pitch; it is hidden from its wearer to prevent first-person obstruction, while other players see it. The wearer still sees wearable helmet textures and existing crests. Accessories now use normal world lighting.
 
-# LegendaryArmor 1.0.0
+# LegendaryArmor 1.1.0
 
 Five original fantasy armor sets for Paper **1.21.11**, Java **21+**. The plugin is independent of LegendarySwords and BetterModel. Each set has four real netherite armor pieces with separate custom item icons, painted 256×128 wearable textures, two cosmetic 3D accessories and an active ability. Protection uses native netherite armor, armor toughness and knockback resistance. No player disguise is used.
 
@@ -18,9 +18,9 @@ Wear **all four matching pieces** to activate passives, accessories and abilitie
 
 ## Installation
 
-Stop the server, add `LegendaryArmor-1.0.0.jar` to `plugins`, and restart. Keep your existing plugins. Install **LegendaryArmor-Swords-combined-resource-pack.zip** as your single client resource pack, replacing the previous combined sword pack. Keep the resource pack zipped. This preserves the known 0.5.3 sword/BetterModel compilation; a differently configured BetterModel build or additional models still need a fresh merge. No model files need to be added to BetterModel for this plugin.
+Stop the server, add `LegendaryArmor-1.1.0.jar` to `plugins`, and restart. Keep your existing plugins. Install **LegendaryArmor-Swords-combined-resource-pack.zip** as your single client resource pack, replacing the previous combined sword pack. Keep the resource pack zipped. This preserves the known 0.5.3 sword/BetterModel compilation; a differently configured BetterModel build or additional models still need a fresh merge. No model files need to be added to BetterModel for this plugin.
 
-The supplied bundle also includes the standalone armor pack and an honest front-view authoring preview. The preview uses the actual textures and accessory boxes; it does not simulate Minecraft lighting, player skin or animation. Custom wearable armor retains the vanilla humanoid shape; extra volume comes from the accessory models. Model materials are kept bright with display lighting, while armor itself uses normal Minecraft lighting. There is no shader-dependent bloom.
+The supplied bundle also includes the standalone armor pack and an honest front-view authoring preview. The preview uses the actual textures and accessory boxes; it does not simulate Minecraft lighting, player skin or animation. Custom wearable armor retains the vanilla humanoid shape; extra volume comes from the accessory models. Worn armor and accessories use normal Minecraft lighting; attack effect meshes use bright display lighting. There is no shader-dependent bloom.
 
 ## Configuration
 

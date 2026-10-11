@@ -1,3 +1,5 @@
+[Dark fantasy knight armor 1.1.0: plugin](LegendaryArmor-1.1.0.jar) · [Combined pack](LegendaryArmor-Swords-combined-resource-pack-1.1.0.zip) · [Preview](LegendaryArmor-preview.png)
+
 [LegendaryArmor bundle](LegendaryArmor-download.zip) · [Armor preview](LegendaryArmor-preview.png) · [Armor installation/configuration](../armor-plugin/README.md)
 
 [Totem/pearl limits + combat update](SwordFo-limits-combat-update.zip) · [Limits configuration](../totem-limit-plugin/README.md) · [Combat configuration](../killtokens-plugin/README.md)

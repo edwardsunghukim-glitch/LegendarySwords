@@ -3,7 +3,9 @@
   "textures": {
     "base": "legendaryarmor:item/material/stone_base",
     "trim": "legendaryarmor:item/material/stone_trim",
-    "glow": "legendaryarmor:item/material/stone_glow"
+    "glow": "legendaryarmor:item/material/stone_glow",
+    "cloth": "legendaryarmor:item/material/stone_cloth",
+    "leather": "legendaryarmor:item/material/stone_leather"
   },
   "elements": [
     {

@@ -1,5 +1,7 @@
 # Health is in hearts: 100 hearts = 200 health points.
 health-hearts: 100
+# 0.35 means bosses take 35% of incoming damage; 1.0 restores full damage.
+incoming-damage-multiplier: 0.35
 max-active-bosses: 5
 target-range: 40
 leash-range: 64

@@ -18,7 +18,7 @@ import org.bukkit.util.Vector;
 import java.util.*;
 
 public final class LegendaryBosses extends JavaPlugin implements Listener {
- private final Map<UUID,Boss> bosses=new LinkedHashMap<>();private int tick;private NamespacedKey marker;
+ private final Map<UUID,Boss> bosses=new LinkedHashMap<>();private int tick;private NamespacedKey marker;private BossDamageGuard damageGuard;
  private static final AnimationModifier LOOP=AnimationModifier.builder().type(AnimationIterator.Type.LOOP).priority(10).build();
  private static final AnimationModifier ACTION=AnimationModifier.builder().type(AnimationIterator.Type.PLAY_ONCE).priority(30).override(true).build();
  private static final class Boss {
@@ -26,7 +26,7 @@ public final class LegendaryBosses extends JavaPlugin implements Listener {
   Boss(BossType type,Zombie entity,EntityTracker model,int tick,boolean flying){this.flying=flying;this.type=type;this.entity=entity;this.model=model;home=entity.getLocation();born=tick;nextAttack=tick+60;bar=Bukkit.createBossBar(type.title,type.color,BarStyle.SEGMENTED_10);}
  }
  private static final class Scene {final Location origin,target;final Vector direction;final int style;int age;Scene(Location origin,Location target,int style){this.origin=origin;this.target=target;this.style=style;direction=target.toVector().subtract(origin.toVector());if(direction.lengthSquared()<.01)direction.setZ(1);direction.normalize();}}
- @Override public void onEnable(){saveDefaultConfig();marker=new NamespacedKey(this,"boss");getServer().getPluginManager().registerEvents(this,this);
+ @Override public void onEnable(){saveDefaultConfig();marker=new NamespacedKey(this,"boss");getServer().getPluginManager().registerEvents(this,this);damageGuard=new BossDamageGuard(id->{Boss b=bosses.get(id);return b==null?null:b.type;},()->option("incoming-damage-multiplier",.35,.01,1));getServer().getPluginManager().registerEvents(damageGuard,this);
   // A boss encounter never resumes as an untracked vanilla mob after a crash/restart.
   for(World world:Bukkit.getWorlds())for(Entity entity:world.getEntities())if(entity.getPersistentDataContainer().has(marker))entity.remove();
   getServer().getScheduler().runTaskTimer(this,this::update,2,2);
@@ -62,7 +62,7 @@ public final class LegendaryBosses extends JavaPlugin implements Listener {
  }}
  private void particles(Boss b,Location location,int count){if(b.type.particle==Particle.BLOCK)location.getWorld().spawnParticle(Particle.BLOCK,location,count,.1,.1,.1,0,Material.DEEPSLATE.createBlockData());else location.getWorld().spawnParticle(b.type.particle,location,count,.12,.12,.12,.02);}
  private void ring(Boss b,Location center,double radius){for(int i=0;i<48;i++){double angle=i*Math.PI/24;particles(b,center.clone().add(Math.cos(angle)*radius,.15,Math.sin(angle)*radius),1);}}
- private void damage(Boss b,Location center,double radius,double multiplier,boolean slow){for(Player p:nearby(b,60))if(p.getLocation().distanceSquared(center)<=radius*radius){double old=p.getHealth();p.damage(setting(b,"damage",14,0,200)*multiplier,b.entity);if(p.getHealth()<old){if(b.type==BossType.DRAGON)p.setFireTicks(Math.max(60,p.getFireTicks()));Vector v=p.getLocation().toVector().subtract(center.toVector()).setY(.4);if(v.lengthSquared()>.01)p.setVelocity(v.normalize().multiply(.65));if(slow)p.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS,60,1));}}}
+ private void damage(Boss b,Location center,double radius,double multiplier,boolean slow){for(Player p:nearby(b,60))if(p.getLocation().distanceSquared(center)<=radius*radius){double old=p.getHealth();damageGuard.attack(b.entity,()->p.damage(setting(b,"damage",14,0,200)*multiplier,b.entity));if(p.getHealth()<old){if(b.type==BossType.DRAGON)p.setFireTicks(Math.max(60,p.getFireTicks()));Vector v=p.getLocation().toVector().subtract(center.toVector()).setY(.4);if(v.lengthSquared()>.01)p.setVelocity(v.normalize().multiply(.65));if(slow)p.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS,60,1));}}}
  private void scene(Boss b){Scene s=b.scene;s.age+=2;
   // Twelve-tick warning gives players a visible dodge window before impact.
   if(s.age<=12){ring(b,s.target,2+s.age/6.0);return;}
@@ -103,7 +103,6 @@ public final class LegendaryBosses extends JavaPlugin implements Listener {
  private void arc(Boss b,Scene s,int age,double radius){double yaw=Math.atan2(s.direction.getZ(),s.direction.getX());for(int i=0;i<25;i++){double angle=yaw-Math.PI/2+i*Math.PI/24;particles(b,s.target.clone().add(Math.cos(angle)*radius,.5+Math.sin(age*.2),Math.sin(angle)*radius),2);}}
  private void spikes(Boss b,Location at,int age){for(int i=0;i<8;i++){double angle=i*Math.PI/4;for(int y=0;y<4;y++)particles(b,at.clone().add(Math.cos(angle)*3,y*.6,Math.sin(angle)*3),2);}}
  private void rain(Boss b,Scene s,int age,boolean slow){for(int i=0;i<5;i++){double a=i*Math.PI*2/5;Location at=s.target.clone().add(Math.cos(a)*4,Math.max(0,9-age*.3),Math.sin(a)*4);particles(b,at,4);}if(age==30){ring(b,s.target,7);damage(b,s.target,7,1.2,slow);s.target.getWorld().playSound(s.target,Sound.ENTITY_GENERIC_EXPLODE,1,.7f);}}
- @EventHandler(priority=EventPriority.HIGHEST,ignoreCancelled=true) public void damage(EntityDamageEvent event){Boss b=bosses.get(event.getEntity().getUniqueId());if(b!=null&&(event.getCause()==EntityDamageEvent.DamageCause.FALL||event.getCause()==EntityDamageEvent.DamageCause.SUFFOCATION))event.setCancelled(true);}
  @EventHandler(ignoreCancelled=true) public void transform(EntityTransformEvent event){if(bosses.containsKey(event.getEntity().getUniqueId()))event.setCancelled(true);}
  @EventHandler public void death(EntityDeathEvent event){Boss b=bosses.remove(event.getEntity().getUniqueId());if(b==null)return;b.bar.removeAll();b.model.close();event.getDrops().clear();event.setDroppedExp(0);if(BossRules.reward(getConfig().getBoolean("require-player-kill",true),b.entity.getKiller()!=null)){var armor=getServer().getPluginManager().getPlugin("LegendaryArmor");boolean unbreakable=armor instanceof JavaPlugin p?p.getConfig().getBoolean("unbreakable",true):true;event.getDrops().add(ArmorLoot.create(b.type,java.util.concurrent.ThreadLocalRandom.current().nextInt(4),unbreakable));}}
  @EventHandler public void unload(ChunkUnloadEvent event){for(Boss b:new ArrayList<>(bosses.values()))if(b.entity.getLocation().getChunk().equals(event.getChunk()))remove(b);}

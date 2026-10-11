@@ -28,6 +28,8 @@ class BossPluginTest {
    try(var construction=mockConstruction(org.bukkit.inventory.ItemStack.class,(item,context)->when(item.getItemMeta()).thenReturn(meta))){
     ArmorLoot.create(type,piece,true);
     verify(meta.getPersistentDataContainer()).set(new org.bukkit.NamespacedKey("legendaryarmor","armor_set"),org.bukkit.persistence.PersistentDataType.STRING,type.id());
+    verify(meta).displayName(ArmorLoot.text(ArmorLoot.TITLES[type.ordinal()]+" "+ArmorLoot.PIECES[piece],ArmorLoot.COLORS[type.ordinal()]));
+    verify(meta).lore(List.of(ArmorLoot.text("Full set: "+ArmorLoot.PASSIVES[type.ordinal()],0xc5c9d2),ArmorLoot.text("Sneak + F: "+ArmorLoot.ABILITIES[type.ordinal()],ArmorLoot.COLORS[type.ordinal()]),ArmorLoot.text("Wear all four matching pieces.",0x999da5)));
     verify(meta).setItemModel(new org.bukkit.NamespacedKey("legendaryarmor",type.id()+"_"+ArmorLoot.PIECES[piece]));
     verify(meta.getEquippable()).setModel(new org.bukkit.NamespacedKey("legendaryarmor",type.id()));
     verify(construction.constructed().getFirst()).setItemMeta(meta);

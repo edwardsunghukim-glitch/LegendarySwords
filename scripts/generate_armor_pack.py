@@ -75,6 +75,13 @@ def atlas(theme,leggings=False):
  (4,16,8,20),(8,16,12,20),(0,20,4,32),(4,20,8,32),(8,20,12,32),(12,20,16,32)]
  for region in regions:face(image,region,theme,'leggings' if leggings else 'armor')
  draw=ImageDraw.Draw(image);_,base,trim,glow=THEMES[theme]
+ # Heavy plate framing and articulated knee/gauntlet seams.
+ for rect in [(81,81,110,126),(177,81,190,126),(17,81,30,126)]:
+  x0,y0,x1,y1=rect
+  draw.rectangle(rect,outline=trim+(255,),width=2)
+  for yy in [y0+4,y1-5]:draw.line((x0+2,yy,x1-2,yy),fill=mix(base,1.4)+(255,),width=2)
+ draw.rectangle((19,97,28,105),fill=mix(base,.8)+(255,),outline=trim+(255,),width=2)
+ draw.rectangle((177,106,190,123),outline=mix(trim,1.3)+(255,),width=2)
  # Visor slits and a chest core; these differ in outline and placement by set.
  hx,hy=32,32
  draw.rectangle((hx+4,hy+13,hx+27,hy+19),fill=(11,17,24,255))
@@ -103,6 +110,7 @@ def cube(x,y,z,w,h,d,material='base',angle=0,axis='z'):
  if angle:element['rotation']={'origin':[x+w/2,y+h/2,z+d/2],'axis':axis,'angle':angle,'rescale':False}
  return element
 MODELS={}
+KNIGHTPARTS={}
 def model(name,theme,elements):
  MODELS[name]=elements
  savejson(A/'models/item'/f'{name}.json',{'ambientocclusion':False,'textures':{key:f'legendaryarmor:material/{theme}_{key}' for key in ['base','trim','glow']},'elements':elements,'display':{'fixed':{'rotation':[0,0,0],'translation':[0,0,0],'scale':[1,1,1]}}})
@@ -138,6 +146,45 @@ def accessories(theme):
    for i in range(6):back.append(cube(8+side*(3+i*1.7)-.7,6+i*.6,7,1.4,7-i*.6,1.2,'glow',-22.5*side))
    for i in range(3):crown.append(cube(8+side*(2+i*1.6)-.4,8,7.5,.8,3+i*.8,.8,'glow',22.5*side))
   back.append(cube(6,4,6.2,4,9,1,'base'));crown.append(cube(3,7.5,7,10,.8,2,'trim'))
+ # True extra volume: layered shoulder shells, collar, breastplate and waist lames.
+ bulky=[]
+ for side in [-1,1]:
+  x=-3 if side<0 else 13
+  bulky += [cube(x,5.8,6.2,6,3.6,6,'base',22.5*side),cube(x-.2,5.2,6,6.4,.9,6.4,'trim',22.5*side),
+            cube(x+.5,4.3,7,5,1.5,4.5,'base',22.5*side),cube(x+1,3.5,7.4,4,1,4,'trim',22.5*side)]
+  # Raised shoulder insignia.
+  bulky.append(cube(x+2,7,5.8,1.8,1.3,.5,'glow'))
+ bulky += [cube(3,2,11,10,6,2.4,'base'),cube(3,7.3,10.8,10,.8,2.8,'trim'),
+           cube(7.2,3.5,13.4,1.6,3.3,.5,'trim'),cube(7.5,5,14,1,1,.3,'glow'),
+           cube(3,8,7,2,2.2,5,'base'),cube(11,8,7,2,2.2,5,'base')]
+ for row in range(3):bulky.append(cube(3.3,-.5+row*.9,11.2,9.4,.8,2,'trim' if row==0 else 'base'))
+ # Each order gets an individual chest silhouette and shoulder treatment.
+ if theme=='angel':
+  bulky += [cube(4,3.5,13.3,3,3,.5,'trim',-22.5),cube(9,3.5,13.3,3,3,.5,'trim',22.5)]
+ elif theme=='dragon':
+  for side in [-1,1]:bulky.append(cube(8+side*9-.6,9,7,.9,3,1.2,'trim',22.5*side))
+ elif theme=='leviathan':
+  for side in [-1,1]:bulky.append(cube(8+side*8-.5,8,7,1,3,3,'glow',22.5*side))
+ elif theme=='stone':bulky += [cube(2,1.5,10.5,12,7,3,'base'),cube(6.5,4,13.6,3,3,.4,'glow')]
+ else:
+  for side in [-1,1]:bulky.append(cube(8+side*9-.5,8,7,1,3.5,1,'glow',22.5*side))
+ # Inset rivets, raised filigree and distinct front plates.
+ for side in [-1,1]:
+  for row in range(3):bulky.append(cube(8+side*3.8-.15,3+row*1.4,13.6,.3,.3,.35,'trim'))
+ if theme=='dragon':
+  for side in [-1,1]:
+   for row in range(3):bulky.append(cube(8+side*2.3-1,3+row*1.3,13.7,2,.6,.5,'trim',22.5*side))
+ elif theme=='leviathan':
+  for row in range(4):bulky.append(cube(4.4,3+row*1.1,13.7,7.2,.25,.4,'glow' if row==2 else 'trim'))
+ elif theme=='frost':
+  for side in [-1,1]:bulky.append(cube(8+side*2.4-.3,3.2,13.7,.6,3.7,.4,'glow',22.5*side))
+ elif theme=='stone':
+  bulky += [cube(3,3,13.6,1,4.5,.5,'trim'),cube(12,3,13.6,1,4.5,.5,'trim')]
+ KNIGHTPARTS[theme]=bulky
+ back+=bulky
+ # Reinforced brow and temple guards remain above the first-person eye line.
+ crown += [cube(2.7,4.8,3.5,10.6,1.4,1.7,'base'),cube(2.7,4.4,3.3,10.6,.5,1.9,'trim'),
+           cube(2.5,4.8,5,1.8,2.1,6,'base'),cube(11.7,4.8,5,1.8,2.1,6,'base')]
  model(theme+'_back',theme,back);model(theme+'_crown',theme,crown)
 def icons(theme):
  _,base,trim,glow=THEMES[theme]
@@ -183,7 +230,7 @@ def preview():
  canvas=Image.new('RGB',(1600,760),(17,22,32));d=ImageDraw.Draw(canvas)
  try:font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',19);small=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',14)
  except OSError:font=small=ImageFont.load_default()
- d.text((35,25),'LegendaryArmor — original textures + actual accessory geometry',font=font,fill=(243,225,174))
+ d.text((35,25),'LegendaryArmor — bulky knight armor + original fantasy details',font=font,fill=(243,225,174))
  d.text((35,57),'Front-view authoring preview. In-game lighting, player skin and movement are not simulated.',font=small,fill=(169,182,201))
  # Draw front-facing boxes from real accessory geometry, then actual mapped texture faces.
  for index,theme in enumerate(THEMES):
@@ -191,8 +238,9 @@ def preview():
   def box(x,y,z,w,h,depth,texture,uv):
    face=texture.crop(tuple(int(v*4) for v in uv)).resize((max(1,round(w*scale)),max(1,round(h*scale))),Image.Resampling.NEAREST)
    canvas.paste(face,(round(cx+x*scale),round(ground-y*scale-h*scale)),face)
-  def accessory(name,anchor):
-   for element in MODELS[name]:
+  def accessory(name,anchor,bulky_only=False):
+   elements=KNIGHTPARTS[theme] if bulky_only else MODELS[name]
+   for element in elements:
     x,y,z=element['from'];xx,yy,zz=element['to'];material=element['faces']['north']['texture'][1:];color={'base':base,'trim':trim,'glow':glow}[material]
     # Apply element rotation in front projection; side-axis rotations only modestly alter depth.
     corners=[(x,y),(xx,y),(xx,yy),(x,yy)];rotation=element.get('rotation')
@@ -206,6 +254,7 @@ def preview():
   box(-8,12,0,4,12,4,tex,(44,20,48,32));box(4,12,0,4,12,4,tex,(44,20,48,32))
   box(-4,0,0,4,12,4,legs,(4,20,8,32));box(0,0,0,4,12,4,legs,(4,20,8,32))
   box(-4,0,0,4,4,4,tex,(4,28,8,32));box(0,0,0,4,4,4,tex,(4,28,8,32))
+  accessory(theme+'_back',22,True)
   accessory(theme+'_crown',33)
   d.text((cx-140,530),title,font=font,fill=glow)
   descriptions={'angel':'Feather wings + gold halo','dragon':'Ember scales + curved horns','leviathan':'Wave engraving + ribbed fins','stone':'Chiseled slabs + rune crest','frost':'Ice facets + crystal crown'}

@@ -1,3 +1,5 @@
+Bulky knight artwork update: the latest resource pack adds raised shoulder shells, breastplates, armored collars, waist lames and helmet guards to all five sets. Replace only the combined resource pack; existing JARs and armor items remain compatible. The extra geometry appears with a full set and accessories enabled.
+
 # LegendaryArmor 1.0.0
 
 Five original fantasy armor sets for Paper **1.21.11**, Java **21+**. The plugin is independent of LegendarySwords and BetterModel. Each set has four real netherite armor pieces with separate custom item icons, painted 256×128 wearable textures, two cosmetic 3D accessories and an active ability. Protection uses native netherite armor, armor toughness and knockback resistance. No player disguise is used.

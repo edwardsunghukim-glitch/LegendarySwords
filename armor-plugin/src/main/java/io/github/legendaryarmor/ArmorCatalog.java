@@ -17,7 +17,7 @@ final class ArmorCatalog {
         meta.getPersistentDataContainer().set(key,PersistentDataType.STRING,set.id);meta.setItemModel(new NamespacedKey("legendaryarmor",set.id+"_"+ArmorSet.NAMES[piece]));
         var equipped=meta.getEquippable();equipped.setSlot(new EquipmentSlot[]{EquipmentSlot.FEET,EquipmentSlot.LEGS,EquipmentSlot.CHEST,EquipmentSlot.HEAD}[piece]);equipped.setEquipSound(Sound.ITEM_ARMOR_EQUIP_NETHERITE);equipped.setEquipOnInteract(true);equipped.setSwappable(true);equipped.setDamageOnHurt(true);equipped.setModel(new NamespacedKey("legendaryarmor",set.id));meta.setEquippable(equipped);
         meta.setUnbreakable(plugin.getConfig().getBoolean("unbreakable",true));meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
-        item.setItemMeta(meta);return item;
+        meta.addEnchant(Registry.ENCHANTMENT.getOrThrow(NamespacedKey.minecraft("protection")),4,true);if(piece==0)meta.addEnchant(Registry.ENCHANTMENT.getOrThrow(NamespacedKey.minecraft("feather_falling")),4,true);item.setItemMeta(meta);return item;
     }
     ArmorSet identify(ItemStack item) {
         if(item==null||!item.hasItemMeta())return null;

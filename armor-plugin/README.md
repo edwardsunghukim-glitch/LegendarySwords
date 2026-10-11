@@ -1,4 +1,4 @@
-# LegendaryArmor 1.2.0
+# LegendaryArmor 1.2.1
 
 Paper 1.21.11 / Java 21+. Five original armor sets inspired by the matching LegendarySwords boss forms. Colors follow the actual boss palettes: Angel ivory/gold, Dragon purple/ember, Leviathan blue/teal, Colossus stone/mint runes, and Frost ice-blue. Wearable textures include matching feathers, scales, cracks or icy facets. Inventory icons use the actual armor artwork. Native netherite protection, passives and sneak + F attack abilities remain.
 
@@ -29,3 +29,7 @@ The first upgrade to rendering-version 3 enables accessory displays again for th
 ## Validation
 
 `mvn verify` in armor-plugin; `python scripts/generate_armor_pack.py` and `python scripts/test_armor_pack.py` from repository root (Pillow required). Tests cover set validation, ability input, native flight restoration/coordination, timed wing expiry and cooldowns, armor removal, model/texture references and preservation of existing assets. Preview images show actual geometry/textures in a front-view authoring render, not in-game screenshots. Live appearance, double-jump input and remote movement still need Minecraft-client verification.
+
+1.2.1: newly obtained armor has Protection IV on all four pieces and Feather
+Falling IV on boots. Existing pieces keep their enchantments; obtain fresh pieces
+with /armor. No resource-pack changes are required.

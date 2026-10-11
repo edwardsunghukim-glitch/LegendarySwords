@@ -1,8 +1,8 @@
-# LegendaryBosses 1.0.4
+# LegendaryBosses 1.0.5
 
 Requires Paper 1.21.11, Java 21+, BetterModel 3.1 and LegendaryArmor 1.2.0+.
 
-Replace the old LegendaryBosses JAR in plugins with LegendaryBosses-1.0.4.jar;
+Replace the old LegendaryBosses JAR in plugins with LegendaryBosses-1.0.5.jar;
 restart and summon fresh bosses. Keep the existing combined resource pack and
 boss models. Bundled BetterModel-models are the existing five model files;
 install them in plugins/BetterModel/models only if not already loaded, then
@@ -97,7 +97,7 @@ immunity, spawn damage/burn blocking and world-spawn fallback. Paper/BetterModel
 rendering, flight, WorldGuard integration and all attack visuals still need an
 in-game check on the actual server.
 
-1.0.4 hitbox correction: each encounter uses a private copy of the renderer
+1.0.5 hitbox correction: each encounter uses a private copy of the renderer
 with full body-part bounds, computed from all eight rotated/inflated corners
 of every visible cube in that bone. The stock largest-single-cube bounds were
 often thin scales or plates and missed most of the model. Native bone hitboxes
@@ -107,3 +107,6 @@ are required. Rectangular bounds remain approximate around curved limbs/wings.
 Restart and summon new bosses to apply this fix; after /bm reload, summon new
 encounters to reapply the private bounds. hitbox-padding defaults to 0.08
 model-local blocks (scaled with the model) and can be set from 0 to 0.5.
+
+All newly dropped armor has Protection IV; boots also have Feather Falling IV.
+Previously obtained pieces retain their enchantments. Get new armor to apply these.

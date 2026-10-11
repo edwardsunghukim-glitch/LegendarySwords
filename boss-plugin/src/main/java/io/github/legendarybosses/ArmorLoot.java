@@ -21,6 +21,6 @@ final class ArmorLoot {
   meta.setItemModel(new NamespacedKey("legendaryarmor",type.id()+"_"+PIECES[piece]));
   var equipped=meta.getEquippable();equipped.setSlot(new EquipmentSlot[]{EquipmentSlot.FEET,EquipmentSlot.LEGS,EquipmentSlot.CHEST,EquipmentSlot.HEAD}[piece]);
   equipped.setModel(new NamespacedKey("legendaryarmor",type.id()));equipped.setEquipSound(Sound.ITEM_ARMOR_EQUIP_NETHERITE);equipped.setSwappable(true);equipped.setEquipOnInteract(true);equipped.setDamageOnHurt(true);meta.setEquippable(equipped);
-  meta.setUnbreakable(unbreakable);meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);item.setItemMeta(meta);return item;
+  meta.setUnbreakable(unbreakable);meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);meta.addEnchant(Registry.ENCHANTMENT.getOrThrow(NamespacedKey.minecraft("protection")),4,true);if(piece==0)meta.addEnchant(Registry.ENCHANTMENT.getOrThrow(NamespacedKey.minecraft("feather_falling")),4,true);item.setItemMeta(meta);return item;
  }
 }

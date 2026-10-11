@@ -14,6 +14,10 @@ class BossPluginTest {
   when(access.getRegistry(any(Class.class))).thenAnswer(call->mock(org.bukkit.Registry.class));
   when(access.getRegistry(any(io.papermc.paper.registry.RegistryKey.class))).thenAnswer(call->mock(org.bukkit.Registry.class));
   registryApi.when(io.papermc.paper.registry.RegistryAccess::registryAccess).thenReturn(access);
+  var enchantments=org.bukkit.Registry.ENCHANTMENT;
+  var values=new java.util.HashMap<String,org.bukkit.enchantments.Enchantment>();
+  doAnswer(call->values.computeIfAbsent(call.getArgument(0).toString(),key->mock(org.bukkit.enchantments.Enchantment.class))).when(enchantments).getOrThrow(any(net.kyori.adventure.key.Key.class));
+  doAnswer(call->values.computeIfAbsent(call.getArgument(0).toString(),key->mock(org.bukkit.enchantments.Enchantment.class))).when(enchantments).getOrThrow(any(org.bukkit.NamespacedKey.class));
  }
  @org.junit.jupiter.api.AfterAll static void closeRegistry(){registryApi.close();}
 
@@ -27,11 +31,15 @@ class BossPluginTest {
    var meta=mock(org.bukkit.inventory.meta.ItemMeta.class,RETURNS_DEEP_STUBS);
    try(var construction=mockConstruction(org.bukkit.inventory.ItemStack.class,(item,context)->when(item.getItemMeta()).thenReturn(meta))){
     ArmorLoot.create(type,piece,true);
+    var protection=org.bukkit.Registry.ENCHANTMENT.getOrThrow(org.bukkit.NamespacedKey.minecraft("protection"));
+    var falling=org.bukkit.Registry.ENCHANTMENT.getOrThrow(org.bukkit.NamespacedKey.minecraft("feather_falling"));
     verify(meta.getPersistentDataContainer()).set(new org.bukkit.NamespacedKey("legendaryarmor","armor_set"),org.bukkit.persistence.PersistentDataType.STRING,type.id());
     verify(meta).displayName(ArmorLoot.text(ArmorLoot.TITLES[type.ordinal()]+" "+ArmorLoot.PIECES[piece],ArmorLoot.COLORS[type.ordinal()]));
     verify(meta).lore(List.of(ArmorLoot.text("Full set: "+ArmorLoot.PASSIVES[type.ordinal()],0xc5c9d2),ArmorLoot.text("Sneak + F: "+ArmorLoot.ABILITIES[type.ordinal()],ArmorLoot.COLORS[type.ordinal()]),ArmorLoot.text("Wear all four matching pieces.",0x999da5)));
     verify(meta).setItemModel(new org.bukkit.NamespacedKey("legendaryarmor",type.id()+"_"+ArmorLoot.PIECES[piece]));
     verify(meta.getEquippable()).setModel(new org.bukkit.NamespacedKey("legendaryarmor",type.id()));
+    verify(meta).addEnchant(protection,4,true);
+    if(piece==0)verify(meta).addEnchant(falling,4,true);
     verify(construction.constructed().getFirst()).setItemMeta(meta);
    }
   }

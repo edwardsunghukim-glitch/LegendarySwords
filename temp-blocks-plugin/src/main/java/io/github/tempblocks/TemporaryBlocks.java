@@ -2,6 +2,10 @@ package io.github.tempblocks;
 
 import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.block.TileState;
+import org.bukkit.block.data.Bisected;
+import org.bukkit.block.data.type.Door;
+import org.bukkit.block.data.type.Bed;
 import org.bukkit.command.*;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -16,7 +20,8 @@ import java.util.*;
 public final class TemporaryBlocks extends JavaPlugin implements Listener {
     private final Map<String, Entry> pending = new HashMap<>();
     private final Set<UUID> bypass = new HashSet<>();
-    private record Entry(UUID world, int x, int y, int z, String data, long expiry) {}
+    record Entry(UUID world, int x, int y, int z, String data, String restore, long expiry) {}
+    private boolean dirty;
     private File storage;
     private static String key(Block b) {
         return b.getWorld().getUID()+":"+b.getX()+":"+b.getY()+":"+b.getZ();
@@ -29,11 +34,12 @@ public final class TemporaryBlocks extends JavaPlugin implements Listener {
             try {
                 pending.put(k, new Entry(UUID.fromString(saved.getString(k+".world")),
                     saved.getInt(k+".x"), saved.getInt(k+".y"), saved.getInt(k+".z"),
-                    saved.getString(k+".data"), saved.getLong(k+".expiry")));
+                    saved.getString(k+".data"), saved.getString(k+".restore", "minecraft:air"), saved.getLong(k+".expiry")));
             } catch (RuntimeException ex) { getLogger().warning("Invalid saved block: "+k); }
         }
         getServer().getPluginManager().registerEvents(this, this);
         getServer().getScheduler().runTaskTimer(this, this::expire, 20, 10);
+        getServer().getScheduler().runTaskTimer(this, ()->{if(dirty)savePending();},100,100);
     }
     @Override public void onDisable() { savePending(); }
     private void savePending() {
@@ -41,9 +47,9 @@ public final class TemporaryBlocks extends JavaPlugin implements Listener {
         pending.forEach((k,e) -> {
             out.set(k+".world", e.world.toString()); out.set(k+".x",e.x);
             out.set(k+".y",e.y); out.set(k+".z",e.z);
-            out.set(k+".data",e.data); out.set(k+".expiry",e.expiry);
+            out.set(k+".data",e.data); out.set(k+".restore",e.restore); out.set(k+".expiry",e.expiry);
         });
-        try { out.save(storage); }
+        try { out.save(storage); dirty=false; }
         catch (IOException ex) { getLogger().severe("Could not save temporary blocks: "+ex.getMessage()); }
     }
     static boolean sameType(String current, String placed) {
@@ -63,28 +69,61 @@ public final class TemporaryBlocks extends JavaPlugin implements Listener {
             if (w == null || !w.isChunkLoaded(e.x >> 4, e.z >> 4)) continue;
             Block b = w.getBlockAt(e.x,e.y,e.z);
             // Allow state changes (doors, stairs, crops); player replacement resets the timer.
-            if (sameType(b.getBlockData().getAsString(), e.data)) b.setType(Material.AIR);
+            if (sameType(b.getBlockData().getAsString(), e.data)) b.setBlockData(Bukkit.createBlockData(e.restore),false);
             it.remove(); changed = true;
         }
-        if (changed) savePending();
+        if (changed) dirty=true;
     }
     @EventHandler(priority=EventPriority.MONITOR, ignoreCancelled=true)
     public void place(BlockPlaceEvent event) {
-        List<Block> blocks = event instanceof BlockMultiPlaceEvent multi
-            ? multi.getReplacedBlockStates().stream().map(s -> s.getBlock()).toList()
-            : List.of(event.getBlockPlaced());
-        Player p = event.getPlayer();
-        boolean permanent = bypass.contains(p.getUniqueId()) && p.hasPermission("tempblocks.bypass");
-        long expiry = System.currentTimeMillis()+Math.max(1,getConfig().getLong("duration-seconds",30))*1000L;
-        for (Block b : blocks) {
-            if (permanent) pending.remove(key(b));
-            else pending.put(key(b),new Entry(b.getWorld().getUID(),b.getX(),b.getY(),b.getZ(),b.getBlockData().getAsString(),expiry));
+        var states = event instanceof BlockMultiPlaceEvent multi
+            ? multi.getReplacedBlockStates() : List.of(event.getBlockReplacedState());
+        boolean permanent = permanent(event.getPlayer());
+        long expiry = deadline();
+        for (var state : states) {
+            Block b=state.getBlock();String id=key(b);
+            if (permanent) pending.remove(id);
+            else {
+                Entry old=pending.get(id);
+                String restore=old==null?state.getBlockData().getAsString():old.restore;
+                pending.put(id,new Entry(b.getWorld().getUID(),b.getX(),b.getY(),b.getZ(),b.getBlockData().getAsString(),restore,expiry));
+            }
         }
-        savePending();
+        dirty=true;
+    }
+    private long deadline() { return System.currentTimeMillis()+Math.min(86400,Math.max(1,getConfig().getLong("duration-seconds",30)))*1000L; }
+    private boolean permanent(Player p) { return bypass.contains(p.getUniqueId()) && p.hasPermission("tempblocks.bypass"); }
+    static Entry brokenEntry(Entry old,UUID world,int x,int y,int z,String original,long expiry) {
+        String restore=old==null?original:old.restore;
+        // Breaking a temporary addition must not resurrect that addition.
+        if(sameType(restore,"minecraft:air") || sameType(restore,"minecraft:cave_air") || sameType(restore,"minecraft:void_air")) return null;
+        return new Entry(world,x,y,z,"minecraft:air",restore,expiry);
+    }
+    @EventHandler(priority=EventPriority.HIGHEST, ignoreCancelled=true)
+    public void protectContainers(BlockBreakEvent e) {
+        if(!permanent(e.getPlayer()) && e.getBlock().getState() instanceof TileState) {
+            e.setCancelled(true);e.getPlayer().sendMessage("Use bypass to permanently break containers or special data blocks.");
+        } else if(!permanent(e.getPlayer())) {e.setDropItems(false);e.setExpToDrop(0);}
     }
     @EventHandler(priority=EventPriority.MONITOR, ignoreCancelled=true)
     public void broken(BlockBreakEvent e) {
-        if (pending.remove(key(e.getBlock())) != null) savePending();
+        List<Block> blocks=new ArrayList<>();Block b=e.getBlock();blocks.add(b);
+        if(b.getBlockData() instanceof Door door) {
+            Block other=b.getRelative(0,door.getHalf()==Bisected.Half.BOTTOM?1:-1,0);
+            if(other.getType()==b.getType())blocks.add(other);
+        } else if(b.getBlockData() instanceof Bed bed) {
+            Block other=b.getRelative(bed.getPart()==Bed.Part.FOOT?bed.getFacing():bed.getFacing().getOppositeFace());
+            if(other.getType()==b.getType())blocks.add(other);
+        }
+        for(Block part:blocks) {
+            String id=key(part);
+            if(permanent(e.getPlayer()))pending.remove(id);
+            else {
+                Entry entry=brokenEntry(pending.get(id),part.getWorld().getUID(),part.getX(),part.getY(),part.getZ(),part.getBlockData().getAsString(),deadline());
+                if(entry==null)pending.remove(id);else pending.put(id,entry);
+            }
+        }
+        dirty=true;
     }
     @EventHandler(ignoreCancelled=true)
     public void piston(BlockPistonExtendEvent e) {
@@ -101,7 +140,7 @@ public final class TemporaryBlocks extends JavaPlugin implements Listener {
         if (!p.hasPermission("tempblocks.bypass")) { p.sendMessage("You do not have permission to bypass temporary placement."); return true; }
         boolean enabled = bypass.add(p.getUniqueId());
         if (!enabled) bypass.remove(p.getUniqueId());
-        p.sendMessage(enabled ? "Bypass ON: newly placed blocks are permanent." : "Bypass OFF: newly placed blocks disappear after "+getConfig().getLong("duration-seconds",30)+" seconds.");
+        p.sendMessage(enabled ? "Bypass ON: placing and breaking blocks is permanent." : "Bypass OFF: placing and breaking blocks resets after "+getConfig().getLong("duration-seconds",30)+" seconds.");
         return true;
     }
 }

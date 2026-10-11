@@ -395,6 +395,22 @@ swords:
 
 # Boss forms exist only during their ultimate. Duration is seconds (3–600), default five minutes.
 bosses:
+  # Health points: 2 HP = one heart. Added only while transformed.
+  health-bonus: 80
+  health-bonus-by-form:
+    angel_sovereign: 80
+    granite_colossus: 120
+    sky_leviathan: 100
+    infernal_dragon: 100
+    frost_titan: 100
+  # Approximate body/wings/tail damage hitboxes; ordinary movement collision stays unchanged.
+  hitboxes:
+    enabled: true
+    update-interval-ticks: 2
+    # Optional per-form list of parts: {right: 0, up: 3, back: 0, width: 4}
+    # right/up/back are offsets in blocks; width is a cubic damage receiver.
+    # Maximum 16 parts per form; width 0.5–8. Omit a form to use built-in coverage.
+    parts: {}
   duration-seconds: 300
   flight-enabled: true
   smash-interval-ticks: 40

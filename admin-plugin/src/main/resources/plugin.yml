@@ -1,5 +1,5 @@
 name: LegendaryAdmin
-version: '0.1.1'
+version: '0.1.2'
 main: io.github.legendaryadmin.LegendaryAdmin
 api-version: '1.21.11'
 description: Moderation commands, vanish, read-only inventory viewer and admin menu.
@@ -39,6 +39,8 @@ commands:
     description: LegendaryAdmin vanish
   invsee:
     description: LegendaryAdmin invsee
+  ecsee:
+    description: View an online player ender chest (read only)
 permissions:
   legendaryadmin.admin:
     default: op
@@ -56,6 +58,7 @@ permissions:
       legendaryadmin.teleport: true
       legendaryadmin.vanish: true
       legendaryadmin.invsee: true
+      legendaryadmin.ecsee: true
       legendaryadmin.see-vanished: true
   legendaryadmin.menu: {default: op}
   legendaryadmin.kick: {default: op}
@@ -70,4 +73,5 @@ permissions:
   legendaryadmin.teleport: {default: op}
   legendaryadmin.vanish: {default: op}
   legendaryadmin.invsee: {default: op}
+  legendaryadmin.ecsee: {default: op}
   legendaryadmin.see-vanished: {default: op}

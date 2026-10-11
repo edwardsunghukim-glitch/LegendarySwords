@@ -45,6 +45,7 @@ public final class AbilityController implements AutoCloseable {
     private final CinematicDirector cinematics;
     private final AnimationBridge animations;
     private final EffectDisplay displays;
+    private final BossHitboxes bossSupport;
     private final Map<UUID, Set<BukkitRunnable>> tasks = new HashMap<>();
     private final Map<UUID, PendingUltimate> pendingUltimates = new HashMap<>();
     private boolean closed;
@@ -62,6 +63,7 @@ public final class AbilityController implements AutoCloseable {
         void finish() {
             if (timer != null) timer.cancel();
             bosses.remove(player.getUniqueId(), this);
+            bossSupport.stop(player);
             Set<BukkitRunnable> owned = tasks.remove(player.getUniqueId());
             if (owned != null) owned.forEach(BukkitRunnable::cancel);
             displays.cancel(player);
@@ -85,7 +87,9 @@ public final class AbilityController implements AutoCloseable {
         this.plugin = plugin; this.settings = settings; this.states = states; this.cooldowns = cooldowns;
         this.combat = combat; this.effects = effects; this.cinematics = cinematics; this.animations = animations;
         displays = new EffectDisplay(plugin);
+        bossSupport = new BossHitboxes(plugin,combat);
     }
+    public void registerBossSupport(){bossSupport.register();}
 
     public void activate(Player player, SwordType sword, boolean ultimate) {
         if (closed || !player.hasPermission("legendaryswords.use") || !player.isOnline() || player.isDead()
@@ -201,6 +205,7 @@ public final class AbilityController implements AutoCloseable {
         try { animations.startBoss(player, sword.id()); }
         catch (RuntimeException | LinkageError error) { plugin.getLogger().warning("Boss morph unavailable: " + error.getMessage()); }
         try {
+            bossSupport.start(player,sword);
             if (sword.bossFlight() && plugin.getConfig().getBoolean("bosses.flight-enabled", true)) {
             session.granted = true;
             player.setAllowFlight(true);
@@ -211,6 +216,7 @@ public final class AbilityController implements AutoCloseable {
         session.timer = plugin.getServer().getScheduler().runTaskTimer(plugin, () -> {
             try {
                 if (!valid(player, session.origin) || ++session.age >= duration) { session.finish(); return; }
+                if(session.age % Math.clamp(plugin.getConfig().getInt("bosses.hitboxes.update-interval-ticks",2),1,10)==0)bossSupport.tick(player);
                 if (session.age % 20 == 0) {
                     animations.tickBoss(player);
                     effects.helix(player.getLocation(), sword == SwordType.SKY_LEVIATHAN ? 2.8 : 1.6, 3, session.age * .15, sword);
@@ -1494,6 +1500,6 @@ public final class AbilityController implements AutoCloseable {
         pendingUltimates.values().forEach(pending -> { if (pending.fallback != null) pending.fallback.cancel(); });
         pendingUltimates.clear();
         tasks.values().forEach(owned -> owned.forEach(BukkitRunnable::cancel));
-        tasks.clear(); displays.close();
+        tasks.clear(); displays.close();bossSupport.close();
     }
 }

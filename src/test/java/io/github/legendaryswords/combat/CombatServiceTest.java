@@ -32,6 +32,25 @@ import static org.mockito.Mockito.*;
 
 /** Service-level checks with mocked Bukkit objects; these do not run a server. */
 class CombatServiceTest {
+    @Test void abilityHitOnBossPartDamagesThePlayerThroughNormalDamagePipeline() throws Exception {
+        Player boss=mock(Player.class);var proxy=mock(org.bukkit.entity.Slime.class);UUID id=UUID.randomUUID();
+        when(boss.getUniqueId()).thenReturn(UUID.randomUUID());when(boss.getGameMode()).thenReturn(GameMode.SURVIVAL);
+        when(proxy.getUniqueId()).thenReturn(id);when(proxy.hasMetadata(BossHitboxes.MARKER)).thenReturn(true);
+        World world=mock(World.class);when(world.getPVP()).thenReturn(true);when(owner.getWorld()).thenReturn(world);
+        when(owner.getScoreboard()).thenReturn(mock(Scoreboard.class));when(settings.pvpEnabled()).thenReturn(true);
+        var support=new BossHitboxes(mock(io.github.legendaryswords.LegendarySwordsPlugin.class),service);
+        var type=java.util.Arrays.stream(BossHitboxes.class.getDeclaredClasses()).filter(c->c.getSimpleName().equals("Proxy")).findFirst().orElseThrow();
+        var constructor=type.getDeclaredConstructors()[0];constructor.setAccessible(true);
+        var partsField=BossHitboxes.class.getDeclaredField("proxies");partsField.setAccessible(true);
+        @SuppressWarnings("unchecked") var parts=(java.util.Map<UUID,Object>)partsField.get(support);
+        parts.put(id,constructor.newInstance(boss,proxy,new BossHitboxes.Part(0,3,0,4)));
+        var servicesField=BossHitboxes.class.getDeclaredField("RECEIVERS");servicesField.setAccessible(true);
+        @SuppressWarnings("unchecked") var services=(java.util.Map<UUID,BossHitboxes>)servicesField.get(null);services.put(id,support);
+        try {
+            doAnswer(call->{service.observeDamage(damageEvent(boss,false,8,DamageCause.ENTITY_ATTACK));return null;}).when(boss).damage(8,owner);
+            assertTrue(service.damage(owner,proxy,8,null,0));verify(boss).damage(8,owner);verify(proxy,never()).damage(anyDouble(),any(org.bukkit.entity.Entity.class));
+        } finally {services.remove(id);}
+    }
     private PluginSettings settings;
     private SwordCatalog swords;
     private PlayerStateStore states;

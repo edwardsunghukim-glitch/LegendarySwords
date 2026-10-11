@@ -60,6 +60,7 @@ public final class LegendarySwordsPlugin extends JavaPlugin {
     }
     private void createAbilityController() {
         abilities = new AbilityController(this, settings, states, cooldowns, combat, effects, cinematics, animations);
+        abilities.registerBossSupport();
     }
     public void reloadSettings() {
         abilities.close(); cinematics.close(); movement.close(); animations.close();

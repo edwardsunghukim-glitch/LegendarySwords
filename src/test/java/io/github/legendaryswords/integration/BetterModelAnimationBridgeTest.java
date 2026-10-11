@@ -494,6 +494,8 @@ class BetterModelAnimationBridgeTest {
         final ItemStack cachedItem = mock(ItemStack.class);
         final AnimatedSwordItems swordItems = mock(AnimatedSwordItems.class);
         final Server server = mock(Server.class);
+        // Location holds a weak world reference; retain the fixture world through GC.
+        final World world = mock(World.class);
         final FileConfiguration config = new YamlConfiguration();
         final java.util.concurrent.atomic.AtomicLong nanos = new java.util.concurrent.atomic.AtomicLong(1);
         final BetterModelAnimationBridge bridge;
@@ -548,7 +550,6 @@ class BetterModelAnimationBridgeTest {
                     .thenReturn(mock(BukkitTask.class));
             when(player.getUniqueId()).thenReturn(UUID.randomUUID());
             when(player.isOnline()).thenReturn(true);
-            World world = mock(World.class);
             when(world.getPlayers()).thenReturn(List.of());
             when(player.getLocation()).thenReturn(new Location(world, 0D, 64D, 0D));
             when(swordItems.begin(player, "master_sword")).thenReturn(true);

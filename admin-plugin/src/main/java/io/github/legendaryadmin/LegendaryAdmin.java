@@ -18,8 +18,8 @@ import org.bukkit.inventory.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class LegendaryAdmin extends JavaPlugin implements Listener, CommandExecutor, TabCompleter {
-    static final List<String> ACTIONS = List.of("menu", "kick", "ban", "unban", "mute", "freeze", "heal", "feed", "fly", "gm", "tp", "tphere", "vanish", "invsee", "help");
-    static final List<String> DIRECT_COMMANDS = List.of("adminmenu", "adminhelp", "kick", "ban", "unban", "mute", "freeze", "heal", "feed", "fly", "gm", "tp", "tphere", "vanish", "invsee");
+    static final List<String> ACTIONS = List.of("menu", "kick", "ban", "unban", "mute", "freeze", "heal", "feed", "fly", "gm", "tp", "tphere", "vanish", "invsee", "ecsee", "help");
+    static final List<String> DIRECT_COMMANDS = List.of("adminmenu", "adminhelp", "kick", "ban", "unban", "mute", "freeze", "heal", "feed", "fly", "gm", "tp", "tphere", "vanish", "invsee", "ecsee");
     static String[] commandArgs(Command command, String[] args) {
         String name = command == null ? null : command.getName();
         if (name == null || !DIRECT_COMMANDS.contains(name)) return args;
@@ -43,6 +43,7 @@ public final class LegendaryAdmin extends JavaPlugin implements Listener, Comman
         getServer().getPluginManager().registerEvents(this, this);
         // Refresh visibility when permission plugins grant/revoke see-vanished at runtime.
         getServer().getScheduler().runTaskTimer(this, this::refreshVisibility, 20L, 20L);
+        getServer().getScheduler().runTaskTimer(this, this::refreshEditors, 1L, 1L);
     }
     @Override public void onDisable() {
         for (Player player : getServer().getOnlinePlayers()) {
@@ -81,7 +82,7 @@ public final class LegendaryAdmin extends JavaPlugin implements Listener, Comman
             if (!ACTIONS.stream().filter(a -> !a.equals("help")).anyMatch(a -> allowed(sender, a))) {
                 say(sender, "You don't have permission to use admin tools."); return true;
             }
-            say(sender, "/adminmenu [player] | /heal, /feed, /fly, /vanish [player] | /invsee <player>");
+            say(sender, "/adminmenu [player] | /heal, /feed, /fly, /vanish [player] | /invsee, /ecsee <player>");
             say(sender, "/kick, /ban <player> [reason] | /unban <name|UUID> | /mute, /freeze <player>");
             say(sender, "/gm <survival|creative|adventure|spectator> [player] | /tp <player> [destination] | /tphere <player>");
             return true;
@@ -124,7 +125,7 @@ public final class LegendaryAdmin extends JavaPlugin implements Listener, Comman
                 if (player != null) teleport(sender, player, admin);
                 return true;
             }
-            boolean required = List.of("kick", "ban", "mute", "freeze", "invsee").contains(action);
+            boolean required = List.of("kick", "ban", "mute", "freeze", "invsee", "ecsee").contains(action);
             if (required && args.length < 2) return usage(sender, action + " <player>" + (List.of("kick", "ban").contains(action) ? " [reason]" : ""));
             if (!List.of("kick", "ban").contains(action) && args.length > 2) return usage(sender, action + " [player]");
             if (action.equals("menu") && args.length <= 1) {
@@ -134,9 +135,9 @@ public final class LegendaryAdmin extends JavaPlugin implements Listener, Comman
             }
             Player player = target(sender, args, 1);
             if (player == null) return true;
-            if (action.equals("menu") || action.equals("invsee")) {
+            if (action.equals("menu") || action.equals("invsee") || action.equals("ecsee")) {
                 if (!(sender instanceof Player admin)) { say(sender, "Inventory screens are only available in-game."); return true; }
-                if (action.equals("menu")) openMenu(admin, player); else openInventory(admin, player);
+                if (action.equals("menu")) openMenu(admin, player); else if(action.equals("ecsee")) openEnderChest(admin,player); else openInventory(admin, player);
                 return true;
             }
             String reason = args.length > 2 ? String.join(" ", Arrays.copyOfRange(args, 2, args.length)) : "Removed by an administrator";
@@ -224,6 +225,7 @@ public final class LegendaryAdmin extends JavaPlugin implements Listener, Comman
     static final class AdminView implements InventoryHolder {
         final UUID target;
         final boolean readOnly;
+        String editor;
         final Map<Integer, String> actions = new HashMap<>();
         Inventory inventory;
         AdminView(UUID target, boolean readOnly) { this.target = target; this.readOnly = readOnly; }
@@ -261,22 +263,33 @@ public final class LegendaryAdmin extends JavaPlugin implements Listener, Comman
         }
         admin.openInventory(view.inventory);
     }
+    private void openEnderChest(Player admin,Player target) {
+        var view=new AdminView(target.getUniqueId(),true);
+        view.editor="ecsee";
+        view.inventory=getServer().createInventory(view,27,Component.text("Ender chest: "+target.getName()));
+        ItemStack[] contents=target.getEnderChest().getContents();
+        for(int i=0;i<Math.min(contents.length,27);i++)if(contents[i]!=null)view.inventory.setItem(i,contents[i].clone());
+        admin.openInventory(view.inventory);
+    }
     private void openInventory(Player admin, Player target) {
         var view = new AdminView(target.getUniqueId(), true);
-        view.inventory = getServer().createInventory(view, 54, Component.text("Read only: " + target.getName()));
+        view.editor="invsee";
+        view.inventory = getServer().createInventory(view, 54, Component.text("Inventory: " + target.getName()));
         ItemStack[] storage = target.getInventory().getStorageContents();
         for (int slot = 0; slot < Math.min(storage.length, 36); slot++) if (storage[slot] != null) view.inventory.setItem(slot, storage[slot].clone());
         ItemStack[] armor = target.getInventory().getArmorContents();
         for (int slot = 0; slot < armor.length; slot++) if (armor[slot] != null) view.inventory.setItem(36 + slot, armor[slot].clone());
         view.inventory.setItem(40, target.getInventory().getItemInOffHand().clone());
-        view.inventory.setItem(49, button(Material.PAPER, "Snapshot; reopen /invsee to refresh"));
+        view.inventory.setItem(49, button(Material.PAPER, "Left/right click to take or put items"));
         admin.openInventory(view.inventory);
     }
     static boolean protectedInventory(Inventory inventory) { return inventory.getHolder() instanceof AdminView; }
     @EventHandler(priority = EventPriority.HIGHEST) public void click(InventoryClickEvent event) {
         if (!(event.getView().getTopInventory().getHolder() instanceof AdminView view)) return;
         event.setCancelled(true); // Also cancels shift clicks, hotbar swaps, double clicks and bottom-slot moves.
-        if (view.readOnly || !(event.getWhoClicked() instanceof Player admin)) return;
+        if (!(event.getWhoClicked() instanceof Player admin)) return;
+        if(view.editor!=null) { editInventory(event,view,admin); return; }
+        if(view.readOnly) return;
         String action = view.actions.get(event.getRawSlot()); if (action == null) return;
         if (action.startsWith("page:")) {
             getServer().getScheduler().runTask(this, () -> { if (admin.isOnline()) openPlayers(admin, Integer.parseInt(action.substring(5))); }); return;
@@ -302,6 +315,63 @@ public final class LegendaryAdmin extends JavaPlugin implements Listener, Comman
                 onCommand(admin, getCommand("legendaryadmin"), "la", new String[]{"gm", action, target.getName()});
             } else onCommand(admin, getCommand("legendaryadmin"), "la", new String[]{action, target.getName()});
         });
+    }
+    private void refreshEditors() {
+        for(Player viewer:getServer().getOnlinePlayers()) {
+            Inventory top=viewer.getOpenInventory().getTopInventory();
+            if(!(top.getHolder() instanceof AdminView view) || view.editor==null)continue;
+            Player target=getServer().getPlayer(view.target);
+            if(target==null || !target.isOnline() || !allowed(viewer,view.editor)) { viewer.closeInventory();continue; }
+            Inventory live=view.editor.equals("ecsee")?target.getEnderChest():target.getInventory();
+            int limit=view.editor.equals("ecsee")?27:41;
+            for(int slot=0;slot<limit;slot++) {
+                ItemStack item=live.getItem(slot);
+                if(!Objects.equals(item,top.getItem(slot)))top.setItem(slot,item==null?null:item.clone());
+            }
+        }
+    }
+    private void editInventory(InventoryClickEvent event,AdminView view,Player admin) {
+        if(!allowed(admin,view.editor)) { admin.closeInventory(); return; }
+        Player target=getServer().getPlayer(view.target);
+        if(target==null || !target.isOnline()) { admin.closeInventory(); return; }
+        int slot=event.getRawSlot();
+        // Bottom inventory uses vanilla handling; top edits always use the live target slot.
+        if(slot>=view.inventory.getSize()) {
+            if(!event.isShiftClick() && event.getClick()!=org.bukkit.event.inventory.ClickType.DOUBLE_CLICK)
+                event.setCancelled(false);
+            return;
+        }
+        int limit=view.editor.equals("ecsee")?27:41;
+        if(slot<0 || slot>=limit || (!event.isLeftClick() && !event.isRightClick()) || event.isShiftClick()) return;
+        Inventory live=view.editor.equals("ecsee")?target.getEnderChest():target.getInventory();
+        ItemStack stored=live.getItem(slot),cursor=event.getCursor();
+        stored=stored==null?null:stored.clone(); cursor=cursor==null||cursor.getType().isAir()?null:cursor.clone();
+        if(event.isRightClick()) {
+            if(cursor==null && stored!=null) {
+                cursor=stored.clone(); cursor.setAmount((stored.getAmount()+1)/2);
+                stored.setAmount(stored.getAmount()-cursor.getAmount());
+                if(stored.getAmount()==0)stored=null;
+            } else if(cursor!=null && (stored==null || stored.isSimilar(cursor))) {
+                if(stored==null) { stored=cursor.clone();stored.setAmount(1); }
+                else if(stored.getAmount()<stored.getMaxStackSize())stored.setAmount(stored.getAmount()+1);
+                else return;
+                cursor.setAmount(cursor.getAmount()-1);if(cursor.getAmount()==0)cursor=null;
+            } else { ItemStack swap=stored;stored=cursor;cursor=swap; }
+        } else if(cursor!=null && stored!=null && stored.isSimilar(cursor)) {
+            int moved=Math.min(cursor.getAmount(),Math.max(0,stored.getMaxStackSize()-stored.getAmount()));
+            stored.setAmount(stored.getAmount()+moved);cursor.setAmount(cursor.getAmount()-moved);
+            if(cursor.getAmount()==0)cursor=null;
+        } else { ItemStack swap=stored;stored=cursor;cursor=swap; }
+        live.setItem(slot,stored);
+        admin.setItemOnCursor(cursor);
+        // Update every open editor immediately, avoiding stale snapshot writes and duplication.
+        for(Player viewer:getServer().getOnlinePlayers()) {
+            Inventory top=viewer.getOpenInventory().getTopInventory();
+            if(top.getHolder() instanceof AdminView other && view.target.equals(other.target)
+                    && view.editor.equals(other.editor))top.setItem(slot,stored==null?null:stored.clone());
+        }
+        view.inventory.setItem(slot,stored==null?null:stored.clone());
+        target.updateInventory();
     }
     @EventHandler(priority = EventPriority.HIGHEST) public void drag(InventoryDragEvent event) {
         if (protectedInventory(event.getView().getTopInventory())) event.setCancelled(true);

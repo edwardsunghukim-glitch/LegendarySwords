@@ -41,6 +41,9 @@ public final class CombatService {
         this.combustDispatcher = combustDispatcher;
     }
     public boolean eligible(Player actor, LivingEntity target) {
+        if(target.hasMetadata(BossHitboxes.MARKER)) {
+            Player owner=BossHitboxes.owner(target);return owner!=null&&eligible(actor,owner);
+        }
         if (actor.equals(target) || target instanceof ArmorStand || target.isDead() || target.isInvulnerable()) return false;
         if (target instanceof Tameable pet && pet.getOwner() != null && pet.getOwner().getUniqueId().equals(actor.getUniqueId())) return false;
         if (target instanceof Player player) {
@@ -61,6 +64,11 @@ public final class CombatService {
     }
     public boolean damage(Player owner, LivingEntity target, double amount, Vector push, int fireTicks) {
         if (!owner.isOnline() || owner.isDead() || amount <= 0 || !eligible(owner, target)) return false;
+        if(target.hasMetadata(BossHitboxes.MARKER)) {
+            Player recipient=BossHitboxes.owner(target);
+            if(recipient==null||!BossHitboxes.claimHit(target,owner))return false;
+            target=recipient;
+        }
         Attempt attempt = new Attempt(owner, target);
         attempts.push(attempt);
         // Paper applies armor, armor toughness, enchantments and resistance here.

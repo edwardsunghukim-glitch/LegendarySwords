@@ -1,3 +1,5 @@
+[Boss health + inventory editing update (two plugin JARs)](SwordFo-boss-admin-update.zip) · [Details](../docs/BOSS-HEALTH-UPDATE.md)
+
 # LegendarySwords 0.5.3 downloads
 
 [Plugin JAR](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-0.5.3.jar) · [Combined resource pack](https://github.com/edwardsunghukim-glitch/LegendarySwords/raw/refs/heads/main/downloads/LegendarySwords-combined-resource-pack-0.5.3.zip) · [Full bundle](LegendarySwords-download.zip)

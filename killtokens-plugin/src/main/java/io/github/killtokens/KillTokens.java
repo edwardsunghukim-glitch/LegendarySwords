@@ -130,6 +130,28 @@ public final class KillTokens extends JavaPlugin implements Listener {
             if(target.getPlayer()!=null)target.getPlayer().sendMessage("Your KillToken wallet is now "+bank.balance(target.getUniqueId())+".");
         }catch(IOException ex){failed(sender,ex);}return true;
     }
+    @Override public List<String> onTabComplete(CommandSender sender,Command command,String alias,String[] args) {
+        if(args.length==0)return List.of();
+        boolean admin=sender.hasPermission("killtokens.admin"),use=sender.hasPermission("killtokens.use");
+        String name=command.getName();List<String> choices=new ArrayList<>();
+        if(name.equals("deposit")||name.equals("withdraw")) {
+            if(use&&args.length==1)choices.addAll(List.of("all","1","10","64"));
+        } else if(name.equals("killtokengive")||name.equals("killtokenset")) {
+            if(admin&&args.length==1)for(Player p:getServer().getOnlinePlayers())if(!(sender instanceof Player viewer)||viewer.canSee(p))choices.add(p.getName());
+            if(admin&&args.length==2)choices.addAll(List.of("1","10","100"));
+            if(admin&&args.length==2&&name.equals("killtokenset"))choices.add("0");
+        } else if(name.equals("killtokens")) {
+            if(args.length==1){if(use)choices.add("balance");if(admin)choices.addAll(List.of("give","set","reload","multiplier"));}
+            else if(admin) {
+                String action=args[0].toLowerCase(Locale.ROOT);
+                if(args.length==2&&Set.of("give","set").contains(action)){for(Player p:getServer().getOnlinePlayers())if(!(sender instanceof Player viewer)||viewer.canSee(p))choices.add(p.getName());}
+                else if(args.length==2&&action.equals("multiplier"))choices.addAll(List.of("off","1","2","3","5","10"));
+                else if(args.length==3&&action.equals("multiplier"))choices.addAll(List.of("0","15","30","60"));
+                else if(args.length==3&&Set.of("give","set").contains(action)){choices.addAll(List.of("1","10","100"));if(action.equals("set"))choices.add("0");}
+            }
+        }
+        return CommandSuggestions.matching(choices,args[args.length-1]);
+    }
     @Override public boolean onCommand(CommandSender sender,Command cmd,String label,String[] args) {
         String command=cmd.getName();
         if(command.equals("killtokengive")||command.equals("killtokenset"))return manageWallet(sender,command.equals("killtokenset"),args);

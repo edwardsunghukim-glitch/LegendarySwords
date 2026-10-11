@@ -134,6 +134,9 @@ public final class TemporaryBlocks extends JavaPlugin implements Listener {
         if (e.getBlocks().stream().anyMatch(b -> pending.containsKey(key(b)))) e.setCancelled(true);
     }
     @EventHandler public void quit(PlayerQuitEvent e) { bypass.remove(e.getPlayer().getUniqueId()); }
+    @Override public List<String> onTabComplete(CommandSender sender,Command command,String alias,String[] args) {
+        return args.length==1&&sender.hasPermission("tempblocks.bypass")?CommandSuggestions.matching(List.of("bypass"),args[0]):List.of();
+    }
     @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player p)) { sender.sendMessage("Use this command in game."); return true; }
         if (args.length != 1 || !args[0].equalsIgnoreCase("bypass")) return false;

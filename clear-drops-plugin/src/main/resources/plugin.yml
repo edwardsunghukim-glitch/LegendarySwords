@@ -1,5 +1,5 @@
 name: ClearDrops
-version: '1.0.0'
+version: '1.0.1'
 main: io.github.cleardrops.ClearDrops
 api-version: '1.21.11'
 commands:

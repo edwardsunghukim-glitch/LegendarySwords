@@ -113,6 +113,28 @@ public final class LegendaryKoTH extends JavaPlugin implements Listener {
         String message=getConfig().getString("messages."+key,fallback).replace("%player%",player).replace("%seconds%",String.valueOf(required()));
         if(!message.isBlank())Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&',message));
     }
+    @Override public List<String> onTabComplete(CommandSender sender,Command command,String alias,String[] args) {
+        if(args.length==0)return List.of();
+        List<String> choices=new ArrayList<>();boolean admin=sender.hasPermission("legendarykoth.admin");
+        if(args.length==1){choices.add("status");if(admin)choices.addAll(List.of("start","stop","reload","setregion","setreward","reward"));}
+        else if(admin) {
+            String action=args[0].toLowerCase(Locale.ROOT);
+            if(action.equals("setregion")&&args.length==2){choices.add("kothwin");choices.add(getConfig().getString("region.name","kothwin"));}
+            else if(action.equals("setregion")&&args.length==3)for(World w:getServer().getWorlds())choices.add(w.getName());
+            else if(action.equals("reward")&&args.length==2)choices.addAll(List.of("add","clear","list"));
+            else {
+                int offset=action.equals("setreward")?1:action.equals("reward")&&args.length>2&&args[1].equalsIgnoreCase("add")?2:-1;
+                if(offset>0) {
+                    int part=args.length-offset;
+                    if(part==1)choices.addAll(List.of("killtokengive","give","xp"));
+                    else if(part==2)choices.addAll(List.of("%player%","{player}"));
+                    else if(part==3&&args[offset].equalsIgnoreCase("give"))choices.addAll(List.of("diamond","emerald","gold_ingot"));
+                    else if(part==3&&args[offset].equalsIgnoreCase("killtokengive"))choices.addAll(List.of("1","10","100"));
+                }
+            }
+        }
+        return CommandSuggestions.matching(choices,args[args.length-1]);
+    }
     @Override public boolean onCommand(CommandSender sender,Command command,String label,String[] args) {
         if(args.length==0||args[0].equalsIgnoreCase("status")){
             sender.sendMessage("KoTH: "+(active?"running ("+capture.seconds+"/"+required()+"s)":"stopped")+" | region: "+getConfig().getString("region.name","kothwin"));return true;

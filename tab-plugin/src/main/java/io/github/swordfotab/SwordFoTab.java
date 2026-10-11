@@ -19,6 +19,9 @@ public final class SwordFoTab extends JavaPlugin {
         }
     }
     @Override public void onDisable(){if(task!=null)task.cancel();for(Player p:Bukkit.getOnlinePlayers())p.sendPlayerListHeaderAndFooter(Component.empty(),Component.empty());}
+    @Override public List<String> onTabComplete(CommandSender sender,Command command,String alias,String[] args) {
+        return args.length==1&&sender.hasPermission("swordfotab.admin")?CommandSuggestions.matching(List.of("reload"),args[0]):List.of();
+    }
     @Override public boolean onCommand(CommandSender sender,Command command,String label,String[] args) {
         if(args.length!=1||!args[0].equalsIgnoreCase("reload"))return false;
         if(!sender.hasPermission("swordfotab.admin")){sender.sendMessage("No permission.");return true;}

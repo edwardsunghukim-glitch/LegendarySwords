@@ -44,6 +44,9 @@ public final class ClearDrops extends JavaPlugin {
         }
         return removed;
     }
+    @Override public List<String> onTabComplete(CommandSender sender,Command command,String alias,String[] args) {
+        return args.length==1&&sender.hasPermission("cleardrops.admin")?CommandSuggestions.matching(List.of("now","reload"),args[0]):List.of();
+    }
     @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0) {
             sender.sendMessage("[ClearDrops] Next cleanup in " + remaining + " seconds."); return true;

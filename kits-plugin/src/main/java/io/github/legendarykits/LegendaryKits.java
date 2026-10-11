@@ -176,6 +176,25 @@ public final class LegendaryKits extends JavaPlugin implements Listener {
         claims.put(key,now);if(!save()){if(last==0)claims.remove(key);else claims.put(key,last);p.sendMessage("Kit storage is unavailable. Try again later.");return;}
         inv.setStorageContents(storage);inv.setArmorContents(armor);inv.setItemInOffHand(off);p.sendMessage("Claimed kit "+k.id+"!");
     }
+    @Override public List<String> onTabComplete(CommandSender sender,Command command,String alias,String[] args) {
+        if(args.length==0)return List.of();
+        boolean admin=sender.hasPermission("legendarykits.admin");
+        List<String> choices=new ArrayList<>();
+        if(args.length==1) {
+            if(sender.hasPermission("legendarykits.use"))choices.addAll(kits.keySet());
+            if(admin)choices.addAll(List.of("create","cooldown","permission","default","slot"));
+        } else if(admin) {
+            String action=args[0].toLowerCase(Locale.ROOT);
+            if(args.length==2&&Set.of("cooldown","permission","default","slot").contains(action)) {
+                choices.addAll(kits.keySet());if(action.equals("default"))choices.add("none");
+            } else if(args.length==3) {
+                if(action.equals("slot"))for(int i=1;i<=27;i++)choices.add(String.valueOf(i));
+                else if(action.equals("cooldown"))choices.addAll(List.of("0","60","300","3600"));
+                else if(action.equals("permission"))choices.addAll(List.of("none","legendarykits.vip"));
+            }
+        }
+        return CommandSuggestions.matching(choices,args[args.length-1]);
+    }
     @Override public boolean onCommand(CommandSender sender,Command cmd,String label,String[] args) {
         if(!(sender instanceof Player p)){sender.sendMessage("Use this command in game.");return true;}
         if(args.length==0){if(p.hasPermission("legendarykits.use"))browse(p);else p.sendMessage("No permission.");return true;}

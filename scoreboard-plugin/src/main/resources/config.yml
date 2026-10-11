@@ -1,6 +1,8 @@
 ip: swordfo.minehut.gg
 title: '&6&lSWORDFO'
 refresh-ticks: 20
+# Reattach this sidebar if another plugin or a world change replaces it.
+keep-visible: true
 lines:
   - '&8&m────────────────'
   - '&7Player &f{player}'

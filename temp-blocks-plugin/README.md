@@ -1,8 +1,8 @@
-# TemporaryBlocks 1.1.0
+# TemporaryBlocks 1.1.1
 
 Paper 1.21.11; Java 21+. Separate from LegendarySwords.
 
-Stop the server, replace the old TemporaryBlocks JAR with TemporaryBlocks-1.1.0.jar in plugins, keep the TemporaryBlocks data folder, restart. Existing placement timers migrate automatically.
+Stop the server, replace the old TemporaryBlocks JAR with TemporaryBlocks-1.1.1.jar in plugins, keep the TemporaryBlocks data folder, restart. Existing placement timers migrate automatically.
 
 Player-placed blocks reset after 30 seconds. Player-broken original world blocks restore their original block data (including orientation) after 30 seconds. Temporary breaking suppresses block drops and XP to prevent repeated harvesting. Breaking a temporary placed block does not resurrect it. Placing into a temporary hole preserves its original restoration target. A subsequent temporary edit starts a fresh timer for that position. Restoration occurs only if the tracked block type still matches; a changed block of a different type is left intact. Doors track their second half; beds with tile data are protected by the special-block restriction below.
 
@@ -16,3 +16,5 @@ Timers persist across orderly restarts. Saves are batched every five seconds, pl
 Tracks player block place/break events, not bucket liquids, entities, explosions, growth/spread, or collateral changes caused by physics. Other plugins that replace a block directly with the same material may still be affected by an old timer. This is not a complete region rollback system.
 
 Build: mvn verify in this directory. Five tests check denied bypass, block state matching, original break restoration, temporary addition breaking, and replacement restoration target preservation. No live Paper server test performed.
+
+Command autocomplete added in 1.1.1: press Tab after a command/subcommand to see prefix-filtered suggestions. Suggestions respect management permissions. Existing command aliases work. No player-name fallback is returned for unsupported argument positions. Build and 7 tests passed for this module.

@@ -1,9 +1,9 @@
-# LegendaryKits 1.2.1
+# LegendaryKits 1.2.2
 
 Standalone Paper 1.21.11 plugin, Java 21+. No dependency on PlayerKits2.
 
 ## Install
-Stop the server, place LegendaryKits-1.2.1.jar in plugins, restart.
+Stop the server, place LegendaryKits-1.2.2.jar in plugins, restart.
 If another plugin owns /kits, use /legendarykits or /legendarykits:kits.
 A sample starter kit is created on first launch (one-hour cooldown).
 
@@ -46,7 +46,7 @@ Saved kit armor/offhand equip into their exact slots. Unrelated inventory items 
 Saved kit slots are never used to pack displaced items. If there is insufficient room to preserve unrelated items, the grant is skipped without changing the inventory. Normal manual kit claims retain their additive, stack-size-aware behavior.
 The contents editor remains six rows to support all 41 player inventory/equipment slots and its controls.
 
-Upgrade: stop server, replace LegendaryKits-1.0.0.jar with LegendaryKits-1.2.1.jar, keep the LegendaryKits data folder, restart.
+Upgrade: stop server, replace LegendaryKits-1.0.0.jar with LegendaryKits-1.2.2.jar, keep the LegendaryKits data folder, restart.
 
 ## Kit menu positions
 /kits slot <name> <1–27> requires legendarykits.admin and persists the position.
@@ -54,3 +54,5 @@ Slots are counted left to right: first row 1–9, second 10–18, third 19–27.
 Moving to an occupied position swaps the two kits, preserving both icons. Empty positions stay blank.
 The editor includes a Menu slot button showing its current position and the command.
 Existing kits automatically receive available slots when upgraded. kits.yml stores zero-based slot numbers (0–26); the command uses 1–27.
+
+Command autocomplete added in 1.2.2: press Tab after a command/subcommand to see prefix-filtered suggestions. Suggestions respect management permissions. Existing command aliases work. No player-name fallback is returned for unsupported argument positions. Build and 17 tests passed for this module.

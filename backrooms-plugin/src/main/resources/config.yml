@@ -40,3 +40,7 @@ spawn-protection:
   enabled: true
   regions: [spawn]
   world-spawn-radius: 16
+
+# Uploaded Lifeform model; requires BetterModel and its regenerated resource pack.
+# Set blocks only to deliberately use the older block-display fallback.
+bacteria-renderer: bettermodel

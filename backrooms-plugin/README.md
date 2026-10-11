@@ -1,13 +1,14 @@
-# BackroomsHorror 1.0.1
+# BackroomsHorror 1.0.2
 
 Original Paper 1.21.11 plugin inspired by Backrooms horror. This is not the
 Backrooms: Found Footage mod or a reproduction of its proprietary entity assets.
 CurseForge blocked access to the supplied page during development, so its exact
-entities/levels could not be verified. No client mod/resource pack is required.
+entities/levels could not be verified. No client mod is required. The converted Bacteria model requires BetterModel
+3.1 and its regenerated resource pack; the other NPCs use vanilla appearances.
 
 ## Install and summon
 
-Put BackroomsHorror-1.0.1.jar in plugins and restart. Admin permission:
+Put BackroomsHorror-1.0.2.jar in plugins and restart. Admin permission:
 backrooms.admin (operators by default). Regular players have backrooms.use.
 
 - /br summon stalker — zombie-based charger, darkness pulse, temporary invisibility.
@@ -21,8 +22,9 @@ backrooms.admin (operators by default). Regular players have backrooms.use.
 
 Tab completes commands and entities. Entities appear three blocks in front of you,
 pursue Survival/Adventure players within 32 blocks and despawn after five minutes
-by default. They use existing Minecraft mob appearances with colored names and
-custom behaviors, not imported mod models. Player armor applies to damage.
+by default. Stalker/Smiler/Hound/Watcher use Minecraft mob appearances with colored names
+and custom behaviors. Bacteria uses the uploaded Lifeform mesh converted for
+BetterModel; it requires the matching generated resource pack. Player armor applies to damage.
 No drops/XP; unload/shutdown removes NPCs. Per-world maximum defaults to eight.
 Auto-spawning defaults OFF; no entities are automatically added to your normal worlds.
 
@@ -78,9 +80,39 @@ Maven verify checks doorway connectivity, a reachable escape route, watcher view
 angles and admin autocomplete. Rendering, NPC AI, actual world generation and
 WorldGuard integration still need a test on your live Paper server.
 
-1.0.1 adds /br summon bacteria. Bacteria has 45 hearts, a rushing charge,
-a darkness/scream pulse and a slowing close-range grapple (with native damage).
-An original spindly black creature is rendered with ten vanilla block displays
-and swinging limbs; no extra pack or BetterModel import is needed. It is not
-the mod's actual mesh. Its underlying wither-skeleton hitbox is enlarged to 1.25x,
-not individual limb hitboxes. NPC display alignment needs an in-game check.
+## Uploaded Bacteria model (1.0.2)
+
+The uploaded custom-bacteria.zip contained source/Lifeform.glb: a black-material
+rigged mesh with 26,478 triangles, 23 rig bones and no animation clips or textures.
+The supplied conversion preserves every triangle in the rest pose, scales height
+to 3.2 blocks and supplies a near-black material texture. Faces are grouped by
+their strongest joint influence for BetterModel's rigid bone animation; Blender
+weighted skin deformation is approximated and may show seams during motion.
+New clips: idle, walk, run, charge, scream and claw.
+
+Install BackroomsHorror-1.0.2.jar and BetterModel 3.1. Restart: the plugin copies
+backroomshorror_bacteria.bbmodel into plugins/BetterModel/models if missing.
+It never overwrites an existing edited model. Run /bm reload and install the
+newly generated plugins/BetterModel/build.zip as your client/server resource pack.
+If you already use other packs, merge the updated BetterModel build into your
+existing combined pack. Run /br status to check model readiness, then summon a
+fresh entity with /br summon bacteria. Existing entities should be removed
+with /br remove first. The model file is also bundled for manual installation.
+
+Default bacteria-renderer is bettermodel, including on existing configs missing
+this setting. Missing BetterModel/model reports an error instead of silently
+showing the old body. To deliberately use the older block-display fallback, set
+bacteria-renderer: blocks and restart. The other four NPCs still work without
+BetterModel. Their appearances were not changed.
+
+Bacteria retains 45 hearts, rush charge, darkness/scream pulse and slowing claw
+attack. These defaults work on old configs lacking its section. NPC appearance
+and animation are cleaned up on death/removal/shutdown. The underlying enlarged
+central wither-skeleton hitbox is retained; individual mesh limb collision is
+not supplied. Rendering, resource-pack export, animation seams, and alignment
+still need an in-game check on your BetterModel snapshot.
+
+The converted model was parsed and loaded in strict mode using BetterModel's
+actual 3.1 model loader. Five Java checks passed including triangle preservation,
+all six clips, rig count, map connectivity and autocomplete. The preview is an
+offline render of the converted geometry, not a Minecraft screenshot.

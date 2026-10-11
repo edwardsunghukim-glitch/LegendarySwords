@@ -1,8 +1,8 @@
 name: BackroomsHorror
-version: '1.0.1'
+version: '1.0.2'
 main: io.github.backroomshorror.BackroomsHorror
 api-version: '1.21.11'
-softdepend: [KillTokens, WorldGuard]
+softdepend: [KillTokens, WorldGuard, BetterModel]
 commands:
   backrooms:
     aliases: [br]

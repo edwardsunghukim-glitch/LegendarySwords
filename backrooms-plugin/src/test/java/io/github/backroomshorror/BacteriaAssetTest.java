@@ -10,12 +10,12 @@ import java.io.InputStreamReader;
 import java.util.Set;
 import java.util.stream.Collectors;
 class BacteriaAssetTest {
- @Test void uploadedMeshKeepsEveryTriangleAndSixClipsAndLoadsInBetterModel()throws Exception{
+ @Test void compatibleGeometryKeepsSixClipsAndLoadsInBetterModel()throws Exception{
   var platform=mock(BetterModelPlatform.class,RETURNS_DEEP_STUBS);when(platform.config()).thenReturn(mock(BetterModelConfig.class,RETURNS_DEEP_STUBS));BetterModel.register(platform);
   try(var input=getClass().getResourceAsStream("/bettermodel/backroomshorror_bacteria.bbmodel")){
    assertNotNull(input);
    ModelData data=ModelData.GSON.fromJson(new InputStreamReader(input),ModelData.class);
-   assertEquals(26478,data.elements().stream().mapToInt(e->((ModelElement.Mesh)e).faces().size()).sum());assertEquals(23,data.groups().size());assertEquals(Set.of("idle","walk","run","charge","scream","claw"),data.animations().stream().map(ModelAnimation::name).collect(Collectors.toSet()));
+   assertEquals(564,data.elements().size());assertTrue(data.elements().stream().allMatch(e->e instanceof ModelElement.Cube));assertEquals(23,data.groups().size());assertEquals(Set.of("idle","walk","run","charge","scream","claw"),data.animations().stream().map(ModelAnimation::name).collect(Collectors.toSet()));
    var result=data.loadBlueprint("backroomshorror_bacteria",true);assertTrue(result.errors().isEmpty(),result.errors().toString());assertNotNull(result.blueprint());
   }
  }

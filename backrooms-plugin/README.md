@@ -1,4 +1,4 @@
-# BackroomsHorror 1.0.2
+# BackroomsHorror 1.0.3
 
 Original Paper 1.21.11 plugin inspired by Backrooms horror. This is not the
 Backrooms: Found Footage mod or a reproduction of its proprietary entity assets.
@@ -8,7 +8,7 @@ entities/levels could not be verified. No client mod is required. The converted 
 
 ## Install and summon
 
-Put BackroomsHorror-1.0.2.jar in plugins and restart. Admin permission:
+Put BackroomsHorror-1.0.3.jar in plugins and restart. Admin permission:
 backrooms.admin (operators by default). Regular players have backrooms.use.
 
 - /br summon stalker — zombie-based charger, darkness pulse, temporary invisibility.
@@ -80,20 +80,28 @@ Maven verify checks doorway connectivity, a reachable escape route, watcher view
 angles and admin autocomplete. Rendering, NPC AI, actual world generation and
 WorldGuard integration still need a test on your live Paper server.
 
-## Uploaded Bacteria model (1.0.2)
+## Uploaded Bacteria model (1.0.3)
 
 The uploaded custom-bacteria.zip contained source/Lifeform.glb: a black-material
 rigged mesh with 26,478 triangles, 23 rig bones and no animation clips or textures.
-The supplied conversion preserves every triangle in the rest pose, scales height
-to 3.2 blocks and supplies a near-black material texture. Faces are grouped by
-their strongest joint influence for BetterModel's rigid bone animation; Blender
-weighted skin deformation is approximated and may show seams during motion.
-New clips: idle, walk, run, charge, scream and claw.
+The 1.0.2 mesh export preserved every triangle but displayed incorrectly on
+the user's client: the triangle transform primitives appeared as large blocks.
+Version 1.0.3 instead samples that same uploaded shape at 0.035-block resolution
+and merges the surface cells into 564 ordinary cubes. This is a compatible
+approximation of the silhouette, not a smooth polygon mesh. It retains 23 bones,
+3.22-block height and six clips: idle, walk, run, charge, scream and claw.
+Faces remain grouped by their strongest joint influence; Blender weighted skin
+deformation is approximated and may show seams during motion.
 
-Install BackroomsHorror-1.0.2.jar and BetterModel 3.1. Restart: the plugin copies
+Install BackroomsHorror-1.0.3.jar and BetterModel 3.1. Restart: the plugin copies
 backroomshorror_bacteria.bbmodel into plugins/BetterModel/models if missing.
-It never overwrites an existing edited model. Run /bm reload and install the
-newly generated plugins/BetterModel/build.zip as your client/server resource pack.
+It upgrades the exact previously bundled mesh automatically, backing it up in
+BackroomsHorror/bacteria-backups. It preserves unrecognized edited models. If
+you installed an edited model, manually install the bundled compatible model
+to use this version. Run /bm reload and install the
+provided LegendaryArmor-Swords-Backrooms-combined-resource-pack-1.0.3.zip as your
+client/server resource pack. This pack contains standard cube definitions for
+all 22 visible Bacteria parts and keeps your armor/sword assets intact.
 If you already use other packs, merge the updated BetterModel build into your
 existing combined pack. Run /br status to check model readiness, then summon a
 fresh entity with /br summon bacteria. Existing entities should be removed
@@ -112,8 +120,8 @@ central wither-skeleton hitbox is retained; individual mesh limb collision is
 not supplied. Rendering, resource-pack export, animation seams, and alignment
 still need an in-game check on your BetterModel snapshot.
 
-The converted model was parsed and loaded in strict mode using BetterModel's
-actual 3.1 model loader. Five Java checks passed including triangle preservation,
+The compatible model was parsed and loaded in strict mode using BetterModel's
+actual 3.1 model loader. Five Java checks passed including cube-only compatibility,
 all six clips, rig count, map connectivity and autocomplete. The preview is an
 offline render of the converted geometry, not a Minecraft screenshot.
 
